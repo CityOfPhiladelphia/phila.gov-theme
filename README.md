@@ -1,4 +1,4 @@
-phila-gov-wp
+phila.gov-wp
 ============
 
 Wordpress theme for phila.gov
