@@ -34,6 +34,7 @@
 			<button class="menu-toggle"><?php // _e( 'Primary Menu', 'phila-gov' ); ?></button>
 			<?php // wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 		</nav><!-- #site-navigation -->
+        <?php if(!is_front_page()) { get_search_form(); }?>
 	</header><!-- #masthead -->
     
     <?php if (function_exists('the_breadcrumb')) { ?> <div id="breadcrumbs"> <?php the_breadcrumb(" / "); ?> </div> <?php } ?>

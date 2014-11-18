@@ -140,7 +140,7 @@ function the_breadcrumb($separator) {
         echo '<li><a href="';
         echo get_option('home');
         echo '">';
-        echo 'Phila.gov';
+        util_echo_website_url();
         echo '</a></li>' . $separator;
         if (is_category() || is_single()) {
             echo '<li>';
@@ -174,4 +174,13 @@ function the_breadcrumb($separator) {
     elseif (is_search()) {echo"<li>Search Results"; echo'</li>';}
     echo '</ul>';
 }
-?>
+
+/**
+ * Mah utitlity functions
+ */
+
+//this is used throughout the theme and is meant to be updated once the major switch happens
+function util_echo_website_url(){
+    echo 'alpha.phila.gov';
+}
+
