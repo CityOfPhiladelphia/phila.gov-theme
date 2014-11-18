@@ -19,6 +19,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+    <?php if (function_exists('create_alpha_banner')){ ?> <div class="alpha-alert"> <?php create_alpha_alert(); ?> </div>  <?php } ?>
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'phila-gov' ); ?></a>
 
@@ -28,10 +29,13 @@
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle"><?php _e( 'Primary Menu', 'phila-gov' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+		<!--hide nav for now
+            <nav id="site-navigation" class="main-navigation" role="navigation">
+			<button class="menu-toggle"><?php // _e( 'Primary Menu', 'phila-gov' ); ?></button>
+			<?php // wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
-
-	<div id="content" class="site-content">
+    
+    <?php if (function_exists('the_breadcrumb')) { ?> <div id="breadcrumbs"> <?php the_breadcrumb(" / "); ?> </div> <?php } ?>
+	
+    <div id="content" class="site-content">

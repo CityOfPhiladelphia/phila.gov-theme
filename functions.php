@@ -50,15 +50,7 @@ function phila_gov_setup() {
 	 * to output valid HTML5.
 	 */
 	add_theme_support( 'html5', array(
-		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
-	) );
-
-	/*
-	 * Enable support for Post Formats.
-	 * See http://codex.wordpress.org/Post_Formats
-	 */
-	add_theme_support( 'post-formats', array(
-		'aside', 'image', 'video', 'quote', 'link',
+		'search-form', 'gallery', 'caption',
 	) );
 
 	// Set up the WordPress core custom background feature.
@@ -98,9 +90,7 @@ function phila_gov_scripts() {
 
 	wp_enqueue_script( 'phila-gov-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+
 }
 add_action( 'wp_enqueue_scripts', 'phila_gov_scripts' );
 
@@ -128,3 +118,60 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+
+/**
+ * Create alpha banner 
+ */
+
+function create_alpha_alert(){
+    echo 'Experimental Prototype';
+}
+
+/**
+ * Add breadcrumb support 
+ * pass the type of seperator when function is called 
+ */
+function the_breadcrumb($separator) {
+    global $post;
+    global $output;
+    echo '<ul>';
+    if (!is_home()) {
+        echo '<li><a href="';
+        echo get_option('home');
+        echo '">';
+        echo 'Phila.gov';
+        echo '</a></li>' . $separator;
+        if (is_category() || is_single()) {
+            echo '<li>';
+            the_category($separator);
+            if (is_single()) {
+                echo $separator;
+                the_title();
+                echo '</li>';
+            }
+        } elseif (is_page()) {
+            if($post->post_parent){
+                //$anc = array_reverse(get_post_ancestors( $post->ID ));
+                $anc = get_post_ancestors( $post->ID );
+                $title = get_the_title();
+                foreach ( $anc as $ancestor ) {
+                    $output = '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a></li> ' . $separator . $output;
+                }
+                echo $output;
+                echo '<li><strong title="'.$title.'"> '.$title.'</strong></li>';
+            } else {
+                echo '<li><strong> '.get_the_title().'</strong></li>';
+            }
+        }
+    }
+    elseif (is_tag()) {single_tag_title();}
+    elseif (is_day()) {echo"<li>Archive for "; the_time('F jS, Y'); echo'</li>';}
+    elseif (is_month()) {echo"<li>Archive for "; the_time('F, Y'); echo'</li>';}
+    elseif (is_year()) {echo"<li>Archive for "; the_time('Y'); echo'</li>';}
+    elseif (is_author()) {echo"<li>Author Archive"; echo'</li>';}
+    elseif (isset($_GET['paged']) && !empty($_GET['paged'])) {echo "<li>Blog Archives"; echo'</li>';}
+    elseif (is_search()) {echo"<li>Search Results"; echo'</li>';}
+    echo '</ul>';
+}
+?>
