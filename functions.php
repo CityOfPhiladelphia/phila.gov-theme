@@ -136,7 +136,7 @@ function the_breadcrumb($separator) {
     global $post;
     global $output;
     echo '<ul>';
-    if (!is_home()) {
+    if (!is_front_page()) {
         echo '<li><a href="';
         echo get_option('home');
         echo '">';
@@ -144,7 +144,7 @@ function the_breadcrumb($separator) {
         echo '</a></li>' . $separator;
         if (is_category() || is_single()) {
             echo '<li>';
-            the_category($separator);
+            //the_category($separator);
             if (is_single()) {
                 echo $separator;
                 the_title();
@@ -187,20 +187,3 @@ function util_echo_website_url(){
 /**
  * Run the query for external sites
  */
-function get_external_site_display() {
-    $params = array( 'limit'   => 1 ); 
-
-    // Create and find in one shot 
-    if (function_exists('pods')) {
-        $category = pods( 'category', $params ); 
-        
-        if ( 0 < $category->total() ) { 
-            while ( $category->fetch() ) { 
-            ?>  
-            <h2><?php echo $category->display( 'title' ); ?> has a <strong>seperate website</strong>: <a href="<?php echo $category->display( 'url' ); ?>"><?php echo $category->display( 'url' ); ?></a></h2> 
-                <a class="pure-button" href="<?php echo $category->display( 'url' ); ?>">You are now leaving <?php util_echo_website_url();?> </a>
-            <?php 
-            } // end of cats loop
-        } // end of found cats 
-    } //end iffff
-}

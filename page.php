@@ -1,6 +1,7 @@
 <?php
 /**
  * The template for displaying all pages.
+ * In the case of phila.gov pages are "Department Pages"
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages

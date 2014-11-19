@@ -19,7 +19,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <?php if (function_exists('create_alpha_banner')){ ?> <div class="alpha-alert"> <?php create_alpha_alert(); ?> </div>  <?php } ?>
+    <?php if (function_exists('create_alpha_alert')){ ?> <div class="alpha-alert"> <?php create_alpha_alert(); ?> </div>  <?php } ?>
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'phila-gov' ); ?></a>
 
