@@ -28,24 +28,30 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <?php if (function_exists('create_alpha_alert')){ ?> <div class="alpha-alert"> <?php create_alpha_alert(); ?> </div>  <?php } ?>
+      
 <div id="page" class="hfeed site">
-	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'phila-gov' ); ?></a>
-
-	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
+<?php if (alpha_alert()){ //show the alpha alert if set to true in functions.php ?> 
+    <div class="alpha-alert pure-g"> 
+        <div class="pure-u-1 pure-u-sm-1-2">
+            <span class="h2">Experimental Prototype</span> <p>This site might contain errors, inaccuracies and inconsistencies.</p> 
+            <a href="#">Provide Feedback</a>
+        </div>
+    </div>
+<?php }  ?>
+	<header id="masthead" class="site-header pure-g" role="banner">
+		<div class="site-branding pure-u-1-2">
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 		</div><!-- .site-branding -->
-
+        <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'phila-gov' ); ?></a>
 		<!--hide nav for now
             <nav id="site-navigation" class="main-navigation" role="navigation">
 			<button class="menu-toggle"><?php // _e( 'Primary Menu', 'phila-gov' ); ?></button>
 			<?php // wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 		</nav><!-- #site-navigation -->
-        <?php if(!is_front_page()) { get_search_form(); }?>
+        <?php if(!is_front_page()) { ?> <div class="pure-u-1-2"> <?php get_search_form(); ?> </div> <?php }?>
 	</header><!-- #masthead -->
     
-    <?php if (function_exists('the_breadcrumb')) { ?> <div id="breadcrumbs"> <?php the_breadcrumb(" / "); ?> </div> <?php } ?>
+    <?php if (function_exists('the_breadcrumb')) { ?> <div id="breadcrumbs"> <?php the_breadcrumb(); ?> </div> <?php } ?>
 	
     <div id="content" class="site-content">

@@ -133,18 +133,10 @@ require get_template_directory() . '/inc/jetpack.php';
 
 
 /**
- * Create alpha banner 
- */
-
-function create_alpha_alert(){
-    echo 'Experimental Prototype';
-}
-
-/**
  * Add breadcrumb support 
  * pass the type of seperator when function is called 
  */
-function the_breadcrumb($separator) {
+function the_breadcrumb() {
     global $post;
     global $output;
     echo '<ul>';
@@ -153,12 +145,11 @@ function the_breadcrumb($separator) {
         echo get_option('home');
         echo '">';
         util_echo_website_url();
-        echo '</a></li>' . $separator;
+        echo '</a></li>';
         if (is_category() || is_single()) {
             echo '<li>';
-            //the_category($separator);
+
             if (is_single()) {
-                echo $separator;
                 the_title();
                 echo '</li>';
             }
@@ -195,6 +186,10 @@ function the_breadcrumb($separator) {
 function util_echo_website_url(){
     echo 'alpha.phila.gov';
 }
+function alpha_alert(){
+    return true;
+}
+
 
 /**
  * Run the query for external sites
