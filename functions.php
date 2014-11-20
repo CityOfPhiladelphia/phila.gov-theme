@@ -84,12 +84,24 @@ add_action( 'widgets_init', 'phila_gov_widgets_init' );
  * Enqueue scripts and styles.
  */
 function phila_gov_scripts() {
-	wp_enqueue_style( 'phila-gov-style', get_stylesheet_uri() );
+    
+    wp_enqueue_style( 'pure-base', '//yui.yahooapis.com/pure/0.5.0/base.css', array(), '0.5.0' );
+    wp_enqueue_style( 'pure-grids', '//yui.yahooapis.com/pure/0.5.0/grids.css', array(), '0.5.0' );
+    wp_enqueue_style( 'pure-forms', '//yui.yahooapis.com/pure/0.5.0/forms.css', array(), '0.5.0' );
 
+    //DEV LINK
+    wp_enqueue_style( 'phila-gov-style-dev', get_stylesheet_directory_uri() . '/phila.gov-styles/styles.css', array('pure-base'), '1.0' );
+    
+    //PROD LINK 
+    //wp_enqueue_style( 'phila-gov-style-prod', '//github.com/CityOfPhiladelphia/phila.gov-styles', array(), '1.0' );
+    
+    wp_enqueue_script( 'modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js', array(), '2.8.3', true );
+    
 	wp_enqueue_script( 'phila-gov-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
 	wp_enqueue_script( 'phila-gov-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
+    
 
 }
 add_action( 'wp_enqueue_scripts', 'phila_gov_scripts' );

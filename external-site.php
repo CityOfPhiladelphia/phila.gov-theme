@@ -27,7 +27,7 @@
                 //if the page is outside of alpha, render the "not on alpha" version of the page
                 function get_external_site_display() {
                     $params = array( 'limit' => -1); 
-               
+                    //get the category associated with the page
                     $categories = get_the_category();
                     $category_id = $categories[0]->cat_ID;
                   
