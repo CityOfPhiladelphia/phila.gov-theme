@@ -11,29 +11,30 @@ get_header(); ?>
 	<header class="entry-header pure-u-1">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
+    <div class="container">
+        <div class="entry-content pure-u-1">
+            <?php
+                wp_link_pages( array(
+                    'before' => '<div class="page-links">' . __( 'Pages:', 'phila-gov' ),
+                    'after'  => '</div>',
+                ) );
+            ?>    
+            <?php 
+                //TODO - make a better fallback in case pods is disabled
+                $external = pods_field_display('external_site');
+                $external = strtolower($external);
+                if ($external ==="yes"){
+                    get_external_site_display();
+                }else {
+                    //otherwise show the current page content
+                    while ( have_posts() ) : the_post();
+                         the_content();
+                    endwhile; // end of the loop.
+                }
+            ?>
 
-	<div class="entry-content pure-u-1">
-		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'phila-gov' ),
-				'after'  => '</div>',
-			) );
-		?>    
-        <?php 
-            //TODO - make a better fallback in case pods is disabled
-            $external = pods_field_display('external_site');
-            $external = strtolower($external);
-            if ($external ==="yes"){
-                get_external_site_display();
-            }else {
-                //otherwise show the current page content
-                while ( have_posts() ) : the_post();
-                     the_content();
-                endwhile; // end of the loop.
-            }
-        ?>
-        
-	</div><!-- .entry-content -->
+        </div><!-- .entry-content -->
+    </div>
 
 	<footer class="entry-footer pure-u-1">
 		<?php edit_post_link( __( 'Edit', 'phila-gov' ), '<span class="edit-link">', '</span>' ); ?>

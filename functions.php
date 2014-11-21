@@ -89,6 +89,8 @@ function phila_gov_scripts() {
     wp_enqueue_style( 'pure-grids', '//yui.yahooapis.com/pure/0.5.0/grids.css', array(), '0.5.0' );
     wp_enqueue_style( 'pure-forms', '//yui.yahooapis.com/pure/0.5.0/forms.css', array(), '0.5.0' );
     wp_enqueue_style( 'pure-buttons', '//yui.yahooapis.com/pure/0.5.0/buttons.css', array(), '0.5.0' );
+    wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', array(), '4.2.0' );
+
 
     //DEV LINK
     wp_enqueue_style( 'phila-gov-style-dev', get_stylesheet_directory_uri() . '/phila.gov-styles/styles.css', array('pure-base'), '1.0' );
@@ -155,9 +157,10 @@ function the_breadcrumb() {
                 foreach ($term_list as $term){
                   $name = $term->name;
                     echo '<li>';
-                    echo $name;
+                    echo '<a href="#">' . $name . '</a>';
                     echo '</li>';
-                }
+                } 
+            echo '<li>' . the_title() . '</li>';
         } elseif (is_page()) {
             if($post->post_parent){
                 //$anc = array_reverse(get_post_ancestors( $post->ID ));

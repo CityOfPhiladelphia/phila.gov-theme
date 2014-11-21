@@ -48,7 +48,7 @@ function phila_gov_post_nav() {
 		return;
 	}
 	?>
-	<nav class="navigation post-navigation" role="navigation">
+	<nav class="navigation post-navigation pure-u-1" role="navigation">
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'phila-gov' ); ?></h1>
 		<div class="nav-links">
 			<?php

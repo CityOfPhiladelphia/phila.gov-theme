@@ -11,10 +11,12 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="#"><?php printf( __( 'Provide Feedback', 'phila-gov' ), 'WordPress' ); ?></a>
-			<?php //printf( __( 'Theme: %1$s by %2$s.', 'phila-gov' ), 'phila-gov', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
-		</div><!-- .site-info -->
+        <div class="container">
+            <div class="site-info">
+                <a href="#"><?php printf( __( 'Provide Feedback', 'phila-gov' ), 'WordPress' ); ?></a>
+                <?php //printf( __( 'Theme: %1$s by %2$s.', 'phila-gov' ), 'phila-gov', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
+            </div><!-- .site-info -->
+        </div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

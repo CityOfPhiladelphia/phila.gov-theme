@@ -10,8 +10,8 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 	</header><!-- .entry-header -->
-
-        <div class="entry-content pure-u-4-5">
+    <div class="container">
+        <div class="entry-content pure-u-1">
 		<?php the_content(); ?>
             <?php 
                // $term_list = wp_get_post_terms($post->ID, 'topics', array("fields" => "all"));
@@ -25,10 +25,14 @@
 			) );
 		?>
 	   </div><!-- .entry-content -->
-    
+    </div>
     
     <?php //add sidebar to middleof <article> for grid and semantics
-        get_sidebar(); ?>
+        if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+            return;
+        }        
+        get_sidebar(); 
+    ?>
 	
     <footer class="entry-footer pure-u-1">
 		<?php phila_gov_entry_footer(); ?>

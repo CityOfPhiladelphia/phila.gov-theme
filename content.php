@@ -15,23 +15,24 @@
 		<?php endif; ?>
        
 	</header><!-- .entry-header -->
+    <div class="container">
+        <div class="entry-content pure-u-1">
+            <?php
+                /* translators: %s: Name of current post */
+                the_content( sprintf(
+                    __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'phila-gov' ),
+                    the_title( '<span class="screen-reader-text">"', '"</span>', false )
+                ) );
+            ?>
 
-	<div class="entry-content pure-u-1">
-		<?php
-			/* translators: %s: Name of current post */
-			the_content( sprintf(
-				__( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'phila-gov' ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			) );
-		?>
-
-		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'phila-gov' ),
-				'after'  => '</div>',
-			) );
-		?>
-	</div><!-- .entry-content -->
+            <?php
+                wp_link_pages( array(
+                    'before' => '<div class="page-links">' . __( 'Pages:', 'phila-gov' ),
+                    'after'  => '</div>',
+                ) );
+            ?>
+        </div><!-- .entry-content -->
+    </div>
 	<footer class="entry-footer">
 		<?php phila_gov_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
