@@ -88,6 +88,7 @@ function phila_gov_scripts() {
     wp_enqueue_style( 'pure-base', '//yui.yahooapis.com/pure/0.5.0/base.css', array(), '0.5.0' );
     wp_enqueue_style( 'pure-grids', '//yui.yahooapis.com/pure/0.5.0/grids.css', array(), '0.5.0' );
     wp_enqueue_style( 'pure-forms', '//yui.yahooapis.com/pure/0.5.0/forms.css', array(), '0.5.0' );
+    wp_enqueue_style( 'pure-buttons', '//yui.yahooapis.com/pure/0.5.0/buttons.css', array(), '0.5.0' );
 
     //DEV LINK
     wp_enqueue_style( 'phila-gov-style-dev', get_stylesheet_directory_uri() . '/phila.gov-styles/styles.css', array('pure-base'), '1.0' );
@@ -131,10 +132,9 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
-
 /**
  * Add breadcrumb support 
- * pass the type of seperator when function is called 
+ *
  */
 function the_breadcrumb() {
     global $post;
@@ -146,13 +146,18 @@ function the_breadcrumb() {
         echo '">';
         util_echo_website_url();
         echo '</a></li>';
-        if (is_category() || is_single()) {
+        if (is_category() || 'department_page' == get_post_type()) {
             echo '<li>';
-
-            if (is_single()) {
-                the_title();
+            the_title();   
                 echo '</li>';
-            }
+        } elseif (is_single()) {
+             $term_list = wp_get_post_terms($post->ID, 'topics', array('parent'=> 0, 'orderby' => 'parent' ));
+                foreach ($term_list as $term){
+                  $name = $term->name;
+                    echo '<li>';
+                    echo $name;
+                    echo '</li>';
+                }
         } elseif (is_page()) {
             if($post->post_parent){
                 //$anc = array_reverse(get_post_ancestors( $post->ID ));
@@ -186,6 +191,8 @@ function the_breadcrumb() {
 function util_echo_website_url(){
     echo 'alpha.phila.gov';
 }
+
+//should there be an alert bar at the top of the site?
 function alpha_alert(){
     return true;
 }
@@ -194,3 +201,30 @@ function alpha_alert(){
 /**
  * Run the query for external sites
  */
+//TODO find a better way of integrating this 
+  //if the page is outside of alpha, render the "not on alpha" version of the page
+function get_external_site_display() {
+    $params = array( 'limit' => -1); 
+    //get the category associated with the page
+    $categories = get_the_category();
+    $category_id = $categories[0]->cat_ID;
+
+    // Create and find in one shot 
+    //if (function_exists('pods')) {
+        $category = pods( 'category', $params); 
+        if ( 0 < $category->total() ) { 
+            while ( $category->fetch() ) { 
+                //only display id the page category matches the pods category
+           if ($category->display('term_id ') === $category_id ) {
+            ?>  
+            <div class="external-site">
+            <h2><?php echo $category->display( 'title' ); ?> has a <strong>seperate website</strong>: <a href="<?php echo $category->display( 'url' ); ?>"><?php echo $category->display( 'url' ); ?></a></h2> 
+                <a class="pure-button" href="<?php echo $category->display( 'url' ); ?>">You are now leaving <?php util_echo_website_url();?> </a>
+            </div>
+            <?php echo $category->display('description'); ?>
+            <?php 
+            }
+        }// end of cats loop
+    } // end of found cats 
+// } //end iffff
+}

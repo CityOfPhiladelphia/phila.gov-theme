@@ -13,7 +13,6 @@
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
 			<a href="#"><?php printf( __( 'Provide Feedback', 'phila-gov' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
 			<?php //printf( __( 'Theme: %1$s by %2$s.', 'phila-gov' ), 'phila-gov', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

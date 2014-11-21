@@ -40,6 +40,7 @@
 <?php }  ?>
 	<header id="masthead" class="site-header pure-g" role="banner">
 		<div class="site-branding pure-u-1-2">
+            <img src="<?php echo get_stylesheet_directory_uri();?>/img/space-jam.gif" alt="Space Jam">
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 		</div><!-- .site-branding -->
@@ -52,6 +53,6 @@
         <?php if(!is_front_page()) { ?> <div class="pure-u-1-2"> <?php get_search_form(); ?> </div> <?php }?>
 	</header><!-- #masthead -->
     
-    <?php if (function_exists('the_breadcrumb')) { ?> <div id="breadcrumbs"> <?php the_breadcrumb(); ?> </div> <?php } ?>
+    <?php if (function_exists('the_breadcrumb')) { ?> <div id="breadcrumbs" class="pure-g"> <nav class="pure-u-1"><?php the_breadcrumb(); ?> </nav></div> <?php } ?>
 	
     <div id="content" class="site-content">

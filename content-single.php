@@ -1,29 +1,36 @@
 <?php
 /**
+ * The content of a single post
  * @package phila-gov
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+<article id="post-<?php the_ID(); ?>" <?php post_class('pure-g'); ?>>
+	<header class="entry-header pure-u-1">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
-		<div class="entry-meta">
-			<?php phila_gov_posted_on(); ?>
-		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
-	<div class="entry-content">
+        <div class="entry-content pure-u-4-5">
 		<?php the_content(); ?>
+            <?php 
+               // $term_list = wp_get_post_terms($post->ID, 'topics', array("fields" => "all"));
+               
+            
+            ?>
 		<?php
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . __( 'Pages:', 'phila-gov' ),
 				'after'  => '</div>',
 			) );
 		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
+	   </div><!-- .entry-content -->
+    
+    
+    <?php //add sidebar to middleof <article> for grid and semantics
+        get_sidebar(); ?>
+	
+    <footer class="entry-footer pure-u-1">
 		<?php phila_gov_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
