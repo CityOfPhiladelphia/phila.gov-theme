@@ -205,6 +205,7 @@ function alpha_alert(){
  * Run the query for external sites
  */
 //TODO find a better way of integrating this 
+
   //if the page is outside of alpha, render the "not on alpha" version of the page
 function get_external_site_display() {
     $params = array( 'limit' => -1); 
@@ -218,7 +219,7 @@ function get_external_site_display() {
         if ( 0 < $category->total() ) { 
             while ( $category->fetch() ) { 
                 //only display id the page category matches the pods category
-           if ($category->display('term_id ') === $category_id ) {
+           if ($category->display('term_id') === $category_id ) {
             ?>  
             <div class="external-site">
             <h2><?php echo $category->display( 'title' ); ?> has a <strong>seperate website</strong>: <a href="<?php echo $category->display( 'url' ); ?>"><?php echo $category->display( 'url' ); ?></a></h2> 
@@ -230,4 +231,23 @@ function get_external_site_display() {
         }// end of cats loop
     } // end of found cats 
 // } //end iffff
+}
+
+/**
+ * get service URL
+ */
+//TODO find a better way of integrating this 
+
+  //if the page is outside of alpha, render the "not on alpha" version of the page
+function service_page_link() {
+    global $post;
+    $params = array(); 
+
+    // Create and find in one shot 
+        $service_post = pods( 'service_post', $params); 
+        $display_pod = pods_field_display('service_post',  get_the_id(), 'service_url', false);
+        if ( !$display_pod == '') { ?>
+            <a href="<?php echo $display_pod; ?>" class="pure-button pure-button-primary">Start Now</a>   
+    <?php 
+    } // end of found posts 
 }
