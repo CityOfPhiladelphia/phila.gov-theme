@@ -226,8 +226,7 @@ function get_external_site_display() {
             <div class="external-site">
             <h2><?php echo $category->display( 'title' ); ?> has a <strong>seperate website</strong>: <a href="<?php echo $category->display( 'url' ); ?>"><?php echo $category->display( 'url' ); ?></a></h2> 
                 <a class="pure-button" href="<?php echo $category->display( 'url' ); ?>">You are now leaving <?php util_echo_website_url();?> </a>
-            </div>
-            <?php echo $category->display('description'); ?>
+            <?php echo $category->display('description') . '</div>' ?>
             <?php 
             }
         }// end of cats loop
@@ -246,9 +245,16 @@ function service_page_link() {
 
     // Create and find in one shot 
         $service_post = pods( 'service_post', $params); 
-        $display_pod = pods_field_display('service_post',  get_the_id(), 'service_url', false);
-        if ( !$display_pod == '') { ?>
-            <a href="<?php echo $display_pod; ?>" class="pure-button pure-button-primary">Start Now</a>   
+        $display_pod_description = pods_field_display('service_post',  get_the_id(), 'service_introduction', false);
+        $display_pod_url = pods_field_display('service_post',  get_the_id(), 'service_url', false);
+     
+        if ( !$display_pod_description == '') { ?>
+    
+            <p><?php echo $display_pod_description; ?></p> <?php
+          }
+
+        if ( !$display_pod_url == '') { ?>
+            <a href="<?php echo $display_pod_url; ?>" class="pure-button pure-button-primary">Start Now</a>   
     <?php 
     } // end of found posts 
 }
