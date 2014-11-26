@@ -1,11 +1,8 @@
 <?php
 /**
- * The template for displaying all pages.
+ * Template Name: Finder
  *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site will use a
- * different template.
+ * A template for the "Service and Information Finder" 
  *
  * @package phila-gov
  */
@@ -17,7 +14,7 @@ get_header(); ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
             
-                <?php get_template_part( 'content', 'page' ); ?>
+                <?php get_template_part( 'content', 'finder' ); ?>
 
 			<?php endwhile; // end of the loop. ?>
 

@@ -24,10 +24,11 @@ get_header(); ?>
 
                     <h1>Services</h1>
                     <?php 
-                    /* temporary topics list w/ descriptions */
+                    /* temporary top-level topics list w/ descriptions */
                        $args = array(
                             'orderby' => 'name',
-                            'fields'=> 'all'
+                            'fields'=> 'all',
+                            'parent' => 0
                        );
                       $terms = get_terms( 'topics', $args );
                         if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){

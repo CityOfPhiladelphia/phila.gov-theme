@@ -85,10 +85,7 @@ add_action( 'widgets_init', 'phila_gov_widgets_init' );
  */
 function phila_gov_scripts() {
     
-    wp_enqueue_style( 'pure-base', '//yui.yahooapis.com/pure/0.5.0/base.css', array(), '0.5.0' );
-    wp_enqueue_style( 'pure-grids', '//yui.yahooapis.com/pure/0.5.0/grids.css', array(), '0.5.0' );
-    wp_enqueue_style( 'pure-forms', '//yui.yahooapis.com/pure/0.5.0/forms.css', array(), '0.5.0' );
-    wp_enqueue_style( 'pure-buttons', '//yui.yahooapis.com/pure/0.5.0/buttons.css', array(), '0.5.0' );
+    wp_enqueue_style( 'pure-base', '//yui.yahooapis.com/pure/0.5.0/pure-min.css', array(), '0.5.0' );
     wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', array(), '4.2.0' );
 
 
@@ -98,16 +95,36 @@ function phila_gov_scripts() {
     //PROD LINK 
     //wp_enqueue_style( 'phila-gov-style-prod', '//github.com/CityOfPhiladelphia/phila.gov-styles', array(), '1.0' );
     
+    wp_enqueue_script( 'jquery', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js', array(), '2.8.3', true );
+    
     wp_enqueue_script( 'modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js', array(), '2.8.3', true );
     
 	wp_enqueue_script( 'phila-gov-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
 	wp_enqueue_script( 'phila-gov-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
-    
-
 }
 add_action( 'wp_enqueue_scripts', 'phila_gov_scripts' );
+
+function enqueue_scripts_styles_init() {
+	wp_enqueue_script( 'ajax-script', get_stylesheet_directory_uri().'/js/script.js', array('jquery'), 1.0 ); // jQuery will be included automatically
+	// get_template_directory_uri() . '/js/script.js'; // Inside a parent theme
+	// get_stylesheet_directory_uri() . '/js/script.js'; // Inside a child theme
+	// plugins_url( '/js/script.js', __FILE__ ); // Inside a plugin
+	wp_localize_script( 'ajax-script', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) ); // setting ajaxurl
+}
+add_action('init', 'enqueue_scripts_styles_init');
+ 
+function ajax_action_stuff() {
+	$post_id = $_POST['post_id']; // getting variables from ajax post
+	// doing ajax stuff
+	update_post_meta($post_id, 'post_key', 'meta_value');
+	echo 'ajax submitted';
+	die(); // stop executing script
+}
+add_action( 'wp_ajax_ajax_action', 'ajax_action_stuff' ); // ajax for logged in users
+add_action( 'wp_ajax_nopriv_ajax_action', 'ajax_action_stuff' ); // ajax for not logged in users
+
 
 /**
  * Implement the Custom Header feature.
@@ -187,21 +204,6 @@ function the_breadcrumb() {
 }
 
 /**
- * Mah utitlity functions
- */
-
-//this is used throughout the theme and is meant to be updated once the major switch happens
-function util_echo_website_url(){
-    echo 'alpha.phila.gov';
-}
-
-//should there be an alert bar at the top of the site?
-function alpha_alert(){
-    return true;
-}
-
-
-/**
  * Run the query for external sites
  */
 //TODO find a better way of integrating this 
@@ -234,11 +236,10 @@ function get_external_site_display() {
 }
 
 /**
- * get service URL
+ * get service URL from pods metabox
  */
 //TODO find a better way of integrating this 
 
-  //if the page is outside of alpha, render the "not on alpha" version of the page
 function service_page_link() {
     global $post;
     $params = array(); 
@@ -251,3 +252,20 @@ function service_page_link() {
     <?php 
     } // end of found posts 
 }
+
+
+/**
+ * Mah utitlity functions
+ */
+
+//this is used throughout the theme and is meant to be updated once the major switch happens
+function util_echo_website_url(){
+    echo 'alpha.phila.gov';
+}
+
+//should there be an alert bar at the top of the site?
+function alpha_alert(){
+    return true;
+}
+
+
