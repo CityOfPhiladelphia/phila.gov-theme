@@ -107,10 +107,7 @@ function phila_gov_scripts() {
 add_action( 'wp_enqueue_scripts', 'phila_gov_scripts' );
 
 function enqueue_scripts_styles_init() {
-	wp_enqueue_script( 'ajax-script', get_stylesheet_directory_uri().'/js/script.js', array('jquery'), 1.0 ); // jQuery will be included automatically
-	// get_template_directory_uri() . '/js/script.js'; // Inside a parent theme
-	// get_stylesheet_directory_uri() . '/js/script.js'; // Inside a child theme
-	// plugins_url( '/js/script.js', __FILE__ ); // Inside a plugin
+	wp_enqueue_script( 'ajax-script', get_stylesheet_directory_uri().'/js/scripts.js', array('jquery'), 1.0 ); // jQuery will be included automatically
 	wp_localize_script( 'ajax-script', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) ); // setting ajaxurl
 }
 add_action('init', 'enqueue_scripts_styles_init');
@@ -168,13 +165,20 @@ function the_breadcrumb() {
         if (is_category() || 'department_page' == get_post_type()) {
             echo '<li>';
             the_title();   
-                echo '</li>';
+                echo '</li>'; 
+        }elseif (is_page_template('taxonomy-topics.php') || is_tax('topics')){
+            echo '<li><a href="/browse">Browse</a></li>';
+            if (function_exists('currentURL')){
+                display_browse_breadcrumbs();
+            }
         } elseif (is_single()) {
              $term_list = wp_get_post_terms($post->ID, 'topics', array('parent'=> 0, 'orderby' => 'parent' ));
                 foreach ($term_list as $term){
                   $name = $term->name;
+                    $slug = $term->slug;
                     echo '<li>';
-                    echo '<a href="#">' . $name . '</a>';
+                    //TODO fix parent slug relationship
+                    echo '<a href="/browse/' . $slug .'">' . $name . '</a>';
                     echo '</li>';
                 } 
             echo '<li>' . the_title() . '</li>';
@@ -261,7 +265,7 @@ function service_page_link() {
 
 
 /**
- * Mah utitlity functions
+ * Mah utility functions
  */
 
 //this is used throughout the theme and is meant to be updated once the major switch happens
@@ -273,5 +277,3 @@ function util_echo_website_url(){
 function alpha_alert(){
     return true;
 }
-
-

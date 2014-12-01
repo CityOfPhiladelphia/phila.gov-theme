@@ -5,7 +5,8 @@
  * @package phila-gov
  */
 ?>
-
-<article id="post-<?php the_ID(); ?>" <?php post_class('pure-u-2-3'); ?>>
-            <?php the_title( '<h1>', '</h1>' ); ?>
-</article><!-- #post-## -->
+<div id="servinfo-list-container" class="pure-u-1 pure-u-md-2-3">
+    <form class="pure-form">
+            <input class="pure-input-1 search" type="text" placeholder="Filter results...">
+    </form>
+<h1>A to Z list</h1>

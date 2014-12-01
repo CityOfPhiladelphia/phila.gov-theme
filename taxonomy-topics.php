@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Template Name: Browse 
+ * 
+ * @package phila-gov
+ */
 
 get_header(); ?>
 
@@ -7,16 +11,28 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
             <div class="pure-g">
                 <div class="container">
+                    <header class="pure-u-1">
+                        <h1>DIRECTORY OF SERVICES AND INFORMATION ORGANIZED BY TOPIC</h1>
+                    </header>
+                </div>
+            </div>
+            <div class="pure-g">
+                <div class="container">
                     <section class="pure-u-1-3 topic">    
-                        <?php  get_topics(); ?>
+                        
+                       <?php display_topic_list(); ?>
+                    
                     </section>
-			     
-                    <?php while ( have_posts() ) : the_post(); ?>
-            
-                        <?php get_template_part( 'content', 'finder' ); ?>
+          
+                    <div class="pure-u-2-3">
+                    <?php       
 
-			     <?php endwhile; // end of the loop. ?>
-                   
+                        display_filtered_pages();
+    
+                    ?>
+                    </div>
+			     
+                   </div> <!-- #servinfo-list-container -->
                 </div>
             </div>
         
@@ -34,7 +50,7 @@ get_header(); ?>
                              echo '<nav>';
                              echo '<ul>';
                              foreach ( $terms as $term ) {
-                                 echo '<li><h4>' . $term->name . '</h4></li>';
+                                 echo '<li><h4><a href="/browse/' .$term->slug . '">' . $term->name . '</a></h4></li>';
                              }
                              echo '</ul>';
                              echo '</nav>';
