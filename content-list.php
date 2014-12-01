@@ -6,7 +6,7 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('pure-u-2-3'); ?>>
-    <?php the_title( sprintf( '<h1 class="h3"><a href="%s" rel="bookmark" class="item-link">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
+<li>
+    <?php the_title( sprintf( '<a href="%s" rel="bookmark" class="item-link"><h1 class="h3">', esc_url( get_permalink() ) ), '</h1></a>' ); ?>
+</li>
      
-</article><!-- #post-## -->

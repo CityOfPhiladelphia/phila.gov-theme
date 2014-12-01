@@ -102,12 +102,15 @@ function phila_gov_scripts() {
 	wp_enqueue_script( 'phila-gov-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
 	wp_enqueue_script( 'phila-gov-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+    
+    wp_enqueue_script( 'text-filtering', '//cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js', array(), '1.1.1', true );
 
+    wp_enqueue_script( 'scripts', get_stylesheet_directory_uri().'/js/scripts.js', array('jquery', 'text-filtering'), 1.0, true ); 
 }
 add_action( 'wp_enqueue_scripts', 'phila_gov_scripts' );
 
 function enqueue_scripts_styles_init() {
-	wp_enqueue_script( 'ajax-script', get_stylesheet_directory_uri().'/js/scripts.js', array('jquery'), 1.0 ); // jQuery will be included automatically
+	//wp_enqueue_script( 'ajax-script', get_stylesheet_directory_uri().'/js/scripts.js', array('jquery', 'text-filtering'), 1.0 ); // jQuery will be included automatically
 	wp_localize_script( 'ajax-script', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) ); // setting ajaxurl
 }
 add_action('init', 'enqueue_scripts_styles_init');
