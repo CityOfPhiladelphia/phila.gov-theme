@@ -20,16 +20,12 @@ get_header(); ?>
                 <div class="container">
                     <section class="pure-u-1-3 topic">    
                         
-                       <?php display_topic_list(); ?>
+                       <?php get_topics(); ?>
                     
                     </section>
           
                     <div class="pure-u-2-3">
-                    <?php       
-
-                        display_filtered_pages();
-    
-                    ?>
+                    <?php display_filtered_pages(); ?>
                     </div>
 			     
                    </div> <!-- #servinfo-list-container -->
