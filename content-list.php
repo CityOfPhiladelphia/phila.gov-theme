@@ -1,6 +1,6 @@
 <?php
 /**
- * The template used for displaying finder content
+ * The template used for displaying the list content
  *
  * @package phila-gov
  */

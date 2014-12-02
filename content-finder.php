@@ -1,6 +1,6 @@
 <?php
 /**
- * The template used for displaying finder content
+ * The template used for sortable lists
  *
  * @package phila-gov
  */
@@ -9,4 +9,4 @@
     <form class="pure-form">
             <input class="pure-input-1 search" type="text" placeholder="Filter results...">
     </form>
-<h1>A to Z list</h1>
+

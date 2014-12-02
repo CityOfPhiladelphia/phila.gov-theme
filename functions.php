@@ -165,7 +165,7 @@ function the_breadcrumb() {
         echo '">';
         util_echo_website_url();
         echo '</a></li>';
-        if (is_category() || 'department_page' == get_post_type()) {
+        if (is_category()) {
             echo '<li>';
             the_title();   
                 echo '</li>'; 
@@ -174,6 +174,8 @@ function the_breadcrumb() {
             if (function_exists('currentURL')){
                 display_browse_breadcrumbs();
             }
+        }elseif (is_post_type_archive('department_page')){
+            echo '<li>Departments</li>';
         } elseif (is_single()) {
              $term_list = wp_get_post_terms($post->ID, 'topics', array('parent'=> 0, 'orderby' => 'parent' ));
                 foreach ($term_list as $term){
