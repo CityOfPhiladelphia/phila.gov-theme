@@ -33,7 +33,7 @@
 	<header id="masthead" class="site-header pure-g" role="banner">
         <div class="container">
             <div class="site-branding pure-u-1-2">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri();?>/img/space-jam.gif" alt="Space Jam"></a>
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri();?>/img/city-of-philadelphia.png" alt="City of Philadelphia"></a>
                 <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
                 <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
             </div><!-- .site-branding -->

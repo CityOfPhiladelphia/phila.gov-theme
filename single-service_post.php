@@ -20,8 +20,11 @@ get_header(); ?>
                 ) );
             ?>    
            <?php while ( have_posts() ) : the_post();
-            if (function_exists('pods')) {
-			    service_page_link();
+            if (function_exists('rwmb_meta')) {
+                echo '<p class="description">' . rwmb_meta( 'phila_service_desc', $args = array('type' => 'textarea')) . '</p>';
+                echo '<a class="pure-button pure-button-primary" href="';
+                echo rwmb_meta( 'phila_service_url', $args = array('type' => 'url'));
+                echo '">' . 'Start Now' . '</a>';
             }
                 the_content();
 

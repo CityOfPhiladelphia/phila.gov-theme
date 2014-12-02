@@ -212,36 +212,6 @@ function the_breadcrumb() {
     echo '</ul>';
 }
 
-/**
- * Run the query for external sites
- */
-//TODO find a better way of integrating this 
-
-  //if the page is outside of alpha, render the "not on alpha" version of the page
-function get_external_site_display() {
-    $params = array( 'limit' => -1); 
-    //get the category associated with the page
-    $categories = get_the_category();
-    $category_id = $categories[0]->cat_ID;
-
-    // Create and find in one shot 
-    //if (function_exists('pods')) {
-        $category = pods( 'category', $params); 
-        if ( 0 < $category->total() ) { 
-            while ( $category->fetch() ) { 
-                //only display id the page category matches the pods category
-           if ($category->display('term_id') === $category_id ) {
-            ?>  
-            <div class="external-site">
-            <h2><?php echo $category->display( 'title' ); ?> has a <strong>seperate website</strong>: <a href="<?php echo $category->display( 'url' ); ?>"><?php echo $category->display( 'url' ); ?></a></h2> 
-                <a class="pure-button" href="<?php echo $category->display( 'url' ); ?>">You are now leaving <?php util_echo_website_url();?> </a>
-            <?php echo $category->display('description') . '</div>' ?>
-            <?php 
-            }
-        }// end of cats loop
-    } // end of found cats 
-// } //end iffff
-}
 
 /**
  * get service URL from pods metabox
