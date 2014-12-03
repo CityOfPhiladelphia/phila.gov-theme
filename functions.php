@@ -169,13 +169,15 @@ function the_breadcrumb() {
             echo '<li>';
             the_title();   
                 echo '</li>'; 
+            
+        }elseif (is_post_type_archive('department_page')){
+            echo '<li>Departments</li>';
         }elseif (is_page_template('taxonomy-topics.php') || is_tax('topics')){
             echo '<li><a href="/browse">Browse</a></li>';
             if (function_exists('currentURL')){
                 display_browse_breadcrumbs();
             }
-        }elseif (is_post_type_archive('department_page')){
-            echo '<li>Departments</li>';
+       
         } elseif (is_single()) {
              $term_list = wp_get_post_terms($post->ID, 'topics', array('parent'=> 0, 'orderby' => 'parent' ));
                 foreach ($term_list as $term){

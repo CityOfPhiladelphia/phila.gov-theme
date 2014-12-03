@@ -7,7 +7,7 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area browse">
+	<div id="primary" class="content-area departments">
 		<main id="main" class="site-main" role="main">
             <div class="pure-g">
                 <div class="container">
@@ -20,7 +20,8 @@ get_header(); ?>
                 <div class="container">
                     <section class="pure-u-1-3 topic">    
                         
-                       <?php get_topics(); ?>
+                       <?php get_department_topics(); ?>
+                        
                     
                     </section>
           

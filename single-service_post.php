@@ -25,6 +25,7 @@ get_header(); ?>
                 echo '<a class="pure-button pure-button-primary" href="';
                 echo rwmb_meta( 'phila_service_url', $args = array('type' => 'url'));
                 echo '">' . 'Start Now' . '</a>';
+                echo '<span class="detail">' . rwmb_meta( 'phila_service_detail', $args = array('type' => 'textrea')) . '</span>';
             }
                 the_content();
 

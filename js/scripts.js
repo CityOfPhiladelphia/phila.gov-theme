@@ -32,12 +32,14 @@ jQuery(document).ready(function($) {
             $('.topic li').not(theParentClassName).hide();
             $('.topic .parent-description').hide();
             $('.topic .child-description').not(theParentClassName).hide();
-            console.log(theParentClassName);
+           // $('.topic li').addClass('current');
+            //console.log(theParentClassName);
         }else if ( childClass == childURL){
             $('.topic li').not(theParentClassName).hide();
             $('.topic .parent-description').hide();
             $('.topic .child-description').not(theParentClassName).hide();
-           console.log(theChildClassName);
+            //$('.topic ul li').addClass('current');
+           //console.log(theChildClassName);
         }
     });
 });
