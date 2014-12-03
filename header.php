@@ -33,7 +33,7 @@
 	<header id="masthead" class="site-header pure-g" role="banner">
         <div class="container">
             <div class="site-branding pure-u-1-2">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri();?>/img/city-of-philadelphia.png" alt="City of Philadelphia"></a>
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri();?>/img/city-of-philadelphia@2x.png" alt="City of Philadelphia" height="100"></a>
                 <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
                 <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
             </div><!-- .site-branding -->
@@ -57,6 +57,6 @@
         </div>
     </div>
 <?php }  ?>
-    <?php if (function_exists('the_breadcrumb')) { ?> <div id="breadcrumbs" class="pure-g"> <div class="container"><nav class="pure-u-1"><?php the_breadcrumb(); ?> </nav></div></div> <?php } ?>
+    <?php if (function_exists('the_breadcrumb') && !is_front_page()) { ?> <div id="breadcrumbs" class="pure-g"> <div class="container"><nav class="pure-u-1"><?php the_breadcrumb(); ?> </nav></div></div> <?php } ?>
 
         <div id="content" class="site-content">
