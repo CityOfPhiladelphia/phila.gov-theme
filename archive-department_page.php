@@ -12,22 +12,22 @@ get_header(); ?>
             <div class="pure-g">
                 <div class="container">
                     <header class="pure-u-1">
-                        <h1>Department List</h1>
+                        <h1>Directory of Services & Information Organized by Topic</h1>
                     </header>
                 </div>
             </div>
             <div class="pure-g">
                 <div class="container">
-                    <section class="pure-u-1-3 topic">    
-                        
-                       <?php get_department_topics(); ?>
-                        
-                    
+                    <section class="pure-u-1-3 topic"> 
+                        <ul class="dept-parent-topics">
+                            <?php get_department_topics(); ?>
+                        </ul>
                     </section>
           
-                    <div class="pure-u-2-3">
-                       
-                    <?php get_template_part( 'content', 'finder' ); ?>
+                    <div class="pure-u-2-3 results">
+                    
+                        <?php get_template_part( 'content', 'finder' ); ?>
+                        
                         <ul class="list"><!-- ul for sortable listness -->
                             <?php if ( have_posts() ) : ?>
                                 <?php while ( have_posts() ) : the_post(); ?>

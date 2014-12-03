@@ -18,28 +18,29 @@ jQuery(document).ready(function($) {
     var childURL = pathArray[4];
     
     console.log(pathArray.length);
-    var parentClass = $('.topic li').hasClass(parentURL);
-    var childClass = $('.topic li').hasClass(childURL);
+    var parentClass = $('.parent-topics li').hasClass(parentURL);
+    var childClass = $('.parent-topics li').hasClass(childURL);
     var theParentClassName = '.' + pathArray[2];
     var theChildClassName = '.' + pathArray[3];
  
     //compare the url with the classname - if the url reflects the classname, hide everything else
     $('.topic li').each(function(){
         if (pathArray.length == 3){
-            $('.topic li.child').hide();
-            $('.topic .child-description').hide();
+            $('.parent-topics li.child').hide();
+            $('.parent-topics .child-description').hide();
         }else if (parentClass == parentURL) {    
-            $('.topic li').not(theParentClassName).hide();
-            $('.topic .parent-description').hide();
-            $('.topic .child-description').not(theParentClassName).hide();
-           // $('.topic li').addClass('current');
+            $('.parent-topics li').not(theParentClassName).hide();
+            $('.parent-topics .parent-description').hide();
+            $('.parent-topics .child-description').not(theParentClassName).hide();
+            $(theParentClassName).addClass('current-topic');
             //console.log(theParentClassName);
-        }else if ( childClass == childURL){
-            $('.topic li').not(theParentClassName).hide();
-            $('.topic .parent-description').hide();
-            $('.topic .child-description').not(theParentClassName).hide();
-            //$('.topic ul li').addClass('current');
-           //console.log(theChildClassName);
+        }else if (childClass == childURL){
+            $('.parent-topics li').not(theParentClassName).hide();
+            $('.parent-topics .parent-description').hide();
+            $(theParentClassName).addClass('current-topic');
+            $('.parent-topics .child-description').not(theParentClassName).hide();
+            $(theParentClassName).addClass('current-topic');
+            $(theChildClassName).addClass('current');
         }
     });
 });

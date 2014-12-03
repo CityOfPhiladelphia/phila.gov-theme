@@ -19,23 +19,13 @@ get_header(); ?>
             <div class="pure-g">
                 <div class="container">
                     <section class="pure-u-1-3 topic">    
-                        
-                       <?php get_topics(); ?>
-                    
-                    </section>
-          
-                    <div class="pure-u-2-3">
-                    <?php display_filtered_pages(); ?>
-                    </div>
-			     
-                   </div> <!-- #servinfo-list-container -->
-                </div>
-            </div>
-        
-        <div class="pure-g">
-            <div class="container">
-                <section class="main-nav pure-u-1-3">
-                  <?php 
+                        <ul class="parent-topics">
+                            <?php get_topics(); ?>
+                        </ul>
+                     
+                    <nav class="topics-nav">
+                        <h2>All Topics</h2>
+                    <?php 
                         $args = array(
                             'orderby' => 'name',
                             'fields'=> 'all',
@@ -43,19 +33,24 @@ get_header(); ?>
                        );
                       $terms = get_terms( 'topics', $args );
                         if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-                             echo '<nav>';
                              echo '<ul>';
                              foreach ( $terms as $term ) {
-                                 echo '<li><h4><a href="/browse/' .$term->slug . '">' . $term->name . '</a></h4></li>';
+                                 echo '<li class="h4"><a href="/browse/' .$term->slug . '">' . $term->name . '</a></li>';
                              }
                              echo '</ul>';
-                             echo '</nav>';
+                             echo '</nav>';                        
                         }
                     ?>
-                </section>
+                    </nav>
+                    </section>
+          
+                    <div class="pure-u-2-3 results">
+                    <?php display_filtered_pages(); ?>
+                    </div>
+			     
+                   </div> <!-- #servinfo-list-container -->
+                </div>
             </div>
-        </div>
-
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
