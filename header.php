@@ -28,9 +28,9 @@
 </head>
 
 <body <?php body_class(); ?>>
-      
+
 <div id="page" class="hfeed site">
-	<header id="masthead" class="site-header pure-g" role="banner">
+    <header id="masthead" class="site-header pure-g" role="banner">
         <div class="container">
             <div class="site-branding pure-u-1-2">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri();?>/img/city-of-philadelphia@2x.png" alt="City of Philadelphia" height="100"></a>
@@ -47,12 +47,12 @@
             <?php if(!is_front_page()) { ?> <div class="search-site pure-u-1-2"> <?php get_search_form(); ?> </div> <?php }?>
         </div>
     </header><!-- #masthead -->
-<?php if (alpha_alert()){ //show the alpha alert if set to true in functions.php ?> 
-    <div class="alpha-alert pure-g"> 
+<?php if (alpha_alert()){ //show the alpha alert if set to true in functions.php ?>
+    <div class="alpha-alert pure-g">
         <div class="container">
             <div class="pure-u-1">
-                <span class="h2">Experimental Prototype</span> <p>This site might contain errors, inaccuracies and inconsistencies.</p> 
-                <a href="#">Provide Feedback</a>
+                <span class="h2">Experimental Prototype</span> <p>This site might contain errors, inaccuracies and inconsistencies.</p>
+                <a href="<?php get_template_part( 'content', 'feedback-url' ); ?>" target="_blank"><?php printf( __( 'Provide Feedback', 'phila-gov' ), 'WordPress' ); ?></a>
             </div>
         </div>
     </div>
