@@ -22,25 +22,45 @@ get_header(); ?>
                                 <p>Find Philadelphia's government services and information, <strong>simpler & faster.</strong></p>
                                 <?php get_search_form(); ?>
                             </div>
-                            <div class="pure-g popular">
-                                <div class="pure-u-sm-1-4">
-                                    <i class="fa fa-exclamation-triangle"></i>
-                                    <p>Submit a ticket</p>
+                            <div id="popular" class="pure-g">
+                                <div class="pure-u-1-4">
+                                    <a href="#">
+                                        <span class="fa-stack fa-3x">
+                                          <i class="fa fa-circle fa-stack-2x"></i>
+                                          <i class="fa fa-exclamation-triangle fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                        <h2>Submit a ticket</h2>
+                                    </a>
                                 </div>
-                                <div class="pure-u-sm-1-4">
-                                    <i class="fa fa-exclamation-triangle"></i>
-                                    <p>Pay a bill</p>
+                                <div class="pure-u-1-4">
+                                    <a href="#">
+                                       <span class="fa-stack fa-3x">
+                                          <i class="fa fa-circle fa-stack-2x"></i>
+                                          <i class="fa fa-exclamation-triangle fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                        <h2>Pay a bill</h2>
+                                    </a>
                                 </div>
-                                 <div class="pure-u-sm-1-4">
-                                    <i class="fa fa-exclamation-triangle"></i>
-                                    <p>Property Search</p>
+                                 <div class="pure-u-1-4">
+                                     <a href="#">
+                                        <span class="fa-stack fa-3x">
+                                          <i class="fa fa-circle fa-stack-2x"></i>
+                                          <i class="fa fa-exclamation-triangle fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                        <h2>Property Search</h2>
+                                     </a>
                                 </div>
-                                  <div class="pure-u-sm-1-4">
-                                    <i class="fa fa-exclamation-triangle"></i>
-                                   <p>Maps</p>
+                                  <div class="pure-u-1-4">
+                                    <a href="#">
+                                        <span class="fa-stack fa-3x">
+                                          <i class="fa fa-circle fa-stack-2x"></i>
+                                          <i class="fa fa-exclamation-triangle fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                       <h2>Maps</h2>
+                                    </a>
                                 </div>                               
                                 
-                                </div><!--.trending -->
+                            </div><!--#popular -->
                             </div>
                         </section>
                     <section id="services" class="pure-u-md-1-2">
@@ -71,31 +91,33 @@ get_header(); ?>
             <div class="pure-g">
                 <div class="container">
                         <section id="news" class="s-box">
-                
                             <div class="pure-u-md-7-24">
                                 <div class="story s-box">
-                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/temp/snow.jpg">
+                                    <a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/temp/snow.jpg"></a>
                                     <h3>Snow Emergency Routes</h3>
                                     <span>Streets</span>
                                     <p>Owners of vehicles on Emergency Routes must move them to alternate parking spaces to allow City forces to clear snow.</p>
+                                    <a href="#" class="read-more">Read More</a>
                                 </div>
                             </div>
-                          <div class="pure-u-1-24"></div>
+                          <div class="pure-u-1-24 hidden-xm hidden-sm"></div>
                             <div class="pure-u-md-7-24">
                                 <div class="story s-box">
-                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/temp/love-christmas.jpg">
+                                    <a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/temp/love-christmas.jpg"></a>
                                     <h3>Must-See Holiday Attractions</h3>
                                     <span>Visit Philly</span>
                                     <p>The City of Brotherly Love hosts a festive array of iconic holiday attractions.</p>
+                                    <a href="#" class="read-more">Read More</a>
                                 </div>
                             </div>
-                            <div class="pure-u-1-24"></div>
+                            <div class="pure-u-1-24 hidden-xm hidden-sm"></div>
                             <div class="pure-u-md-7-24">
                                 <div class="story s-box">
-                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/temp/snow.jpg">
+                                    <a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/temp/snow.jpg"></a>
                                     <h3>Neque porro quisquam est</h3>
                                     <span>Sed ut perspiciatis unde omnis</span>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <a href="#" class="read-more">Read More</a>
                                 </div>
                             </div>   
                           
