@@ -25,7 +25,7 @@ get_header(); ?>
                 $external_site = rwmb_meta( 'phila_dept_url', $args = array('type' => 'url'));
             if (!$external_site == ''){ ?>
               <div class="external-site">
-                  <p><?php the_title(); ?> has a <strong>seperate website</strong>: <a href="<?php echo rwmb_meta( 'phila_dept_url', $args = array('type' => 'url')); ?>"><?php echo rwmb_meta( 'phila_dept_url', $args = array('type' => 'url')); ?></a></p>
+                  <p><?php the_title(); ?> has a <strong>separate website</strong>: <a href="<?php echo rwmb_meta( 'phila_dept_url', $args = array('type' => 'url')); ?>"><?php echo rwmb_meta( 'phila_dept_url', $args = array('type' => 'url')); ?></a></p>
            
                 <a class="pure-button" href="<?php echo rwmb_meta( 'phila_dept_url', $args = array('type' => 'url')); ?>">You are now leaving 
                     <?php util_echo_website_url();?> </a>
