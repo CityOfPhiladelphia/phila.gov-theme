@@ -21,6 +21,7 @@ get_header(); ?>
                             <div class="search">
                                 <p>Find Philadelphia's government services and information, <strong>simpler & faster.</strong></p>
                                 <?php get_search_form(); ?>
+                                <div class="search-help">e.g. Property Information, Department of Revenue, Water Billing</div>
                             </div>
                             <div id="popular" class="pure-g">
                                 <div class="pure-u-1-4">
@@ -29,7 +30,7 @@ get_header(); ?>
                                           <i class="fa fa-circle fa-stack-2x"></i>
                                           <i class="fa fa-exclamation-triangle fa-stack-1x fa-inverse"></i>
                                         </span>
-                                        <h2>Submit a ticket</h2>
+                                        <h2>Submit a 311 ticket</h2>
                                     </a>
                                 </div>
                                 <div class="pure-u-1-4">
@@ -56,7 +57,7 @@ get_header(); ?>
                                           <i class="fa fa-circle fa-stack-2x"></i>
                                           <i class="fa fa-exclamation-triangle fa-stack-1x fa-inverse"></i>
                                         </span>
-                                       <h2>Maps</h2>
+                                       <h2>Jobs</h2>
                                     </a>
                                 </div>                               
                                 
@@ -121,9 +122,54 @@ get_header(); ?>
                                 </div>
                             </div>   
                           
-                        </section>
-                        </div><!--.pure-u-1-->
-                </div><!-- .container -->
+                        </section><!--#news-->
+                    </div><!--.pure-u-1-->
+                </div><!-- .pure-g -->
+                <div class="pure-g">
+                    <div class="container">
+                        <section id="active" class="s-box">
+                            <div class="pure-u-md-3-4">
+                                <header>
+                                    <h1>Most Active</h1>
+                                </header>
+                                <dl class="pure-g">
+                                    <dt class="pure-u-1-4"><a href="http://property.phila.gov" class="h3">Property Information</a>
+                                    <span>Property Assessment</span></dt>
+                                    <dd class="pure-u-3-4">Search and compare property data in the City of Philadelphia</dd>
+                                    
+                                    <dt class="pure-u-1-4"><a href="http://www.phila.gov/revenue/realestatetax/	" class="h3">Property Information</a>
+                                    <span>Revenue</span></dt>
+                                    <dd class="pure-u-3-4">Real Estate Tax bills are sent in December for the following year and payments are due March 31st.</dd>
+                                    
+                                    <dt class="pure-u-1-4"><a href="http://www.phila.gov/zoningarchive/" class="h3">Zoning Archive</a>
+                                    <span>L+I</span></dt>
+                                    <dd class="pure-u-3-4">Search and view all previous applications, approved uses and site drawings for a parcel of land.</dd>
+                                    
+                                    <dt class="pure-u-1-4"><a href="http://www.phila.gov/prisons/Facilities/Pages/default.aspx" class="h3">Correctional Facilities</a>
+                                    <span>Prisons</span></dt>
+                                    <dd class="pure-u-3-4">Find facility history, visiting rules, and hours.</dd>
+                                    
+                                    
+                                    <dt class="pure-u-1-4"><a href="http://www.phila.gov/revenue/realestatetax/	" class="h3">Property Information</a>
+                                    <span>Revenue</span></dt>
+                                    <dd class="pure-u-3-4">Real Estate Tax bills are sent in December for the following year and payments are due March 31st.</dd>
+                                    
+                                    <dt class="pure-u-1-4"><a href="http://www.phila.gov/revenue/realestatetax/	" class="h3">Property Information</a>
+                                    <span>Revenue</span></dt>
+                                    <dd class="pure-u-3-4">Real Estate Tax bills are sent in December for the following year and payments are due March 31st.</dd>
+                                    
+                                </dl>                                            
+                            
+                            </div>
+                            <div class="pure-u-md-1-4 links">
+                                <a class="pure-button departments" href="/departments">Department Directory</a>
+                                <a class="pure-button news" href="#">News</a>
+                                <a class="pure-button mayor" href="#">Mayor's Office</a>
+                                <a class="pure-button maps" href="#">Maps</a>
+                            </div>
+                        </section><!--#news-->
+                    </div><!--.pure-u-1-->
+                </div><!-- .pure-g -->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

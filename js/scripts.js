@@ -11,13 +11,15 @@ jQuery(document).ready(function($) {
         valueNames: ['item-link']
     });
     
+    /*
+    *       phila.gov/browse 
+    */
     
     var pathArray = window.location.pathname.split( '/' );
 
     var parentURL = pathArray[3];
     var childURL = pathArray[4];
     
-    console.log(pathArray.length);
     var parentClass = $('.parent-topics li').hasClass(parentURL);
     var childClass = $('.parent-topics li').hasClass(childURL);
     var theParentClassName = '.' + pathArray[2];
@@ -33,7 +35,6 @@ jQuery(document).ready(function($) {
             $('.parent-topics .parent-description').hide();
             $('.parent-topics .child-description').not(theParentClassName).hide();
             $(theParentClassName).addClass('current-topic');
-            //console.log(theParentClassName);
         }else if (childClass == childURL){
             $('.parent-topics li').not(theParentClassName).hide();
             $('.parent-topics .parent-description').hide();
