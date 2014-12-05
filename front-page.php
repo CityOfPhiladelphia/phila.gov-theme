@@ -25,39 +25,39 @@ get_header(); ?>
                             </div>
                             <div id="popular" class="pure-g">
                                 <div class="pure-u-1-4">
-                                    <a href="#">
+                                    <a href="http://www.phila.gov/311/requestsubmission.html">
                                         <span class="fa-stack fa-3x">
                                           <i class="fa fa-circle fa-stack-2x"></i>
                                           <i class="fa fa-exclamation-triangle fa-stack-1x fa-inverse"></i>
                                         </span>
-                                        <h2>Submit a 311 ticket</h2>
+                                        <h2>Report a problem to 311</h2>
                                     </a>
                                 </div>
                                 <div class="pure-u-1-4">
-                                    <a href="#">
+                                    <a href="/browse/pay-a-bill">
                                        <span class="fa-stack fa-3x">
                                           <i class="fa fa-circle fa-stack-2x"></i>
-                                          <i class="fa fa-exclamation-triangle fa-stack-1x fa-inverse"></i>
+                                          <i class="fa fa-credit-card fa-stack-1x fa-inverse"></i>
                                         </span>
                                         <h2>Pay a bill</h2>
                                     </a>
                                 </div>
                                  <div class="pure-u-1-4">
-                                     <a href="#">
+                                     <a href="http://property.phila.gov">
                                         <span class="fa-stack fa-3x">
                                           <i class="fa fa-circle fa-stack-2x"></i>
-                                          <i class="fa fa-exclamation-triangle fa-stack-1x fa-inverse"></i>
+                                          <i class="fa fa-home fa-stack-1x fa-inverse"></i>
                                         </span>
                                         <h2>Property Search</h2>
                                      </a>
                                 </div>
                                   <div class="pure-u-1-4">
-                                    <a href="#">
+                                    <a href="http://www.phila.gov/personnel//announce/current/index.html">
                                         <span class="fa-stack fa-3x">
                                           <i class="fa fa-circle fa-stack-2x"></i>
-                                          <i class="fa fa-exclamation-triangle fa-stack-1x fa-inverse"></i>
+                                          <i class="fa fa-briefcase fa-stack-1x fa-inverse"></i>
                                         </span>
-                                       <h2>Jobs</h2>
+                                       <h2>Employment</h2>
                                     </a>
                                 </div>                               
                                 
@@ -72,7 +72,8 @@ get_header(); ?>
                                $args = array(
                                     'orderby' => 'name',
                                     'fields'=> 'all',
-                                    'parent' => 0
+                                    'parent' => 0,
+                                   'hide_empty'=> false
                                );
                               $terms = get_terms( 'topics', $args );
                                 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
@@ -125,49 +126,74 @@ get_header(); ?>
                         </section><!--#news-->
                     </div><!--.pure-u-1-->
                 </div><!-- .pure-g -->
-                <div class="pure-g">
-                    <div class="container">
-                        <section id="active" class="s-box">
+                <section id="active" class="pure-g">
+                        <div class="container">
                             <div class="pure-u-md-3-4">
-                                <header>
-                                    <h1>Most Active</h1>
-                                </header>
-                                <dl class="pure-g">
-                                    <dt class="pure-u-1-4"><a href="http://property.phila.gov" class="h3">Property Information</a>
-                                    <span>Property Assessment</span></dt>
-                                    <dd class="pure-u-3-4">Search and compare property data in the City of Philadelphia</dd>
-                                    
-                                    <dt class="pure-u-1-4"><a href="http://www.phila.gov/revenue/realestatetax/	" class="h3">Property Information</a>
-                                    <span>Revenue</span></dt>
-                                    <dd class="pure-u-3-4">Real Estate Tax bills are sent in December for the following year and payments are due March 31st.</dd>
-                                    
-                                    <dt class="pure-u-1-4"><a href="http://www.phila.gov/zoningarchive/" class="h3">Zoning Archive</a>
-                                    <span>L+I</span></dt>
-                                    <dd class="pure-u-3-4">Search and view all previous applications, approved uses and site drawings for a parcel of land.</dd>
-                                    
-                                    <dt class="pure-u-1-4"><a href="http://www.phila.gov/prisons/Facilities/Pages/default.aspx" class="h3">Correctional Facilities</a>
-                                    <span>Prisons</span></dt>
-                                    <dd class="pure-u-3-4">Find facility history, visiting rules, and hours.</dd>
-                                    
-                                    
-                                    <dt class="pure-u-1-4"><a href="http://www.phila.gov/revenue/realestatetax/	" class="h3">Property Information</a>
-                                    <span>Revenue</span></dt>
-                                    <dd class="pure-u-3-4">Real Estate Tax bills are sent in December for the following year and payments are due March 31st.</dd>
-                                    
-                                    <dt class="pure-u-1-4"><a href="http://www.phila.gov/revenue/realestatetax/	" class="h3">Property Information</a>
-                                    <span>Revenue</span></dt>
-                                    <dd class="pure-u-3-4">Real Estate Tax bills are sent in December for the following year and payments are due March 31st.</dd>
-                                    
-                                </dl>                                            
-                            
+                                <div class="s-box-right">
+                                    <header>
+                                        <h1>Most Active</h1>
+                                    </header>
+                                    <dl class="pure-g">
+                                        <dt class="pure-u-1-3"><a href="http://property.phila.gov" class="h3">Property Information</a>
+                                        <span>Property Assessment</span></dt>
+                                        <dd class="pure-u-2-3">Search and compare property data in the City of Philadelphia</dd>
+
+                                        <dt class="pure-u-1-3"><a href="http://www.phila.gov/revenue/realestatetax/" class="h3">Property Information</a>
+                                        <span>Revenue</span></dt>
+                                        <dd class="pure-u-2-3">Real Estate Tax bills are sent in December for the following year and payments are due March 31st.</dd>
+
+                                        <dt class="pure-u-1-3"><a href="http://www.phila.gov/zoningarchive/" class="h3">Zoning Archive</a>
+                                        <span>L+I</span></dt>
+                                        <dd class="pure-u-2-3">Search and view all previous applications, approved uses and site drawings for a parcel of land.</dd>
+
+                                        <dt class="pure-u-1-3"><a href="http://www.phila.gov/prisons/Facilities/Pages/default.aspx" class="h3">Correctional Facilities</a>
+                                        <span>Prisons</span></dt>
+                                        <dd class="pure-u-2-3">Find facility history, visiting rules, and hours.</dd>
+
+
+                                        <dt class="pure-u-1-3"><a href="http://www.phila.gov/Revenue/individuals/Pages/default.aspx" class="h3">Individual Taxes</a>
+                                        <span>Revenue</span></dt>
+                                        <dd class="pure-u-2-3">Learn about taxes that individuals must remit and/or file in Philadelphia.</dd>
+
+                                        <dt class="pure-u-1-3"><a href="http://www.phila.gov/personnel//announce/current/index.html" class="h3">Job Opportunities</a>
+                                        <span>Human Resources</span></dt>
+                                        <dd class="pure-u-2-3">Interested in employment with the City of Philadelphia? We have immediate job openings in a wide variety of occupations.</dd>
+
+                                        <dt class="pure-u-1-3"><a href="https://secure.phila.gov/PaymentCenter/AccountLookup/PaymentLookup.aspx?lookup=10243083-f451-49a3-9041-a3b1e4ae7c91" class="h3">Pay Water Bill</a>
+                                        <span>Water Revenue</span></dt>
+                                        <dd class="pure-u-2-3">Look-up your pending water bill by your service Account Number and make a payment.</dd>
+
+                                        <dt class="pure-u-1-3"><a href="http://www.phila.gov/li/pages/tenantlandlord.aspx" class="h3">Tenants & Landlord Rights</a>
+                                        <span>L+I</span></dt>
+                                        <dd class="pure-u-2-3">Tenants in Philadelphia rental properties have a number of documented rights regarding safety and health standards.</dd>
+
+                                   <dt class="pure-u-1-3"><a href="http://www.phila.gov/records/PoliceFire/Traffic_Accident_Reports.html" class="h3">Traffic Accident Reports</a>
+                                        <span>Records</span></dt>
+                                        <dd class="pure-u-2-3">Obtain Traffic Accident reports and photographs.</dd>
+
+                                   <dt class="pure-u-1-3"><a href="http://www.phila.gov/li/aboutus/Pages/Contact.aspx" class="h3">Contact Us</a>
+                                        <span>L+I</span></dt>
+                                        <dd class="pure-u-2-3">Phone numbers, addresses, and e-mails for various divisions of Licenses & Inspections.</dd>
+                                   <dt class="pure-u-1-3"><a href="http://www.phila.gov/PRISONS/INMATESUPPORT/Pages/inmateaccess.aspx" class="h3">Inmate Access</a>
+                                        <span>Prisons</span></dt>
+                                        <dd class="pure-u-2-3">Access hours and rules per Philadelphia Prisons Systems Facilities.</dd>
+
+                                        <dt class="pure-u-1-3"><a href="http://www.phila.gov/map#id=d1191d5e3e1d4ab29588c5159d7e0772" class="h3">Lane Closures</a>
+                                        <span>Streets</span></dt>
+                                        <dd class="pure-u-2-3">Currently closed Philadelphia streets.</dd>
+
+                                    </dl>                                            
+
+                                </div>
                             </div>
-                            <div class="pure-u-md-1-4 links">
-                                <a class="pure-button departments" href="/departments">Department Directory</a>
-                                <a class="pure-button news" href="#">News</a>
-                                <a class="pure-button mayor" href="#">Mayor's Office</a>
-                                <a class="pure-button maps" href="#">Maps</a>
+                                <div class="pure-u-md-1-4 links">
+                                    <a class="pure-button departments" href="/departments">Department Directory</a>
+                                    <a class="pure-button mayor" href="http://phila.gov/mayor">Mayor's Office</a>
+                                    <a class="pure-button news" href="https://cityofphiladelphia.wordpress.com/">News</a>
+                                    <a class="pure-button maps" href="http://phila.gov/map">Maps</a>
+                                </div>
+                            </section><!--#news-->
                             </div>
-                        </section><!--#news-->
                     </div><!--.pure-u-1-->
                 </div><!-- .pure-g -->
 		</main><!-- #main -->

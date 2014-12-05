@@ -24,7 +24,9 @@ get_header(); ?>
                         <?php get_template_part( 'content', 'finder' ); ?>
                         
                         <ul class="list"><!-- ul for sortable listness -->
-                            <?php if ( have_posts() ) : ?>
+                            <?php 
+                                //TODO fix the loop to show more than 10 and alphabetical
+                                if ( have_posts() ) : ?>
                                 <?php while ( have_posts() ) : the_post(); ?>
 
                                     <?php get_template_part( 'content', 'list' ); ?>
