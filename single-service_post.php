@@ -12,7 +12,7 @@ get_header(); ?>
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
     <div class="container">
-        <div class="entry-content pure-u-1">
+        <div class="entry-content pure-u-3-4">
             <?php
                 wp_link_pages( array(
                     'before' => '<div class="page-links">' . __( 'Pages:', 'phila-gov' ),
@@ -33,11 +33,12 @@ get_header(); ?>
 
 
         </div><!-- .entry-content -->
-    </div>
+    
+    <?php       
+        get_sidebar('topics'); 
+    ?>
+    </div><!-- .container -->
 
-	<footer class="entry-footer pure-u-1">
-		<?php edit_post_link( __( 'Edit', 'phila-gov' ), '<span class="edit-link">', '</span>' ); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 
 <?php get_footer(); ?>

@@ -11,13 +11,8 @@
 
 	</header><!-- .entry-header -->
     <div class="container">
-        <div class="entry-content pure-u-4-5">
+        <div class="entry-content pure-u-3-4">
 		<?php the_content(); ?>
-            <?php 
-               // $term_list = wp_get_post_terms($post->ID, 'topics', array("fields" => "all"));
-               
-            
-            ?>
 		<?php
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . __( 'Pages:', 'phila-gov' ),
