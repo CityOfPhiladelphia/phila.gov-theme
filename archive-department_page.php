@@ -25,16 +25,26 @@ get_header(); ?>
                         
                         <ul class="list"><!-- ul for sortable listness -->
                             <?php 
-                                //TODO fix the loop to show more than 10 and alphabetical
-                                if ( have_posts() ) : ?>
-                                <?php while ( have_posts() ) : the_post(); ?>
+                                $type = 'department_page';
+                                $department_listing = new WP_Query(array( 
+                                        'post_type' => $type, 
+                                        'posts_per_page' => -1, 
+                                        'order_by' => 'title', 
+                                        'order'=> 'ASC' )
+                                );
+                               
+                                if ( $department_listing->have_posts() ) : ?>
+                            
+                                <?php while ( $department_listing->have_posts() ) : $department_listing->the_post(); ?>
 
                                     <?php get_template_part( 'content', 'list' ); ?>
-
+                                
                                 <?php endwhile; ?>
                                 <?php else : ?>
 
-                            <?php endif; ?>
+                            <?php endif;
+                            ?>
+                            
                         </ul>
                     </div>
 			     

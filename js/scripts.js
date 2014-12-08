@@ -3,18 +3,18 @@
  *
  *
 **/
- 
+
+new List('servinfo-list-container', {
+    valueNames: ['item', 'item-desc']
+});
+
 jQuery(document).ready(function($) {
     //$('nav li a[href^="browse' + location.pathname.split("/")[1] + '"]').addClass('active');
 
-    new List('servinfo-list-container', {
-        valueNames: ['item-link']
-    });
     
     /*
     *       phila.gov/browse 
     */
-    
     var pathArray = window.location.pathname.split( '/' );
 
     var parentURL = pathArray[3];

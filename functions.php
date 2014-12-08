@@ -158,6 +158,7 @@ require get_template_directory() . '/inc/jetpack.php';
 function the_breadcrumb() {
     global $post;
     global $output;
+    $category = get_the_category();
     echo '<ul>';
     if (!is_front_page()) {
         echo '<li><a href="';
@@ -168,7 +169,7 @@ function the_breadcrumb() {
         if (is_category()) {
             echo '<li>';
             the_title();   
-                echo '</li>'; 
+            echo '</li>'; 
             
         }elseif (is_post_type_archive('department_page')){
             echo '<li>Departments</li>';
@@ -188,7 +189,8 @@ function the_breadcrumb() {
                     echo '<a href="/browse/' . $slug .'">' . $name . '</a>';
                     echo '</li>';
                 } 
-            echo '<li>' . the_title() . '</li>';
+            //department_page
+            echo '<li>' . $category[0]->cat_name . '</li>';
         } elseif (is_page()) {
             if($post->post_parent){
                 //$anc = array_reverse(get_post_ancestors( $post->ID ));

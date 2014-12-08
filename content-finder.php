@@ -16,5 +16,7 @@ if (is_post_type_archive('department_page')){
     <form class="pure-form">
             <input class="pure-input-1 search" type="text" placeholder="Filter results...">
     </form>
-    
-    <h2><?php display_current_selected_topic();?></h2>
+    <?php
+    if (is_tax('topics')){ ?>
+        <h2><?php display_current_selected_topic();?></h2>
+  <?php  } ?>
