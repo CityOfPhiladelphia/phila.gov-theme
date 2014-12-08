@@ -161,6 +161,7 @@ function the_breadcrumb() {
     $category = get_the_category();
     echo '<ul>';
     if (!is_front_page()) {
+        
         echo '<li><a href="';
         echo get_option('home');
         echo '">';
@@ -170,27 +171,28 @@ function the_breadcrumb() {
             echo '<li>';
             the_title();   
             echo '</li>'; 
-            
         }elseif (is_post_type_archive('department_page')){
             echo '<li>Departments</li>';
         }elseif (is_page_template('taxonomy-topics.php') || is_tax('topics')){
             echo '<li><a href="/browse">Browse</a></li>';
             if (function_exists('currentURL')){
                 display_browse_breadcrumbs();
+            }                    
+        } 
+        elseif (is_single()) {   
+            if (is_singular('department_page')) {
+                    echo '<li>' . $category[0]->cat_name . '</li>';
+                }else{
+                 $term_list = wp_get_post_terms($post->ID, 'topics', array('parent'=> 0, 'orderby' => 'parent' ));
+                    foreach ($term_list as $term){
+                      $name = $term->name;
+                        $slug = $term->slug;
+                        echo '<li>';
+                        //TODO fix parent slug relationship
+                        echo '<a href="/browse/' . $slug .'">' . $name . '</a>';
+                        echo '</li>';
+                    }//foreach 
             }
-       
-        } elseif (is_single()) {
-             $term_list = wp_get_post_terms($post->ID, 'topics', array('parent'=> 0, 'orderby' => 'parent' ));
-                foreach ($term_list as $term){
-                  $name = $term->name;
-                    $slug = $term->slug;
-                    echo '<li>';
-                    //TODO fix parent slug relationship
-                    echo '<a href="/browse/' . $slug .'">' . $name . '</a>';
-                    echo '</li>';
-                } 
-            //department_page
-            echo '<li>' . $category[0]->cat_name . '</li>';
         } elseif (is_page()) {
             if($post->post_parent){
                 //$anc = array_reverse(get_post_ancestors( $post->ID ));
@@ -204,8 +206,8 @@ function the_breadcrumb() {
             } else {
                 echo '<li><strong> '.get_the_title().'</strong></li>';
             }
-        }
-    }
+        }//end is_page
+    }//end is front page
     elseif (is_tag()) {single_tag_title();}
     elseif (is_day()) {echo"<li>Archive for "; the_time('F jS, Y'); echo'</li>';}
     elseif (is_month()) {echo"<li>Archive for "; the_time('F, Y'); echo'</li>';}

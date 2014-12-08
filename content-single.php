@@ -11,7 +11,7 @@
 
 	</header><!-- .entry-header -->
     <div class="container">
-        <div class="entry-content pure-u-1">
+        <div class="entry-content pure-u-4-5">
 		<?php the_content(); ?>
             <?php 
                // $term_list = wp_get_post_terms($post->ID, 'topics', array("fields" => "all"));
@@ -25,16 +25,9 @@
 			) );
 		?>
 	   </div><!-- .entry-content -->
-    </div>
     
-    <?php //add sidebar to middleof <article> for grid and semantics
-        if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-            return;
-        }        
-        get_sidebar(); 
+    <?php       
+        get_sidebar('topics'); 
     ?>
-	
-    <footer class="entry-footer pure-u-1">
-		<?php phila_gov_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+    </div><!-- .container -->
 </article><!-- #post-## -->

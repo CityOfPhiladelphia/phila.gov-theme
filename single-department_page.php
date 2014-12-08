@@ -1,6 +1,6 @@
 <?php
 /**
- * The template used for displaying external site content in page.php
+ * The template used for displaying  department websites
  *
  * @package phila-gov
  */
