@@ -26,7 +26,7 @@
 <div id="page" class="hfeed site">
     <header id="masthead" class="site-header pure-g" role="banner">
         <div class="container">
-            <div class="site-branding pure-u-1-2">
+            <div class="site-branding pure-u-1 pure-u-md-1-2">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri();?>/img/city-of-philadelphia@2x.png" alt="City of Philadelphia" height="100"></a>
                 <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
                 <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
@@ -38,15 +38,17 @@
                 <button class="menu-toggle"><?php // _e( 'Primary Menu', 'phila-gov' ); ?></button>
                 <?php // wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
             </nav><!-- #site-navigation -->
-            <?php if(!is_front_page()) { ?> <div class="search-site pure-u-1-2"> <?php get_search_form(); ?> </div> <?php }?>
+            <?php if(!is_front_page()) { ?> <div class="search-site pure-u-1 pure-u-md-1-2"> <?php get_search_form(); ?> </div> <?php }?>
         </div>
     </header><!-- #masthead -->
 <?php if (alpha_alert()){ //show the alpha alert if set to true in functions.php ?>
     <div class="alpha-alert pure-g">
         <div class="container">
             <div class="pure-u-1">
-                <span class="h2">Experimental Prototype</span> <p>This site might contain errors, inaccuracies and inconsistencies.</p>
-                <a href="<?php get_template_part( 'content', 'feedback-url' ); ?>" target="_blank"><?php printf( __( 'Provide Feedback', 'phila-gov' ), 'WordPress' ); ?></a>
+                <div class="float-left">
+                    <span class="h2">Experimental Prototype</span> <p>This site might contain errors, inaccuracies and inconsistencies.</p>
+                </div>
+                    <a href="<?php get_template_part( 'content', 'feedback-url' ); ?>" target="_blank"><?php printf( __( 'Provide Feedback', 'phila-gov' ), 'WordPress' ); ?></a>
             </div>
         </div>
     </div>

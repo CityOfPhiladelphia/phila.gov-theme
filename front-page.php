@@ -134,53 +134,53 @@ get_header(); ?>
                                         <h1>Most Active</h1>
                                     </header>
                                     <dl class="pure-g">
-                                        <dt class="pure-u-1-3"><a href="http://property.phila.gov" class="h3">Property Information</a>
+                                        <dt class="pure-u-1 pure-u-md-1-3"><a href="http://property.phila.gov" class="h3">Property Information</a>
                                         <span>Property Assessment</span></dt>
-                                        <dd class="pure-u-2-3">Search and compare property data in the City of Philadelphia</dd>
+                                        <dd class="pure-u-1 pure-u-md-2-3">Search and compare property data in the City of Philadelphia</dd>
 
-                                        <dt class="pure-u-1-3"><a href="http://www.phila.gov/revenue/realestatetax/" class="h3">Property Information</a>
+                                        <dt class="pure-u-1 pure-u-md-1-3"><a href="http://www.phila.gov/revenue/realestatetax/" class="h3">Property Information</a>
                                         <span>Revenue</span></dt>
-                                        <dd class="pure-u-2-3">Real Estate Tax bills are sent in December for the following year and payments are due March 31st.</dd>
+                                        <dd class="pure-u-1 pure-u-md-2-3">Real Estate Tax bills are sent in December for the following year and payments are due March 31st.</dd>
 
-                                        <dt class="pure-u-1-3"><a href="http://www.phila.gov/zoningarchive/" class="h3">Zoning Archive</a>
+                                        <dt class="pure-u-1 pure-u-md-1-3"><a href="http://www.phila.gov/zoningarchive/" class="h3">Zoning Archive</a>
                                         <span>L+I</span></dt>
-                                        <dd class="pure-u-2-3">Search and view all previous applications, approved uses and site drawings for a parcel of land.</dd>
+                                        <dd class="pure-u-1 pure-u-md-2-3">Search and view all previous applications, approved uses and site drawings for a parcel of land.</dd>
 
-                                        <dt class="pure-u-1-3"><a href="http://www.phila.gov/prisons/Facilities/Pages/default.aspx" class="h3">Correctional Facilities</a>
+                                        <dt class="pure-u-1 pure-u-md-1-3"><a href="http://www.phila.gov/prisons/Facilities/Pages/default.aspx" class="h3">Correctional Facilities</a>
                                         <span>Prisons</span></dt>
-                                        <dd class="pure-u-2-3">Find facility history, visiting rules, and hours.</dd>
+                                        <dd class="pure-u-1 pure-u-md-2-3">Find facility history, visiting rules, and hours.</dd>
 
 
-                                        <dt class="pure-u-1-3"><a href="http://www.phila.gov/Revenue/individuals/Pages/default.aspx" class="h3">Individual Taxes</a>
+                                        <dt class="pure-u-1 pure-u-md-1-3"><a href="http://www.phila.gov/Revenue/individuals/Pages/default.aspx" class="h3">Individual Taxes</a>
                                         <span>Revenue</span></dt>
-                                        <dd class="pure-u-2-3">Learn about taxes that individuals must remit and/or file in Philadelphia.</dd>
+                                        <dd class="pure-u-1 pure-u-md-2-3">Learn about taxes that individuals must remit and/or file in Philadelphia.</dd>
 
-                                        <dt class="pure-u-1-3"><a href="http://www.phila.gov/personnel//announce/current/index.html" class="h3">Job Opportunities</a>
+                                        <dt class="pure-u-1 pure-u-md-1-3"><a href="http://www.phila.gov/personnel//announce/current/index.html" class="h3">Job Opportunities</a>
                                         <span>Human Resources</span></dt>
-                                        <dd class="pure-u-2-3">Interested in employment with the City of Philadelphia? We have immediate job openings in a wide variety of occupations.</dd>
+                                        <dd class="pure-u-1 pure-u-md-2-3">Interested in employment with the City of Philadelphia? We have immediate job openings in a wide variety of occupations.</dd>
 
-                                        <dt class="pure-u-1-3"><a href="https://secure.phila.gov/PaymentCenter/AccountLookup/PaymentLookup.aspx?lookup=10243083-f451-49a3-9041-a3b1e4ae7c91" class="h3">Pay Water Bill</a>
+                                        <dt class="pure-u-1 pure-u-md-1-3"><a href="https://secure.phila.gov/PaymentCenter/AccountLookup/PaymentLookup.aspx?lookup=10243083-f451-49a3-9041-a3b1e4ae7c91" class="h3">Pay Water Bill</a>
                                         <span>Water Revenue</span></dt>
-                                        <dd class="pure-u-2-3">Look-up your pending water bill by your service Account Number and make a payment.</dd>
+                                        <dd class="pure-u-1 pure-u-md-2-3">Look-up your pending water bill by your service Account Number and make a payment.</dd>
 
-                                        <dt class="pure-u-1-3"><a href="http://www.phila.gov/li/pages/tenantlandlord.aspx" class="h3">Tenants & Landlord Rights</a>
+                                        <dt class="pure-u-1 pure-u-md-1-3"><a href="http://www.phila.gov/li/pages/tenantlandlord.aspx" class="h3">Tenants & Landlord Rights</a>
                                         <span>L+I</span></dt>
-                                        <dd class="pure-u-2-3">Tenants in Philadelphia rental properties have a number of documented rights regarding safety and health standards.</dd>
+                                        <dd class="pure-u-1 pure-u-md-2-3">Tenants in Philadelphia rental properties have a number of documented rights regarding safety and health standards.</dd>
 
-                                   <dt class="pure-u-1-3"><a href="http://www.phila.gov/records/PoliceFire/Traffic_Accident_Reports.html" class="h3">Traffic Accident Reports</a>
+                                   <dt class="pure-u-1 pure-u-md-1-3"><a href="http://www.phila.gov/records/PoliceFire/Traffic_Accident_Reports.html" class="h3">Traffic Accident Reports</a>
                                         <span>Records</span></dt>
-                                        <dd class="pure-u-2-3">Obtain Traffic Accident reports and photographs.</dd>
+                                        <dd class="pure-u-1 pure-u-md-2-3">Obtain Traffic Accident reports and photographs.</dd>
 
-                                   <dt class="pure-u-1-3"><a href="http://www.phila.gov/li/aboutus/Pages/Contact.aspx" class="h3">Contact Us</a>
+                                   <dt class="pure-u-1 pure-u-md-1-3"><a href="http://www.phila.gov/li/aboutus/Pages/Contact.aspx" class="h3">Contact Us</a>
                                         <span>L+I</span></dt>
-                                        <dd class="pure-u-2-3">Phone numbers, addresses, and e-mails for various divisions of Licenses & Inspections.</dd>
-                                   <dt class="pure-u-1-3"><a href="http://www.phila.gov/PRISONS/INMATESUPPORT/Pages/inmateaccess.aspx" class="h3">Inmate Access</a>
+                                        <dd class="pure-u-1 pure-u-md-2-3">Phone numbers, addresses, and e-mails for various divisions of Licenses & Inspections.</dd>
+                                   <dt class="pure-u-1 pure-u-md-1-3"><a href="http://www.phila.gov/PRISONS/INMATESUPPORT/Pages/inmateaccess.aspx" class="h3">Inmate Access</a>
                                         <span>Prisons</span></dt>
-                                        <dd class="pure-u-2-3">Access hours and rules per Philadelphia Prisons Systems Facilities.</dd>
+                                        <dd class="pure-u-1 pure-u-md-2-3">Access hours and rules per Philadelphia Prisons Systems Facilities.</dd>
 
-                                        <dt class="pure-u-1-3"><a href="http://www.phila.gov/map#id=d1191d5e3e1d4ab29588c5159d7e0772" class="h3">Lane Closures</a>
+                                        <dt class="pure-u-1 pure-u-md-1-3"><a href="http://www.phila.gov/map#id=d1191d5e3e1d4ab29588c5159d7e0772" class="h3">Lane Closures</a>
                                         <span>Streets</span></dt>
-                                        <dd class="pure-u-2-3">Currently closed Philadelphia streets.</dd>
+                                        <dd class="pure-u-1 pure-u-md-2-3">Currently closed Philadelphia streets.</dd>
 
                                     </dl>                                            
 
