@@ -28,7 +28,7 @@
                 );
 
             }
-            var_dump($tax_query);
+           // var_dump($tax_query);
             // put all the WP_Query args together
             $args = array( 'post_type' => array(
                                 'post',
