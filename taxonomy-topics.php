@@ -23,29 +23,14 @@ get_header(); ?>
                             <?php get_topics(); ?>
                         </ul>
                      
-                    <nav class="topics-nav">
+                    <nav class="topics-nav hidden-md hidden-sm hidden-xs">
                         <h2>All Topics</h2>
-                    <?php 
-                        $args = array(
-                            'orderby' => 'name',
-                            'fields'=> 'all',
-                            'parent' => 0
-                       );
-                      $terms = get_terms( 'topics', $args );
-                        if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-                             echo '<ul>';
-                             foreach ( $terms as $term ) {
-                                 echo '<li class="h4"><a href="/browse/' .$term->slug . '">' . $term->name . '</a></li>';
-                             }
-                             echo '</ul>';
-                             echo '</nav>';                        
-                        }
-                    ?>
+                        <?php get_parent_topics(); ?>
                     </nav>
                     </section>
           
                     <div class="pure-u-2-3 results">
-                    <?php display_filtered_pages(); ?>
+                        <?php display_filtered_pages(); ?>
                     </div>
 			     
                    </div> <!-- #servinfo-list-container -->
