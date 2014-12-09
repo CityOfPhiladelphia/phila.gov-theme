@@ -11,13 +11,13 @@
 
 	</header><!-- .entry-header -->
     <div class="container">
-        <div class="entry-content pure-u-3-4">
+        <div class="entry-content pure-u-1 pure-u-md-3-4">
 		<?php the_content(); ?>
 		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'phila-gov' ),
-				'after'  => '</div>',
-			) );
+			//wp_link_pages( array(
+			//	'before' => '<div class="page-links">' . __( 'Pages:', 'phila-gov' ),
+			//	'after'  => '</div>',
+			//) );
 		?>
 	   </div><!-- .entry-content -->
     

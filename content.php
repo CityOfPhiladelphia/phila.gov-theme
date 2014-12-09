@@ -26,10 +26,10 @@
             ?>
 
             <?php
-                wp_link_pages( array(
-                    'before' => '<div class="page-links">' . __( 'Pages:', 'phila-gov' ),
-                    'after'  => '</div>',
-                ) );
+              //  wp_link_pages( array(
+                //    'before' => '<div class="page-links">' . __( 'Pages:', 'phila-gov' ),
+                //    'after'  => '</div>',
+            //    ) );
             ?>
         </div><!-- .entry-content -->
     </div>

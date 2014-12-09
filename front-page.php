@@ -57,7 +57,7 @@ get_header(); ?>
                                           <i class="fa fa-circle fa-stack-2x"></i>
                                           <i class="fa fa-briefcase fa-stack-1x fa-inverse"></i>
                                         </span>
-                                       <h2>Employment</h2>
+                                       <h2>Jobs</h2>
                                     </a>
                                 </div>                               
                                 
@@ -128,7 +128,7 @@ get_header(); ?>
                 </div><!-- .pure-g -->
                 <section id="active" class="pure-g">
                         <div class="container">
-                            <div class="pure-u-md-3-4">
+                            <div class="pure-u-1 pure-u-lg-3-4">
                                 <div class="s-box-right">
                                     <header>
                                         <h1>Most Active</h1>
@@ -186,11 +186,11 @@ get_header(); ?>
 
                                 </div>
                             </div>
-                                <div class="pure-u-md-1-4 links">
-                                    <a class="pure-button departments" href="/departments">Department Directory</a>
-                                    <a class="pure-button mayor" href="http://phila.gov/mayor">Mayor's Office</a>
-                                    <a class="pure-button news" href="https://cityofphiladelphia.wordpress.com/">News</a>
-                                    <a class="pure-button maps" href="http://phila.gov/map">Maps</a>
+                                <div class="pure-u-1 pure-u-lg-1-4 links">
+                                    <a class="pure-button departments" href="/departments"><span>Department Directory</span></a>
+                                    <a class="pure-button mayor" href="http://phila.gov/mayor"><span>Mayor's Office</span></a>
+                                    <a class="pure-button news" href="https://cityofphiladelphia.wordpress.com/"><span>News</span></a>
+                                    <a class="pure-button maps" href="http://phila.gov/map"><span>Maps</span></a>
                                 </div>
                             </section><!--#news-->
                             </div>

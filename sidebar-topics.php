@@ -7,7 +7,7 @@
  */
  
  ?>  
-<div id="secondary" class="widget-area pure-u-1-4 related" role="complementary">
+<div id="secondary" class="widget-area pure-u-1 pure-u-md-1-4 related" role="complementary">
     <div class="s-box">
       <?php  
      //get all the terms

@@ -107,7 +107,7 @@ function phila_gov_scripts() {
 
     wp_enqueue_script( 'scripts', get_stylesheet_directory_uri().'/js/scripts.js', array('jquery', 'text-filtering'), 1.0, true ); 
 }
-add_action( 'wp_enqueue_scripts', 'phila_gov_scripts' );
+add_action( 'wp_enqueue_scripts', 'phila_gov_scripts');
 
 function enqueue_scripts_styles_init() {
 	//wp_enqueue_script( 'ajax-script', get_stylesheet_directory_uri().'/js/scripts.js', array('jquery', 'text-filtering'), 1.0 ); // jQuery will be included automatically
@@ -174,6 +174,7 @@ function the_breadcrumb() {
         }elseif (is_post_type_archive('department_page')){
             echo '<li>Departments</li>';
         }elseif (is_page_template('taxonomy-topics.php') || is_tax('topics')){
+            //browse
             echo '<li><a href="/browse">Browse</a></li>';
             if (function_exists('currentURL')){
                 display_browse_breadcrumbs();
@@ -183,14 +184,18 @@ function the_breadcrumb() {
             if (is_singular('department_page')) {
                     echo '<li>' . $category[0]->cat_name . '</li>';
                 }else{
+                //service/info pages
                  $term_list = wp_get_post_terms($post->ID, 'topics', array('parent'=> 0, 'orderby' => 'parent' ));
-                    foreach ($term_list as $term){
-                      $name = $term->name;
+                 foreach ($term_list as $term){
+                        $name = $term->name;
                         $slug = $term->slug;
+                     //only show parent items for now
+                     if ($term->parent == 0){
                         echo '<li>';
                         //TODO fix parent slug relationship
                         echo '<a href="/browse/' . $slug .'">' . $name . '</a>';
                         echo '</li>';
+                 }
                     }//foreach 
             }
         } elseif (is_page()) {
