@@ -195,7 +195,7 @@ function the_breadcrumb() {
                         //TODO fix parent slug relationship
                         echo '<a href="/browse/' . $slug .'">' . $name . '</a>';
                         echo '</li>';
-                 }
+                     }
                     }//foreach 
             }
         } elseif (is_page()) {
