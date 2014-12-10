@@ -12,7 +12,7 @@ get_header(); ?>
             <div class="pure-g">
                 <div class="container">
                     <header class="pure-u-1">
-                        <h1>Directory of All City Departments</h1>
+                        <h1>City Departments</h1>
                     </header>
                 </div>
             </div>
@@ -29,8 +29,9 @@ get_header(); ?>
                                 $department_listing = new WP_Query(array( 
                                         'post_type' => $type, 
                                         'posts_per_page' => -1, 
-                                        'order_by' => 'title', 
-                                        'order'=> 'ASC' )
+                                        'orderby' => 'title', 
+                                        'order'=> 'asc' 
+                                    )
                                 );
                                
                                 if ( $department_listing->have_posts() ) : ?>

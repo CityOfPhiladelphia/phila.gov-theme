@@ -175,7 +175,7 @@ function the_breadcrumb() {
             echo '<li>Departments</li>';
         }elseif (is_page_template('taxonomy-topics.php') || is_tax('topics')){
             //browse
-            echo '<li><a href="/browse">Browse</a></li>';
+            //echo '<li><a href="/browse">Browse</a></li>';
             if (function_exists('currentURL')){
                 display_browse_breadcrumbs();
             }                    

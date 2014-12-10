@@ -12,6 +12,7 @@
 	</header><!-- .entry-header -->
     <div class="container">
         <div class="entry-content pure-u-1">
+            <div>
             <?php the_content(); ?>
             <?php
                 //wp_link_pages( array(
@@ -19,6 +20,7 @@
                     //'after'  => '</div>',
                 //) );
             ?>
+            </div>
         </div><!-- .entry-content -->
     </div>
 </article><!-- #post-## -->
