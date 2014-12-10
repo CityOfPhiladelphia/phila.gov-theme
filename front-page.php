@@ -95,7 +95,7 @@ get_header(); ?>
                         <section id="news" class="s-box">
                             <div class="pure-u-md-7-24">
                                 <div class="story s-box">
-                                    <a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/temp/snow.jpg"></a>
+                                    <a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/temp/snow.jpg" alt=""></a>
                                     <h3>Snow Emergency Routes</h3>
                                     <span>Streets</span>
                                     <p>Owners of vehicles on Emergency Routes must move them to alternate parking spaces to allow City forces to clear snow.</p>
@@ -105,20 +105,20 @@ get_header(); ?>
                           <div class="pure-u-1-24 hidden-xm hidden-sm"></div>
                             <div class="pure-u-md-7-24">
                                 <div class="story s-box">
-                                    <a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/temp/love-christmas.jpg"></a>
-                                    <h3>Must-See Holiday Attractions</h3>
-                                    <span>Visit Philly</span>
-                                    <p>The City of Brotherly Love hosts a festive array of iconic holiday attractions.</p>
+                                    <a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/temp/pgw-sign.jpg" alt=""></a>
+                                    <h3>Purchase of PGW Terminated</h3>
+                                    <span>United Illuminating Company</span>
+                                    <p>United Illuminating Company announced termination of its agreement to purchase Philadelphia Gas Works assets.</p>
                                     <a href="#" class="read-more">Read More</a>
                                 </div>
                             </div>
                             <div class="pure-u-1-24 hidden-xm hidden-sm"></div>
                             <div class="pure-u-md-7-24">
                                 <div class="story s-box">
-                                    <a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/temp/snow.jpg"></a>
-                                    <h3>Neque porro quisquam est</h3>
-                                    <span>Sed ut perspiciatis unde omnis</span>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/temp/mayor-nutter-signs-bill.jpg" alt=""></a>
+                                    <h3>Marijuana Decriminalization</h3>
+                                    <span>Mayor's Office</span>
+                                    <p>Mayor Nutter signed legislation to decriminalize the possession and use of 30 grams or less of marijuana. It is still against the law to use, possess or distribute marijuana. Know the facts.</p>
                                     <a href="#" class="read-more">Read More</a>
                                 </div>
                             </div>   
