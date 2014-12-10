@@ -11,6 +11,7 @@ if ( ! function_exists( 'phila_gov_paging_nav' ) ) :
 /**
  * Display navigation to next/previous set of posts when applicable.
  */
+
 function phila_gov_paging_nav() {
 	// Don't print empty markup if there's only one page.
 	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {

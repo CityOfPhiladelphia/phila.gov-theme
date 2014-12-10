@@ -30,7 +30,7 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php phila_gov_paging_nav(); ?>
+			<?php //phila_gov_paging_nav(); ?>
 
 		<?php else : ?>
 

@@ -185,18 +185,40 @@ function the_breadcrumb() {
                     echo '<li>' . $category[0]->cat_name . '</li>';
                 }else{
                 //service/info pages
-                 $term_list = wp_get_post_terms($post->ID, 'topics', array('parent'=> 0, 'orderby' => 'parent' ));
+                 $term_list = wp_get_post_terms($post->ID, 'topics', array('parent'=> 1, 'orderby' => 'parent', 'fields'=>'all'));
+                
+                $counter = 0;
+                //counter for the first topic
                  foreach ($term_list as $term){
                         $name = $term->name;
                         $slug = $term->slug;
-                     //only show parent items for now
-                     if ($term->parent == 0){
-                        echo '<li>';
-                        //TODO fix parent slug relationship
-                        echo '<a href="/browse/' . $slug .'">' . $name . '</a>';
-                        echo '</li>';
-                     }
-                    }//foreach 
+                        if ($counter >= 0) {
+
+                            echo '<li>';
+                            //TODO fix parent slug relationship
+                            echo '<a href="/browse/' . $slug .'">' . $name . '</a>';
+                            echo '</li>';
+                            $parent_term = $slug;
+                            break;
+                        }
+                   $counter++;
+                }//foreach 
+                //counter for the second
+                foreach ($term_list as $term){
+                        $name = $term->name;
+                        $slug = $term->slug;
+                        if ($counter >= 1) {
+                            echo '<li>';
+                            //TODO fix parent slug relationship
+                            echo '<a href="/browse/' . $parent_term . '/' . $slug .'">' . $name . '</a>';
+                            echo '</li>';
+                            break;
+                        }
+                   $counter++;
+                }//foreach 
+            echo '<li>';
+            the_title();   
+            echo '</li>';
             }
         } elseif (is_page()) {
             if($post->post_parent){

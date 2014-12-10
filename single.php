@@ -14,7 +14,7 @@ get_header(); ?>
 
 			<?php get_template_part( 'content', 'single' ); ?>
 
-			<?php phila_gov_post_nav(); ?>
+			<?php //phila_gov_post_nav(); ?>
 
 		<?php endwhile; // end of the loop. ?>
 

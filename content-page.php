@@ -21,7 +21,4 @@
             ?>
         </div><!-- .entry-content -->
     </div>
-	<footer class="entry-footer pure-u-1">
-		<?php edit_post_link( __( 'Edit', 'phila-gov' ), '<span class="edit-link">', '</span>' ); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
