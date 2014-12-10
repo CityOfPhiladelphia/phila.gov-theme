@@ -14,30 +14,33 @@
         $custom_terms = get_the_terms($post->ID, 'topics');
         $currentID = get_the_ID();
 
-        if( $custom_terms ){
+        if( $custom_terms){
             // tax_query params
-            $tax_query = array();
+           // $tax_query = array();
 
             // loop through topics and build a tax query
             foreach( $custom_terms as $custom_term ) {
-
-                $tax_query[] = array(
-                    'taxonomy' => 'topics',
-                    'field' => 'slug',
-                    'terms' => $custom_term->slug
-                );
-
+                $terms[] = $custom_term->slug;   
+            
             }
-
+            
+            $tax_query = array('relation' => 'OR',
+                    array (
+                        'taxonomy' => 'topics',
+                        'field' => 'slug',
+                        'terms' => $terms
+                    )
+            );
             // put all the WP_Query args together
             $args = array( 'post_type' => array(
                                 'post',
                                 'service_post'
-                                    ),
+                                ),
+                            //'topics' => $custom_terms,
                             'posts_per_page' => 5,
                             'tax_query' => $tax_query,
-                            'post__not_in' => array($currentID)
-                         );
+                            //'post__not_in' => array($currentID)
+            );
             $loop = new WP_Query($args);
 
             if( $loop->have_posts() ) {
