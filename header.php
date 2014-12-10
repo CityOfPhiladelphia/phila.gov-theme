@@ -61,7 +61,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="container">
             <div class="pure-u-1">
                 <div class="float-left">
-                    <span class="h2">Experimental Prototype</span> <p>This site might contain errors, inaccuracies and inconsistencies.</p>
+                    <span class="h2">Experimental Prototype</span> <p>This site may contain errors, inaccuracies, and inconsistencies.</p>
                 </div>
                     <a href="<?php get_template_part( 'content', 'feedback-url' ); ?>" target="_blank"><?php printf( __( 'Provide Feedback', 'phila-gov' ), 'WordPress' ); ?></a>
             </div>
