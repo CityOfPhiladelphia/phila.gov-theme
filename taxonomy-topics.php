@@ -12,7 +12,7 @@ get_header(); ?>
             <div class="pure-g">
                 <div class="container">
                     <header class="pure-u-1">
-                        <h1>DIRECTORY OF SERVICES AND INFORMATION</h1>
+                        <h1>Services and Information</h1>
                     </header>
                 </div>
             </div>

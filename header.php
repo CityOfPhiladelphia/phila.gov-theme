@@ -16,7 +16,7 @@
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
     <!--[if lte IE 8]>
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/phila.gov-styles/ie8.css" type="text/css" media="all">
-     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+     <link rel="stylesheet" href="//yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
           <p class="browsehappy alert">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     <!--[if IE 9]>
@@ -41,14 +41,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div id="page" class="hfeed site">
     <header id="masthead" class="site-header pure-g" role="banner">
         <div class="container">
-            <div class="site-branding pure-u-1 pure-u-md-1-2">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                    <img src="<?php echo get_stylesheet_directory_uri();?>/img/city-of-philadelphia@2x.png" alt="City of Philadelphia" height="100" class="hidden-xs">
-                <img src="<?php echo get_stylesheet_directory_uri();?>/img/city-of-philadelphia-mobile@2x.png" alt="City of Philadelphia" height="50" class="visible-xs"></a>
-                
-                
-                <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-                <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+            <div class="site-branding">
+                <div class="pure-u-1-4 pure-u-md-1-2">
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                        <img src="<?php echo get_stylesheet_directory_uri();?>/img/city-of-philadelphia@2x.png" alt="City of Philadelphia" height="100" class="hidden-xs">
+                    <img src="<?php echo get_stylesheet_directory_uri();?>/img/city-of-philadelphia-mobile@2x.png" alt="City of Philadelphia" height="50" class="visible-xs"></a>
+
+
+                    <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+                    <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+                </div>
+                <?php if(!is_front_page()) { ?> <div class="search-site pure-u-3-4 pure-u-md-1-2"> <?php get_search_form(); ?> </div> <?php }?>
             </div><!-- .site-branding -->
 
             <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'phila-gov' ); ?></a>
@@ -57,7 +60,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <button class="menu-toggle"><?php // _e( 'Primary Menu', 'phila-gov' ); ?></button>
                 <?php // wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
             </nav><!-- #site-navigation -->
-            <?php if(!is_front_page()) { ?> <div class="search-site pure-u-1 pure-u-md-1-2"> <?php get_search_form(); ?> </div> <?php }?>
         </div>
     </header><!-- #masthead -->
 <?php if (alpha_alert()){ //show the alpha alert if set to true in functions.php ?>

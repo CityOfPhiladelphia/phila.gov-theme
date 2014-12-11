@@ -25,7 +25,7 @@ get_header(); ?>
                             </div>
                             <div id="popular" class="pure-g">
                                 <div class="pure-u-1-4">
-                                    <a href="http://www.phila.gov/311/requestsubmission.html">
+                                    <a href="http://www.phila.gov/311/form/Pages/default.aspx">
                                         <span class="fa-stack fa-3x">
                                           <i class="fa fa-circle fa-stack-2x"></i>
                                           <i class="fa fa-exclamation-triangle fa-stack-1x fa-inverse"></i>
@@ -34,7 +34,7 @@ get_header(); ?>
                                     </a>
                                 </div>
                                 <div class="pure-u-1-4">
-                                    <a href="/browse/pay-a-bill">
+                                    <a href="/browse/taxes-and-payments/make-a-payment">
                                        <span class="fa-stack fa-3x">
                                           <i class="fa fa-circle fa-stack-2x"></i>
                                           <i class="fa fa-credit-card fa-stack-1x fa-inverse"></i>
@@ -65,7 +65,7 @@ get_header(); ?>
                             </div>
                         </section>
                     <section id="services" class="pure-u-md-1-2">
-                        <div class="s-box">
+                        <div class="m-box">
                             <h1 class="h2">Services & Information</h1>
                             <?php 
                             /* temporary top-level topics list w/ descriptions */
