@@ -18,7 +18,7 @@ get_header(); ?>
             </div>
             <div class="pure-g">
                 <div class="container">
-                    <section class="pure-u-1-3 topic">    
+                    <section class="pure-u-1 pure-u-md-1-3 topic">    
                         <ul class="parent-topics">
                             <?php get_topics(); ?>
                         </ul>
@@ -29,12 +29,18 @@ get_header(); ?>
                     </nav>
                     </section>
           
-                    <div class="pure-u-2-3 results">
+                    <div class="pure-u-1 pure-u-md-2-3 results">
                         <?php display_filtered_pages(); ?>
                     </div>
-			     
                    </div> <!-- #servinfo-list-container -->
+        
+                    <nav class="pure-u-1 topics-nav visible-xs">
+                        <h2>All Topics</h2>
+                        <?php get_parent_topics(); ?>
+                    </nav>
+                
                 </div>
+            
             </div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
