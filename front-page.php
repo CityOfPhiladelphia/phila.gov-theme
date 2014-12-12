@@ -19,7 +19,7 @@ get_header(); ?>
                                 </h1>
                             </header>
                             <div class="search">
-                                <p>Find Philadelphia's government services and information, <strong>simpler & faster.</strong></p>
+                                <p>Find Philadelphia's government services & information, <strong>simpler & faster.</strong></p>
                                 <?php get_search_form(); ?>
                                 <div class="search-help">e.g. Property Information, Department of Revenue, Water Billing</div>
                             </div>
@@ -28,9 +28,9 @@ get_header(); ?>
                                     <a href="http://www.phila.gov/311/form/Pages/default.aspx">
                                         <span class="fa-stack fa-3x">
                                           <i class="fa fa-circle fa-stack-2x"></i>
-                                          <i class="fa fa-exclamation-triangle fa-stack-1x fa-inverse"></i>
+                                          <i class="fa fa-wrench fa-stack-1x fa-inverse"></i>
                                         </span>
-                                        <h2>Report a problem to 311</h2>
+                                        <h2>Submit a Request</h2>
                                     </a>
                                 </div>
                                 <div class="pure-u-1-4">
@@ -90,6 +90,7 @@ get_header(); ?>
                     </section>
                 </div><!--.container -->
             </div><!--.pure-g -->
+            
             <div class="pure-g">
                 <div class="container">
                         <section id="news" class="s-box">
@@ -126,6 +127,7 @@ get_header(); ?>
                         </section><!--#news-->
                     </div><!--.pure-u-1-->
                 </div><!-- .pure-g -->
+            
                 <section id="active" class="pure-g">
                         <div class="container">
                             <div class="pure-u-1 pure-u-lg-17-24">
@@ -165,10 +167,12 @@ get_header(); ?>
                                     <a class="pure-button news" href="https://cityofphiladelphia.wordpress.com/"><span>News</span></a>
                                     <a class="pure-button maps" href="http://phila.gov/map"><span>Maps</span></a>
                                 </div>
-                            </section><!--#news-->
+                            
                             </div>
-                    </div><!--.pure-u-1-->
-                </div><!-- .pure-g -->
+                        </section><!--#news-->
+                            
+                 
+            
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

@@ -8,10 +8,7 @@ new List('servinfo-list-container', {
     valueNames: ['item', 'item-desc']
 });
 
-jQuery(document).ready(function($) {
-    //$('nav li a[href^="browse' + location.pathname.split("/")[1] + '"]').addClass('active');
-
-    
+jQuery(document).ready(function($) {    
     /*
     *       phila.gov/browse 
     */
@@ -35,6 +32,7 @@ jQuery(document).ready(function($) {
             $('.parent-topics .parent-description').hide();
             $('.parent-topics .child-description').not(theParentClassName).hide();
             $(theParentClassName).addClass('current-topic');
+            $('.parent.current-topic a').removeAttr('href');
         }else if (childClass == childURL){
             $('.parent-topics li').not(theParentClassName).hide();
             $('.parent-topics .parent-description').hide();
@@ -42,6 +40,7 @@ jQuery(document).ready(function($) {
             $('.parent-topics .child-description').not(theParentClassName).hide();
             $(theParentClassName).addClass('current-topic');
             $(theChildClassName).addClass('current');
+            $('.parent.current-topic a').removeAttr('href');
         }
     });
 });
