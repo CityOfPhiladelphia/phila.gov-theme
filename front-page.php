@@ -9,17 +9,16 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-            <div class="pure-g">
+            <div class="pure-g home-top">
                 <div class="container">
                     <section id="welcome" class="pure-u-md-1-2">
                         <div class="s-box-right">
+                            <div class="search">
                             <header>
                                 <h1>
-                                    Welcome to <?php util_echo_website_url(); ?>
+                                    What can we help you find?
                                 </h1>
                             </header>
-                            <div class="search">
-                                <p>Find Philadelphia's government services & information, <strong>simpler & faster.</strong></p>
                                 <?php get_search_form(); ?>
                                 <div class="search-help">e.g. Property Information, Department of Revenue, Water Billing</div>
                             </div>
@@ -28,7 +27,7 @@ get_header(); ?>
                                     <a href="http://www.phila.gov/311/form/Pages/default.aspx">
                                         <span class="fa-stack fa-3x">
                                           <i class="fa fa-circle fa-stack-2x"></i>
-                                          <i class="fa fa-wrench fa-stack-1x fa-inverse"></i>
+                                          <i class="fa fa-stack-1x fa-inverse"><h6>311</h6></i>
                                         </span>
                                         <h2>Submit a Request</h2>
                                     </a>
@@ -66,7 +65,6 @@ get_header(); ?>
                         </section>
                     <section id="services" class="pure-u-md-1-2">
                         <div class="m-box">
-                            <h1 class="h2">Services & Information</h1>
                             <?php 
                             /* temporary top-level topics list w/ descriptions */
                                $args = array(
@@ -91,7 +89,7 @@ get_header(); ?>
                 </div><!--.container -->
             </div><!--.pure-g -->
             
-            <div class="pure-g">
+            <div class="pure-g home-news">
                 <div class="container">
                         <section id="news" class="s-box">
                             <?php 

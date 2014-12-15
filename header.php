@@ -39,6 +39,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 
 <div id="page" class="hfeed site">
+    <?php if (is_home() && alpha_alert()){ //show the alpha alert if set to true in functions.php ?>
+    <div class="alpha-alert pure-g">
+        <div class="container">
+            <div class="pure-u-1">
+                <div class="float-left">
+                    <span class="h2">Experimental Prototype</span> <p>This site may contain errors, inaccuracies, and inconsistencies.</p>
+                </div>
+                    <a href="<?php get_template_part( 'content', 'feedback-url' ); ?>" target="_blank"><?php printf( __( 'Provide Feedback', 'phila-gov' ), 'WordPress' ); ?></a>
+            </div>
+        </div>
+    </div>
+<?php }  ?>
     <header id="masthead" class="site-header pure-g" role="banner">
         <div class="container">
             <div class="site-branding">
@@ -53,7 +65,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </div>
                 <?php if(!is_front_page()) { ?> <div class="search-site pure-u-3-4 pure-u-md-1-2"> <?php get_search_form(); ?> </div> <?php }?>
             </div><!-- .site-branding -->
-
+            
+        
             <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'phila-gov' ); ?></a>
             <!--hide nav for now
                 <nav id="site-navigation" class="main-navigation" role="navigation">
@@ -62,7 +75,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </nav><!-- #site-navigation -->
         </div>
     </header><!-- #masthead -->
-<?php if (alpha_alert()){ //show the alpha alert if set to true in functions.php ?>
+  <?php if ((!is_home()) && alpha_alert()){ //show the alpha alert if set to true in functions.php ?>
     <div class="alpha-alert pure-g">
         <div class="container">
             <div class="pure-u-1">
