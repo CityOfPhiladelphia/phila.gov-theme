@@ -103,7 +103,7 @@ get_header(); ?>
                                     <a href="#" class="read-more">Read More</a>
                                 </div>
                             </div>
-                          <div class="pure-u-1-24 hidden-xm hidden-sm"></div>
+                          <div class="pure-u-1-24 visible-md hidden-xm hidden-sm"></div>
                             <div class="pure-u-md-7-24">
                                 <div class="story s-box">
                                     <a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/temp/pgw-sign.jpg" alt=""></a>
@@ -113,7 +113,7 @@ get_header(); ?>
                                     <a href="#" class="read-more">Read More</a>
                                 </div>
                             </div>
-                            <div class="pure-u-1-24 hidden-xm hidden-sm"></div>
+                            <div class="pure-u-1-24 visible-md hidden-xm hidden-sm"></div>
                             <div class="pure-u-md-7-24">
                                 <div class="story s-box">
                                     <a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/temp/mayor-nutter-signs-bill.jpg" alt=""></a>
