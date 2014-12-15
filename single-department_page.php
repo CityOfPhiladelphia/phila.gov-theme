@@ -23,7 +23,9 @@ get_header(); ?>
             //check for URL entry to indicate external website
             if (function_exists('rwmb_meta')) {
                 $external_site = rwmb_meta( 'phila_dept_url', $args = array('type' => 'url'));
-            if (!$external_site == ''){ ?>
+            if (!$external_site == ''){ 
+            //TODO check IF on blank
+                ?>
               <div class="external-site">
                   <p><?php the_title(); ?> has a <strong>separate website</strong>: <a href="<?php echo rwmb_meta( 'phila_dept_url', $args = array('type' => 'url')); ?>"><?php echo rwmb_meta( 'phila_dept_url', $args = array('type' => 'url')); ?></a></p>
            

@@ -94,36 +94,31 @@ get_header(); ?>
             <div class="pure-g">
                 <div class="container">
                         <section id="news" class="s-box">
-                            <div class="pure-u-md-7-24">
-                                <div class="story s-box">
-                                    <a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/temp/snow.jpg" alt=""></a>
-                                    <h3>Snow Emergency Routes</h3>
-                                    <span>Streets</span>
-                                    <p>Owners of vehicles on Emergency Routes must move them to alternate parking spaces to allow City forces to clear snow.</p>
-                                    <a href="#" class="read-more">Read More</a>
+                            <?php 
+                                $args = array(
+                                    'post_type' => array ('news_post'),
+                                    'post_count'    => 3
+                                );
+                                $counter = 0;
+                                $news_query = new WP_Query($args);
+                                if ( $news_query->have_posts() ) : while ( $news_query->have_posts() ) : $news_query->the_post(); ?>
+                                <div class="pure-u-md-7-24">
+                                    <div class="story s-box">
+                                        <?php get_home_news(); ?>
+                                    </div>
                                 </div>
-                            </div>
-                          <div class="pure-u-1-24 visible-md hidden-xm hidden-sm"></div>
-                            <div class="pure-u-md-7-24">
-                                <div class="story s-box">
-                                    <a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/temp/pgw-sign.jpg" alt=""></a>
-                                    <h3>Purchase of PGW Terminated</h3>
-                                    <span>United Illuminating Company</span>
-                                    <p>United Illuminating Company announced termination of its agreement to purchase Philadelphia Gas Works assets.</p>
-                                    <a href="#" class="read-more">Read More</a>
-                                </div>
-                            </div>
-                            <div class="pure-u-1-24 visible-md hidden-xm hidden-sm"></div>
-                            <div class="pure-u-md-7-24">
-                                <div class="story s-box">
-                                    <a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/temp/mayor-nutter-signs-bill.jpg" alt=""></a>
-                                    <h3>Marijuana Decriminalization</h3>
-                                    <span>Mayor's Office</span>
-                                    <p>Mayor Nutter signed legislation to decriminalize the possession and use of 30 grams or less of marijuana. It is still against the law to use, possess or distribute marijuana. Know the facts.</p>
-                                    <a href="#" class="read-more">Read More</a>
-                                </div>
-                            </div>   
-                          
+                            <?php
+                                $counter++;
+                                if ($counter === 1 || $counter === 2){
+                                 echo '<div class="pure-u-1-24 visible-md hidden-xm hidden-sm"></div>';
+                                }    
+                            ?>
+                                <?php endwhile; ?>
+                            
+                                <?php else : ?>
+                                    <div class="alert">No news!</div>
+                                <?php endif; ?>
+
                         </section><!--#news-->
                     </div><!--.pure-u-1-->
                 </div><!-- .pure-g -->

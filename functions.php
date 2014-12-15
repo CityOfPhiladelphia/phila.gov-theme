@@ -38,7 +38,7 @@ function phila_gov_setup() {
 	 *
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
-	//add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'post-thumbnails' );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -246,30 +246,7 @@ function the_breadcrumb() {
 }
 
 
-/**
- * get service URL from pods metabox
- */
-//TODO find a better way of integrating this 
 
-function service_page_link() {
-    global $post;
-    $params = array(); 
-
-    // Create and find in one shot 
-        $service_post = pods( 'service_post', $params); 
-        $display_pod_description = pods_field_display('service_post',  get_the_id(), 'service_introduction', false);
-        $display_pod_url = pods_field_display('service_post',  get_the_id(), 'service_url', false);
-     
-        if ( !$display_pod_description == '') { ?>
-    
-            <p><?php echo $display_pod_description; ?></p> <?php
-          }
-
-        if ( !$display_pod_url == '') { ?>
-            <a href="<?php echo $display_pod_url; ?>" class="pure-button pure-button-primary">Start Now</a>   
-    <?php 
-    } // end of found posts 
-}
 
 
 /**
@@ -284,4 +261,30 @@ function util_echo_website_url(){
 //should there be an alert bar at the top of the site?
 function alpha_alert(){
     return true;
+}
+
+function get_home_news(){
+    $category = get_the_category(); 
+    $url = rwmb_meta('phila_news_url', $args = array('type'=>'url'));
+    $contributor = rwmb_meta('phila_news_contributor', $args = array('type'=>'text'));
+    $desc = rwmb_meta('phila_news_desc', $args = array('type'=>'textarea'));
+    
+    echo '<a href="' . $url .'" target="_blank">';
+    the_post_thumbnail( 'full' );
+    echo '<span class="accessible">Opens in new window</span></a>';
+    
+    echo '<a href="' . $url .'" target="_blank">';
+    the_title('<h3>', '</h3>'); 
+    echo '<span class="accessible">Opens in new window</span></a>';
+    
+    if (function_exists('rwmb_meta')) {   
+        if ($contributor === ''){
+            echo '<span>' . $category[0]->cat_name . '</span>';
+        }else {
+            echo '<span>' . $contributor . '</span>';
+        }
+        
+        echo '<p>' . $desc  . '</p>';
+                    
+    } 
 }
