@@ -23,7 +23,7 @@ get_header(); ?>
                             <?php get_topics(); ?>
                         </ul>
                      
-                    <nav class="topics-nav hidden-md hidden-sm hidden-xs">
+                    <nav class="topics-nav visible-lg hidden-md hidden-xs hidden-sm">
                         <h2>All Topics</h2>
                         <?php get_parent_topics(); ?>
                     </nav>
@@ -34,7 +34,7 @@ get_header(); ?>
                     </div>
                    </div> <!-- #servinfo-list-container -->
         
-                    <nav class="pure-u-1 topics-nav visible-xs">
+                    <nav class="pure-u-1 topics-nav visible-md hidden-lg">
                         <h2>All Topics</h2>
                         <?php get_parent_topics(); ?>
                     </nav>

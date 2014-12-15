@@ -41,8 +41,18 @@ jQuery(document).ready(function($) {
             $(theParentClassName).addClass('current-topic');
             $(theChildClassName).addClass('current');
             $('.parent.current-topic a').removeAttr('href');
-        }
-    });
-});
+        }//end else if
 
+    });//end topics
+    
+	var mq = window.matchMedia('(max-width: 48em)');
+    
+    if (mq.matches) {
+        var target = $('.topic li.current-topic');
+        $('html, body').animate({
+            scrollTop: target.offset().top
+        }, 1000);
+    }  
+
+});
 
