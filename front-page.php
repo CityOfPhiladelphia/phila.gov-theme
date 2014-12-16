@@ -133,7 +133,7 @@ get_header(); ?>
                                         <span>Property Assessment</span></dt>
                                         <dd class="pure-u-1 pure-u-md-2-3">Search and compare property data in the City of Philadelphia</dd>
 
-                                        <dt class="pure-u-1 pure-u-md-1-3"><a href="http://www.phila.gov/revenue/realestatetax/" class="h3">Property Information</a>
+                                        <dt class="pure-u-1 pure-u-md-1-3"><a href="http://www.phila.gov/revenue/realestatetax/" class="h3">Real Estate Tax</a>
                                         <span>Revenue</span></dt>
                                         <dd class="pure-u-1 pure-u-md-2-3">Real Estate Tax bills are sent in December for the following year and payments are due March 31st.</dd>
 

@@ -45,14 +45,17 @@ jQuery(document).ready(function($) {
 
     });//end topics
     
-	var mq = window.matchMedia('(max-width: 48em)');
-    
-    if (mq.matches) {
-        var target = $('.topic li.current-topic');
-        $('html, body').animate({
-            scrollTop: target.offset().top
-        }, 1000);
-    }  
+    var currentURL = window.location.pathname;
+    if (currentURL.indexOf('browse') != -1){
+        var mq = window.matchMedia('(max-width: 48em)');
+
+        if (mq.matches) {
+            var target = $('.topic li.current-topic');
+            $('html, body').animate({
+                scrollTop: target.offset().top
+            }, 1000);
+        }  
+    }
 
 });
 
