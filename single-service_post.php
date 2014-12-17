@@ -21,11 +21,17 @@ get_header(); ?>
             ?>    
            <?php while ( have_posts() ) : the_post();
             if (function_exists('rwmb_meta')) {
+                $service_url = rwmb_meta( 'phila_service_url', $args = array('type' => 'url'));
+                $service_name = rwmb_meta( 'phila_service_detail', $args = array('type' => 'textrea'));
                 echo '<p class="description">' . rwmb_meta( 'phila_service_desc', $args = array('type' => 'textarea')) . '</p>';
-                echo '<a class="pure-button pure-button-primary" href="';
-                echo rwmb_meta( 'phila_service_url', $args = array('type' => 'url'));
-                echo '">' . 'Start Now' . '</a>';
-                echo '<span class="detail">' . rwmb_meta( 'phila_service_detail', $args = array('type' => 'textrea')) . '</span>';
+                if (!$service_url == ''){
+                    echo '<a class="pure-button pure-button-primary" href="';
+                    echo $service_url;
+                    echo '">' . 'Start Now' . '<span class="accessible">external link</span></a>';
+                }
+                if (!$service_name == ''){
+                    echo '<span class="detail">On the ' . $service_name . ' website</span>';
+                }
             }
                 the_content();
 
