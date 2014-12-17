@@ -12,21 +12,30 @@ get_header(); ?>
             <div class="pure-g">
                 <div class="container">
                     <header class="pure-u-1">
-                        <h1>Services and Information</h1>
+                        <?php  
+                            global $wp_query;
+                            $term = $wp_query->get_queried_object();
+                            $title = $term->name;
+                            if (!$title == ''){
+                                echo '<h1>' . $title . '</h1>';  
+                            }else{
+                                echo '<h1>Services and Information Finder</h1>';
+                            }
+                        ?>
                     </header>
                 </div>
             </div>
             <div class="pure-g">
                 <div class="container">
-                    <section class="pure-u-1 pure-u-md-1-3 topic">    
+                    <nav class="topics-nav visible-lg hidden-md hidden-xs hidden-sm pure-u-md-1-3">
+                        <?php get_parent_topics(); ?>
+                    </nav>
+                    
+                    <section class="pure-u-md-1-3 topic">    
                         <ul class="parent-topics">
                             <?php get_topics(); ?>
                         </ul>
                      
-                    <nav class="topics-nav visible-lg hidden-md hidden-xs hidden-sm">
-                        <h2>All Topics</h2>
-                        <?php get_parent_topics(); ?>
-                    </nav>
                     </section>
           
                     <div class="pure-u-1 pure-u-md-2-3 results">
@@ -34,11 +43,6 @@ get_header(); ?>
                     </div>
                    </div> <!-- #servinfo-list-container -->
         
-                    <nav class="pure-u-1 topics-nav visible-md hidden-lg">
-                        <h2>All Topics</h2>
-                        <?php get_parent_topics(); ?>
-                    </nav>
-                
                 </div>
             
             </div>
