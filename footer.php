@@ -9,11 +9,12 @@
 ?>
 
       </div><!-- #content -->
+ </div><!-- #page -->
 
       <footer id="colophon" class="pure-g site-footer" role="contentinfo">
             <div class="container">
                 <div class="site-info pure-u-1-2">
-                    <a href="<?php get_template_part( 'content', 'feedback-url' ); ?>" target="_blank"><?php printf( __( 'Provide Feedback', 'phila-gov' ), 'WordPress' ); ?></a>
+                    <a href="<?php get_template_part( 'content', 'feedback-url' ); ?>" target="_blank"><?php printf( __( 'Provide Feedback', 'phila-gov' )); ?></a>
                     <?php //printf( __( 'Theme: %1$s by %2$s.', 'phila-gov' ), 'phila-gov', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
                  </div><!-- .site-info -->
                     <nav class="pure-u-1-2">

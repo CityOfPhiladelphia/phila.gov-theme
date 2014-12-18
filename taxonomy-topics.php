@@ -38,14 +38,13 @@ get_header(); ?>
                      
                     </section>
           
-                    <div class="pure-u-1 pure-u-md-2-3 results">
+                    <div class="pure-u-1 pure-u-md-5-8 results">
                         <?php display_filtered_pages(); ?>
                     </div>
-                   </div> <!-- #servinfo-list-container -->
+                   </div> <!-- .container -->
         
                 </div>
             
-            </div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

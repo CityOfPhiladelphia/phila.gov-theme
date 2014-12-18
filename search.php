@@ -15,7 +15,7 @@ get_header(); ?>
             <?php if ( have_posts() ) : ?>
 
                     <header class="pure-u-1-3">
-                        <h1><?php printf( __( 'You\'ve searched for:', 'phila-gov' )); ?></h1>
+                        <h1><?php printf( __( 'Search results for:', 'phila-gov' )); ?></h1>
                     </header><!-- .page-header -->
                     <div class="search-site pure-u-2-3"> <?php get_search_form(); ?> </div>
                 </div><!--.container-->
