@@ -7,17 +7,35 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area">
+	<section id="primary" class="content-area search">
 		<main id="main" class="site-main" role="main">
+            <div class="pure-g search-head">
+                <div class="container">
 
-		<?php if ( have_posts() ) : ?>
+            <?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'phila-gov' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-			</header><!-- .page-header -->
+                    <header class="pure-u-1-3">
+                        <h1><?php printf( __( 'You\'ve searched for:', 'phila-gov' )); ?></h1>
+                    </header><!-- .page-header -->
+                    <div class="search-site pure-u-2-3"> <?php get_search_form(); ?> </div>
+                </div><!--.container-->
+            </div><!--.pure-g-->
             <div class="pure-g">
                 <div class="container">
-                    <div class="pure-u-1 search-results">
+                    <div class="pure-u-1-4">
+                    <?php printf( __( 'Displaying ', 'phila-gov' ));
+                            $num = $wp_query->post_count; if (have_posts()) : echo '<strong>' . $num .' </strong>'; endif;
+                            printf( __( 'of ', 'phila-gov' ));
+                            $search_count = 0; 
+                            $search = new WP_Query("s=$s & showposts=-1"); 
+                            if($search->have_posts()) : while($search->have_posts()) : $search->the_post(); $search_count++; 
+                        endwhile;  
+                        endif; 
+                        echo '<strong>' . $search_count . '</strong>';
+                        printf( __( ' Results', 'phila-gov' ));
+                        ?>
+                    </div>
+                    <div class="pure-u-3-4 search-results">
                         <?php /* Start the Loop */ ?>
                         <?php while ( have_posts() ) : the_post(); ?>
 

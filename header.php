@@ -63,7 +63,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
                     <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
                 </div>
-                <?php if(!is_front_page()) { ?> <div class="search-site pure-u-3-4 pure-u-md-1-2"> <?php get_search_form(); ?> </div> <?php }?>
+                <?php if(!is_front_page()) { if (!is_search()) {?> <div class="search-site pure-u-3-4 pure-u-md-1-2"> <?php get_search_form(); ?> </div> <?php } }?>
             </div><!-- .site-branding -->
             
         
