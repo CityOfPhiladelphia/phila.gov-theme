@@ -15,7 +15,7 @@ get_header(); ?>
                     <?php if ( have_posts() ) : ?>
 
                         <header class="page-header">
-                            <h1 class="page-title">
+                            <h1 class="page-title container">
                                 <?php
                                     if ( is_category() ) :
                                         single_cat_title();
