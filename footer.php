@@ -19,9 +19,9 @@
                  </div><!-- .site-info -->
                     <nav class="pure-u-md-3-4 pure-u-1">
                         <ul class="float-right">
-                            <li><a href="#">Terms of use</a></li>
-                            <li><a href="#">Right to know</a></li>
-                            <li><a href="http://www.phila.gov/privacy/pdfs/FinalCityOpenRecords.pdf">Privacy Policy (PDF)</a></li>
+                            <li><a href="/terms-of-use">Terms of use</a></li>
+                            <li><a href="http://www.phila.gov/privacy/pdfs/FinalCityOpenRecords.pdf">Right to know (pdf)</a></li>
+                            <li><a href="/privacypolicy">Privacy Policy</a></li>
                         </ul>
                     </nav>
             </div>
