@@ -13,16 +13,15 @@
 
       <footer id="colophon" class="pure-g site-footer" role="contentinfo">
             <div class="container">
-                <div class="site-info pure-u-1-2">
+                <div class="site-info pure-u-md-1-4 pure-u-1">
                     <a href="<?php get_template_part( 'content', 'feedback-url' ); ?>" target="_blank"><?php printf( __( 'Provide Feedback', 'phila-gov' )); ?></a>
                     <?php //printf( __( 'Theme: %1$s by %2$s.', 'phila-gov' ), 'phila-gov', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
                  </div><!-- .site-info -->
-                    <nav class="pure-u-1-2">
-                        <ul>
+                    <nav class="pure-u-md-3-4 pure-u-1">
+                        <ul class="float-right">
                             <li><a href="#">Terms of use</a></li>
                             <li><a href="#">Right to know</a></li>
-                            <li><a href="#">HIPAA</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="http://www.phila.gov/privacy/pdfs/FinalCityOpenRecords.pdf">Privacy Policy (PDF)</a></li>
                         </ul>
                     </nav>
             </div>

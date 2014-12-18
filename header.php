@@ -47,7 +47,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <span class="h2">Experimental Prototype</span> <p>This site may contain errors, inaccuracies, and inconsistencies.</p>
                 </div>
                 <div class="float-right">
-                    <a href="#" target="_blank"><?php printf( __( 'About Alpha', 'phila-gov' )); ?></a>
+                    <a href="/about"><?php printf( __( 'About Alpha', 'phila-gov' )); ?></a>
                     <a href="<?php get_template_part( 'content', 'feedback-url' ); ?>" target="_blank"><?php printf( __( 'Provide Feedback', 'phila-gov' ), 'WordPress' ); ?></a>
                 </div>
             </div>
@@ -86,7 +86,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <span class="h2">Experimental Prototype</span> <p>This site may contain errors, inaccuracies, and inconsistencies.</p>
                 </div>
                 <div class="float-right">
-                    <a href="#" target="_blank"><?php printf( __( 'About Alpha', 'phila-gov' )); ?></a>
+                    <a href="/about"><?php printf( __( 'About Alpha', 'phila-gov' )); ?></a>
                     <a href="<?php get_template_part( 'content', 'feedback-url' ); ?>" target="_blank"><?php printf( __( 'Provide Feedback', 'phila-gov' )); ?></a>
                 </div>
             </div>

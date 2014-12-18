@@ -10,7 +10,9 @@
 
 <section class="no-results not-found">
         <header class="container">
-            <h1 class="pure-u-1"><?php _e( 'Nothing Found', 'phila-gov' ); ?></h1>
+            <div class="pure-u-1">
+                <h1><?php _e( 'Nothing Found', 'phila-gov' ); ?></h1>
+            </div>
         </header><!-- .page-header -->
    
     <div class="pure-g">

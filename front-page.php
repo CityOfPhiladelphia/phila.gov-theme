@@ -24,39 +24,43 @@ get_header(); ?>
                             </div>
                             <div id="popular" class="pure-g">
                                 <div class="pure-u-1-4">
-                                    <a href="http://www.phila.gov/311/form/Pages/default.aspx">
+                                    <a href="http://www.phila.gov/311/form/Pages/default.aspx" target="_blank">
                                         <span class="fa-stack fa-3x">
                                           <i class="fa fa-circle fa-stack-2x"></i>
                                           <i class="fa fa-stack-1x fa-inverse"><h6>311</h6></i>
                                         </span>
                                         <h2>Submit a Request</h2>
+                                        <span class="accessible">Opens in new window</span>
                                     </a>
                                 </div>
                                 <div class="pure-u-1-4">
-                                    <a href="/browse/taxes-and-payments/make-a-payment">
+                                    <a href="/browse/taxes-and-payments/make-a-payment" target="_blank">
                                        <span class="fa-stack fa-3x">
                                           <i class="fa fa-circle fa-stack-2x"></i>
                                           <i class="fa fa-credit-card fa-stack-1x fa-inverse"></i>
                                         </span>
                                         <h2>Pay a bill</h2>
+                                        <span class="accessible">Opens in new window</span>
                                     </a>
                                 </div>
                                  <div class="pure-u-1-4">
-                                     <a href="http://property.phila.gov">
+                                     <a href="http://property.phila.gov" target="_blank">
                                         <span class="fa-stack fa-3x">
                                           <i class="fa fa-circle fa-stack-2x"></i>
                                           <i class="fa fa-home fa-stack-1x fa-inverse"></i>
                                         </span>
                                         <h2>Property Search</h2>
+                                         <span class="accessible">Opens in new window</span>
                                      </a>
                                 </div>
                                   <div class="pure-u-1-4">
-                                    <a href="http://www.phila.gov/personnel//announce/current/index.html">
+                                    <a href="http://www.phila.gov/personnel//announce/current/index.html" target="_blank">
                                         <span class="fa-stack fa-3x">
                                           <i class="fa fa-circle fa-stack-2x"></i>
                                           <i class="fa fa-briefcase fa-stack-1x fa-inverse"></i>
                                         </span>
                                        <h2>Jobs</h2>
+                                        <span class="accessible">Opens in new window</span>
                                     </a>
                                 </div>                               
                                 
@@ -135,24 +139,24 @@ get_header(); ?>
                                         <h1>Most Active</h1>
                                     </header>
                                     <dl class="pure-g">
-                                        <dt class="pure-u-1 pure-u-md-1-3"><a href="http://property.phila.gov" class="h3">Property Information</a>
+                                        <dt class="pure-u-1 pure-u-md-1-3"><a href="http://property.phila.gov" class="h3" target="_blank">Property Information<span class="accessible">Opens in new window</span></a>
                                         <span>Property Assessment</span></dt>
                                         <dd class="pure-u-1 pure-u-md-2-3">Search and compare property data in the City of Philadelphia</dd>
 
-                                        <dt class="pure-u-1 pure-u-md-1-3"><a href="http://www.phila.gov/revenue/realestatetax/" class="h3">Real Estate Tax</a>
+                                        <dt class="pure-u-1 pure-u-md-1-3"><a href="http://www.phila.gov/revenue/realestatetax/" class="h3" target="_blank">Real Estate Tax<span class="accessible">Opens in new window</span></a>
                                         <span>Revenue</span></dt>
                                         <dd class="pure-u-1 pure-u-md-2-3">Real Estate Tax bills are sent in December for the following year and payments are due March 31st.</dd>
 
-                                        <dt class="pure-u-1 pure-u-md-1-3"><a href="http://www.phila.gov/zoningarchive/" class="h3">Zoning Archive</a>
+                                        <dt class="pure-u-1 pure-u-md-1-3"><a href="http://www.phila.gov/zoningarchive/" class="h3" target="_blank">Zoning Archive<span class="accessible">Opens in new window</span></a>
                                         <span>L+I</span></dt>
                                         <dd class="pure-u-1 pure-u-md-2-3">Search and view all previous applications, approved uses and site drawings for a parcel of land.</dd>
 
-                                        <dt class="pure-u-1 pure-u-md-1-3"><a href="http://www.phila.gov/prisons/Facilities/Pages/default.aspx" class="h3">Correctional Facilities</a>
+                                        <dt class="pure-u-1 pure-u-md-1-3"><a href="http://www.phila.gov/prisons/Facilities/Pages/default.aspx" class="h3" target="_blank">Correctional Facilities<span class="accessible">Opens in new window</span></a>
                                         <span>Prisons</span></dt>
                                         <dd class="pure-u-1 pure-u-md-2-3">Find facility history, visiting rules, and hours.</dd>
 
 
-                                        <dt class="pure-u-1 pure-u-md-1-3"><a href="http://www.phila.gov/Revenue/individuals/Pages/default.aspx" class="h3">Individual Taxes</a>
+                                        <dt class="pure-u-1 pure-u-md-1-3"><a href="http://www.phila.gov/Revenue/individuals/Pages/default.aspx" class="h3" target="_blank">Individual Taxes<span class="accessible">Opens in new window</span></a>
                                         <span>Revenue</span></dt>
                                         <dd class="pure-u-1 pure-u-md-2-3">Learn about taxes that individuals must remit and/or file in Philadelphia.</dd>
                                     </dl>                                            
@@ -162,9 +166,9 @@ get_header(); ?>
                             <div class="pure-u-1-24"></div>
                                 <div class="pure-u-1 pure-u-lg-6-24 links">
                                     <a class="pure-button departments" href="/departments"><span>Department Directory</span></a>
-                                    <a class="pure-button mayor" href="http://phila.gov/mayor"><span>Mayor's Office</span></a>
-                                    <a class="pure-button news" href="https://cityofphiladelphia.wordpress.com/"><span>News</span></a>
-                                    <a class="pure-button maps" href="http://phila.gov/map"><span>Maps</span></a>
+                                    <a class="pure-button mayor" href="http://www.phila.gov/mayor" target="_blank"><span>Mayor's Office</span><span class="accessible">Opens in new window</span></a>
+                                    <a class="pure-button news" href="https://www.cityofphiladelphia.wordpress.com/" target="_blank"><span>News</span><span class="accessible">Opens in new window</span></a>
+                                    <a class="pure-button maps" href="http://www.phila.gov/map" target="_blank"><span>Maps</span><span class="accessible">Opens in new window</span></a>
                                 </div>
                             
                             </div>
