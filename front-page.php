@@ -62,14 +62,14 @@ get_header(); ?>
                                        <h2>Jobs</h2>
                                         <span class="accessible">Opens in new window</span>
                                     </a>
-                                </div>                               
-                                
+                                </div>
+
                             </div><!--#popular -->
                             </div>
                         </section>
                     <section id="services" class="pure-u-md-1-2">
                         <div class="m-box">
-                            <?php 
+                            <?php
                             /* temporary top-level topics list w/ descriptions */
                                $args = array(
                                     'orderby' => 'name',
@@ -92,11 +92,11 @@ get_header(); ?>
                     </section>
                 </div><!--.container -->
             </div><!--.pure-g -->
-            
+
             <div class="pure-g home-news">
                 <div class="container">
                         <section id="news" class="s-box">
-                            <?php 
+                            <?php
                                 $args = array(
                                     'post_type' => array ('news_post'),
                                     'posts_per_page'    => 3
@@ -105,12 +105,12 @@ get_header(); ?>
                                 $news_query = new WP_Query($args);
                                 $home_display = rwmb_meta( 'phila_news_home_display', $args = array('type' => 'checkbox_list'));
                                 if ( $news_query->have_posts() ) : while ( $news_query->have_posts() ) : $news_query->the_post(); ?>
-                        
+
                                 <div class="pure-u-md-7-24">
                                     <div class="story s-box">
-                                        <?php 
+                                        <?php
                                             if ( rwmb_meta( 'phila_news_home_display', $args = array('type' => 'checkbox')) == 1){
-                                                get_home_news(); 
+                                                get_home_news();
                                             }
                                         ?>
                                     </div>
@@ -119,10 +119,10 @@ get_header(); ?>
                                 $counter++;
                                 if ($counter === 1 || $counter === 2){
                                  echo '<div class="pure-u-1-24 visible-md hidden-xm hidden-sm"></div>';
-                                }    
+                                }
                             ?>
                                 <?php endwhile; ?>
-                            
+
                                 <?php else : ?>
                                     <div class="alert">No news!</div>
                                 <?php endif; ?>
@@ -130,7 +130,7 @@ get_header(); ?>
                         </section><!--#news-->
                     </div><!--.pure-u-1-->
                 </div><!-- .pure-g -->
-            
+
                 <section id="active" class="pure-g">
                         <div class="container">
                             <div class="pure-u-1 pure-u-lg-17-24">
@@ -159,7 +159,7 @@ get_header(); ?>
                                         <dt class="pure-u-1 pure-u-md-1-3"><a href="http://www.phila.gov/Revenue/individuals/Pages/default.aspx" class="h3" target="_blank">Individual Taxes<span class="accessible">Opens in new window</span></a>
                                         <span>Revenue</span></dt>
                                         <dd class="pure-u-1 pure-u-md-2-3">Learn about taxes that individuals must remit and/or file in Philadelphia.</dd>
-                                    </dl>                                            
+                                    </dl>
 
                                 </div>
                             </div>
@@ -170,12 +170,12 @@ get_header(); ?>
                                     <a class="pure-button news" href="https://cityofphiladelphia.wordpress.com/" target="_blank"><span>News</span><span class="accessible">Opens in new window</span></a>
                                     <a class="pure-button maps" href="http://www.phila.gov/map" target="_blank"><span>Maps</span><span class="accessible">Opens in new window</span></a>
                                 </div>
-                            
+
                             </div>
                         </section><!--#news-->
-                            
-                 
-            
+
+
+
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
