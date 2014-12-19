@@ -39,12 +39,9 @@
                         
             );
             $loop = new WP_Query($args);
-                        var_dump($args);
 
             if( $loop->have_posts() ) {
                ?> <h3>Related Content</h3>
-
-                
                 <ul>
                     <?php
                     
