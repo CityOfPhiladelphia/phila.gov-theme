@@ -185,37 +185,21 @@ function the_breadcrumb() {
                     echo '<li>' . $category[0]->cat_name . '</li>';
                 }else{
                 //service/info pages
-                 $term_list = wp_get_post_terms($post->ID, 'topics', array('parent'=> 1, 'orderby' => 'parent', 'fields'=>'all'));
-                
-                $counter = 0;
-                //counter for the first topic
-                 foreach ($term_list as $term){
-                        $name = $term->name;
-                        $slug = $term->slug;
-                        if ($counter >= 0) {
-
-                            echo '<li>';
-                            //TODO fix parent slug relationship
-                            echo '<a href="/browse/' . $slug .'">' . $name . '</a>';
-                            echo '</li>';
-                            $parent_term = $slug;
-                            break;
-                        }
-                   $counter++;
-                }//foreach 
-                //counter for the second
-                foreach ($term_list as $term){
-                        $name = $term->name;
-                        $slug = $term->slug;
-                        if ($counter >= 1) {
-                            echo '<li>';
-                            //TODO fix parent slug relationship
-                            echo '<a href="/browse/' . $parent_term . '/' . $slug .'">' . $name . '</a>';
-                            echo '</li>';
-                            break;
-                        }
-                   $counter++;
-                }//foreach 
+                $i = 0;
+                $topic_terms = wp_get_object_terms( $post->ID,  'topics', array('orderby'=>'term_group') );
+                $topic_parent = $topic_terms[0];
+                    if ( ! empty( $topic_terms ) ) {
+                        if ( ! is_wp_error( $topic_terms ) ) {
+                                foreach( $topic_terms as $term ) {
+                                    if ($i == 0) {
+                                        echo '<li><a href=/browse/' . $term->slug . '>' . $term->name . '</a></li>'; 
+                                    }elseif ($i == 1){
+                                        echo '<li><a href=/browse/' . $topic_parent->slug . '/' .  $term->slug . '>' . $term->name . '</a></li>';
+                                    }
+                                    $i++;
+                                }
+                            }
+                    }
             echo '<li>';
             the_title();   
             echo '</li>';
