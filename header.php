@@ -44,7 +44,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="container">
             <div class="pure-u-1">
                 <div class="float-left">
-                    <h1 class="h2">Welcome to alpha.phila.gov</h1> <p>This website is an experimental prototype. There may be errors, inaccuracies, and... broken stuff.</p>
+                    <h1 class="h2">Welcome to alpha.phila.gov</h1> <p>This is a work in progress. It may contain errors and inaccuracies. Help us improve it by providing feedback.</p>
                     <p><a href="/about"><?php printf( __( 'Learn more about this project.', 'phila-gov' )); ?></a></p>
                 </div>
                 <div class="float-right">

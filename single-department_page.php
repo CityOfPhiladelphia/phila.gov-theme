@@ -12,7 +12,7 @@ get_header(); ?>
 		<?php the_title( '<h1 class="entry-title container">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
     <div class="container">
-        <div class="entry-content pure-u-1">
+        <div class="entry-content pure-u-3-4">
             <?php
                 wp_link_pages( array(
                     'before' => '<div class="page-links">' . __( 'Pages:', 'phila-gov' ),
