@@ -49,7 +49,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </div>
                 <div class="float-right">
                     <div class="button-with-icon"><a class="pure-button feedback" href="<?php get_template_part( 'content', 'feedback-url' ); ?>" target="_blank"><?php printf( __( 'Provide Feedback', 'phila-gov' )); ?></a></div>
-                    <div class="button-with-icon"><a class="pure-button go-back" href="http://phila.gov" target="_blank"><?php printf( __( 'Back to current site', 'phila-gov' )); ?></a></div>
+                    <div class="button-with-icon"><a class="pure-button go-back" href="http://www.phila.gov" target="_blank"><?php printf( __( 'Back to current site', 'phila-gov' )); ?></a></div>
                 </div>
             </div>
         </div>

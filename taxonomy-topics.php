@@ -27,11 +27,11 @@ get_header(); ?>
             </div>
             <div class="pure-g">
                 <div class="container">
-                    <nav class="topics-nav visible-lg hidden-md hidden-xs hidden-sm pure-u-md-1-3">
+                    <nav class="topics-nav pure-u-1 pure-u-md-1-3">
                         <?php get_parent_topics(); ?>
                     </nav>
                     
-                    <section class="pure-u-md-1-3 topic">    
+                    <section class="pure-u-1 pure-u-md-1-3 topic">    
                         <ul class="parent-topics">
                             <?php get_topics(); ?>
                         </ul>

@@ -25,7 +25,7 @@ jQuery(document).ready(function($) {
     if (pathArray.length == 3){
         $('.browse nav ul').hide();
         $('.browse section.topic').removeClass('pure-u-md-1-3');
-        $('.browse section.topic').addClass('pure-u-1');
+        //$('.browse section.topic').addClass('pure-u-1');
     }
     
     //compare the url with the classname - if the url reflects the classname, hide everything else
@@ -40,7 +40,7 @@ jQuery(document).ready(function($) {
             $(theParentClassName).addClass('current-topic');
             $('.parent.current-topic a').removeAttr('href');
             $('.topic').removeClass('pure-u-md-1-3');
-            $('.topic').addClass('pure-u-2-3 subtopic-select');
+            $('.topic').addClass('pure-u-md-2-3 subtopic-select');
         }else if (childClass == childURL){
             $('.parent-topics li').not(theParentClassName).hide();
             $('.parent-topics .parent-description').hide();
