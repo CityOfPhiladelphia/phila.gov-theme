@@ -39,16 +39,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 
 <div id="page" class="hfeed site">
-    <?php if (is_home() && alpha_alert()){ //show the alpha alert if set to true in functions.php ?>
+    <?php if (alpha_alert()){ //show the alpha alert if set to true in functions.php ?>
     <div class="alpha-alert pure-g">
         <div class="container">
             <div class="pure-u-1">
                 <div class="float-left">
-                    <span class="h2">Experimental Prototype</span> <p>This site may contain errors, inaccuracies, and inconsistencies.</p>
+                    <h1 class="h2">Welcome to alpha.phila.gov</h1> <p>This website is an experimental prototype. There may be errors, inaccuracies, and... broken stuff.</p>
+                    <p><a href="/about"><?php printf( __( 'Learn more about this project.', 'phila-gov' )); ?></a></p>
                 </div>
                 <div class="float-right">
-                    <a href="/about"><?php printf( __( 'About Alpha', 'phila-gov' )); ?></a>
-                    <a href="<?php get_template_part( 'content', 'feedback-url' ); ?>" target="_blank"><?php printf( __( 'Provide Feedback', 'phila-gov' ), 'WordPress' ); ?></a>
+                    <div class="button-with-icon"><a class="pure-button feedback" href="<?php get_template_part( 'content', 'feedback-url' ); ?>" target="_blank"><?php printf( __( 'Provide Feedback', 'phila-gov' )); ?></a></div>
+                    <div class="button-with-icon"><a class="pure-button go-back" href="http://phila.gov" target="_blank"><?php printf( __( 'Back to current site', 'phila-gov' )); ?></a></div>
                 </div>
             </div>
         </div>
@@ -78,21 +79,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </nav><!-- #site-navigation -->
         </div>
     </header><!-- #masthead -->
-  <?php if ((!is_home()) && alpha_alert()){ //show the alpha alert if set to true in functions.php ?>
-    <div class="alpha-alert pure-g">
-        <div class="container">
-            <div class="pure-u-1">
-                <div class="float-left">
-                    <span class="h2">Experimental Prototype</span> <p>This site may contain errors, inaccuracies, and inconsistencies.</p>
-                </div>
-                <div class="float-right">
-                    <a href="/about"><?php printf( __( 'About Alpha', 'phila-gov' )); ?></a>
-                    <a href="<?php get_template_part( 'content', 'feedback-url' ); ?>" target="_blank"><?php printf( __( 'Provide Feedback', 'phila-gov' )); ?></a>
-                </div>
-            </div>
-        </div>
-    </div>
-<?php }  ?>
     <?php if (function_exists('the_breadcrumb') && !is_front_page()) { ?> <div id="breadcrumbs" class="pure-g"> <div class="container"><nav class="pure-u-1"><?php the_breadcrumb(); ?> </nav></div></div> <?php } ?>
     
     <div id="content" class="site-content">
