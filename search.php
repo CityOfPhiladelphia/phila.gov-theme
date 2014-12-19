@@ -11,15 +11,14 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
             <div class="pure-g search-head">
                 <div class="container">
-
-            <?php if ( have_posts() ) : ?>
-
-                    <header class="pure-u-1-3">
+                    
+                     <header class="pure-u-1-3">
                         <h1><?php printf( __( 'Search results for:', 'phila-gov' )); ?></h1>
                     </header><!-- .page-header -->
                     <div class="search-site pure-u-2-3"> <?php get_search_form(); ?> </div>
                 </div><!--.container-->
-            </div><!--.pure-g-->
+            <?php if ( have_posts() ) : ?>
+                </div>
             <div class="pure-g">
                 <div class="container">
                     <div class="pure-u-1-4">
@@ -53,6 +52,8 @@ get_header(); ?>
                         <?php //phila_gov_paging_nav(); ?>
 
                     <?php else : ?>
+                        </div>
+                    </div>
 
                         <?php get_template_part( 'content', 'none' ); ?>
 

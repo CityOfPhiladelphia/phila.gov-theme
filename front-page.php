@@ -167,7 +167,7 @@ get_header(); ?>
                                 <div class="pure-u-1 pure-u-lg-6-24 links">
                                     <a class="pure-button departments" href="/departments"><span>Department Directory</span></a>
                                     <a class="pure-button mayor" href="http://www.phila.gov/mayor" target="_blank"><span>Mayor's Office</span><span class="accessible">Opens in new window</span></a>
-                                    <a class="pure-button news" href="https://www.cityofphiladelphia.wordpress.com/" target="_blank"><span>News</span><span class="accessible">Opens in new window</span></a>
+                                    <a class="pure-button news" href="https://cityofphiladelphia.wordpress.com/" target="_blank"><span>News</span><span class="accessible">Opens in new window</span></a>
                                     <a class="pure-button maps" href="http://www.phila.gov/map" target="_blank"><span>Maps</span><span class="accessible">Opens in new window</span></a>
                                 </div>
                             

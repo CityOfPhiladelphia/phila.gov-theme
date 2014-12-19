@@ -272,3 +272,9 @@ function get_home_news(){
                     
     } 
 }
+
+function provide_feedback(){
+    echo '<div class="button-with-icon"><a class="pure-button feedback" href="';
+    get_template_part( 'content', 'feedback-url' );
+    echo '" target="_blank"><span>Provide Feedback</span></a></div>';
+}
