@@ -17,7 +17,9 @@
 <div class="pure-g">
     <div class="container">
     <div class="pure-u-1 lost">
-        <?php echo "Can't find what you are looking for? Let us know.";?>
+        <?php echo 'Can\'t find what you are looking for? <a href="';
+            echo get_template_part( 'content', 'feedback-url' ); 
+            echo 'target="_blank"> Let us know</a>.'; ?>
             </div>
         </div>
     </div>
