@@ -7,7 +7,46 @@
  * @package phila-gov
  */
 ?>
-
+    <?php
+        if (is_front_page()){
+            //nothing
+        }elseif (is_post_type_archive('department_page')){
+            //nothing
+        }
+        elseif (is_page()){ ?>
+<div class="pure-g">
+    <div class="container">
+    <div class="pure-u-1 lost">
+        <?php echo "Can't find what you are looking for? Let us know.";?>
+            </div>
+        </div>
+    </div>
+<?php
+                           
+        }elseif(is_page_template('taxonomy-topics.php') ||      is_tax('topics')){  ?>
+<div class="pure-g">
+    <div class="container">
+    <div class="pure-u-1 lost">
+        <?php
+            echo 'Can\'t find what you\'re looking for? We\'re still moving content. <a href="https://docs.google.com/forms/d/16i1gP0lSdquHUlAV26-9K04WkwHI1TAjuAhJGMU0nA0/viewform?entry.2063571544&entry.1408587938=';
+            echo $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] . '">';
+            echo 'Let us know what you are trying to find</a>.'; ?>
+        
+            </div>
+        </div>
+    </div>
+<?php
+        }elseif(is_single()){ ?>
+    <div class="pure-g">
+        <div class="container">
+            <div class="pure-u-1 lost">
+        <?php
+            echo 'Is this information incorrect? <a href="';
+            echo get_template_part( 'content', 'feedback-url' );                 echo 'target="_blank"> Let us know</a>.'; ?>
+            </div>
+        </div>
+    </div>
+<?php } ?>
       </div><!-- #content -->
  </div><!-- #page -->
 

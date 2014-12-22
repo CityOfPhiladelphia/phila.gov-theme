@@ -24,8 +24,10 @@
 
                 <?php elseif ( is_search() ) : ?>
 
-                    <p><?php _e( 'Sorry, nothing has matched your search terms. Please try again with some different words.', 'phila-gov' ); ?></p>
-                <?php provide_feedback();?>
+                <p><?php _e( 'Sorry, nothing has matched your search terms.', 'phila-gov' ); ?> Can't find what you're looking for? We're still moving content.</p>
+                      <p> <a href="javascript:searchPhilaGov()">Search phila.gov</a> or <a href="https://docs.google.com/forms/d/16i1gP0lSdquHUlAV26-9K04WkwHI1TAjuAhJGMU0nA0/viewform?entry.2063571544&entry.1408587938=<?php echo $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] ?>">tell us what you're looking for.</a></p>
+            
+                <?php //provide_feedback();?>
 
                 <?php else : ?>
 
