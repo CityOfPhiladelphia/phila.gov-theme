@@ -11,7 +11,7 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
             <div class="pure-g">
             <div class="container">
-                <div class="pure-u-md-1-3 pure-u-1"><img src="http://i1.kym-cdn.com/entries/icons/original/000/002/686/Deal_with_it_dog_gif.gif" alt="deal with it." class="pure-img"></div>
+                <div class="pure-u-md-1-3 pure-u-1"><img src="<?php echo get_stylesheet_directory_uri();?>/img/404.gif" alt="404 page not found... deal with it" class="pure-img"></div>
                 <div class="pure-u-md-2-3 pure-u-1">
                     <section class="error-404 not-found">
                         <header>
