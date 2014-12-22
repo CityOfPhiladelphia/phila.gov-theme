@@ -20,7 +20,7 @@
         <div class="lost">
         <?php echo 'Can\'t find what you are looking for? <a href="';
             echo get_template_part( 'content', 'feedback-url' ); 
-            echo 'target="_blank"> Let us know</a>.'; ?>
+            echo '" target="_blank"> Let us know</a>.'; ?>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
                 <div class="lost">
         <?php
             echo 'Is this information incorrect? <a href="';
-            echo get_template_part( 'content', 'feedback-url' );                 echo 'target="_blank"> Let us know</a>.'; ?>
+            echo get_template_part( 'content', 'feedback-url' );                 echo '" target="_blank"> Let us know</a>.'; ?>
                     </div>
                 </div>
         </div>
