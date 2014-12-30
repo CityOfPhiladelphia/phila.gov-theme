@@ -99,20 +99,18 @@ get_header(); ?>
                             <?php
                                 $args = array(
                                     'post_type' => array ('news_post'),
-                                    'posts_per_page'    => 3
+                                    'posts_per_page'    => 3,
+                                    'meta_key'          => 'phila_show_on_home',
+                                    //only show if "yes" is selected
+                                    'meta_value'     => '1'
                                 );
                                 $counter = 0;
                                 $news_query = new WP_Query($args);
-                                $home_display = rwmb_meta( 'phila_news_home_display', $args = array('type' => 'checkbox_list'));
                                 if ( $news_query->have_posts() ) : while ( $news_query->have_posts() ) : $news_query->the_post(); ?>
 
                                 <div class="pure-u-md-7-24">
                                     <div class="story s-box">
-                                        <?php
-                                            if ( rwmb_meta( 'phila_news_home_display', $args = array('type' => 'checkbox')) == 1){
-                                                get_home_news();
-                                            }
-                                        ?>
+                                        <?php get_home_news(); ?>
                                     </div>
                                 </div>
                             <?php

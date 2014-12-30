@@ -251,32 +251,6 @@ function alpha_alert(){
     return true;
 }
 
-function get_home_news(){
-    $category = get_the_category(); 
-    $url = rwmb_meta('phila_news_url', $args = array('type'=>'url'));
-    $contributor = rwmb_meta('phila_news_contributor', $args = array('type'=>'text'));
-    $desc = rwmb_meta('phila_news_desc', $args = array('type'=>'textarea'));
-    
-    echo '<a href="' . $url .'" target="_blank">';
-    the_post_thumbnail( 'full' );
-    echo '<span class="accessible">Opens in new window</span></a>';
-    
-    echo '<a href="' . $url .'" target="_blank">';
-    the_title('<h3>', '</h3>'); 
-    echo '<span class="accessible">Opens in new window</span></a>';
-    
-    if (function_exists('rwmb_meta')) {   
-        if ($contributor === ''){
-            echo '<span>' . $category[0]->cat_name . '</span>';
-        }else {
-            echo '<span>' . $contributor . '</span>';
-        }
-        
-        echo '<p>' . $desc  . '</p>';
-                    
-    } 
-}
-
 function provide_feedback(){
     echo '<div class="button-with-icon"><a class="pure-button feedback" href="';
     get_template_part( 'content', 'feedback-url' );
