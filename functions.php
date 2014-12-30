@@ -180,8 +180,12 @@ function the_breadcrumb() {
                 display_browse_breadcrumbs();
             }                    
         } 
-        elseif (is_single()) {   
-            if (is_singular('department_page')) {
+        elseif (is_single()) {
+            if (is_singular('news_post')){
+                echo '<li>';
+                the_title(); 
+                echo '</li>';    
+            }elseif (is_singular('department_page')) {
                     echo '<li>' . $category[0]->cat_name . '</li>';
                 }else{
                 //service/info pages

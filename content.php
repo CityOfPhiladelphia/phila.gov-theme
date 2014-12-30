@@ -5,8 +5,8 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class("pure-g"); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
+	<header class="entry-header pure-u-1">
+		<?php the_title( sprintf( '<h1 class="entry-title container"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
 
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-meta">
