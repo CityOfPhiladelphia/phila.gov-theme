@@ -233,10 +233,6 @@ function the_breadcrumb() {
     echo '</ul>';
 }
 
-
-
-
-
 /**
  * Mah utility functions
  */
