@@ -252,3 +252,10 @@ function provide_feedback(){
     get_template_part( 'content', 'feedback-url' );
     echo '" target="_blank"><span>Provide Feedback</span></a></div>';
 }
+
+function still_migrating_content(){
+    echo '<p>Can\'t find what you\'re looking for? We\'re still moving content. </p>';
+    echo '<p><a href="javascript:searchPhilaGov()">Search phila.gov</a> or <a href="https://docs.google.com/forms/d/16i1gP0lSdquHUlAV26-9K04WkwHI1TAjuAhJGMU0nA0/viewform?entry.2063571544&entry.1408587938=';
+    echo $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+    echo '">tell us what you\'re looking for.</a></p>';
+}

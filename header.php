@@ -70,8 +70,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </div>
                 <?php if(!is_front_page()) { if (!is_search()) {?> <div class="search-site pure-u-3-4 pure-u-md-1-2"> <?php get_search_form(); ?> </div> <?php } }?>
             </div><!-- .site-branding -->
-            
-        
+
+
             <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'phila-gov' ); ?></a>
             <!--hide nav for now
                 <nav id="site-navigation" class="main-navigation" role="navigation">
@@ -80,6 +80,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </nav><!-- #site-navigation -->
         </div>
     </header><!-- #masthead -->
+    <?php create_site_wide_alerts() ?>
     <?php if (function_exists('the_breadcrumb') && !is_front_page()) { ?> <div id="breadcrumbs" class="pure-g"> <div class="container"><nav class="pure-u-1"><?php the_breadcrumb(); ?> </nav></div></div> <?php } ?>
-    
     <div id="content" class="site-content">

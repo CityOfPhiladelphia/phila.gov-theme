@@ -39,6 +39,7 @@ get_header(); ?>
                                 <?php while ( $department_listing->have_posts() ) : $department_listing->the_post(); ?>
 
                                     <?php get_template_part( 'content', 'list' ); ?>
+                            <hr>
                                 
                                 <?php endwhile; ?>
                                 <?php else : ?>

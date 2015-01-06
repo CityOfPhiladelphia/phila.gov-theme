@@ -23,14 +23,13 @@ get_header(); ?>
                 <div class="container">
                     <div class="pure-u-1-4">
                     <?php printf( __( 'Displaying ', 'phila-gov' ));
-                            $num = $wp_query->post_count; if (have_posts()) : echo '<strong>' . $num .' </strong>'; endif;
-                            printf( __( 'of ', 'phila-gov' ));
+                            $num = $wp_query->post_count; 
+                        if (have_posts()) : echo '<strong>' . $num .' </strong>'; endif;
                             $search_count = 0; 
                             $search = new WP_Query("s=$s & showposts=-1"); 
-                            if($search->have_posts()) : while($search->have_posts()) : $search->the_post(); $search_count++; 
+                        if($search->have_posts()) : while($search->have_posts()) : $search->the_post(); $search_count++; 
                         endwhile;  
                         endif; 
-                        echo '<strong>' . $search_count . '</strong>';
                         printf( __( ' Results', 'phila-gov' ));
                         ?>
                     </div>
@@ -49,7 +48,11 @@ get_header(); ?>
 
                         <?php endwhile; ?>
 
-                        <?php //phila_gov_paging_nav(); ?>
+                        <?php 
+                        echo '<div class="lost">';        
+                                still_migrating_content();
+                        echo '</div>';
+                        ?>
 
                     <?php else : ?>
                         </div>
