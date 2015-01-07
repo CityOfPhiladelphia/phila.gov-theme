@@ -84,28 +84,30 @@ add_action( 'widgets_init', 'phila_gov_widgets_init' );
  * Enqueue scripts and styles.
  */
 function phila_gov_scripts() {
-    
+
     wp_enqueue_style( 'pure-base', '//yui.yahooapis.com/pure/0.5.0/pure-min.css', array(), '0.5.0' );
     wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', array(), '4.2.0' );
+		wp_enqueue_style( 'ionicons', '//code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css', array(), '2.0.0' );
 
 
     //DEV LINK
     wp_enqueue_style( 'phila-gov-style-dev', get_stylesheet_directory_uri() . '/phila.gov-styles/styles.css', array('pure-base'), '1.0' );
-    
-    //PROD LINK 
-    //wp_enqueue_style( 'phila-gov-style-prod', '//github.com/CityOfPhiladelphia/phila.gov-styles', array(), '1.0' );
-    
-    wp_enqueue_script( 'jquery', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js', array(), '2.8.3', true );
-    
-    wp_enqueue_script( 'modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js', array(), '2.8.3', false );
-    
-	wp_enqueue_script( 'phila-gov-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
-	wp_enqueue_script( 'phila-gov-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
-    
+    //PROD LINK
+    //wp_enqueue_style( 'phila-gov-style-prod', '//github.com/CityOfPhiladelphia/phila.gov-styles', array(), '1.0' );
+
+    wp_enqueue_script( 'jquery', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js', array(), '2.8.3', true );
+
+    wp_enqueue_script( 'modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js', array(), '2.8.3', false );
+
+		wp_enqueue_script( 'phila-gov-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+
+		wp_enqueue_script( 'phila-gov-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+
     wp_enqueue_script( 'text-filtering', '//cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js', array(), '1.1.1', true );
 
-    wp_enqueue_script( 'scripts', get_stylesheet_directory_uri().'/js/scripts.js', array('jquery', 'text-filtering'), 1.0, true ); 
+    wp_enqueue_script( 'scripts', get_stylesheet_directory_uri().'/js/scripts.js', array('jquery', 'text-filtering'), 1.0, true );
+
 }
 add_action( 'wp_enqueue_scripts', 'phila_gov_scripts');
 
@@ -114,7 +116,7 @@ function enqueue_scripts_styles_init() {
 	wp_localize_script( 'ajax-script', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) ); // setting ajaxurl
 }
 add_action('init', 'enqueue_scripts_styles_init');
- 
+
 function ajax_action_stuff() {
 	$post_id = $_POST['post_id']; // getting variables from ajax post
 	// doing ajax stuff
@@ -152,7 +154,7 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 /**
- * Add breadcrumb support 
+ * Add breadcrumb support
  *
  */
 function the_breadcrumb() {
@@ -161,7 +163,7 @@ function the_breadcrumb() {
     $category = get_the_category();
     echo '<ul>';
     if (!is_front_page()) {
-        
+
         echo '<li><a href="';
         echo get_option('home');
         echo '">';
@@ -169,8 +171,8 @@ function the_breadcrumb() {
         echo '</a></li>';
         if (is_category()) {
             echo '<li>';
-            the_title();   
-            echo '</li>'; 
+            the_title();
+            echo '</li>';
         }elseif (is_post_type_archive('department_page')){
             echo '<li>Departments</li>';
         }elseif (is_page_template('taxonomy-topics.php') || is_tax('topics')){
@@ -178,13 +180,13 @@ function the_breadcrumb() {
             //echo '<li><a href="/browse">Browse</a></li>';
             if (function_exists('currentURL')){
                 display_browse_breadcrumbs();
-            }                    
-        } 
+            }
+        }
         elseif (is_single()) {
             if (is_singular('news_post')){
                 echo '<li>';
-                the_title(); 
-                echo '</li>';    
+                the_title();
+                echo '</li>';
             }elseif (is_singular('department_page')) {
                     echo '<li>' . $category[0]->cat_name . '</li>';
                 }else{
@@ -196,7 +198,7 @@ function the_breadcrumb() {
                         if ( ! is_wp_error( $topic_terms ) ) {
                                 foreach( $topic_terms as $term ) {
                                     if ($i == 0) {
-                                        echo '<li><a href=/browse/' . $term->slug . '>' . $term->name . '</a></li>'; 
+                                        echo '<li><a href=/browse/' . $term->slug . '>' . $term->name . '</a></li>';
                                     }elseif ($i == 1){
                                         echo '<li><a href=/browse/' . $topic_parent->slug . '/' .  $term->slug . '>' . $term->name . '</a></li>';
                                     }
@@ -205,7 +207,7 @@ function the_breadcrumb() {
                             }
                     }
             echo '<li>';
-            the_title();   
+            the_title();
             echo '</li>';
             }
         } elseif (is_page()) {
