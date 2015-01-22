@@ -34,7 +34,7 @@ get_header(); ?>
                                     </a>
                                 </div>
                                 <div class="pure-u-1-4">
-                                    <a href="/browse/taxes-and-payments/make-a-payment" target="_blank">
+                                    <a href="/browse/payments-and-taxes/pay-a-bill" target="_blank">
                                        <span class="fa-stack fa-3x">
                                           <i class="fa fa-circle fa-stack-2x"></i>
                                           <i class="fa fa-credit-card fa-stack-1x fa-inverse"></i>
