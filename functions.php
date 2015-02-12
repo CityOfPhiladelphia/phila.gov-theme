@@ -185,7 +185,7 @@ function the_breadcrumb() {
                 the_title();
                 echo '</li>';
             }elseif (is_singular('department_page')) {
-                    echo '<li>' . $category[0]->cat_name . '</li>';
+                    echo '<li>' . the_title() . '</li>';
                 }else{
                 //service/info pages
                 $i = 0;
