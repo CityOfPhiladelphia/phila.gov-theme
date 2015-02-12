@@ -1,15 +1,15 @@
-<?php 
+<?php
 
 /*
- * 
+ *
  *  Related Topics Sidebar
  *
  */
- 
- ?>  
-<div id="secondary" class="widget-area pure-u-1 pure-u-md-1-4 related" role="complementary">
-    <div class="s-box">
-      <?php  
+
+ ?>
+<div id="secondary" class="widget-area small-24 medium-6 columns" role="complementary">
+  <div class="related">
+      <?php
      //get all the terms
         $custom_terms = get_the_terms($post->ID, 'topics');
         $currentID = get_the_ID();
@@ -17,7 +17,7 @@
         if($custom_terms){
             // loop through topics and build a tax query
             foreach( $custom_terms as $custom_term ) {
-                $terms[] = $custom_term->slug;   
+                $terms[] = $custom_term->slug;
             }
 
             $tax_query = array('relation' => 'OR',
@@ -36,7 +36,7 @@
                             'posts_per_page' => 5,
                             'tax_query' => $tax_query,
                             'post__not_in' => array($currentID),
-                        
+
             );
             $loop = new WP_Query($args);
 
@@ -44,13 +44,13 @@
                ?> <h3>Related Content</h3>
                 <ul>
                     <?php
-                    
+
                 while( $loop->have_posts() ) : $loop->the_post(); ?>
-                    <li>  
+                    <li>
                         <?php the_title( sprintf( '<a href="%s" rel="bookmark" class="item">', esc_url( get_permalink() ) ), '</a>' );
                     ?>
-                    </li> 
-                <?php 
+                    </li>
+                <?php
 
                 endwhile;
 
@@ -60,5 +60,5 @@
 
         }
     ?>
-    </div><!-- .s-box -->
+  </div><!-- .related -->
 </div><!-- #secondary -->

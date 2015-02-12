@@ -6,21 +6,23 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('pure-g'); ?>>
-	<header class="entry-header pure-u-1">
-		<?php the_title( '<h1 class="entry-title container">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
-    <div class="container">
-        <div class="entry-content pure-u-1">
-            <div>
-            <?php the_content(); ?>
-            <?php
-                //wp_link_pages( array(
-                    //'before' => '<div class="page-links">' . __( 'Pages:', 'phila-gov' ),
-                    //'after'  => '</div>',
-                //) );
-            ?>
-            </div>
-        </div><!-- .entry-content -->
-    </div>
+<article id="post-<?php the_ID(); ?>">
+	<div class="row">
+		<header class="entry-header small-24 columns">
+			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		</header><!-- .entry-header -->
+	</div>
+  <div class="row">
+      <div class="entry-content small-24 columns">
+          <div>
+          <?php the_content(); ?>
+          <?php
+              //wp_link_pages( array(
+                  //'before' => '<div class="page-links">' . __( 'Pages:', 'phila-gov' ),
+                  //'after'  => '</div>',
+              //) );
+          ?>
+          </div>
+      </div><!-- .entry-content -->
+  </div>
 </article><!-- #post-## -->

@@ -47,7 +47,7 @@ get_header(); ?>
                         <?php endwhile; ?>
 
                         <?php
-                        echo '<div class="lost">';
+                        echo '<div class="panel center">';
                                 still_migrating_content();
                         echo '</div>';
                         ?>

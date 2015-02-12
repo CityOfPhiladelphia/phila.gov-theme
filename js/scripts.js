@@ -4,7 +4,7 @@
  *
 **/
 
-new List('servinfo-list-container', {
+new List('filter-list', {
     valueNames: ['item', 'item-desc']
 });
 

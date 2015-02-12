@@ -5,15 +5,15 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('pure-g'); ?>>
-	<header class="entry-header pure-u-1">
-		<?php the_title( '<h1 class="entry-title container">', '</h1>' ); ?>
-
-	</header><!-- .entry-header -->
-    <div class="container">
-        <div class="entry-content pure-u-1 pure-u-md-3-4">
-            <div>
-                <?php the_content(); ?>
+<article id="post-<?php the_ID(); ?>">
+	<div class="row">
+		<header class="entry-header small-24 columns">
+			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		</header><!-- .entry-header -->
+	</div>
+	<div class="row">
+        <div class="entry-content small-24 medium-18 columns">
+          <?php the_content(); ?>
                 <?php
                     //wp_link_pages( array(
                     //	'before' => '<div class="page-links">' . __( 'Pages:', 'phila-gov' ),
@@ -21,9 +21,8 @@
                     //) );
                 ?>
                </div><!-- .entry-content -->
-            </div>
-    <?php       
-        get_sidebar('topics'); 
+    <?php
+        get_sidebar('topics');
     ?>
-    </div><!-- .container -->
+	</div><!-- .row -->
 </article><!-- #post-## -->

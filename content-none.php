@@ -26,7 +26,7 @@
                 <p><?php _e( 'Sorry, nothing has matched your search terms.', 'phila-gov' ); ?></p>
                 <?php still_migrating_content(); ?>
 
-        <div class="lost">
+        <div class="panel center">
             <?php echo 'Can\'t find what you are looking for? <a href="';
                 echo get_template_part( 'content', 'feedback-url' );
                 echo '" target="_blank"> Let us know. <span class="accessible">Opens in new window</span></a>'; ?>
