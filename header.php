@@ -40,20 +40,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <div id="page" class="hfeed site">
     <?php if (alpha_alert()){ //show the alpha alert if set to true in functions.php ?>
-    <div class="alpha-alert pure-g">
-        <div class="container">
-            <div class="pure-u-1">
-                <div class="float-left">
-                    <h1 class="h2">Welcome to alpha.phila.gov</h1> <p>This is a work in progress. It may contain errors and inaccuracies. Help us improve it by providing feedback.</p>
-                    <p><a href="/about"><?php printf( __( 'Learn more about this project. &raquo;', 'phila-gov' )); ?></a></p>
-                </div>
-                <div class="float-right">
-                    <div class="button-with-icon"><a class="pure-button feedback" href="<?php get_template_part( 'content', 'feedback-url' ); ?>" target="_blank"><?php printf( __( 'Provide Feedback', 'phila-gov' )); ?><span class="accessible">Opens in new window</span></a></div>
-                    <div class="button-with-icon"><a class="pure-button go-back" href="http://www.phila.gov" target="_blank"><?php printf( __( 'Back to current site', 'phila-gov' )); ?><span class="accessible">Opens in new window</span></a></div>
-                </div>
+    <div class="alpha-alert">
+      <div class="row">
+        <div class="large-18 columns">
+                <h1 class="h3">Welcome to alpha.phila.gov</h1> <p>This is a work in progress. It may contain errors and inaccuracies. Help us improve it by providing feedback.</p>
+                <p><a href="/about"><?php printf( __( 'Learn more about this project. &raquo;', 'phila-gov' )); ?></a></p>
+            </div>
+            <div class="large-6 columns">
+                <div class="button icon alternate"><a class="feedback" href="<?php get_template_part( 'content', 'feedback-url' ); ?>" target="_blank">
+                  <?php printf( __( 'Provide Feedback', 'phila-gov' )); ?>
+                  <span class="accessible"> Opens in new window</span><i class="fa fa-comments"></i></a></div>
+                <div class="button icon alternate"><a class="go-back" href="http://www.phila.gov" target="_blank">
+                  <?php printf( __( 'Back to current site', 'phila-gov' )); ?><span class="accessible"> Opens in new window</span><i class="fa fa-reply"></i></a></div>
             </div>
         </div>
-    </div>
+      </div>
 <?php }  ?>
     <header id="masthead" class="site-header" role="banner">
         <div class="row">

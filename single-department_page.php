@@ -28,8 +28,8 @@ get_header(); ?>
         <div class="external-site">
             <p><?php the_title(); ?> has a <strong>separate website</strong>: <a href="<?php echo rwmb_meta( 'phila_dept_url', $args = array('type' => 'url')); ?>"><?php echo rwmb_meta( 'phila_dept_url', $args = array('type' => 'url')); ?></a></p>
 
-          <a class="pure-button" href="<?php echo rwmb_meta( 'phila_dept_url', $args = array('type' => 'url')); ?>">You are now leaving
-              <?php util_echo_website_url();?> </a>
+          <a class="button icon" href="<?php echo rwmb_meta( 'phila_dept_url', $args = array('type' => 'url')); ?>">You are now leaving
+              <?php util_echo_website_url();?> <i class="fa fa-sign-out"></i></a>
       <?php
           echo '<p class="description">' . rwmb_meta( 'phila_dept_desc', $args = array('type' => 'textarea')) . '</p>';
       ?>

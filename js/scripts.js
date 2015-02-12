@@ -8,39 +8,38 @@ new List('servinfo-list-container', {
     valueNames: ['item', 'item-desc']
 });
 
-jQuery(document).ready(function($) {    
+jQuery(document).ready(function($) {
     /*
-    *       phila.gov/browse 
+    *       phila.gov/browse
     */
     var pathArray = window.location.pathname.split( '/' );
 
     var parentURL = pathArray[3];
     var childURL = pathArray[4];
-    
+
     var parentClass = $('.parent-topics li').hasClass(parentURL);
     var childClass = $('.parent-topics li').hasClass(childURL);
     var theParentClassName = '.' + pathArray[2];
     var theChildClassName = '.' + pathArray[3];
-    
+
     if (pathArray.length == 3){
         $('.browse nav ul').hide();
-        $('.browse section.topic').removeClass('pure-u-md-1-3');
-        //$('.browse section.topic').addClass('pure-u-1');
+        $('.browse section.topic').removeClass('large-16');
     }
-    
+
     //compare the url with the classname - if the url reflects the classname, hide everything else
     $('.topic li').each(function(){
         if (pathArray.length == 3){
             $('.parent-topics li.child').hide();
             $('.parent-topics .child-description').hide();
-        }else if (parentClass == parentURL) {    
+        }else if (parentClass == parentURL) {
             $('.parent-topics li').not(theParentClassName).hide();
             $('.parent-topics .parent-description').hide();
             $('.parent-topics .child-description').not(theParentClassName).hide();
             $(theParentClassName).addClass('current-topic');
             $('.parent.current-topic a').removeAttr('href');
-            $('.topic').removeClass('pure-u-md-1-3');
-            $('.topic').addClass('pure-u-md-2-3 subtopic-select');
+            $('.topic').removeClass('large-16');
+            $('.topic').addClass('large-16 subtopic-select');
         }else if (childClass == childURL){
             $('.parent-topics li').not(theParentClassName).hide();
             $('.parent-topics .parent-description').hide();
@@ -54,7 +53,7 @@ jQuery(document).ready(function($) {
         }//end else if
 
     });//end topics
-    
+
     var currentURL = window.location.pathname;
     if (currentURL.indexOf('browse') != -1){
         var mq = window.matchMedia('(max-width: 48em)');
@@ -64,7 +63,7 @@ jQuery(document).ready(function($) {
             $('html, body').animate({
                 scrollTop: target.offset().top
             }, 1000);
-        }  
+        }
     }
 
 });

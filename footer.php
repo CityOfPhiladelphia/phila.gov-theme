@@ -63,7 +63,7 @@
           <?php //printf( __( 'Theme: %1$s by %2$s.', 'phila-gov' ), 'phila-gov', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
     </div><!-- .site-info -->
     <nav class="large-12 columns">
-      <ul class="float-right">
+      <ul class="inline-list">
           <li><a href="/terms-of-use">Terms of use</a></li>
           <li><a href="http://www.phila.gov/privacy/pdfs/FinalCityOpenRecords.pdf">Right to know (pdf)</a></li>
           <li><a href="/privacypolicy">Privacy Policy</a></li>
