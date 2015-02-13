@@ -61,7 +61,6 @@ get_header(); ?>
 	                            <span class="accessible"> Opens in new window</span>
 	                        </a>
 	                    </div>
-
 	                </div><!--#popular -->
 	                </div>
 	          </section>
