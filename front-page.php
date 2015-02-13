@@ -65,7 +65,6 @@ get_header(); ?>
 	                </div>
 	          </section>
 	          <section id="services" class="medium-12 columns">
-	            <div class="m-box">
 	                    <?php
 	                    /* temporary top-level topics list w/ descriptions */
 	                       $args = array(
@@ -85,13 +84,12 @@ get_header(); ?>
 	                            }
 
 	                            ?>
-	          </div>
 	        </section>
 			</div><!--.row -->
 		</div>
-
+		<div class="home-news">
       <div class="row">
-        <section id="news" class="home-news s-box">
+        <section id="news">
             <?php
                 $args = array(
                     'post_type' => array ('news_post'),
@@ -104,7 +102,7 @@ get_header(); ?>
                 $news_query = new WP_Query($args);
                 if ( $news_query->have_posts() ) : while ( $news_query->have_posts() ) : $news_query->the_post(); ?>
 
-                <div class="small-24 medium-7 columns">
+                <div class="small-24 medium-8 columns">
                     <div class="story s-box">
                         <?php get_home_news(); ?>
                     </div>
@@ -112,7 +110,7 @@ get_header(); ?>
             <?php
                 $counter++;
                 if ($counter === 1 || $counter === 2){
-                 echo '<div class="small-1 columns show-for-medium-up"></div>';
+                 //echo '<div class="small-1 columns"></div>';
                 }
             ?>
                 <?php endwhile; ?>
@@ -122,53 +120,49 @@ get_header(); ?>
                 <?php endif; ?>
 
         </section><!--#news-->
-          </div><!-- .row -->
+        </div><!-- .row -->
+		</div><!-- .home-news -->
 
-                <section id="active" class="row">
-                        <div class="container">
-                            <div class="small-24 large-17 columns">
-                                <div class="s-box active-list">
-                                    <header>
-                                        <h1>Most Active</h1>
-                                    </header>
-                                    <dl class="row">
-                                        <dt class="small-24 medium-16 columns"><a href="http://property.phila.gov" class="h3" target="_blank">Property Information<span class="accessible"> Opens in new window</span></a>
-                                        <span>Property Assessment</span></dt>
-                                        <dd class="small-24 medium-16 columns">Search and compare property data in the City of Philadelphia</dd>
+		<section id="active" class="row">
+			<div class="small-24 large-17 columns">
+		  	<div class="related">
+		      <header>
+		          <h1>Most Active</h1>
+		      </header>
+					<div class="row">
+		      <dl>
+		          <dt class="medium-24 large-8 columns"><a href="http://property.phila.gov" class="h3" target="_blank">Property Information<span class="accessible"> Opens in new window</span></a>
+		          <span>Property Assessment</span></dt>
+		          <dd class="medium-24 large-16 columns">Search and compare property data in the City of Philadelphia</dd>
 
-                                        <dt class="small-24 medium-8 columns"><a href="http://www.phila.gov/revenue/realestatetax/" class="h3" target="_blank">Real Estate Tax<span class="accessible"> Opens in new window</span></a>
-                                        <span>Revenue</span></dt>
-                                        <dd class="small-24 medium-16 columns">Real Estate Tax bills are sent in December for the following year and payments are due March 31st.</dd>
+		          <dt class="medium-24 large-8 columns"><a href="http://www.phila.gov/revenue/realestatetax/" class="h3" target="_blank">Real Estate Tax<span class="accessible"> Opens in new window</span></a>
+		          <span>Revenue</span></dt>
+		          <dd class="medium-24 large-16 columns">Real Estate Tax bills are sent in December for the following year and payments are due March 31st.</dd>
 
-                                        <dt class="small-24 medium-8 columns"><a href="http://www.phila.gov/zoningarchive/" class="h3" target="_blank">Zoning Archive<span class="accessible"> Opens in new window</span></a>
-                                        <span>L+I</span></dt>
-                                        <dd class="small-24 medium-16 columns">Search and view all previous applications, approved uses and site drawings for a parcel of land.</dd>
+		          <dt class="medium-24 large-8 columns"><a href="http://www.phila.gov/zoningarchive/" class="h3" target="_blank">Zoning Archive<span class="accessible"> Opens in new window</span></a>
+		          <span>L+I</span></dt>
+		          <dd class="medium-24 large-16 columns">Search and view all previous applications, approved uses and site drawings for a parcel of land.</dd>
 
-                                        <dt class="small-24 medium-8 columns"><a href="http://www.phila.gov/prisons/Facilities/Pages/default.aspx" class="h3" target="_blank">Correctional Facilities<span class="accessible"> Opens in new window</span></a>
-                                        <span>Prisons</span></dt>
-                                        <dd class="small-24 medium-16 columns">Find facility history, visiting rules, and hours.</dd>
-
-
-                                        <dt class="small-24 medium-8 columns"><a href="http://www.phila.gov/Revenue/individuals/Pages/default.aspx" class="h3" target="_blank">Individual Taxes<span class="accessible"> Opens in new window</span></a>
-                                        <span>Revenue</span></dt>
-                                        <dd class="small-24 medium-16 columns">Learn about taxes that individuals must remit and/or file in Philadelphia.</dd>
-                                    </dl>
-
-                                </div>
-                            </div>
-                            <div class="small-1 columns"></div>
-                                <div class="small-1 large-6 columns links">
-                                    <a class="button icon" href="/departments">Department Directory<i class="fa fa-sitemap"></i></a>
-                                    <a class="button icon" href="http://www.phila.gov/mayor" target="_blank">Mayor's Office<i class="fa fa-university"></i><span class="accessible"> Opens in new window</span></a>
-                                    <a class="button icon" href="http://cityofphiladelphia.wordpress.com/" target="_blank">News<i class="fa fa-microphone"></i><span class="accessible"> Opens in new window</span></a>
-                                    <a class="button icon" href="http://www.phila.gov/map" target="_blank">Maps<i class="fa fa-map-marker"></i><span class="accessible"> Opens in new window</span></a>
-                                </div>
-
-                            </div>
-                        </section><!--#news-->
+		          <dt class="medium-24 large-8 columns"><a href="http://www.phila.gov/prisons/Facilities/Pages/default.aspx" class="h3" target="_blank">Correctional Facilities<span class="accessible"> Opens in new window</span></a>
+		          <span>Prisons</span></dt>
+		          <dd class="medium-24 large-16 columns">Find facility history, visiting rules, and hours.</dd>
 
 
+		          <dt class="medium-24 large-8 columns"><a href="http://www.phila.gov/Revenue/individuals/Pages/default.aspx" class="h3" target="_blank">Individual Taxes<span class="accessible"> Opens in new window</span></a>
+		          <span>Revenue</span></dt>
+		          <dd class="medium-24 large-16 columns">Learn about taxes that individuals must remit and/or file in Philadelphia.</dd>
+		      </dl>
+				</div>
+		  </div>
+		</div>
+            <div class="small-24 large-7 columns links">
+                      <a class="button icon" href="/departments">Department Directory<i class="fa fa-sitemap"></i></a>
+                      <a class="button icon" href="http://www.phila.gov/mayor" target="_blank">Mayor's Office<i class="fa fa-university"></i><span class="accessible"> Opens in new window</span></a>
+                      <a class="button icon" href="http://cityofphiladelphia.wordpress.com/" target="_blank">News<i class="fa fa-microphone"></i><span class="accessible"> Opens in new window</span></a>
+                      <a class="button icon" href="http://www.phila.gov/map" target="_blank">Maps<i class="fa fa-map-marker"></i><span class="accessible"> Opens in new window</span></a>
+                  </div>
 
+      </section><!--#active-->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
