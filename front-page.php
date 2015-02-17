@@ -12,7 +12,6 @@ get_header(); ?>
       <div class="home-top">
 				<div class="row">
 	        <section id="welcome" class="medium-12 columns">
-	            <div class="s-box-right">
 	              <div class="home-search">
 	                <header>
 	                    <h1>What can we help you find?</h1>
@@ -62,29 +61,30 @@ get_header(); ?>
 	                        </a>
 	                    </div>
 	                </div><!--#popular -->
-	                </div>
 	          </section>
-	          <section id="services" class="medium-12 columns">
-	                    <?php
-	                    /* temporary top-level topics list w/ descriptions */
-	                       $args = array(
-	                            'orderby' => 'name',
-	                            'fields'=> 'all',
-	                            'parent' => 0,
-	                           'hide_empty'=> false
-	                       );
-	                      $terms = get_terms( 'topics', $args );
-	                        if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-	                             echo '<ul>';
-	                             foreach ( $terms as $term ) {
-	                                 echo '<li><a href="/browse/' . $term->slug .  '"><h2>' . $term->name . '</h2>';
-	                                 echo '<span>' . $term->description . '</span></a></li>';
-	                             }
-	                             echo '</ul>';
-	                            }
+							<div class="medium-12 columns">
+			          <section id="services">
+			                    <?php
+			                    /* temporary top-level topics list w/ descriptions */
+			                       $args = array(
+			                            'orderby' => 'name',
+			                            'fields'=> 'all',
+			                            'parent' => 0,
+			                           'hide_empty'=> false
+			                       );
+			                      $terms = get_terms( 'topics', $args );
+			                        if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
+			                             echo '<ul>';
+			                             foreach ( $terms as $term ) {
+			                                 echo '<li><a href="/browse/' . $term->slug .  '"><h2>' . $term->name . '</h2>';
+			                                 echo '<span>' . $term->description . '</span></a></li>';
+			                             }
+			                             echo '</ul>';
+			                            }
 
-	                            ?>
-	        </section>
+			                            ?>
+			        </section>
+				</div>
 			</div><!--.row -->
 		</div>
 		<div class="home-news">
@@ -103,7 +103,7 @@ get_header(); ?>
                 if ( $news_query->have_posts() ) : while ( $news_query->have_posts() ) : $news_query->the_post(); ?>
 
                 <div class="small-24 medium-8 columns">
-                    <div class="story s-box">
+                    <div class="story">
                         <?php get_home_news(); ?>
                     </div>
                 </div>
@@ -116,7 +116,7 @@ get_header(); ?>
                 <?php endwhile; ?>
 
                 <?php else : ?>
-                    <div class="alert">No news!</div>
+                    <div class="alert">No recent news.</div>
                 <?php endif; ?>
 
         </section><!--#news-->
