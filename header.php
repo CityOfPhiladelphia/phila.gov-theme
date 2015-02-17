@@ -17,7 +17,6 @@
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
     <!--[if lte IE 8]>
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/phila.gov-styles/ie8.css" type="text/css" media="all">
-     <link rel="stylesheet" href="//yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
           <p class="browsehappy alert">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     <!--[if IE 9]>
@@ -41,34 +40,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <div id="page" class="hfeed site">
     <?php if (alpha_alert()){ //show the alpha alert if set to true in functions.php ?>
-    <div class="alpha-alert pure-g">
-        <div class="container">
-            <div class="pure-u-1">
-                <div class="float-left">
-                    <h1 class="h2">Welcome to alpha.phila.gov</h1> <p>This is a work in progress. It may contain errors and inaccuracies. Help us improve it by providing feedback.</p>
-                    <p><a href="/about"><?php printf( __( 'Learn more about this project. &raquo;', 'phila-gov' )); ?></a></p>
-                </div>
-                <div class="float-right">
-                    <div class="button-with-icon"><a class="pure-button feedback" href="<?php get_template_part( 'content', 'feedback-url' ); ?>" target="_blank"><?php printf( __( 'Provide Feedback', 'phila-gov' )); ?><span class="accessible">Opens in new window</span></a></div>
-                    <div class="button-with-icon"><a class="pure-button go-back" href="http://www.phila.gov" target="_blank"><?php printf( __( 'Back to current site', 'phila-gov' )); ?><span class="accessible">Opens in new window</span></a></div>
-                </div>
+    <div class="alpha-alert">
+      <div class="row">
+        <div class="large-18 columns">
+                <h1 class="h3">Welcome to alpha.phila.gov</h1> <p>This is a work in progress. It may contain errors and inaccuracies. Help us improve it by providing feedback.</p>
+                <p><a href="/about"><?php printf( __( 'Learn more about this project. &raquo;', 'phila-gov' )); ?></a></p>
+            </div>
+            <div class="large-6 columns">
+                <div class="button icon alternate"><a class="feedback" href="<?php get_template_part( 'content', 'feedback-url' ); ?>" target="_blank">
+                  <?php printf( __( 'Provide Feedback', 'phila-gov' )); ?>
+                  <span class="accessible"> Opens in new window</span><i class="fa fa-comments"></i></a></div>
+                <div class="button icon alternate"><a class="go-back" href="http://www.phila.gov" target="_blank">
+                  <?php printf( __( 'Back to current site', 'phila-gov' )); ?><span class="accessible"> Opens in new window</span><i class="fa fa-reply"></i></a></div>
             </div>
         </div>
-    </div>
+      </div>
 <?php }  ?>
-    <header id="masthead" class="site-header pure-g" role="banner">
-        <div class="container">
+    <header id="masthead" class="site-header" role="banner">
+        <div class="row">
             <div class="site-branding">
-                <div class="pure-u-1-4 pure-u-md-1-2">
+                <div class="small-24 medium-12 columns">
                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
                         <img src="<?php echo get_stylesheet_directory_uri();?>/img/city-of-philadelphia@2x.png" alt="City of Philadelphia" height="100" class="hidden-xs">
-                    <img src="<?php echo get_stylesheet_directory_uri();?>/img/city-of-philadelphia-mobile@2x.png" alt="City of Philadelphia" height="50" class="visible-xs"></a>
-
-
                     <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
                     <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
                 </div>
-                <?php if(!is_front_page()) { if (!is_search()) {?> <div class="search-site pure-u-3-4 pure-u-md-1-2"> <?php get_search_form(); ?> </div> <?php } }?>
+                <?php if(!is_front_page()) { if (!is_search()) {?> <div class="search-site small-24 medium-12 columns"> <?php get_search_form(); ?> </div> <?php } }?>
             </div><!-- .site-branding -->
 
 
@@ -81,5 +78,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
     </header><!-- #masthead -->
     <?php create_site_wide_alerts() ?>
-    <?php if (function_exists('the_breadcrumb') && !is_front_page()) { ?> <div id="breadcrumbs" class="pure-g"> <div class="container"><nav class="pure-u-1"><?php the_breadcrumb(); ?> </nav></div></div> <?php } ?>
+    <?php if (function_exists('the_breadcrumb') && !is_front_page()) { ?>
+      <div class="row">
+        <div class="small-24 columns">
+          <div class="divider"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div id="breadcrumbs" class="large-24 columns">
+          <nav><?php the_breadcrumb(); ?> </nav>
+        </div>
+      </div> <?php } ?>
     <div id="content" class="site-content">

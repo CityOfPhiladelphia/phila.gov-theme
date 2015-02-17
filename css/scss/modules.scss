@@ -1,0 +1,244 @@
+/*
+ *
+ * ALPHA ALERT
+ *
+*/
+.alpha-alert{
+    background:$mine-shaft;
+    color: $white;
+    min-height: 30px;
+    padding: 0.4em 0;
+
+    h1{
+      color:$bell-yellow;
+      margin: 5px 0;
+    }
+    p {
+        display:block;
+        margin:0;
+        font-size:.8rem;
+      a{
+        font-weight:bold;
+      }
+    }
+
+    a:link, a:visited{
+        color:$white;
+    }
+    a:hover, a:active{
+        color:$bell-yellow;
+    }
+    .button {
+      height:30px;
+      padding: .3rem 2.8125rem 0 0;
+      margin:.5rem 0 0 0;
+    &.icon{
+      padding: 0.2rem 2.8125rem 0 0;
+      &.alternate .fa{
+        max-height:28px;
+      }
+      a:link, a:visited{
+        background:$white;
+        color:$mine-shaft;
+      }
+      a:active, a:hover{
+        color:$ben-franklin-blue;
+      }
+    }
+  .fa {
+    padding:.2em .5em .5em .4em;
+    }
+  }//button
+}//alpha-alert
+
+
+/*
+ *
+ * service/information/department finder
+ *
+ *
+*/
+
+.topic {
+  h3 {
+      margin-top:20px;
+      @media screen and (min-width: 35.5em){
+          margin-top: 0;
+       }
+  }
+  li.current-topic.current {
+      background:#fff;
+      border-left:10px solid $ben-franklin-blue;
+  }
+  ul {
+      padding:0;
+      margin:0;
+  }
+  li.current-topic + ul.subtopics {
+      background:$ghost-gray;
+      padding: 10px 0;
+  }
+}
+.browse {
+  margin-bottom:16px;
+
+    .results {
+
+      a:link, a:visited{
+        h2 {
+          color:$ben-franklin-blue;
+        }
+      }
+      a:hover, a:active{
+        h2{
+          color:$mine-shaft;
+        }
+      }
+        margin: 0;
+        padding-left:0;
+
+        @media screen and (min-width: 80em){
+            margin: 40px 0 0 0;
+            padding-left:40px;
+        }
+        h2 {
+            margin-top:20px;
+            @media screen and (min-width: 35.5em){
+                margin-top: 0;
+             }
+        }
+    }//results
+    .subtopics a li:hover {
+        border-left:10px solid $ben-franklin-blue;
+    }
+    .topics-nav{
+        float:left;
+
+        ul {
+            padding: 10px 0 !important;
+        }
+    }
+
+    .subtopic-select ul.subtopics{
+        background:none !important;
+    }
+
+    .parent.current-topic a:hover{
+        color:$ben-franklin-blue;
+    }
+
+    li.parent.current-topic{
+        font-size: 125%;
+        margin:0;
+        padding:0;
+
+        h3 {
+            display: inline;
+        }
+    }//li.parent.current-topic
+
+    li.parent.current-topic h3::before {
+        display: inline;
+    }
+    .back-to-topic::before{
+        content: "\f053";
+        font-family: 'FontAwesome';
+        padding: 0 5px 0 0;
+        display: inline;
+    }
+}//browse
+
+
+.browse li, .departments li {
+    list-style: none;
+    padding:10px;
+    margin-right:10px;
+}
+.parent-topics,
+.browse li h3,
+.departments li h3 {
+    margin:0;
+}
+.browse nav.active, .departments nav.active{
+    background:#ccc;
+}
+.browse nav, .archive.tax-topics #breadcrumbs {
+    text-transform: capitalize;
+}
+.browse nav span, .departments nav span{
+    font-weight: normal;
+}
+
+p.child-description, p.parent-description {
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+    text-transform: none;
+}
+.parent-description a {
+    padding: 0;
+    font-weight: normal;
+}
+.main-nav h4{
+    margin: 0;
+}
+.detail {
+    display: block;
+    font-size: 80%;
+}
+.current {
+    background:$mine-shaft;
+}
+
+.topics-nav {
+    margin-right: 0;
+    ul {
+        background:$ghost-gray;
+        margin:0 10px 0 0 !important;
+    }
+    li.current-topic {
+        background:#fff;
+        border-left:10px solid $ben-franklin-blue;
+    }
+
+    a li:hover {
+        border-left:10px solid $ben-franklin-blue;
+    }
+
+    h2 {
+        padding-left:10px;
+    }
+
+}
+
+.results {
+    h2 {
+      margin:0 0 10px 0;
+    }
+    ul {
+      margin:0;
+      padding:0;
+    }
+}
+
+
+.error-404{
+    .find {
+        @extend .group;
+        background-color:#F9F9F9;
+        border: 1px solid $geyser;
+        padding:1.5em;
+        margin-bottom: 0;
+
+        @media screen and (min-width: 35.5em){
+             margin-bottom: 1em;
+        }
+         h1{
+            margin-top: 0;
+            padding: 0;
+            text-transform: none;
+            font-size: 1.33em;
+            font-weight: 400;
+         }
+     }
+}

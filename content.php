@@ -4,19 +4,21 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class("pure-g"); ?>>
-	<header class="entry-header pure-u-1">
-		<?php the_title( sprintf( '<h1 class="entry-title container"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
+<article id="post-<?php the_ID(); ?>">
+	<div class="row">
+		<header class="entry-header small-24 columns">
+			<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
 
-		<?php if ( 'post' == get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php phila_gov_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-       
-	</header><!-- .entry-header -->
-    <div class="container">
-        <div class="entry-content pure-u-1">
+			<?php if ( 'post' == get_post_type() ) : ?>
+			<div class="entry-meta">
+				<?php phila_gov_posted_on(); ?>
+			</div><!-- .entry-meta -->
+			<?php endif; ?>
+
+		</header><!-- .entry-header -->
+	</div>
+    <div class="row">
+        <div class="entry-content small-24 columns">
             <?php
                 /* translators: %s: Name of current post */
                 the_content( sprintf(
