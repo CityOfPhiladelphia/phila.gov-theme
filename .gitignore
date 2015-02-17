@@ -1,2 +1,6 @@
 
 *.gov-styles
+
+css/.sass-cache
+css/node_modules
+styles.css.map
