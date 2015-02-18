@@ -10,9 +10,8 @@
 get_header(); ?>
 
 	<section id="primary" class="content-area archive">
-		<main id="main" class="site-main pure-g" role="main">
-         <div class="container">
-            <div class="pure-u-1">
+		<main id="main" class="site-main row" role="main">
+            <div class="small-24 columns">
                     <?php if ( have_posts() ) : ?>
                         <header>
                             <h1>
@@ -86,8 +85,8 @@ get_header(); ?>
                                  * If you want to override this in a child theme, then include a file
                                  * called content-___.php (where ___ is the Post Format name) and that will be used instead.
                                  */
-                    ?>           <div class="container">                   
-                                    <div class="pure-u-1">
+                    ?>           <div class="row">
+                                    <div class="small-24 columns">
                                         <?php get_template_part( 'content', get_post_format() ) ?>
                                     </div>
                                 </div>
@@ -102,8 +101,7 @@ get_header(); ?>
                         <?php get_template_part( 'content', 'none' ); ?>
 
                     <?php endif; ?>
-         
-            </div><!-- .container -->
+
 		</main><!-- #main -->
 	</section><!-- #primary -->
 
