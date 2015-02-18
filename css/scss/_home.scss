@@ -28,11 +28,7 @@
       background-color:#F9F9F9;
       border: 1px solid $geyser;
       padding:1.5em;
-      margin-bottom: 0;
-
-      @media screen and (min-width: 35.5em){
-           margin-bottom: 1em;
-      }
+      margin-bottom: 1em;
 
       .search:before {
         display:none;
@@ -41,6 +37,7 @@
           display:none;
       }
       @media screen and (min-width: 35.5em){
+
           .search-help{
               font-size: 80%;
               color:$white;
@@ -58,6 +55,25 @@
       }
   }//.home-search
 
+    #popular {
+      margin-top: 60px;
+
+      @media screen and (max-width: 64em) {
+        margin-top: 0;
+      }
+      @media screen and (max-width: 48em) {
+        a .fa-inverse {
+            font-size: 1.8rem !important;
+          }
+        .fa-3x {
+          font-size: 2em;
+          }
+        .h3 {
+          font-size:.7rem;
+      }
+    }
+  }
+
 
   #services {
       background:$ben-franklin-blue;
@@ -67,7 +83,6 @@
       li {
         font-size:90%;
       }
-
       h1{
           color: $ben-franklin-blue;
           border-bottom: 1px solid $mine-shaft;
@@ -97,9 +112,9 @@
           color:$white;
       }
       a:hover, a:active{
-          color:$mine-shaft;
+          color:$black;
         h2{
-          color:$mine-shaft;
+          color:$black;
         }
       }
       a > span {

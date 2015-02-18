@@ -11,7 +11,7 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
       <div class="home-top">
 				<div class="row">
-	        <section id="welcome" class="medium-12 columns">
+	        <section id="welcome" class="large-12 small-24 columns">
 	              <div class="home-search">
 	                <header>
 	                    <h1>What can we help you find?</h1>
@@ -62,7 +62,7 @@ get_header(); ?>
 	                    </div>
 	                </div><!--#popular -->
 	          </section>
-							<div class="medium-12 columns">
+							<div class="large-12 medium-24 columns">
 			          <section id="services">
 			                    <?php
 			                    /* temporary top-level topics list w/ descriptions */
