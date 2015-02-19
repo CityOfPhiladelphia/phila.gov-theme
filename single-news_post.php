@@ -14,7 +14,7 @@ get_header(); ?>
 	</header><!-- .entry-header -->
 </div>
     <div class="row">
-        <div class="entry-content small-24 meduim-18 columns end">
+        <div class="entry-content small-24 medium-18 columns">
             <?php
                 wp_link_pages( array(
                     'before' => '<div class="page-links">' . __( 'Pages:', 'phila-gov' ),

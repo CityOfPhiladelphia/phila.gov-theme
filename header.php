@@ -47,7 +47,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <p><a href="/about"><?php printf( __( 'Learn more about this project. &raquo;', 'phila-gov' )); ?></a></p>
             </div>
             <div class="large-6 columns">
-                <div class="button icon alternate"><a class="feedback" href="<?php get_template_part( 'content', 'feedback-url' ); ?>" target="_blank">
+                <div class="button icon alternate"><a class="feedback" href="<?php get_template_part( 'partials/content', 'feedback-url' ); ?>" target="_blank">
                   <?php printf( __( 'Provide Feedback', 'phila-gov' )); ?>
                   <span class="accessible"> Opens in new window</span><i class="fa fa-comments"></i></a></div>
                 <div class="button icon alternate"><a class="go-back" href="http://www.phila.gov" target="_blank">

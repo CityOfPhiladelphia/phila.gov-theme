@@ -18,7 +18,7 @@
         <div class="small-24 columns">
           <div class="panel center">
             <?php echo 'Can\'t find what you are looking for? <a href="';
-                  echo get_template_part( 'content', 'feedback-url' );
+                  echo get_template_part( 'partials/content', 'feedback-url' );
                   echo '" target="_blank"> Let us know. <span class="accessible">Opens in new window</span></a>'; ?>
           </div>
         </div>
@@ -43,7 +43,7 @@
           <div class="panel center">
               <?php
                   echo 'Is this information incorrect? <a href="';
-                  echo get_template_part( 'content', 'feedback-url' );
+                  echo get_template_part( 'partials/content', 'feedback-url' );
                   echo '" target="_blank"> Let us know. <span class="accessible">Opens in new window</span></a>'; ?>
           </div>
         </div>
@@ -59,7 +59,7 @@
       <a href="<?php get_option('home') ?>">City of Philadelphia</a>
     </div>
     <div class="site-info large-6 columns">
-      <a href="<?php get_template_part( 'content', 'feedback-url' ); ?>" target="_blank"><?php printf( __( 'Provide Feedback', 'phila-gov' )); ?></a>
+      <a href="<?php get_template_part( 'partials/content', 'feedback-url' ); ?>"><?php printf( __( 'Provide Feedback', 'phila-gov' )); ?></a>
           <?php //printf( __( 'Theme: %1$s by %2$s.', 'phila-gov' ), 'phila-gov', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
     </div><!-- .site-info -->
     <nav class="large-12 columns">
