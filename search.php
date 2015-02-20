@@ -55,7 +55,7 @@ get_header(); ?>
                     <?php else : ?>
                         </div>
 											</div>
-                        <?php get_template_part( 'content', 'none' ); ?>
+                        <?php get_template_part( 'partials/content', 'none' ); ?>
 
                     <?php endif; ?>
                     </div>

@@ -35,7 +35,7 @@ get_header(); ?>
 
             <?php else : ?>
 
-                <?php get_template_part( 'content', 'none' ); ?>
+                <?php get_template_part( 'partials/content', 'none' ); ?>
 
             <?php endif; ?>
             </div><!-- .container -->
