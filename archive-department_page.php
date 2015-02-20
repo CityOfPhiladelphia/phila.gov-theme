@@ -16,7 +16,7 @@ get_header(); ?>
       </div>
       <div class="row">
 							<div class="small-24 columns results">
-								<?php get_template_part( 'content', 'finder' ); ?>
+								<?php get_template_part( 'partials/content', 'finder' ); ?>
 									<ul class="list"><!-- ul for sortable listness -->
                     <?php
                         $type = 'department_page';
@@ -32,7 +32,7 @@ get_header(); ?>
 
                         <?php while ( $department_listing->have_posts() ) : $department_listing->the_post(); ?>
 
-                            <?php get_template_part( 'content', 'list' ); ?>
+                            <?php get_template_part( 'partials/content', 'list' ); ?>
                     <hr>
 
                         <?php endwhile; ?>
