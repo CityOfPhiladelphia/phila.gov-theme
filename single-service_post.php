@@ -39,7 +39,7 @@ get_header(); ?>
 
             endwhile; // end of the loop. ?>
 
-
+					<?php get_template_part( 'partials/content', 'modified' ) ?>
         </div><!-- .entry-content -->
 
     <?php

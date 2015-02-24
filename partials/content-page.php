@@ -14,7 +14,6 @@
 	</div>
   <div class="row">
       <div class="entry-content small-24 columns">
-          <div>
           <?php the_content(); ?>
           <?php
               //wp_link_pages( array(
@@ -22,7 +21,7 @@
                   //'after'  => '</div>',
               //) );
           ?>
-          </div>
       </div><!-- .entry-content -->
-  </div>
+	</div>
+	<?php get_template_part( 'partials/content', 'modified' ) ?>
 </article><!-- #post-## -->

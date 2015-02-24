@@ -15,7 +15,7 @@ get_header(); ?>
         </header>
       </div>
       <div class="row">
-							<div class="small-24 columns results">
+					<div class="small-24 columns results">
 								<?php get_template_part( 'partials/content', 'finder' ); ?>
 									<ul class="list"><!-- ul for sortable listness -->
                     <?php
@@ -43,6 +43,7 @@ get_header(); ?>
 
                   </ul>
               </div>
+							<?php get_template_part( 'partials/content', 'modified' ) ?>
 				</div> <!-- .row -->
 		</main><!-- #main -->
 	</div><!-- #primary -->

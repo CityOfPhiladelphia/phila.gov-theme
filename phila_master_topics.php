@@ -9,17 +9,16 @@ get_header(); ?>
 
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-            <div class="row">
-                    <header class="small-24 columns">
-                        <?php echo the_title(); ?>
-                    </header>
+      <div class="row">
+              <header class="small-24 columns">
+                  <?php echo the_title(); ?>
+              </header>
+      </div>
+      <div class="row">
+            <div class="small-24 columns">
+                    <?php get_master_topics(); ?>
             </div>
-            <div class="row">
-                  <div class="small-24 columns">
-                          <?php get_master_topics(); ?>
-                  </div>
-            </div>
-
+      </div>
     </main><!-- #main -->
   </div><!-- #primary -->
 

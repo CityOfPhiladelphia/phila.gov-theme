@@ -41,5 +41,5 @@
 
                 <?php endif; ?>
             </div><!-- .page-content -->
-    </div><!-- .pure-g -->
+    </div><!-- .row-->
 </section><!-- .no-results -->

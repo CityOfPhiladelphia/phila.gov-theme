@@ -9,12 +9,11 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area archive">
-		<main id="main" class="site-main row" role="main">
-            <div class="small-24 columns">
+	<section id="primary" class="content-area archive row">
+		<main id="main" class="site-main small-24 columns" role="main">
                     <?php if ( have_posts() ) : ?>
                         <header>
-                            <h1>
+                            <h1 class="h3">
                                 <?php
                                     if ( is_category() ) :
                                         single_cat_title();
@@ -75,7 +74,6 @@ get_header(); ?>
                                 endif;
                             ?>
                         </header><!-- .page-header -->
-                    </div>
 
                         <?php /* Start the Loop */ ?>
                         <?php while ( have_posts() ) : the_post(); ?>
@@ -103,6 +101,7 @@ get_header(); ?>
                     <?php endif; ?>
 
 		</main><!-- #main -->
+		<?php get_template_part( 'partials/content', 'modified' ) ?>
 	</section><!-- #primary -->
 
 <?php get_footer(); ?>

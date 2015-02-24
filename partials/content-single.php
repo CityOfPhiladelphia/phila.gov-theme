@@ -25,4 +25,5 @@
         get_sidebar('topics');
     ?>
 	</div><!-- .row -->
+	<?php get_template_part( 'partials/content', 'modified' ) ?>
 </article><!-- #post-## -->

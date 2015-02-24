@@ -11,7 +11,7 @@ get_header(); ?>
 	<header class="entry-header small-24 columns">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
-  <div class="entry-content small-18 columns end">
+  <div class="entry-content medium-18 small-24 columns end">
       <?php
           wp_link_pages( array(
               'before' => '<div class="page-links">' . __( 'Pages:', 'phila-gov' ),
@@ -45,5 +45,6 @@ get_header(); ?>
 ?>
   </div><!-- .entry-content -->
 </article><!-- #post-## -->
+<?php get_template_part( 'partials/content', 'modified' ) ?>
 
 <?php get_footer(); ?>
