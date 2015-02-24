@@ -1,10 +1,9 @@
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,700);
-
 @import 'variables';
 @import 'layout';
 @import 'modules';
 @import 'home';
 @import 'swifttype';
+@import 'news';
 
 .site-header {
     color: $white;

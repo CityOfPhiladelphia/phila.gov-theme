@@ -37,10 +37,8 @@ get_header(); ?>
 
 
         </div><!-- .entry-content -->
-
-			<?php get_template_part( 'partials/content', 'modified' ) ?>
     </div><!-- .row -->
-
+		<?php get_template_part( 'partials/content', 'modified' ) ?>
 </article><!-- #post-## -->
 
 <?php get_footer(); ?>

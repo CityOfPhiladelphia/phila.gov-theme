@@ -13,7 +13,7 @@ get_header(); ?>
 		<main id="main" class="site-main small-24 columns" role="main">
                     <?php if ( have_posts() ) : ?>
                         <header>
-                            <h1 class="h3">
+                            <h1>
                                 <?php
                                     if ( is_category() ) :
                                         single_cat_title();
@@ -88,7 +88,6 @@ get_header(); ?>
                                         <?php get_template_part( 'content', get_post_format() ) ?>
                                     </div>
                                 </div>
-                            <hr>
 
                         <?php endwhile; ?>
 
@@ -101,7 +100,6 @@ get_header(); ?>
                     <?php endif; ?>
 
 		</main><!-- #main -->
-		<?php get_template_part( 'partials/content', 'modified' ) ?>
 	</section><!-- #primary -->
-
+	<?php get_template_part( 'partials/content', 'modified' ) ?>
 <?php get_footer(); ?>
