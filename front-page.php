@@ -65,7 +65,7 @@ get_header(); ?>
 							<div class="large-12 medium-24 columns">
 			          <section id="services">
 			                    <?php
-			                    /* temporary top-level topics list w/ descriptions */
+			                    /* temp top-level topics list w/ descriptions */
 			                       $args = array(
 			                            'orderby' => 'name',
 			                            'fields'=> 'all',

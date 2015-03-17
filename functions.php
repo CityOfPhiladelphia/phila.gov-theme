@@ -85,7 +85,7 @@ add_action( 'widgets_init', 'phila_gov_widgets_init' );
  */
 function phila_gov_scripts() {
 
-    wp_enqueue_style( 'pattern_portfolio', '//cityofphiladelphia.github.io/patterns/dist/css/patterns.css', array(), '0.1.1' );
+    wp_enqueue_style( 'pattern_portfolio', '//cityofphiladelphia.github.io/patterns/0.3.0/css/patterns.css' );
     wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', array(), '4.2.0' );
 
 		wp_enqueue_style( 'ionicons', '//code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css', array(), '2.0.0' );

@@ -54,10 +54,46 @@
  </div><!-- #page -->
 
 <footer id="colophon" class="site-footer" role="contentinfo">
-  <div class="row">
-    <div class="large-6 columns">
-      <a href="<?php get_option('home') ?>">City of Philadelphia</a>
+  <section class="fat">
+    <div class="row">
+      <div class="large-8 columns">
+        <h1>Government</h1>
+        <nav>
+          <ul>
+            <li><a href="http://alpha.phila.gov"><?php util_echo_website_url() ;?></a></li>
+            <li><a href="/departments">Department Directory</a></li>
+            <li><a href="http://www.phila.gov/mayor">Mayor's Office</a></li>
+            <li><a href="http://iframe.publicstuff.com/#?client_id=242">Report an Issue / 311</a></li>
+            <li><a href="http://cityofphiladelphia.wordpress.com/">News</a></li>
+            <li><a href="http://www.phila.gov/phoneDir/">Phone Directory</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="large-16 columns">
+        <h1>Browse alpha.phila.gov</h1>
+        <nav>
+            <?php
+            /* temp top-level topics list w/ descriptions */
+               $args = array(
+                    'orderby' => 'name',
+                    'fields'=> 'all',
+                    'parent' => 0,
+                   'hide_empty'=> false
+               );
+              $terms = get_terms( 'topics', $args );
+                if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
+                     echo '<ul class="columns-2">';
+                     foreach ( $terms as $term ) {
+                         echo '<li><a href="/browse/' . $term->slug .  '">' . $term->name;
+                     }
+                     echo '</ul>';
+                    }
+                    ?>
+              </nav>
+        </div>
     </div>
+  </section>
+  <div class="row classic">
     <div class="site-info large-6 columns">
       <a href="<?php get_template_part( 'partials/content', 'feedback-url' ); ?>"><?php printf( __( 'Provide Feedback', 'phila-gov' )); ?></a>
           <?php //printf( __( 'Theme: %1$s by %2$s.', 'phila-gov' ), 'phila-gov', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>

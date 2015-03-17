@@ -67,8 +67,9 @@
        }
   }
   li.current-topic.current {
-      background:#fff;
-      border-left:10px solid $ben-franklin-blue;
+    border-left:10px solid $ben-franklin-blue;
+    background: $ben-franklin-blue;
+    color: white;
   }
   ul {
       padding:0;
@@ -80,7 +81,11 @@
   }
 }
 .browse {
-  margin-bottom:16px;
+  margin:30px 0 40px 0;
+
+  p{
+    font-size: .9rem;
+  }
 
     .results {
 
@@ -98,8 +103,8 @@
         padding-left:0;
 
         @media screen and (min-width: 80em){
-            margin: 40px 0 0 0;
-            padding-left:40px;
+            margin: 25px 0 0 0;
+            padding-left:20px;
         }
         h2 {
             margin-top:20px;
@@ -111,6 +116,13 @@
     .subtopics a li:hover {
         border-left:10px solid $ben-franklin-blue;
     }
+
+    .subtopic-select .subtopics a li{
+        border-left: 10px solid $white;
+      }
+    .subtopics a li{
+        border-left: 10px solid $ghost-gray;
+      }
     .topics-nav{
         float:left;
 
@@ -118,7 +130,6 @@
             padding: 10px 0 !important;
         }
     }
-
     .subtopic-select ul.subtopics{
         background:none !important;
     }
@@ -148,11 +159,9 @@
     }
 }//browse
 
-
 .browse li, .departments li {
     list-style: none;
     padding:10px;
-    margin-right:10px;
 }
 .parent-topics,
 .browse li h3,
@@ -164,6 +173,10 @@
 }
 .browse nav, .archive.tax-topics #breadcrumbs {
     text-transform: capitalize;
+}
+
+.archive.tax-topics #breadcrumbs ul li:first-child {
+  text-transform: none;
 }
 .browse nav span, .departments nav span{
     font-weight: normal;
@@ -196,9 +209,13 @@ p.child-description, p.parent-description {
         background:$ghost-gray;
         margin:0 10px 0 0 !important;
     }
+    li {
+      border-left:10px solid #F1F3F1;
+    }
     li.current-topic {
-        background:#fff;
         border-left:10px solid $ben-franklin-blue;
+        background: $ben-franklin-blue;
+        color: white;
     }
 
     a li:hover {
