@@ -32,47 +32,40 @@ var browse =
           if (pathArray.length == 3){
               $('.browse nav ul').remove();
               $('#topic').removeClass('large-16');
-          }
+            }
+            function removeHiddenLinks() {
+              var $parentCurrentTopic = $('.parent.current-topic'),
+                  $subtopics = $(".subtopics");
 
-          //compare the url with the classname - if the url reflects the classname, remove everything else
+              $parentCurrentTopic.next().addClass("current-subtopic");
+              $subtopics.not(".current-subtopic").remove();
+            }
 
-
-              function removeHiddenLinks() {
-                var $parentCurrentTopic = $('.parent.current-topic'),
-                    $subtopics = $(".subtopics");
-
-                $parentCurrentTopic.next().addClass("current-subtopic");
-                $subtopics.not(".current-subtopic").remove();
-              }
-
-              if (pathArray.length == 3){
-                  $('.parent-topics', $topic).find('li.child').remove();
-                  $parentChildDescription.remove();
-              }else if (parentClass == parentURL) {
-                  $('.parent-topics', $topic).find('li').not(theParentClassName).remove();
-                  $parentTopicDescription.remove();
-                  $childDescription.not(theParentClassName).remove();
-
-                  $(theParentClassName).addClass('current-topic');
-                  $currentParentLink.removeAttr('href');
-                  $topic.removeClass('large-16');
-                  $topic.addClass('large-16 subtopic-select');
-                  removeHiddenLinks();
-
-
-              }else if (childClass == childURL){
-                  $('.parent-topics li', $topic ).not(theParentClassName).remove();
-                  $parentTopicDescription.remove();
-                  $(theParentClassName).addClass('current-topic');
-                  $childDescription.not(theParentClassName).remove();
-                  $(theParentClassName).addClass('current-topic');
-                  $(theChildClassName).addClass('current');
-                  $currentParentLink.addClass('back-to-topic');
-                  $('.browse nav ul').remove();
-                  $childDescription.remove();
-                  removeHiddenLinks();
-
-              }//end else if
+            //compare the url with the classname - if the url reflects the classname, remove everything else
+            if (pathArray.length == 3){
+                $('.parent-topics', $topic).find('li.child').remove();
+                $parentChildDescription.remove();
+            }else if (parentClass == parentURL) {
+                $('.parent-topics', $topic).find('li').not(theParentClassName).remove();
+                $parentTopicDescription.remove();
+                $childDescription.not(theParentClassName).remove();
+                $(theParentClassName).addClass('current-topic');
+                $currentParentLink.removeAttr('href');
+                $topic.removeClass('large-16');
+                $topic.addClass('large-16 subtopic-select');
+                removeHiddenLinks();
+            }else if (childClass == childURL){
+                $('.parent-topics li', $topic ).not(theParentClassName).remove();
+                $parentTopicDescription.remove();
+                $(theParentClassName).addClass('current-topic');
+                $childDescription.not(theParentClassName).remove();
+                $(theParentClassName).addClass('current-topic');
+                $(theChildClassName).addClass('current');
+                $currentParentLink.addClass('back-to-topic');
+                $('.browse nav ul').remove();
+                $childDescription.remove();
+                removeHiddenLinks();
+            }//end else if
 
           var currentURL = window.location.pathname;
 
@@ -100,8 +93,8 @@ var browse =
     });
 
 function searchPhilaGov(){
-    var input = document.getElementById('search-form');
-    var value = input ? input.value : 'defaultText';
+    var input = document.getElementById('search-form'),
+        value = input ? input.value : 'defaultText';
 
    window.location.href = 'https://www.google.com/#q=site:phila.gov+' + escape(value);
 }
