@@ -35,7 +35,6 @@ module.exports = function(grunt) {
             files: {
                 'js/phila-scripts.min.js' : [
                     'js/dev/scripts.js',
-                    'js/dev/customizer.js',
                     'js/dev/navigation.js',
                     'js/dev/skip-link-focus.js',
                 ]
@@ -51,7 +50,6 @@ module.exports = function(grunt) {
             files: {
                 'js/phila-scripts.js' : [
                   'js/dev/scripts.js',
-                  'js/dev/customizer.js',
                   'js/dev/navigation.js',
                   'js/dev/skip-link-focus.js',
                 ]
