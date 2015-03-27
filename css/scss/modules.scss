@@ -59,7 +59,7 @@
  *
 */
 
-.topic {
+#topic {
   h3 {
       margin-top:20px;
       @media screen and (min-width: 35.5em){
@@ -79,7 +79,7 @@
       background:$ghost-gray;
       padding: 10px 0;
   }
-}
+}//#topic
 .browse {
   margin:30px 0 40px 0;
 
@@ -133,7 +133,6 @@
     .subtopic-select ul.subtopics{
         background:none !important;
     }
-
     .parent.current-topic a:hover{
         color:$ben-franklin-blue;
     }

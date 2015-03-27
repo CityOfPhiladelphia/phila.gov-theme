@@ -15,7 +15,7 @@ get_header(); ?>
             <?php get_parent_topics(); ?>
         </nav>
 
-        <section class="small-24 large-8 columns topic">
+        <section id="topic" class="small-24 large-8 columns">
             <ul class="parent-topics">
                 <?php get_topics(); ?>
             </ul>
@@ -29,5 +29,7 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-
 <?php get_footer(); ?>
+<script type="text/javascript">
+	browse.init();
+</script>

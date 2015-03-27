@@ -207,16 +207,11 @@
   #active {
     padding:20px 0;
 
-      .active-list{
-          background:$mine-shaft;
-          border: 1px solid $geyser;
-      }
       .h3 {
            @media screen and (min-width: 48em){
               font-size:95%;
           }
       }
-
       dt{
           margin:0 0 0 0;
           border-bottom: none;
@@ -232,7 +227,7 @@
           dt, dd {
               margin:0 0 10px 0;
               padding:0 0 10px 0;
-              border-bottom: 1px solid $whitesmoke;
+              border-bottom: 1px solid $manatee;
               min-height: 62px;
               font-size: 95%;
           }
@@ -265,6 +260,13 @@
       .related .row {
         margin-left:0;
         margin-right:0;
+
+        a:link, a:visited{
+          color:#026583;//hack
+        }
+        a:hover, a:active{
+          color:$mine-shaft;
+        }
       }
   }//#active
 }
