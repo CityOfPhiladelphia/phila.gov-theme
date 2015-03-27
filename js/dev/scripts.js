@@ -80,18 +80,8 @@ var browse =
     }
   }
 
-  jQuery(document).ready(function($) {
-    //variable footer height for sticky footer
-      var footerHeight = $("footer").height();
-      $("#page").css("padding-bottom", footerHeight);
-      $("#application").css("padding-bottom", footerHeight);
-      $("footer").css("margin-top", -footerHeight);
-
-    });
-
 function searchPhilaGov(){
     var input = document.getElementById('search-form'),
         value = input ? input.value : 'defaultText';
-
-   window.location.href = 'https://www.google.com/#q=site:phila.gov+' + escape(value);
+        window.location.href = 'https://www.google.com/#q=site:phila.gov+' + escape(value);
 }

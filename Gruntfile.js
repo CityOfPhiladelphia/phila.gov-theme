@@ -13,7 +13,7 @@ module.exports = function(grunt) {
           }
         },
       scripts: {
-          files: '**/*.js',
+          files: ['js/dev/*.js'],
           tasks: ['uglify']
         }
     },
@@ -30,15 +30,14 @@ module.exports = function(grunt) {
     uglify: {
         dist: {
             options: {
-                banner: '/*! <%= pkg.name %> <%= pkg.version %> phila-theme.min.js <%= grunt.template.today("yyyy-mm-dd h:MM:ss TT") %> */\n',
-                report: 'gzip'
+                banner: '/*! <%= pkg.name %> <%= pkg.version %> phila-theme.min.js <%= grunt.template.today("yyyy-mm-dd h:MM:ss TT") %> */\n'
             },
             files: {
                 'js/phila-scripts.min.js' : [
-                    'js/scripts.js',
-                    'js/customizer.js',
-                    'js/navigation.js',
-                    'js/skip-link-focus.js',
+                    'js/dev/scripts.js',
+                    'js/dev/customizer.js',
+                    'js/dev/navigation.js',
+                    'js/dev/skip-link-focus.js',
                 ]
             }
         },
@@ -51,10 +50,10 @@ module.exports = function(grunt) {
             },
             files: {
                 'js/phila-scripts.js' : [
-                  'js/scripts.js',
-                  'js/customizer.js',
-                  'js/navigation.js',
-                  'js/skip-link-focus.js',
+                  'js/dev/scripts.js',
+                  'js/dev/customizer.js',
+                  'js/dev/navigation.js',
+                  'js/dev/skip-link-focus.js',
                 ]
             }
         }

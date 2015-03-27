@@ -1,4 +1,4 @@
-/*! phila.gov-theme 0.11.5 phila-theme.js 2015-03-27 10:26:20 AM */
+/*! phila.gov-theme 0.11.5 phila-theme.js 2015-03-27 10:54:27 AM */
 new List("filter-list", {
     valueNames: [ "item", "item-desc" ]
 });
@@ -53,13 +53,6 @@ var browse = {
         });
     }
 };
-
-jQuery(document).ready(function($) {
-    var footerHeight = $("footer").height();
-    $("#page").css("padding-bottom", footerHeight);
-    $("#application").css("padding-bottom", footerHeight);
-    $("footer").css("margin-top", -footerHeight);
-});
 
 function searchPhilaGov() {
     var input = document.getElementById("search-form"), value = input ? input.value : "defaultText";
