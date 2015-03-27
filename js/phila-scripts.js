@@ -1,4 +1,4 @@
-/*! phila.gov-theme 0.11.5 phila-theme.js 2015-03-27 10:26:20 AM */
+/*! phila.gov-theme 0.11.5 phila-theme.js 2015-03-27 11:19:08 AM */
 new List("filter-list", {
     valueNames: [ "item", "item-desc" ]
 });
@@ -54,46 +54,10 @@ var browse = {
     }
 };
 
-jQuery(document).ready(function($) {
-    var footerHeight = $("footer").height();
-    $("#page").css("padding-bottom", footerHeight);
-    $("#application").css("padding-bottom", footerHeight);
-    $("footer").css("margin-top", -footerHeight);
-});
-
 function searchPhilaGov() {
     var input = document.getElementById("search-form"), value = input ? input.value : "defaultText";
     window.location.href = "https://www.google.com/#q=site:phila.gov+" + escape(value);
 }
-
-(function($) {
-    wp.customize("blogname", function(value) {
-        value.bind(function(to) {
-            $(".site-title a").text(to);
-        });
-    });
-    wp.customize("blogdescription", function(value) {
-        value.bind(function(to) {
-            $(".site-description").text(to);
-        });
-    });
-    wp.customize("header_textcolor", function(value) {
-        value.bind(function(to) {
-            if ("blank" === to) {
-                $(".site-title, .site-description").css({
-                    clip: "rect(1px, 1px, 1px, 1px)",
-                    position: "absolute"
-                });
-            } else {
-                $(".site-title, .site-description").css({
-                    clip: "auto",
-                    color: to,
-                    position: "relative"
-                });
-            }
-        });
-    });
-})(jQuery);
 
 (function() {
     var container, button, menu;
