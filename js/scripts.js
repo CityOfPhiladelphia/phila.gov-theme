@@ -3,7 +3,6 @@
  *
  *
 **/
-
 new List('filter-list', {
     valueNames: ['item', 'item-desc']
 });
@@ -40,7 +39,6 @@ var browse =
               $parentCurrentTopic.next().addClass("current-subtopic");
               $subtopics.not(".current-subtopic").remove();
             }
-
             //compare the url with the classname - if the url reflects the classname, remove everything else
             if (pathArray.length == 3){
                 $('.parent-topics', $topic).find('li.child').remove();
@@ -66,7 +64,6 @@ var browse =
                 $childDescription.remove();
                 removeHiddenLinks();
             }//end else if
-
           var currentURL = window.location.pathname;
 
           if (currentURL.indexOf('browse') != -1){

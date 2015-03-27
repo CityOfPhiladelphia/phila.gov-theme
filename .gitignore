@@ -1,5 +1,2 @@
-
-*.gov-styles
-
-css/.sass-cache
-css/node_modules
+.sass-cache
+node_modules
