@@ -26,7 +26,7 @@ get_header(); ?>
 	                              <i class="fa fa-circle fa-stack-2x"></i>
 	                              <i class="fa fa-stack-1x fa-inverse"><span class="h6">311</h6></i>
 	                            </span>
-	                            <h2 class="h3">Submit a Request</h2>
+	                            <h2 class="h3">Report a Problem</h2>
 	                            <span class="accessible"> Opens in new window</span>
 	                        </a>
 	                    </div>
@@ -41,12 +41,12 @@ get_header(); ?>
 	                        </a>
 	                    </div>
 	                     <div class="small-6 columns">
-	                         <a href="http://property.phila.gov" target="_blank">
+	                         <a href="/property" target="_blank">
 	                            <span class="fa-stack fa-3x">
 	                              <i class="fa fa-circle fa-stack-2x"></i>
 	                              <i class="fa fa-home fa-stack-1x fa-inverse"></i>
 	                            </span>
-	                            <h2 class="h3">Property Search</h2>
+	                            <h2 class="h3">Search for Property</h2>
 	                             <span class="accessible"> Opens in new window</span>
 	                         </a>
 	                    </div>
@@ -56,7 +56,7 @@ get_header(); ?>
 	                              <i class="fa fa-circle fa-stack-2x"></i>
 	                              <i class="fa fa-briefcase fa-stack-1x fa-inverse"></i>
 	                            </span>
-	                           <h2 class="h3">Jobs</h2>
+	                           <h2 class="h3">Find a Job</h2>
 	                            <span class="accessible"> Opens in new window</span>
 	                        </a>
 	                    </div>
