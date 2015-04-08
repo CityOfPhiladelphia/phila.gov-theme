@@ -43,8 +43,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="alpha-alert">
       <div class="row">
         <div class="large-18 columns">
-                <h1 class="h3">Welcome to alpha.phila.gov</h1> <p>This is a work in progress. It may contain errors and inaccuracies. Help us improve it by providing feedback.</p>
-                <p><a href="/about"><?php printf( __( 'Learn more about this project. &raquo;', 'phila-gov' )); ?></a></p>
+                <h1 class="h3">This service is in alpha</h1> <p>This is a work in progress. It may contain errors and inaccuracies. Help us improve it by providing feedback.</p>
+                <p><a href="/about"><?php printf( __( 'Learn more &raquo;', 'phila-gov' )); ?></a></p>
             </div>
             <div class="large-6 columns">
                 <div class="button icon alternate"><a class="feedback" href="<?php get_template_part( 'partials/content', 'feedback-url' ); ?>" target="_blank">
