@@ -36,19 +36,9 @@ get_header(); ?>
 	                              <i class="fa fa-circle fa-stack-2x"></i>
 	                              <i class="fa fa-credit-card fa-stack-1x fa-inverse"></i>
 	                            </span>
-	                            <h2 class="h3">Pay a bill</h2>
+	                            <h2 class="h3">Pay<br> a bill</h2>
 	                            <span class="accessible"> Opens in new window</span>
 	                        </a>
-	                    </div>
-	                     <div class="small-6 columns">
-	                         <a href="/property" target="_blank">
-	                            <span class="fa-stack fa-3x">
-	                              <i class="fa fa-circle fa-stack-2x"></i>
-	                              <i class="fa fa-home fa-stack-1x fa-inverse"></i>
-	                            </span>
-	                            <h2 class="h3">Search for Property</h2>
-	                             <span class="accessible"> Opens in new window</span>
-	                         </a>
 	                    </div>
 	                      <div class="small-6 columns">
 	                        <a href="http://www.phila.gov/personnel//announce/current/index.html" target="_blank">
@@ -56,10 +46,20 @@ get_header(); ?>
 	                              <i class="fa fa-circle fa-stack-2x"></i>
 	                              <i class="fa fa-briefcase fa-stack-1x fa-inverse"></i>
 	                            </span>
-	                           <h2 class="h3">Find a Job</h2>
+	                           <h2 class="h3">Find<br> a Job</h2>
 	                            <span class="accessible"> Opens in new window</span>
 	                        </a>
 	                    </div>
+											<div class="small-6 columns">
+													<a href="/property" target="_blank">
+														<span class="fa-stack fa-3x">
+															<i class="fa fa-circle fa-stack-2x"></i>
+															<i class="fa fa-home fa-stack-1x fa-inverse"></i>
+														</span>
+														<h2 class="h3">Property Search</h2>
+															<span class="accessible"> Opens in new window</span>
+													</a>
+										</div>
 	                </div><!--#popular -->
 	          </section>
 							<div class="large-12 medium-24 columns">
