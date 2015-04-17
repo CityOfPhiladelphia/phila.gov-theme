@@ -131,7 +131,7 @@ get_header(); ?>
 		      </header>
 					<div class="row">
 		      <dl>
-		          <dt class="medium-24 large-8 columns"><a href="http://property.phila.gov" class="h3" target="_blank">Property Information<span class="accessible"> Opens in new window</span></a>
+		          <dt class="medium-24 large-8 columns"><a href="http://alpha.phila.gov/property" class="h3" target="_blank">Property Information<span class="accessible"> Opens in new window</span></a>
 		          <span>Property Assessment</span></dt>
 		          <dd class="medium-24 large-16 columns">Search and compare property data in the City of Philadelphia</dd>
 
