@@ -24,7 +24,8 @@ get_header(); ?>
                                 'post_type' => $type,
                                 'posts_per_page' => -1,
                                 'orderby' => 'title',
-                                'order'=> 'asc'
+                                'order'=> 'asc',
+                                'post_parent' => 0 //don't show child pages, duh!
                             )
                         );
 
