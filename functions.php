@@ -117,7 +117,7 @@ function phila_gov_scripts() {
 
     wp_enqueue_script( 'text-filtering', '//cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js', array(), '1.1.1', true );
 
-		wp_enqueue_script( 'pattern-scripts', '//cityofphiladelphia.github.io/patterns/dist/0.6.0/js/patterns.min.js', array('jquery'), 0.4, true );
+    wp_enqueue_script( 'pattern-scripts', '//cityofphiladelphia.github.io/patterns/dist/0.6.0/js/patterns.min.js', array('jquery'), 0.4, true );
     wp_enqueue_script( 'phila-scripts', get_stylesheet_directory_uri().'/js/phila-scripts.min.js', array('jquery', 'text-filtering'), 1.0, true );
 
 }
@@ -186,7 +186,9 @@ function the_breadcrumb() {
             the_title();
             echo '</li>';
         }elseif (is_post_type_archive('department_page')){
+            
             echo '<li>Departments</li>';
+            
         }elseif (is_page_template('taxonomy-topics.php') || is_tax('topics')){
             //browse
             //echo '<li><a href="/browse">Browse</a></li>';
@@ -205,6 +207,7 @@ function the_breadcrumb() {
                 $title = get_the_title();
                 
                 foreach ( $anc as $ancestor ) {
+                    
                     $output = '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a></li> ' .  $output;
                 }
                 echo $output;
@@ -223,15 +226,15 @@ function the_breadcrumb() {
                                     }elseif ($i == 1){
                                         echo '<li><a href=/browse/' . $topic_parent->slug . '/' .  $term->slug . '>' . $term->name . '</a></li>';
                                     }
-                                    $i++;
-                                }
+                                $i++;
                             }
+                         }
                     }
             echo '<li>';
             the_title();
             echo '</li>';
             }
-        } elseif (is_page() || is_singular('department_page')) {
+        } elseif (is_page()) {
            
             if($post->post_parent){
                 //$anc = array_reverse(get_post_ancestors( $post->ID ));
@@ -283,6 +286,7 @@ function still_migrating_content(){
 		get_template_part( 'partials/content', 'feedback-url' );
     echo '" target="_blank">tell us what you\'re looking for. <span class="accessible">Opens in new window</span></a></p>';
 }
+
 function get_department_menu() {
     $categories = get_the_category();
     $category_id = $categories[0]->cat_ID;
@@ -299,8 +303,6 @@ function get_department_menu() {
         'fallback_cb'     => 'wp_page_menu',
         'before'          => '',
         'after'           => '',
-        'link_before'     => '',
-        'link_after'      => '',
         'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
         'depth'           => 0,
         'walker'          => ''
