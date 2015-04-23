@@ -5,8 +5,10 @@
  * @package phila-gov
  */
 
-get_header(); ?>
+get_header(); 
+get_department_menu();
 
+?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('row department'); ?>>
 	<header class="entry-header small-24 columns">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
@@ -34,14 +36,13 @@ get_header(); ?>
           echo '<p class="description">' . rwmb_meta( 'phila_dept_desc', $args = array('type' => 'textarea')) . '</p>';
       ?>
       </div><!-- .external-site -->
-  <?php }
-      }else {
-
+  <?php } else {
   //loop for our regularly scheduled content
       while ( have_posts() ) : the_post();
-          the_content();
+         echo the_content();
       endwhile;
-  }
+    }
+}
 ?>
   </div><!-- .entry-content -->
 </article><!-- #post-## -->

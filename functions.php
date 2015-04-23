@@ -41,9 +41,28 @@ function phila_gov_setup() {
 	add_theme_support( 'post-thumbnails' );
 
 	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'phila-gov' ),
-	) );
+	add_action( 'init', 'phila_register_category_menus' );
+
+    function phila_register_category_menus() {
+
+        $phila_menu_cat_args = array(
+            'type'                     => 'post',
+            'child_of'                 => 0,
+            'parent'                   => '',
+            'orderby'                  => 'name',
+            'order'                    => 'ASC',
+            'hide_empty'               => 1,
+            'hierarchical'             => 0,
+            'taxonomy'                 => 'category',
+            'pad_counts'               => false 
+        ); 
+
+        $phila_get_menu_cats = get_categories( $phila_menu_cat_args );
+
+        foreach ($phila_get_menu_cats as $phila_category) {
+            register_nav_menus( array( 'menu-' .$phila_category->term_id => $phila_category->name ) );   
+        }
+    }
 
 	/*
 	 * Switch default core markup for search form, comment form, and comments
@@ -89,7 +108,7 @@ function phila_gov_scripts() {
 
     wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', array(), '4.2.0' );
 
-		wp_enqueue_style( 'ionicons', '//code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css', array(), '2.0.0' );
+    wp_enqueue_style( 'ionicons', '//code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css', array(), '2.0.0' );
 
 
     wp_enqueue_style( 'theme-styles', get_stylesheet_directory_uri() . '/css/styles.css', array('pattern_portfolio'), '0.1.0' );
@@ -181,8 +200,17 @@ function the_breadcrumb() {
                 the_title();
                 echo '</li>';
             }elseif (is_singular('department_page')) {
-                    echo '<li>' . the_title() . '</li>';
-                }else{
+                
+                $anc = get_post_ancestors( $post->ID );
+                $title = get_the_title();
+                
+                foreach ( $anc as $ancestor ) {
+                    $output = '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a></li> ' .  $output;
+                }
+                echo $output;
+                echo '<li><strong title="'.$title.'"> '.$title.'</strong></li>';
+            
+            }else{
                 //service/info pages
                 $i = 0;
                 $topic_terms = wp_get_object_terms( $post->ID,  'topics', array('orderby'=>'term_group') );
@@ -203,13 +231,14 @@ function the_breadcrumb() {
             the_title();
             echo '</li>';
             }
-        } elseif (is_page()) {
+        } elseif (is_page() || is_singular('department_page')) {
+           
             if($post->post_parent){
                 //$anc = array_reverse(get_post_ancestors( $post->ID ));
                 $anc = get_post_ancestors( $post->ID );
                 $title = get_the_title();
                 foreach ( $anc as $ancestor ) {
-                    $output = '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a></li> ' . $separator . $output;
+                    $output = '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a></li> ' .  $output;
                 }
                 echo $output;
                 echo '<li><strong title="'.$title.'"> '.$title.'</strong></li>';
@@ -253,4 +282,28 @@ function still_migrating_content(){
     echo '<p><a href="javascript:searchPhilaGov()">Search phila.gov</a> or <a href="';
 		get_template_part( 'partials/content', 'feedback-url' );
     echo '" target="_blank">tell us what you\'re looking for. <span class="accessible">Opens in new window</span></a></p>';
+}
+function get_department_menu() {
+    $categories = get_the_category();
+    $category_id = $categories[0]->cat_ID;
+
+    $defaults = array(
+        'theme_location'  => 'menu-' . $category_id,
+        'menu'            => '',
+        'container'       => 'div',
+        'container_class' => '',
+        'container_id'    => '',
+        'menu_class'      => 'department-menu',
+        'menu_id'         => 'top-nav',
+        'echo'            => true,
+        'fallback_cb'     => 'wp_page_menu',
+        'before'          => '',
+        'after'           => '',
+        'link_before'     => '',
+        'link_after'      => '',
+        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+        'depth'           => 0,
+        'walker'          => ''
+    );
+    wp_nav_menu( $defaults );
 }
