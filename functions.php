@@ -314,3 +314,14 @@ function get_department_menu() {
     );
     wp_nav_menu( $defaults );
 }
+//I dont think this works
+/*
+add_filter( 'nav_menu_link_attributes', 'wpse121123_contact_menu_atts', 10, 3 );
+function wpse121123_contact_menu_atts( $atts, $item, $args )
+{
+
+    $atts['data-toggle'] = 'modal';
+
+  return $atts;
+}
+*/

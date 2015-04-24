@@ -76,8 +76,11 @@ function display_element( $element, &$children_elements, $max_depth, $depth=0, $
         $cb_args = array_merge( array(&$output, $element, $depth), $args);
         call_user_func_array(array(&$this, 'end_el'), $cb_args);
       }
-      function start_lvl(&$output, $depth) {
+      function start_lvl( &$output, $depth = 0, $args = Array() ) {
+
        $indent = str_repeat("\t", $depth);
        $output .= "$indent<ul class=\"dropdown\">";
+       
      }
+    // function start_lvl(&$output, $depth = 0, $args = Array() ) { $indent = str_repeat("\t", $depth); $output .= "\n$indent<ul class=\"mp-level\">\n"; } }
 }
