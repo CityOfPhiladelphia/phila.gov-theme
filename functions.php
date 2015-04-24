@@ -54,13 +54,13 @@ function phila_gov_setup() {
             'hide_empty'               => 1,
             'hierarchical'             => 0,
             'taxonomy'                 => 'category',
-            'pad_counts'               => false 
-        ); 
+            'pad_counts'               => false
+        );
 
         $phila_get_menu_cats = get_categories( $phila_menu_cat_args );
 
         foreach ($phila_get_menu_cats as $phila_category) {
-            register_nav_menus( array( 'menu-' .$phila_category->term_id => $phila_category->name ) );   
+            register_nav_menus( array( 'menu-' .$phila_category->term_id => $phila_category->name ) );
         }
     }
 
@@ -117,9 +117,10 @@ function phila_gov_scripts() {
 
     wp_enqueue_script( 'text-filtering', '//cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js', array(), '1.1.1', true );
 
-    wp_enqueue_script( 'pattern-scripts', '//cityofphiladelphia.github.io/patterns/dist/0.6.0/js/patterns.min.js', array('jquery'), 0.4, true );
+    wp_enqueue_script( 'pattern-scripts', '//cityofphiladelphia.github.io/patterns/dist/0.6.0/js/patterns.min.js', array('jquery', 'foundation-js'), 0.4, true );
     wp_enqueue_script( 'phila-scripts', get_stylesheet_directory_uri().'/js/phila-scripts.min.js', array('jquery', 'text-filtering'), 1.0, true );
 
+		wp_enqueue_script( 'foundation-js', '//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/js/foundation.min.js', array('jquery'), '2.8.3', true );
 }
 add_action( 'wp_enqueue_scripts', 'phila_gov_scripts');
 
@@ -164,6 +165,10 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+/**
+ * Load custom Department menu file.
+ */
+require get_template_directory() . '/inc/department-menu.php';
 
 /**
  * Add breadcrumb support
@@ -186,9 +191,9 @@ function the_breadcrumb() {
             the_title();
             echo '</li>';
         }elseif (is_post_type_archive('department_page')){
-            
+
             echo '<li>Departments</li>';
-            
+
         }elseif (is_page_template('taxonomy-topics.php') || is_tax('topics')){
             //browse
             //echo '<li><a href="/browse">Browse</a></li>';
@@ -202,17 +207,17 @@ function the_breadcrumb() {
                 the_title();
                 echo '</li>';
             }elseif (is_singular('department_page')) {
-                
+
                 $anc = get_post_ancestors( $post->ID );
                 $title = get_the_title();
-                
+
                 foreach ( $anc as $ancestor ) {
-                    
+
                     $output = '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a></li> ' .  $output;
                 }
                 echo $output;
                 echo '<li><strong title="'.$title.'"> '.$title.'</strong></li>';
-            
+
             }else{
                 //service/info pages
                 $i = 0;
@@ -235,7 +240,7 @@ function the_breadcrumb() {
             echo '</li>';
             }
         } elseif (is_page()) {
-           
+
             if($post->post_parent){
                 //$anc = array_reverse(get_post_ancestors( $post->ID ));
                 $anc = get_post_ancestors( $post->ID );
@@ -294,8 +299,8 @@ function get_department_menu() {
     $defaults = array(
         'theme_location'  => 'menu-' . $category_id,
         'menu'            => '',
-        'container'       => 'div',
-        'container_class' => '',
+        'container'       => 'nav',
+        'container_class' => 'top-bar',
         'container_id'    => '',
         'menu_class'      => 'department-menu',
         'menu_id'         => 'top-nav',
@@ -303,9 +308,9 @@ function get_department_menu() {
         'fallback_cb'     => 'wp_page_menu',
         'before'          => '',
         'after'           => '',
-        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+        'items_wrap'      => '<section class="top-bar-section"><ul id="%1$s" class="%2$s">%3$s</ul></section>',
         'depth'           => 0,
-        'walker'          => ''
+        'walker'          => new phila_gov_walker_nav_menu
     );
     wp_nav_menu( $defaults );
 }

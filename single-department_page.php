@@ -5,7 +5,7 @@
  * @package phila-gov
  */
 
-get_header(); 
+get_header();
 get_department_menu();
 
 ?>
@@ -14,12 +14,6 @@ get_department_menu();
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
   <div class="entry-content medium-18 small-24 columns end">
-      <?php
-          wp_link_pages( array(
-              'before' => '<div class="page-links">' . __( 'Pages:', 'phila-gov' ),
-              'after'  => '</div>',
-          ) );
-      ?>
       <?php
       //check for URL entry to indicate external website
       if (function_exists('rwmb_meta')) {
