@@ -6,9 +6,30 @@
  */
 
 get_header();
-get_department_menu();
-
 ?>
+<?php /*
+
+Allow screen readers / text browsers to skip the navigation menu and
+get right to the good stuff. */ ?>
+
+<div class="skip-link screen-reader-text">
+		<a href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentyten' ); ?>">
+		<?php _e( 'Skip to content', 'twentyten' ); ?></a>
+</div>
+
+<nav class="top-bar" data-topbar role="navigation">
+
+    <?php /*
+
+    Our navigation menu.  If one isn't filled out, wp_nav_menu falls
+    back to wp_page_menu.  The menu assigned to the primary position is
+    the one used.  If none is assigned, the menu with the lowest ID is
+    used. */
+
+		get_department_menu(); ?>
+
+</nav>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class('row department'); ?>>
 	<header class="entry-header small-24 columns">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
