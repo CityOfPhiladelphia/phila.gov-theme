@@ -293,11 +293,19 @@ function still_migrating_content(){
 }
 
 function get_department_menu() {
-    $categories = get_the_category();
-    $category_id = $categories[0]->cat_ID;
+ 		/*
+		Set the menus. We use categories to drive functionality.
+		Pass the current category (there should only ever be 1)
+		as the menu-id. This lets us use category IDs to create and drive menu functionality. 
+	*/
+	global $post;
+	$categories = get_the_category($post->ID);
+	if (!$categories == ''){
+		//var_dump($categories);
+		$current_cat = $categories[0]->cat_ID;
 
     $defaults = array(
-        'theme_location'  => 'menu-' . $category_id,
+        'theme_location'  => 'menu-' . $current_cat,
         'menu'            => '',
         'container'       => '',
         'container_class' => '',
@@ -313,6 +321,7 @@ function get_department_menu() {
         'walker'          => new phila_gov_walker_nav_menu
     );
     wp_nav_menu( $defaults );
+	}
 }
 //I dont think this works
 /*

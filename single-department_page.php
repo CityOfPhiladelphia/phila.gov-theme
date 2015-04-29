@@ -16,19 +16,19 @@ get right to the good stuff. */ ?>
 		<a href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentyten' ); ?>">
 		<?php _e( 'Skip to content', 'twentyten' ); ?></a>
 </div>
-
-<nav class="top-bar" data-topbar role="navigation">
-
-    <?php /*
-
-    Our navigation menu.  If one isn't filled out, wp_nav_menu falls
-    back to wp_page_menu.  The menu assigned to the primary position is
-    the one used.  If none is assigned, the menu with the lowest ID is
-    used. */
-
-		get_department_menu(); ?>
-
-</nav>
+<?php
+	/*
+	Our navigation menu. We use categories to drive functionality.
+	This checks to make sure a category exisits for the given page,
+	if it does, we render our menu w/ markup.
+	*/
+	$category = get_the_category();
+	if (!$category == '') {
+		echo '<nav class="top-bar" data-topbar role="navigation">';
+				get_department_menu();
+		echo '</nav>';
+	}
+?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('row department'); ?>>
 	<header class="entry-header small-24 columns">
