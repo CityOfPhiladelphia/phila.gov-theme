@@ -295,13 +295,12 @@ function still_migrating_content(){
 function get_department_menu() {
  		/*
 		Set the menus. We use categories to drive functionality.
-		Pass the current category (there should only ever be 1)
-		as the menu-id. This lets us use category IDs to create and drive menu functionality.
+		Pass the current category (there should only ever be 1one)
+		as the menu-id.
 	*/
 	global $post;
 	$categories = get_the_category($post->ID);
-	if (!$categories == ''){
-		//var_dump($categories);
+	if ((!$categories == '') || (!$categories[0]->cat_name == 'Uncategorized')){
 		$current_cat = $categories[0]->cat_ID;
 
     $defaults = array(
@@ -313,10 +312,14 @@ function get_department_menu() {
         'menu_class'      => 'department-menu',
         'menu_id'         => '',
         'echo'            => true,
-        'fallback_cb'     => 'wp_page_menu',
+        'fallback_cb'     => false,//if there is no menu, output nothing
         'before'          => '',
         'after'           => '',
-        'items_wrap'      => '<section class="top-bar-section"><ul id="%1$s" class="%2$s">%3$s</ul></section>',
+        'items_wrap'      => '<nav class="top-bar" data-topbar role="navigation">
+																<section class="top-bar-section">
+																	<ul id="%1$s" class="%2$s">%3$s</ul>
+																</section>
+															</nav>',
         'depth'           => 0,
         'walker'          => new phila_gov_walker_nav_menu
     );

@@ -22,12 +22,7 @@ get right to the good stuff. */ ?>
 	This checks to make sure a category exisits for the given page,
 	if it does, we render our menu w/ markup.
 	*/
-	$category = get_the_category();
-	if (!$category == '') {
-		echo '<nav class="top-bar" data-topbar role="navigation">';
-				get_department_menu();
-		echo '</nav>';
-	}
+		get_department_menu();
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('row department'); ?>>

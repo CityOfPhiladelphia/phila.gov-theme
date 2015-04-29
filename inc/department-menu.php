@@ -8,7 +8,6 @@
 
 class phila_gov_walker_nav_menu extends Walker_Nav_Menu {
 
-
 /**
  * Traverse elements to create list from elements.
  *
@@ -80,7 +79,5 @@ function display_element( $element, &$children_elements, $max_depth, $depth=0, $
 
        $indent = str_repeat("\t", $depth);
        $output .= "$indent<ul class=\"dropdown\">";
-       
-     }
-    // function start_lvl(&$output, $depth = 0, $args = Array() ) { $indent = str_repeat("\t", $depth); $output .= "\n$indent<ul class=\"mp-level\">\n"; } }
+   }
 }
