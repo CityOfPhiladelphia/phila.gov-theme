@@ -109,5 +109,8 @@
 </footer><!-- #colophon -->
 
 <?php wp_footer(); ?>
+<script>
+  jQuery(document).foundation();
+</script>
 </body>
 </html>

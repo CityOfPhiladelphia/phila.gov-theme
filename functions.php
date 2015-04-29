@@ -296,7 +296,7 @@ function get_department_menu() {
  		/*
 		Set the menus. We use categories to drive functionality.
 		Pass the current category (there should only ever be 1)
-		as the menu-id. This lets us use category IDs to create and drive menu functionality. 
+		as the menu-id. This lets us use category IDs to create and drive menu functionality.
 	*/
 	global $post;
 	$categories = get_the_category($post->ID);
