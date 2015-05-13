@@ -5,6 +5,11 @@
  * @package phila-gov
  */
 
+// if site is set to run on SSL, then force-enable SSL detection!
+if (stripos(get_option('siteurl'), 'https://') === 0) {
+    $_SERVER['HTTPS'] = 'on';
+}
+
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
