@@ -4,9 +4,31 @@
  *
  *
 */
+.top-nav {
+  margin:20px auto;
+  + .department h1{
+    margin:1rem auto;
+  }
+}
 .department {
+  .logo {
+    text-align:center;
+    margin:20px 0;
+  }
+  .call-to-action {
+    font-size:80%;
+
+    .h1, .h2, .h3, .h4, .h5, .h6, span.h6 {
+      font-size:.8rem;
+    }
+  }
   .inner {
     background:$geyser;
     padding:20px;
   }
+
+  .widget-title {
+    font-size:1rem;
+  }
+
 }//department
