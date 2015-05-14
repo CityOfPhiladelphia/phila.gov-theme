@@ -1,6 +1,6 @@
 <?php
 
-/* ]
+/*
 * Template part
 * for displaying on-site departments
 */
@@ -18,8 +18,13 @@
       if ( has_post_thumbnail() ) { ?>
         <div class="logo">
           <?php the_post_thumbnail(); ?>
-        </div><?php
-        }
+        </div>
+        <?php
+      }elseif (has_post_thumbnail( $post->post_parent )) {
+        ?><div class="logo">
+          <?php echo get_the_post_thumbnail( $post->post_parent );?>
+        </div>
+      <?php }else { }
       ?>
       <div class="inner">
           <?php dynamic_sidebar( 'sidebar' .	$cat_slug ); ?>
