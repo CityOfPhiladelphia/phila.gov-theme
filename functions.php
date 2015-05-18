@@ -6,6 +6,7 @@
  */
 
 // if site is set to run on SSL, then force-enable SSL detection!
+/**I'm going to leave this in to be safe. **/
 if (stripos(get_option('siteurl'), 'https://') === 0) {
     $_SERVER['HTTPS'] = 'on';
 }
@@ -87,22 +88,39 @@ endif; // phila_gov_setup
 add_action( 'after_setup_theme', 'phila_gov_setup' );
 
 /**
- * Register widget area.
+ * Register widget areas for all categories. To appear on department pages.
+ *
+ * TODO: This could be a scalability issue. More research needs to be done.
  *
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
 function phila_gov_widgets_init() {
-	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'phila-gov' ),
-		'id'            => 'sidebar-1',
-		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
-	) );
+  $args = array(
+    'orderby' => 'name',
+    'parent' => 0
+    );
+  $categories = get_categories( $args );
+
+  foreach ( $categories as $category ) {
+
+    $slug = $category->slug;
+    $name = $category->name;
+    $cat_id = $category->cat_ID;
+
+    register_sidebar( array(
+  		'name'          => __( 'Sidebar ' . $name, 'phila-gov' ),
+  		'id'            => 'sidebar' . $slug,
+  		'description'   => '',
+  		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+  		'after_widget'  => '</aside>',
+  		'before_title'  => '<h1 class="widget-title">',
+  		'after_title'   => '</h1>',
+  	) );
+  }
 }
 add_action( 'widgets_init', 'phila_gov_widgets_init' );
+
+
 
 /**
  * Enqueue scripts and styles.

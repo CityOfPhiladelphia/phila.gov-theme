@@ -4,6 +4,7 @@
 @import 'home';
 @import 'swifttype';
 @import 'news';
+@import 'departments';
 
 .site-header {
     color: $white;
@@ -36,10 +37,4 @@
   content: "";
   display: table;
   clear: both;
-}
-.top-nav {
-  margin-top:20px;
-  + .department h1{
-    margin-top:1rem;
-  }
 }
