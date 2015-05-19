@@ -12,12 +12,12 @@
 
 get_header(); ?>
 <div class="row">
-	<div id="secondary" class="widget-area small-24 medium-6 columns" role="complementary">
+	<div id="secondary" class="widget-area small-24 medium-5 columns" role="complementary">
 		<?php dynamic_sidebar( 'sidebar-news' ); ?>
 	</div><!-- #secondary -->
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main medium-18 small-24 columns" role="main">
+	<div id="primary" class="content-area news-archive">
+		<main id="main" class="site-main medium-19 small-24 columns" role="main">
 
     <?php  $all_news_loop = new WP_Query( array( 'post_type' => 'news_post') );  ?>
 
@@ -27,6 +27,7 @@ get_header(); ?>
 
 			<?php endwhile; // end of the loop. ?>
 
+			<?php wp_reset_postdata(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 </div><!-- .row -->
