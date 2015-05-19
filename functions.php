@@ -5,12 +5,6 @@
  * @package phila-gov
  */
 
-// if site is set to run on SSL, then force-enable SSL detection!
-/**I'm going to leave this in to be safe. **/
-if (stripos(get_option('siteurl'), 'https://') === 0) {
-    $_SERVER['HTTPS'] = 'on';
-}
-
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
@@ -46,7 +40,7 @@ function phila_gov_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in one location.
+	// This theme uses wp_nav_menu() in any number of locations.
 	add_action( 'init', 'phila_register_category_menus' );
 
     function phila_register_category_menus() {
@@ -117,6 +111,16 @@ function phila_gov_widgets_init() {
   		'after_title'   => '</h1>',
   	) );
   }
+  //only one of these
+  register_sidebar( array(
+    'name'          => __( 'News Sidebar', 'phila-gov' ),
+    'id'            => 'sidebar-news',
+    'description'   => '',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</aside>',
+    'before_title'  => '<h1 class="widget-title">',
+    'after_title'   => '</h1>',
+  ) );
 }
 add_action( 'widgets_init', 'phila_gov_widgets_init' );
 

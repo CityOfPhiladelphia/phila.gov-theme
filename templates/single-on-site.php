@@ -6,7 +6,7 @@
 */
 ?>
 <header class="entry-header small-24 columns">
-  <?php the_title( '<h1 class="entry-title hide">', '</h1>' ); ?>
+  <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 </header><!-- .entry-header -->
 <?php
   $category = get_the_category();
