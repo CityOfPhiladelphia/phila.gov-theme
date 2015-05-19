@@ -40,5 +40,4 @@ get_header(); ?>
     </div><!-- .row -->
 		<?php get_template_part( 'partials/content', 'modified' ) ?>
 </article><!-- #post-## -->
-
 <?php get_footer(); ?>
