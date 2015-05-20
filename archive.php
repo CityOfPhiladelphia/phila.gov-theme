@@ -13,18 +13,10 @@ if ( 'news_post' == get_post_type() ) {
 	}	?>
 
 	<section id="primary" class="content-area archive row">
-	<?php
-		if ( $actively_news ) : ?>
-			<div id="secondary" class="widget-area small-24 medium-5 columns" role="complementary">
-				<?php get_sidebar( 'topics' ); ?>
-			</div><!-- #secondary -->
-		<?php endif; ?>
 
-		<main id="main" class="site-main small-24 columns <?php if($actively_news) : ?>medium-19<?php endif; ?>" role="main">
-
-<?php
+		<?php
 			if ( have_posts() ) : ?>
-        <header>
+        <header class="columns">
           <h1>
             <?php
               if ( is_category() ) :
@@ -53,15 +45,8 @@ if ( 'news_post' == get_post_type() ) {
                 endif;
             ?>
           </h1>
-              <?php
-                  // Show an optional term description.
-                  $term_description = term_description();
-                  if ( ! empty( $term_description ) ) :
-                      printf( '<div class="taxonomy-description">%s</div>', $term_description );
-                  endif;
-              ?>
           </header><!-- .page-header -->
-
+				<main id="main" class="site-main small-24 columns <?php if($actively_news) : ?>medium-19 push-5<?php endif; ?>" role="main">
           <?php while ( have_posts() ) : the_post(); ?>
 						<?php
 						if ( $actively_news ) :
@@ -85,6 +70,12 @@ if ( 'news_post' == get_post_type() ) {
       <?php endif; ?>
 
 		</main><!-- #main -->
+		<?php
+			if ( $actively_news ) : ?>
+				<div id="secondary" class="widget-area small-24 medium-5 pull-19 columns" role="complementary">
+					<?php get_sidebar( 'topics' ); ?>
+				</div><!-- #secondary -->
+			<?php endif; ?>
 
 	</section><!-- #primary -->
 	<?php

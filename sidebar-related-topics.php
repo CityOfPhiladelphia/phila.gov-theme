@@ -28,8 +28,8 @@
                     )
             );
             $args = array( 'post_type' => array(
-                               // 'post',
-                                //'service_post'
+                                'post',
+                                'service_post'
                                 ),
                             'orderby'=>'name',
                             'order' => 'ASC',
@@ -41,7 +41,7 @@
             $loop = new WP_Query($args);
 
             if( $loop->have_posts() ) {
-               ?> <h3>Related Content</h3>
+               ?> <h3><?php printf( __( 'Related Content', 'phila-gov' )); ?></h3>
                 <ul>
                     <?php
 
@@ -53,7 +53,7 @@
                 <?php
 
                 endwhile;
-
+              ?></ul> <?php
             }
 
             wp_reset_query();

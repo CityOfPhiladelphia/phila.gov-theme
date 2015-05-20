@@ -13,3 +13,18 @@
     height: auto;
   //  border-bottom:1px solid $black;
 }
+
+.filter {
+  background:$geyser;
+  padding:10px;
+  ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+   li {
+    margin:0;
+    padding:5px 0;
+    font-size:90%;
+  }
+}
