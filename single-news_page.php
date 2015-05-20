@@ -9,10 +9,10 @@ get_header(); ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('news'); ?>>
 	<div class="row">
-	<header class="entry-header small-24 columns">
-		<?php the_title( '<h1 class="entry-title container">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
-</div>
+		<header class="entry-header small-24 columns">
+			<?php the_title( '<h1 class="entry-title container">', '</h1>' ); ?>
+		</header><!-- .entry-header -->
+	</div>
     <div class="row">
         <div class="entry-content small-24 medium-18 columns">
             <?php

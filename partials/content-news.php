@@ -11,14 +11,13 @@
     $thumb_active = true;
    ?>
 
-    <div class="logo columns medium-8">
+    <div class="logo columns medium-7">
       <?php the_post_thumbnail(); ?>
     </div>
   <?php } ?>
 
-  <div class="small-24 medium-16 columns">
+  <div class="small-24 medium-17 columns">
   	<header class="entry-header small-text">
-      <span class="entry-date"><?php echo get_the_date(); ?> </span> |
       <?php
         $categories = get_the_category($post->ID);
           if ((!$categories == '') || (!$categories[0]->cat_name == 'Uncategorized')){
@@ -29,21 +28,23 @@
 
           if ( $terms && ! is_wp_error( $terms ) ) :
 
-          	$current_topics = array();
+            $current_topics = array();
 
-          	foreach ( $terms as $term ) {
+            foreach ( $terms as $term ) {
               //parent terms only
               if( 0 == $term->parent ) {
-          		    $current_topics[] = $term->name;
+                  $current_topics[] = $term->name;
               }
-          	}
+            }
 
-          	$topics = join( " | ", $current_topics );
+            $topics = join( " | ", $current_topics );
 
         ?>
-        <?php echo $topics; ?>
+
       <?php endif; ?>
-        <span class="category"> | <?php echo $current_cat ?> </span>
+      <span class="entry-date"><?php echo get_the_date(); ?> </span> | <span class="category"> <?php echo $current_cat ?> </span>
+
+
       <a href="<?php echo the_permalink(); ?>"><?php the_title('<h2>', '</h2>' ); ?></a>
   	</header><!-- .entry-header -->
      <?php
@@ -51,7 +52,9 @@
         $news_url = rwmb_meta( 'phila_news_url', $args = array('type' => 'url'));
         $news_desc = rwmb_meta( 'phila_news_desc', $args = array('type' => 'textrea'));
 
-          echo '<p class="description">' . $news_desc . '</p>';
+          echo '<p class="description">' . $news_desc . '</p>';?>
+
+          <?php
 
     }?>
         </div><!-- .entry-content -->

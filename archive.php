@@ -9,6 +9,7 @@
 
 get_header();
 if ( 'news_post' == get_post_type() ) {
+	echo ('its news');
 		 $actively_news = true;
 	}	?>
 
@@ -16,7 +17,7 @@ if ( 'news_post' == get_post_type() ) {
 	<?php
 		if ( $actively_news ) : ?>
 			<div id="secondary" class="widget-area small-24 medium-5 columns" role="complementary">
-				<?php dynamic_sidebar( 'sidebar-news' ); ?>
+				<?php get_sidebar( ); ?>
 			</div><!-- #secondary -->
 		<?php endif; ?>
 
