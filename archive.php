@@ -9,7 +9,6 @@
 
 get_header();
 if ( 'news_post' == get_post_type() ) {
-	echo ('its news');
 		 $actively_news = true;
 	}	?>
 
@@ -17,7 +16,7 @@ if ( 'news_post' == get_post_type() ) {
 	<?php
 		if ( $actively_news ) : ?>
 			<div id="secondary" class="widget-area small-24 medium-5 columns" role="complementary">
-				<?php get_sidebar( ); ?>
+				<?php get_sidebar( 'topics' ); ?>
 			</div><!-- #secondary -->
 		<?php endif; ?>
 
@@ -66,22 +65,13 @@ if ( 'news_post' == get_post_type() ) {
           <?php while ( have_posts() ) : the_post(); ?>
 						<?php
 						if ( $actively_news ) :
-
-							get_template_part( 'partials/content', 'news' );
-
-								else :
-
-                  /* Include the Post-Format-specific template for the content.
-                   * If you want to override this in a child theme, then include a file
-                   * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-                   */
-
-      ?>
-				<div class="row">
-            <div class="small-24 columns">
-                          <?php get_template_part( 'content', get_post_format() ) ?>
-                      </div>
+									get_template_part( 'partials/content', 'news' );
+						else : //display the regular archive  ?>
+								<div class="row">
+				          <div class="small-24 columns">
+                    <?php get_template_part( 'content', get_post_format() ) ?>
                   </div>
+                </div>
 
 							<?php endif; ?>
           	<?php endwhile; ?>

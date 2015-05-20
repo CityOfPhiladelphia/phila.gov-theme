@@ -22,7 +22,7 @@
                 ?>
                </div><!-- .entry-content -->
     <?php
-        get_sidebar('topics');
+        get_sidebar('related-topics');
     ?>
 	</div><!-- .row -->
 	<?php get_template_part( 'partials/content', 'modified' ) ?>
