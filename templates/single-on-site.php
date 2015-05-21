@@ -5,10 +5,6 @@
 * for displaying on-site departments
 */
 ?>
-<header class="entry-header small-24 columns">
-  <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-</header><!-- .entry-header -->
-
 <?php
   $category = get_the_category();
   $cat_slug =	$category[0]->slug;
@@ -34,6 +30,9 @@
     </div>
 
 <?php endif; ?>
+  <header class="entry-header <?php echo ($has_sidebar) ? 'medium-16' : 'medium-24'; ?> small-24 columns">
+    <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+  </header><!-- .entry-header -->
   <div class="entry-content <?php echo ($has_sidebar) ? 'medium-16' : 'medium-24'; ?> small-24 columns">
      <?php echo the_content();?>
   </div>
