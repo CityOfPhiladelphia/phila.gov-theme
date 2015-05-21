@@ -218,7 +218,7 @@ function the_breadcrumb() {
             the_title();
             echo '</li>';
 
-					}elseif	( is_single() || is_tax('topics')) {
+					}elseif	( is_single() ) {
 						$i = 0;
                 $topic_terms = wp_get_object_terms( $post->ID,  'topics', array('orderby'=>'term_group') );
                 $topic_parent = $topic_terms[0];
@@ -249,9 +249,14 @@ function the_breadcrumb() {
                 display_browse_breadcrumbs();
             }
 						*/
-        }elseif( is_post_type_archive('news_post') ) {
+        }elseif( (is_post_type_archive('news_post') && is_tax('topics')) ) {
 
-	         echo '<li>News</li>';
+	        echo '<li><a href="/news">News</a></li>';
+					$taxonomy = 'topics';
+					$queried_term = get_query_var($taxonomy);
+					$term_obj = get_term_by( 'slug', $queried_term, 'topics');
+
+					echo '<li>'. $term_obj->name . '</li>';
 
     		}elseif  (is_singular('site_wide_alert')){
                 echo '<li>';

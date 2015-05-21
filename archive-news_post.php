@@ -1,17 +1,13 @@
 <?php
 /**
- * The template for displaying archive pages.
+ * The template for displaying the news archive.
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
  * @package phila-gov
  */
 
-get_header();
-if ( 'news_post' == get_post_type() ) {
-		global $actively_news;
-		 $actively_news = true;
-	}	?>
+get_header(); ?>
 
 	<section id="primary" class="content-area archive row">
 
@@ -21,10 +17,16 @@ if ( 'news_post' == get_post_type() ) {
           <h1>
             <?php
 
-								if ( $actively_news ) :
-										_e( 'NEWS', 'phila-gov' );
-                endif;
-            ?>
+						_e( 'NEWS ', 'phila-gov' );
+
+						$taxonomy = 'topics';
+						$queried_term = get_query_var($taxonomy);
+						if (!$queried_term == 0) :
+							$term_obj = get_term_by( 'slug', $queried_term, 'topics');
+							echo ' | ' . $term_obj->name ;
+						endif;
+
+						?>
           </h1>
           </header><!-- .page-header -->
 				<main id="main" class="site-main small-24 columns medium-19 push-5" role="main">

@@ -7,11 +7,7 @@
  * @package phila-gov
  */
 
-get_header();
-if ( 'news_post' == get_post_type() ) {
-		global $actively_news;
-		 $actively_news = true;
-	}	?>
+get_header(); ?>
 
 	<section id="primary" class="content-area archive row">
 
@@ -38,8 +34,6 @@ if ( 'news_post' == get_post_type() ) {
                 elseif ( is_year() ) :
                     printf( __( 'Year: %s', 'phila-gov' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'phila-gov' ) ) . '</span>' );
 
-								elseif ( $actively_news ) :
-										_e( 'News', 'phila-gov' );
                 else :
                     _e( 'Archives', 'phila-gov' );
 
@@ -47,12 +41,8 @@ if ( 'news_post' == get_post_type() ) {
             ?>
           </h1>
           </header><!-- .page-header -->
-				<main id="main" class="site-main small-24 columns <?php if($actively_news) : ?>medium-19 push-5<?php endif; ?>" role="main">
-          <?php while ( have_posts() ) : the_post(); ?>
-						<?php
-						if ( $actively_news ) :
-									get_template_part( 'partials/content', 'news' );
-						else : //display the regular archive  ?>
+				<main id="main" class="site-main small-24 columns" role="main">
+          <?php while ( have_posts() ) : the_post(); ?>	
 								<div class="row">
 				          <div class="small-24 columns">
                     <?php get_template_part( 'content', get_post_format() ) ?>
@@ -71,12 +61,6 @@ if ( 'news_post' == get_post_type() ) {
       <?php endif; ?>
 
 		</main><!-- #main -->
-		<?php
-			if ( $actively_news ) : ?>
-				<div id="secondary" class="widget-area small-24 medium-5 pull-19 columns" role="complementary">
-					<?php get_sidebar( 'topics' ); ?>
-				</div><!-- #secondary -->
-			<?php endif; ?>
 
 	</section><!-- #primary -->
 	<?php
