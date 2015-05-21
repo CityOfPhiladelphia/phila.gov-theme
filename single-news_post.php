@@ -20,7 +20,7 @@ $terms = get_the_terms( $post->ID, 'topics' );
 					$current_topics[] = $term->name;
 			}
 		}
-		$topics = join( " | ", $current_topics );
+		$topics = join( ", ", $current_topics );
 	endif;
 	?>
 

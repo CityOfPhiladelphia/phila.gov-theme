@@ -15,7 +15,7 @@
 }
 
 .filter {
-  background:$geyser;
+  background:$ghost-gray;
   padding:10px;
   ul {
     list-style:none;
@@ -24,7 +24,20 @@
   }
    li {
     margin:0;
-    padding:5px 0;
+    padding-bottom:10px;
     font-size:90%;
+    &:last-child {
+      padding:0;
+    }
   }
+}
+
+img.float-left{
+  padding: 1em 1em 1em 0;
+  float:left;
+}
+
+img.float-right{
+  padding: 1em 0 1em 1em;
+  float:right;
 }

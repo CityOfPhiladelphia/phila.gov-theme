@@ -22,26 +22,7 @@
         $categories = get_the_category($post->ID);
           if ((!$categories == '') || (!$categories[0]->cat_name == 'Uncategorized')){
             $current_cat = $categories[0]->name;
-          }
-
-          $terms = get_the_terms( $post->ID, 'topics' );
-
-          if ( $terms && ! is_wp_error( $terms ) ) :
-
-            $current_topics = array();
-
-            foreach ( $terms as $term ) {
-              //parent terms only
-              if( 0 == $term->parent ) {
-                  $current_topics[] = $term->name;
-              }
-            }
-
-            $topics = join( " | ", $current_topics );
-
-        ?>
-
-      <?php endif; ?>
+          }?>
       <span class="entry-date"><?php echo get_the_date(); ?> </span> | <span class="category"> <?php echo $current_cat ?> </span>
 
 
