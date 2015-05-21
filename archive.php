@@ -9,6 +9,7 @@
 
 get_header();
 if ( 'news_post' == get_post_type() ) {
+		global $actively_news;
 		 $actively_news = true;
 	}	?>
 

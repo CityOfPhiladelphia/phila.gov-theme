@@ -206,48 +206,20 @@ function the_breadcrumb() {
     global $output;
     $category = get_the_category();
     echo '<ul>';
-    if (!is_front_page()) {
-
+    if (!is_front_page()) { //display breadcrumbs everywhere but on the homepage
         echo '<li><a href="';
         echo get_option('home');
         echo '">';
         util_echo_website_url();
         echo '</a></li>';
+
         if (is_category()) {
             echo '<li>';
             the_title();
             echo '</li>';
-        }elseif (is_post_type_archive('department_page')){
 
-            echo '<li>Departments</li>';
-
-        }elseif (is_page_template('taxonomy-topics.php') || is_tax('topics')){
-            //browse
-            //echo '<li><a href="/browse">Browse</a></li>';
-            if (function_exists('currentURL')){
-                display_browse_breadcrumbs();
-            }
-        }
-        elseif (is_single()) {
-            if (is_singular('news_post') || (is_singular('site_wide_alert'))){
-                echo '<li>';
-                the_title();
-                echo '</li>';
-            }elseif (is_singular('department_page')) {
-
-                $anc = get_post_ancestors( $post->ID );
-                $title = get_the_title();
-
-                foreach ( $anc as $ancestor ) {
-
-                    $output = '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a></li> ' .  $output;
-                }
-                echo $output;
-                echo '<li><strong title="'.$title.'"> '.$title.'</strong></li>';
-
-            }else{
-                //service/info pages
-                $i = 0;
+					}elseif	( is_single() || is_tax('topics')) {
+						$i = 0;
                 $topic_terms = wp_get_object_terms( $post->ID,  'topics', array('orderby'=>'term_group') );
                 $topic_parent = $topic_terms[0];
                     if ( ! empty( $topic_terms ) ) {
@@ -261,12 +233,51 @@ function the_breadcrumb() {
                                 $i++;
                             }
                          }
-                    }
-            echo '<li>';
-            the_title();
-            echo '</li>';
+												echo '<li>';
+												the_title();
+												echo '</li>';
+										}
+
+        }elseif (is_post_type_archive('department_page')){
+
+            echo '<li>Departments</li>';
+/*
+        }elseif (is_page_template('taxonomy-topics.php'){
+            //browse
+            //echo '<li><a href="/browse">Browse</a></li>';
+            if (function_exists('currentURL')){
+                display_browse_breadcrumbs();
             }
-        } elseif (is_page()) {
+						*/
+        }elseif( is_post_type_archive('news_post') ) {
+
+	         echo '<li>News</li>';
+
+    		}elseif  (is_singular('site_wide_alert')){
+                echo '<li>';
+                the_title();
+                echo '</li>';
+
+				}elseif (is_singular('news_post')){
+								echo '<li>News</li>';
+								echo '<li>';
+								the_title();
+								echo '</li>';
+
+
+        }elseif ( is_singular('department_page') ) {
+
+                $anc = get_post_ancestors( $post->ID );
+                $title = get_the_title();
+
+                foreach ( $anc as $ancestor ) {
+
+                    $output = '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a></li> ' .  $output;
+                }
+                echo $output;
+                echo '<li><strong title="'.$title.'"> '.$title.'</strong></li>';
+
+        } elseif ( is_page() ) {
 
             if($post->post_parent){
                 //$anc = array_reverse(get_post_ancestors( $post->ID ));
@@ -281,16 +292,25 @@ function the_breadcrumb() {
                 echo '<li><strong> '.get_the_title().'</strong></li>';
             }
         }//end is_page
+				elseif ( is_tag() ) {
+
+            // Tag page
+
+            // Get tag information
+            $term_id = get_query_var('tag_id');
+            $taxonomy = 'post_tag';
+            $args ='include=' . $term_id;
+            $terms = get_terms( $taxonomy, $args );
+
+            // Display the tag name
+            echo '<li class="item-current item-tag-' . $terms[0]->term_id . ' item-tag-' . $terms[0]->slug . '"><strong class="bread-current bread-tag-' . $terms[0]->term_id . ' bread-tag-' . $terms[0]->slug . '">' . $terms[0]->name . '</strong></li>';
+					}
+
     }//end is front page
-    elseif (is_tag()) {single_tag_title();}
-    elseif (is_day()) {echo"<li>Archive for "; the_time('F jS, Y'); echo'</li>';}
-    elseif (is_month()) {echo"<li>Archive for "; the_time('F, Y'); echo'</li>';}
-    elseif (is_year()) {echo"<li>Archive for "; the_time('Y'); echo'</li>';}
-    elseif (is_author()) {echo"<li>Author Archive"; echo'</li>';}
-    elseif (isset($_GET['paged']) && !empty($_GET['paged'])) {echo "<li>Blog Archives"; echo'</li>';}
-    elseif (is_search()) {echo"<li>Search Results"; echo'</li>';}
-    echo '</ul>';
+
+  echo '</ul>';
 }
+//end breadcrumbs
 
 /**
  * Mah utility functions
