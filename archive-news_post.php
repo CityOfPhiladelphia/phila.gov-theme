@@ -22,10 +22,12 @@ get_header(); ?>
 						$taxonomy = 'topics';
 						$queried_term = get_query_var($taxonomy);
 						if (!$queried_term == 0) :
-							$term_obj = get_term_by( 'slug', $queried_term, 'topics');
+							$term_obj = get_term_by( 'slug', $queried_term, $taxonomy);
 							echo ' | ' . $term_obj->name ;
+						elseif (is_category()):
+							$current_cat = get_the_category();
+							echo ' | ' . $current_cat[0]->name;
 						endif;
-
 						?>
           </h1>
           </header><!-- .page-header -->

@@ -213,12 +213,8 @@ function the_breadcrumb() {
         util_echo_website_url();
         echo '</a></li>';
 
-        if (is_category()) {
-            echo '<li>';
-            the_title();
-            echo '</li>';
 
-					}elseif	( is_single() ) {
+				if	( is_single() ) {
 						$i = 0;
                 $topic_terms = wp_get_object_terms( $post->ID,  'topics', array('orderby'=>'term_group') );
                 $topic_parent = $topic_terms[0];
@@ -241,14 +237,7 @@ function the_breadcrumb() {
         }elseif (is_post_type_archive('department_page')){
 
             echo '<li>Departments</li>';
-/*
-        }elseif (is_page_template('taxonomy-topics.php'){
-            //browse
-            //echo '<li><a href="/browse">Browse</a></li>';
-            if (function_exists('currentURL')){
-                display_browse_breadcrumbs();
-            }
-						*/
+
         }elseif( (is_post_type_archive('news_post') && is_tax('topics')) ) {
 
 	        echo '<li><a href="/news">News</a></li>';
@@ -258,7 +247,19 @@ function the_breadcrumb() {
 
 					echo '<li>'. $term_obj->name . '</li>';
 
-    		}elseif  (is_singular('site_wide_alert')){
+				}elseif( (is_post_type_archive('news_post') && is_category()) ) {
+
+					echo '<li><a href="/news">News</a></li>';
+
+					$category = get_the_category($post->ID);
+					echo '<li>' . $category[0]->name . '</li>';
+
+
+				} elseif ( is_post_type_archive('news_post') ) {
+
+					echo '<li>News</li>';
+
+    		}elseif (is_singular('site_wide_alert')){
                 echo '<li>';
                 the_title();
                 echo '</li>';
@@ -268,7 +269,6 @@ function the_breadcrumb() {
 								echo '<li>';
 								the_title();
 								echo '</li>';
-
 
         }elseif ( is_singular('department_page') ) {
 
@@ -282,7 +282,27 @@ function the_breadcrumb() {
                 echo $output;
                 echo '<li><strong title="'.$title.'"> '.$title.'</strong></li>';
 
-        } elseif ( is_page() ) {
+        }elseif (is_tax('topics')){
+							//browse
+							//echo '<li><a href="/browse">Browse</a></li>';
+							$taxonomy = 'topics';
+							$queried_term = get_query_var($taxonomy);
+							$term_obj = get_term_by( 'slug', $queried_term, 'topics');
+
+							$term = get_term_by( 'slug', 	$queried_term, 'topics' ); // get current term
+
+							$parent = get_term($term->parent, $taxonomy);
+
+							if ( ! is_wp_error( $parent ) ) :
+								echo '<li><a href="/browse/' . $parent->slug . '/' . $term_obj->slug . '">' . $parent->name. '</a></li>';
+							endif;
+
+							echo '<li><a href="/browse/' . $term_obj->slug . '">'. $term_obj->name . '</a></li>';
+							if (function_exists('currentURL')){
+
+							//		display_browse_breadcrumbs();
+							}
+				elseif ( is_page() ) {
 
             if($post->post_parent){
                 //$anc = array_reverse(get_post_ancestors( $post->ID ));
@@ -311,8 +331,14 @@ function the_breadcrumb() {
             echo '<li class="item-current item-tag-' . $terms[0]->term_id . ' item-tag-' . $terms[0]->slug . '"><strong class="bread-current bread-tag-' . $terms[0]->term_id . ' bread-tag-' . $terms[0]->slug . '">' . $terms[0]->name . '</strong></li>';
 					}
 
-    }//end is front page
+				elseif (is_category()) {
+							echo '<li>';
+							the_title();
+							echo '</li>';
 
+    		}
+	}//end is front page
+}
   echo '</ul>';
 }
 //end breadcrumbs
