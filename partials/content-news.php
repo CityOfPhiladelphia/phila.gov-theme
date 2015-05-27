@@ -20,10 +20,14 @@
   	<header class="entry-header small-text">
       <?php
         $categories = get_the_category($post->ID);
-          if ((!$categories == '') || (!$categories[0]->cat_name == 'Uncategorized')){
+          if ( !$categories == 0 ) {
             $current_cat = $categories[0]->name;
-          }?>
-      <span class="entry-date"><?php echo get_the_date(); ?> </span> | <span class="category"> <?php echo $current_cat ?> </span>
+          }else {
+            $current_cat = null;
+          }
+        ?>
+      <span class="entry-date"><?php echo get_the_date(); ?> </span> <span class="category">
+        <?php echo $current_cat == null ?  '' : ' | ' . $current_cat  ?> </span>
 
 
       <a href="<?php echo the_permalink(); ?>"><?php the_title('<h2>', '</h2>' ); ?></a>

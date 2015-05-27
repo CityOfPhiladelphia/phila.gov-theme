@@ -21,6 +21,8 @@ $terms = get_the_terms( $post->ID, 'topics' );
 			}
 		}
 		$topics = join( ", ", $current_topics );
+		else :
+			$topics = null;
 	endif;
 	?>
 
@@ -29,8 +31,10 @@ $terms = get_the_terms( $post->ID, 'topics' );
 		<header class="entry-header small-24 columns">
 			<?php the_title( '<h1 class="entry-title container">', '</h1>' ); ?>
 			<div class="entry-meta small-text">
-				<span class="entry-date"><?php echo get_the_date(); ?> | </span>
-				<span class="posted-in">Topics: <?php echo $topics; ?> </span>
+				<span class="entry-date"><?php echo get_the_date(); ?> </span>
+				<span class="posted-in">
+					<?php echo  (!$topics == null ? ' | Topics: ' . $topics : ''); ?> 
+				</span>
 			</div>
 		</header><!-- .entry-header -->
 	</div>
