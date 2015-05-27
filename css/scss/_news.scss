@@ -1,4 +1,10 @@
 .news-item {
+  a:link h2, a:visited h2 {
+    color:#027ea4;
+  }
+  a:hover h2 {
+    color: #353535;
+  }
   h2 {
     margin:.5rem 0 ;
   }
