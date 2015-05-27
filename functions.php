@@ -216,23 +216,14 @@ function the_breadcrumb() {
 
 				if	( is_single() ) {
 						$i = 0;
-                $topic_terms = wp_get_object_terms( $post->ID,  'topics', array('orderby'=>'term_group') );
-                $topic_parent = $topic_terms[0];
-                    if ( ! empty( $topic_terms ) ) {
-                        if ( ! is_wp_error( $topic_terms ) ) {
-                                foreach( $topic_terms as $term ) {
-                                    if ($i == 0) {
-                                        echo '<li><a href=/browse/' . $term->slug . '>' . $term->name . '</a></li>';
-                                    }elseif ($i == 1){
-                                        echo '<li><a href=/browse/' . $topic_parent->slug . '/' .  $term->slug . '>' . $term->name . '</a></li>';
-                                    }
-                                $i++;
-                            }
-                         }
-												echo '<li>';
-												the_title();
-												echo '</li>';
-										}
+              $topic_terms = wp_get_object_terms( $post->ID,  'topics', array('orderby'=>'term_group') );
+        //      $topic_parent = $topic_terms[0];
+  //}
+									}elseif (is_singular('news_post')){
+													echo '<li>News</li>';
+													echo '<li>';
+													the_title();
+													echo '</li>';
 
         }elseif (is_post_type_archive('department_page')){
 
@@ -264,12 +255,6 @@ function the_breadcrumb() {
                 the_title();
                 echo '</li>';
 
-				}elseif (is_singular('news_post')){
-								echo '<li>News</li>';
-								echo '<li>';
-								the_title();
-								echo '</li>';
-
         }elseif ( is_singular('department_page') ) {
 
                 $anc = get_post_ancestors( $post->ID );
@@ -277,7 +262,7 @@ function the_breadcrumb() {
 
                 foreach ( $anc as $ancestor ) {
 
-                    $output = '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a></li> ' .  $output;
+                    $output = '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'things!</a></li> ' .  $output;
                 }
                 echo $output;
                 echo '<li><strong title="'.$title.'"> '.$title.'</strong></li>';
@@ -297,8 +282,9 @@ function the_breadcrumb() {
 								echo '<li><a href="/browse/' . $parent->slug . '/' . $term_obj->slug . '">' . $parent->name. '</a></li>';
 							endif;
 
-							echo '<li><a href="/browse/' . $term_obj->slug . '">'. $term_obj->name . '</a></li>';
+							echo '<li><a href="/browse/' . $term_obj->slug . '">'. $term_obj->name . 'things!</a></li>';
 							if (function_exists('currentURL')){
+
 
 							//		display_browse_breadcrumbs();
 							}
@@ -309,7 +295,7 @@ function the_breadcrumb() {
                 $anc = get_post_ancestors( $post->ID );
                 $title = get_the_title();
                 foreach ( $anc as $ancestor ) {
-                    $output = '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a></li> ' .  $output;
+                    $output = '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'things!</a></li> ' .  $output;
                 }
                 echo $output;
                 echo '<li><strong title="'.$title.'"> '.$title.'</strong></li>';
@@ -328,7 +314,7 @@ function the_breadcrumb() {
             $terms = get_terms( $taxonomy, $args );
 
             // Display the tag name
-            echo '<li class="item-current item-tag-' . $terms[0]->term_id . ' item-tag-' . $terms[0]->slug . '"><strong class="bread-current bread-tag-' . $terms[0]->term_id . ' bread-tag-' . $terms[0]->slug . '">' . $terms[0]->name . '</strong></li>';
+          //  echo '<li class="item-current item-tag-' . $terms[0]->term_id . ' item-tag-' . $terms[0]->slug . '"><strong class="bread-current bread-tag-' . $terms[0]->term_id . ' bread-tag-' . $terms[0]->slug . '">' . $terms[0]->name . '</strong></li>';
 					}
 
 				elseif (is_category()) {
