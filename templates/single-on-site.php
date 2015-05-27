@@ -5,9 +5,6 @@
 * for displaying on-site departments
 */
 ?>
-<header class="entry-header small-24 columns">
-  <?php the_title( '<h1 class="entry-title hide">', '</h1>' ); ?>
-</header><!-- .entry-header -->
 <?php
   $category = get_the_category();
   $cat_slug =	$category[0]->slug;
@@ -15,6 +12,7 @@
   if ( is_active_sidebar( 'sidebar' .	$cat_slug ) ) : ?>
     <div id="sidebar" class="medium-8 columns">
     <?php
+    $has_sidebar = true;
       if ( has_post_thumbnail() ) { ?>
         <div class="logo">
           <?php the_post_thumbnail(); ?>
@@ -22,16 +20,19 @@
         <?php
       }elseif (has_post_thumbnail( $post->post_parent )) {
         ?><div class="logo">
-          <?php echo get_the_post_thumbnail( $post->post_parent );?>
-        </div>
-      <?php }else { }
-      ?>
+            <?php echo get_the_post_thumbnail( $post->post_parent );?>
+          </div>
+        <?php }else { }
+        ?>
       <div class="inner">
-          <?php dynamic_sidebar( 'sidebar' .	$cat_slug ); ?>
+        <?php dynamic_sidebar( 'sidebar' .	$cat_slug ); ?>
       </div>
     </div>
 
 <?php endif; ?>
-  <div class="entry-content medium-16 small-24 columns">
+  <header class="entry-header <?php echo ($has_sidebar) ? 'medium-16' : 'medium-24'; ?> small-24 columns">
+    <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+  </header><!-- .entry-header -->
+  <div class="entry-content <?php echo ($has_sidebar) ? 'medium-16' : 'medium-24'; ?> small-24 columns">
      <?php echo the_content();?>
   </div>

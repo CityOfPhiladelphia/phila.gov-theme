@@ -2,63 +2,40 @@
 
 /*
  *
- *  Related Topics Sidebar
+ *  Topics List Sidebar
  *
  */
 
  ?>
-<div id="secondary" class="widget-area small-24 medium-6 columns" role="complementary">
-  <div class="related">
+<div id="secondary" class="widget-area" role="complementary">
+  <div class="filter">
+    <h3><?php printf( __( 'Filter by Topic', 'phila-gov' )); ?> </h3>
       <?php
-     //get all the terms
-        $custom_terms = get_the_terms($post->ID, 'topics');
-        $currentID = get_the_ID();
+            $args = array(
+          	'sort_order' => 'asc',
+          	'sort_column' => 'post_title',
+          	'post_type' => 'news_post'
+          );
+          $pages = get_posts($args);
 
-        if($custom_terms){
-            // loop through topics and build a tax query
-            foreach( $custom_terms as $custom_term ) {
-                $terms[] = $custom_term->slug;
-            }
+          $news_topics = array();
 
-            $tax_query = array('relation' => 'OR',
-                    array (
-                        'taxonomy' => 'topics',
-                        'field' => 'slug',
-                        'terms' => $terms
-                    )
-            );
-            $args = array( 'post_type' => array(
-                               // 'post',
-                                //'service_post'
-                                ),
-                            'orderby'=>'name',
-                            'order' => 'ASC',
-                            'posts_per_page' => 5,
-                            'tax_query' => $tax_query,
-                            'post__not_in' => array($currentID),
+          foreach ($pages as $page) {
+            $news_topics[] = $page->ID;
+          }
 
-            );
-            $loop = new WP_Query($args);
-
-            if( $loop->have_posts() ) {
-               ?> <h3>Related Content</h3>
-                <ul>
-                    <?php
-
-                while( $loop->have_posts() ) : $loop->the_post(); ?>
-                    <li>
-                        <?php the_title( sprintf( '<a href="%s" rel="bookmark" class="item">', esc_url( get_permalink() ) ), '</a>' );
-                    ?>
-                    </li>
-                <?php
-
-                endwhile;
-
-            }
-
-            wp_reset_query();
-
-        }
-    ?>
+        $topic_terms = wp_get_object_terms( $news_topics,  'topics' );
+           if ( ! empty( $topic_terms ) ) {
+           	if ( ! is_wp_error( $topic_terms ) ) {
+           		echo '<ul>';
+           			foreach( $topic_terms as $term ) {
+                   if ( $term->parent == 0 )  {
+           				    echo '<li><a href="/news/topics/' . $term->slug . '" class="item">' . esc_html( $term->name ) . '</a></li>';
+                  }
+           			}
+           		echo '</ul>';
+           	}
+          }
+      ?>
   </div><!-- .related -->
 </div><!-- #secondary -->

@@ -5,12 +5,6 @@
  * @package phila-gov
  */
 
-// if site is set to run on SSL, then force-enable SSL detection!
-/**I'm going to leave this in to be safe. **/
-if (stripos(get_option('siteurl'), 'https://') === 0) {
-    $_SERVER['HTTPS'] = 'on';
-}
-
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
@@ -46,7 +40,7 @@ function phila_gov_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in one location.
+	// This theme uses wp_nav_menu() in any number of locations.
 	add_action( 'init', 'phila_register_category_menus' );
 
     function phila_register_category_menus() {
@@ -117,6 +111,16 @@ function phila_gov_widgets_init() {
   		'after_title'   => '</h1>',
   	) );
   }
+  //only one of these
+  register_sidebar( array(
+    'name'          => __( 'News Sidebar', 'phila-gov' ),
+    'id'            => 'sidebar-news',
+    'description'   => '',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</aside>',
+    'before_title'  => '<h1 class="widget-title">',
+    'after_title'   => '</h1>',
+  ) );
 }
 add_action( 'widgets_init', 'phila_gov_widgets_init' );
 
@@ -202,48 +206,16 @@ function the_breadcrumb() {
     global $output;
     $category = get_the_category();
     echo '<ul>';
-    if (!is_front_page()) {
-
+    if (!is_front_page()) { //display breadcrumbs everywhere but on the homepage
         echo '<li><a href="';
         echo get_option('home');
         echo '">';
         util_echo_website_url();
         echo '</a></li>';
-        if (is_category()) {
-            echo '<li>';
-            the_title();
-            echo '</li>';
-        }elseif (is_post_type_archive('department_page')){
 
-            echo '<li>Departments</li>';
 
-        }elseif (is_page_template('taxonomy-topics.php') || is_tax('topics')){
-            //browse
-            //echo '<li><a href="/browse">Browse</a></li>';
-            if (function_exists('currentURL')){
-                display_browse_breadcrumbs();
-            }
-        }
-        elseif (is_single()) {
-            if (is_singular('news_post') || (is_singular('site_wide_alert'))){
-                echo '<li>';
-                the_title();
-                echo '</li>';
-            }elseif (is_singular('department_page')) {
-
-                $anc = get_post_ancestors( $post->ID );
-                $title = get_the_title();
-
-                foreach ( $anc as $ancestor ) {
-
-                    $output = '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a></li> ' .  $output;
-                }
-                echo $output;
-                echo '<li><strong title="'.$title.'"> '.$title.'</strong></li>';
-
-            }else{
-                //service/info pages
-                $i = 0;
+				if	( is_single() ) {
+						$i = 0;
                 $topic_terms = wp_get_object_terms( $post->ID,  'topics', array('orderby'=>'term_group') );
                 $topic_parent = $topic_terms[0];
                     if ( ! empty( $topic_terms ) ) {
@@ -257,12 +229,80 @@ function the_breadcrumb() {
                                 $i++;
                             }
                          }
-                    }
-            echo '<li>';
-            the_title();
-            echo '</li>';
-            }
-        } elseif (is_page()) {
+												echo '<li>';
+												the_title();
+												echo '</li>';
+										}
+
+        }elseif (is_post_type_archive('department_page')){
+
+            echo '<li>Departments</li>';
+
+        }elseif( (is_post_type_archive('news_post') && is_tax('topics')) ) {
+
+	        echo '<li><a href="/news">News</a></li>';
+					$taxonomy = 'topics';
+					$queried_term = get_query_var($taxonomy);
+					$term_obj = get_term_by( 'slug', $queried_term, 'topics');
+
+					echo '<li>'. $term_obj->name . '</li>';
+
+				}elseif( (is_post_type_archive('news_post') && is_category()) ) {
+
+					echo '<li><a href="/news">News</a></li>';
+
+					$category = get_the_category($post->ID);
+					echo '<li>' . $category[0]->name . '</li>';
+
+
+				} elseif ( is_post_type_archive('news_post') ) {
+
+					echo '<li>News</li>';
+
+    		}elseif (is_singular('site_wide_alert')){
+                echo '<li>';
+                the_title();
+                echo '</li>';
+
+				}elseif (is_singular('news_post')){
+								echo '<li>News</li>';
+								echo '<li>';
+								the_title();
+								echo '</li>';
+
+        }elseif ( is_singular('department_page') ) {
+
+                $anc = get_post_ancestors( $post->ID );
+                $title = get_the_title();
+
+                foreach ( $anc as $ancestor ) {
+
+                    $output = '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a></li> ' .  $output;
+                }
+                echo $output;
+                echo '<li><strong title="'.$title.'"> '.$title.'</strong></li>';
+
+        }elseif (is_tax('topics')){
+							//browse
+							//echo '<li><a href="/browse">Browse</a></li>';
+							$taxonomy = 'topics';
+							$queried_term = get_query_var($taxonomy);
+							$term_obj = get_term_by( 'slug', $queried_term, 'topics');
+
+							$term = get_term_by( 'slug', 	$queried_term, 'topics' ); // get current term
+
+							$parent = get_term($term->parent, $taxonomy);
+
+							if ( ! is_wp_error( $parent ) ) :
+								echo '<li><a href="/browse/' . $parent->slug . '/' . $term_obj->slug . '">' . $parent->name. '</a></li>';
+							endif;
+
+							echo '<li><a href="/browse/' . $term_obj->slug . '">'. $term_obj->name . '</a></li>';
+							if (function_exists('currentURL')){
+
+							//		display_browse_breadcrumbs();
+							}
+				elseif ( is_page() ) {
 
             if($post->post_parent){
                 //$anc = array_reverse(get_post_ancestors( $post->ID ));
@@ -277,16 +317,31 @@ function the_breadcrumb() {
                 echo '<li><strong> '.get_the_title().'</strong></li>';
             }
         }//end is_page
-    }//end is front page
-    elseif (is_tag()) {single_tag_title();}
-    elseif (is_day()) {echo"<li>Archive for "; the_time('F jS, Y'); echo'</li>';}
-    elseif (is_month()) {echo"<li>Archive for "; the_time('F, Y'); echo'</li>';}
-    elseif (is_year()) {echo"<li>Archive for "; the_time('Y'); echo'</li>';}
-    elseif (is_author()) {echo"<li>Author Archive"; echo'</li>';}
-    elseif (isset($_GET['paged']) && !empty($_GET['paged'])) {echo "<li>Blog Archives"; echo'</li>';}
-    elseif (is_search()) {echo"<li>Search Results"; echo'</li>';}
-    echo '</ul>';
+				elseif ( is_tag() ) {
+
+            // Tag page
+
+            // Get tag information
+            $term_id = get_query_var('tag_id');
+            $taxonomy = 'post_tag';
+            $args ='include=' . $term_id;
+            $terms = get_terms( $taxonomy, $args );
+
+            // Display the tag name
+            echo '<li class="item-current item-tag-' . $terms[0]->term_id . ' item-tag-' . $terms[0]->slug . '"><strong class="bread-current bread-tag-' . $terms[0]->term_id . ' bread-tag-' . $terms[0]->slug . '">' . $terms[0]->name . '</strong></li>';
+					}
+
+				elseif (is_category()) {
+							echo '<li>';
+							the_title();
+							echo '</li>';
+
+    		}
+	}//end is front page
 }
+  echo '</ul>';
+}
+//end breadcrumbs
 
 /**
  * Mah utility functions

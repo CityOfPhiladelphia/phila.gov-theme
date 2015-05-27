@@ -7,5 +7,5 @@
 ?>
 
 <div id="secondary" class="widget-area  small-24 medium-6 columns" role="complementary">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+	<?php echo get_parent_topics(); ?>
 </div><!-- #secondary -->

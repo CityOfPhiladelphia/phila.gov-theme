@@ -43,7 +43,7 @@ get_header(); ?>
         </div><!-- .entry-content -->
 
     <?php
-        get_sidebar('topics');
+        get_sidebar('related-topics');
     ?>
     </div><!-- .container -->
 
