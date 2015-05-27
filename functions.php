@@ -214,16 +214,24 @@ function the_breadcrumb() {
         echo '</a></li>';
 
 
-				if	( is_single() ) {
+
+
+				if (is_singular('news_post')){
+					echo '<li><a href="/news">News</a></li>';
+					$categories = get_the_category($post->ID);
+	          if ( !$categories == 0 ) {
+	           echo '<li><a href="/news/' . $categories[0]->slug . '">'. $categories[0]->name . '</a></li>';
+	          }
+					echo '<li>';
+					the_title();
+					echo '</li>';
+
+
+			}elseif	( is_single() ) {
 						$i = 0;
               $topic_terms = wp_get_object_terms( $post->ID,  'topics', array('orderby'=>'term_group') );
         //      $topic_parent = $topic_terms[0];
   //}
-									}elseif (is_singular('news_post')){
-													echo '<li>News</li>';
-													echo '<li>';
-													the_title();
-													echo '</li>';
 
         }elseif (is_post_type_archive('department_page')){
 
@@ -314,7 +322,7 @@ function the_breadcrumb() {
             $terms = get_terms( $taxonomy, $args );
 
             // Display the tag name
-          //  echo '<li class="item-current item-tag-' . $terms[0]->term_id . ' item-tag-' . $terms[0]->slug . '"><strong class="bread-current bread-tag-' . $terms[0]->term_id . ' bread-tag-' . $terms[0]->slug . '">' . $terms[0]->name . '</strong></li>';
+            echo '<li class="item-current item-tag-' . $terms[0]->term_id . ' item-tag-' . $terms[0]->slug . '"><strong class="bread-current bread-tag-' . $terms[0]->term_id . ' bread-tag-' . $terms[0]->slug . '">' . $terms[0]->name . '</strong></li>';
 					}
 
 				elseif (is_category()) {
