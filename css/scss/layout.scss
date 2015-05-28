@@ -31,7 +31,6 @@
     }
   }
 }
-
 img.float-left{
   padding: 1em 1em 1em 0;
   float:left;
@@ -42,7 +41,7 @@ img.float-right{
   float:right;
 }
 
-.any-height {
+.equal-height {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
