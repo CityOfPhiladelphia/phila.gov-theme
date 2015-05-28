@@ -42,14 +42,13 @@ get_header(); ?>
           </h1>
           </header><!-- .page-header -->
 				<main id="main" class="site-main small-24 columns" role="main">
-          <?php while ( have_posts() ) : the_post(); ?>	
+          <?php while ( have_posts() ) : the_post(); ?>
 								<div class="row">
 				          <div class="small-24 columns">
                     <?php get_template_part( 'content', get_post_format() ) ?>
                   </div>
                 </div>
 
-							<?php endif; ?>
           	<?php endwhile; ?>
 
           <?php phila_gov_paging_nav(); ?>
