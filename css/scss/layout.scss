@@ -41,3 +41,20 @@ img.float-right{
   padding: 1em 0 1em 1em;
   float:right;
 }
+
+.any-height {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: stretch;
+  flex-align: stretch;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+
+  > div {
+    display: -webkit-flex;
+    display: flex;
+
+  }
+}
