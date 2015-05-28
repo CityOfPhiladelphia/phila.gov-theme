@@ -204,6 +204,7 @@ require get_template_directory() . '/inc/department-menu.php';
 function the_breadcrumb() {
     global $post;
     global $output;
+		global $i;
     $category = get_the_category();
     echo '<ul>';
     if (!is_front_page()) { //display breadcrumbs everywhere but on the homepage
@@ -212,9 +213,6 @@ function the_breadcrumb() {
         echo '">';
         util_echo_website_url();
         echo '</a></li>';
-
-
-
 
 				if (is_singular('news_post')){
 					echo '<li><a href="/news">News</a></li>';
@@ -225,15 +223,7 @@ function the_breadcrumb() {
 					echo '<li>';
 					the_title();
 					echo '</li>';
-
-
-			}elseif	( is_single() ) {
-						$i = 0;
-              $topic_terms = wp_get_object_terms( $post->ID,  'topics', array('orderby'=>'term_group') );
-        //      $topic_parent = $topic_terms[0];
-  //}
-
-        }elseif (is_post_type_archive('department_page')){
+			}elseif (is_post_type_archive('department_page')){
 
             echo '<li>Departments</li>';
 
@@ -265,17 +255,36 @@ function the_breadcrumb() {
 
         }elseif ( is_singular('department_page') ) {
 
-                $anc = get_post_ancestors( $post->ID );
-                $title = get_the_title();
+          $anc = get_post_ancestors( $post->ID );
+          $title = get_the_title();
+          foreach ( $anc as $ancestor ) {
 
-                foreach ( $anc as $ancestor ) {
+            $output = '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a></li> ' .  $output;
+              }
+            echo $output;
+            echo '<li> '.$title.'</li>';
+					}	elseif (is_singular('service_post') || is_single()){
+										//service/info pages
+													$i = 0;
+												$topic_terms = wp_get_object_terms( $post->ID,  'topics', array('orderby'=>'term_group') );
+													$topic_parent = $topic_terms[0];
+															if ( ! empty( $topic_terms ) ) {
+																if ( ! is_wp_error( $topic_terms ) ) {
+																					foreach( $topic_terms as $term ) {
+																							if ($i == 0) {
+																									echo '<li><a href=/browse/' . $term->slug . '>' . $term->name . '</a></li>';
+																							}elseif ($i == 1){
+																									echo '<li><a href=/browse/' . $topic_parent->slug . '/' .  $term->slug . '>' . $term->name . '</a></li>';
+																							}
+																					$i++;
+																			}
+																	}
+															}
+											echo '<li>';
+											the_title();
+											echo '</li>';
 
-                    $output = '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'things!</a></li> ' .  $output;
-                }
-                echo $output;
-                echo '<li><strong title="'.$title.'"> '.$title.'</strong></li>';
-
-        }elseif (is_tax('topics')){
+        }elseif (is_tax('topics')) {
 							//browse
 							//echo '<li><a href="/browse">Browse</a></li>';
 							$taxonomy = 'topics';
@@ -283,14 +292,13 @@ function the_breadcrumb() {
 							$term_obj = get_term_by( 'slug', $queried_term, 'topics');
 
 							$term = get_term_by( 'slug', 	$queried_term, 'topics' ); // get current term
-
 							$parent = get_term($term->parent, $taxonomy);
 
 							if ( ! is_wp_error( $parent ) ) :
 								echo '<li><a href="/browse/' . $parent->slug . '/' . $term_obj->slug . '">' . $parent->name. '</a></li>';
 							endif;
 
-							echo '<li><a href="/browse/' . $term_obj->slug . '">'. $term_obj->name . 'things!</a></li>';
+							echo '<li><a href="/browse/' . $term_obj->slug . '">'. $term_obj->name . '</a></li>';
 							if (function_exists('currentURL')){
 
 
@@ -303,15 +311,15 @@ function the_breadcrumb() {
                 $anc = get_post_ancestors( $post->ID );
                 $title = get_the_title();
                 foreach ( $anc as $ancestor ) {
-                    $output = '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'things!</a></li> ' .  $output;
+                    $output = '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a></li> ' .  $output;
                 }
                 echo $output;
                 echo '<li><strong title="'.$title.'"> '.$title.'</strong></li>';
             } else {
                 echo '<li><strong> '.get_the_title().'</strong></li>';
-            }
         }//end is_page
-				elseif ( is_tag() ) {
+
+			}	elseif ( is_tag() ) {
 
             // Tag page
 
@@ -330,7 +338,7 @@ function the_breadcrumb() {
 							the_title();
 							echo '</li>';
 
-    		}
+						}
 	}//end is front page
 }
   echo '</ul>';
