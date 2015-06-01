@@ -8,6 +8,34 @@
   margin:20px auto;
 }
 .department {
+  h1.alternate, h2.alternate, h3.alternate, h4.alternate, h5.alternate, h6.alternate {
+    color: $black;
+  }
+
+  h3{
+    font-size: .825rem;
+  }
+
+  p{
+    margin:1rem 0;
+    font-size: .85rem;
+    line-height: 1.6;
+  }
+
+  .story {
+    padding: .8rem;
+
+    p{
+      font-size: 80%;
+      line-height: 1.4;
+      margin: .5rem 0;
+    }
+  }
+
+  ul, ol, dl {
+    font-size: .85rem;
+    line-height: 1.6;
+  }
 
   .logo {
     img {
@@ -23,11 +51,11 @@
   }
 
   #sidebar {
-    font-size:90%;
+    font-size:85%;
 
     .call-to-action {
       .h1, .h2, .h3, .h4, .h5, .h6, span.h6 {
-        font-size:.8rem;
+        font-size:.7rem;
       }
     }
   }//#sidebar

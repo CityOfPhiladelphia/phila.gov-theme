@@ -40,11 +40,10 @@ img.float-right{
   padding: 1em 0 1em 1em;
   float:right;
 }
-
 .equal-height {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -ms-flex-align: stretch;
   flex-align: stretch;
   -webkit-flex-wrap: wrap;
@@ -54,6 +53,17 @@ img.float-right{
   > div {
     display: -webkit-flex;
     display: flex;
-
   }
-}
+.title-offset {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  margin-left: -0.78125rem;
+  margin-right: -0.78125rem;
+  padding-left: 0.78125rem;
+  padding-right: 0.78125rem;
+  }
+  .title-offset + .story.s-box {
+    margin-top:40px;
+  }
+}//equal-height
