@@ -35,7 +35,6 @@ img.float-left{
   padding: 1em 1em 1em 0;
   float:left;
 }
-
 img.float-right{
   padding: 1em 0 1em 1em;
   float:right;
@@ -49,6 +48,7 @@ img.float-right{
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  position: relative;
 
   > div {
     display: -webkit-flex;
@@ -65,5 +65,10 @@ img.float-right{
   }
   .title-offset + .story.s-box {
     margin-top:40px;
+  }
+  .title-push {
+    width:100%;
+    margin:0;
+    display: block;
   }
 }//equal-height
