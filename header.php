@@ -23,6 +23,9 @@
         <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/phila.gov-styles/ie9.css" type="text/css" media="all">
     <![endif]-->
 
+    <!-- Swiftype tags -->
+    <meta class="swiftype" name="title" data-type="string" content="<?php wp_title(''); ?>" />
+
     <?php wp_head(); ?>
 </head>
 
