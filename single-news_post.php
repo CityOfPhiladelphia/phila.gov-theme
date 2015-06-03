@@ -33,13 +33,13 @@ $terms = get_the_terms( $post->ID, 'topics' );
 			<div class="entry-meta small-text">
 				<span class="entry-date"><?php echo get_the_date(); ?> </span>
 				<span class="posted-in">
-					<?php echo  (!$topics == null ? ' | Topics: ' . $topics : ''); ?> 
+					<?php echo  (!$topics == null ? ' | Topics: ' . $topics : ''); ?>
 				</span>
 			</div>
 		</header><!-- .entry-header -->
 	</div>
     <div class="row">
-        <div class="entry-content small-24 medium-18 columns">
+        <div data-swiftype-index='true' class="entry-content small-24 medium-18 columns">
 					<?php
 					if ( has_post_thumbnail() ) { ?>
 	 						<?php	the_post_thumbnail( 'medium', array( 'class' => 'float-left' ) ); ?>

@@ -33,6 +33,6 @@
   <header class="entry-header <?php echo ($has_sidebar) ? 'medium-16' : 'medium-24'; ?> small-24 columns">
     <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
   </header><!-- .entry-header -->
-  <div class="entry-content <?php echo ($has_sidebar) ? 'medium-16' : 'medium-24'; ?> small-24 columns">
+  <div data-swiftype-index='true' class="entry-content <?php echo ($has_sidebar) ? 'medium-16' : 'medium-24'; ?> small-24 columns">
      <?php echo the_content();?>
   </div>

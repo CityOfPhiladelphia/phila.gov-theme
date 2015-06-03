@@ -14,7 +14,7 @@ get_header(); ?>
 		</header><!-- .entry-header -->
 	</div>
     <div class="row">
-        <div class="entry-content small-24 medium-18 columns">
+        <div data-swiftype-index='true' class="entry-content small-24 medium-18 columns">
             <?php
                 wp_link_pages( array(
                     'before' => '<div class="page-links">' . __( 'Pages:', 'phila-gov' ),
