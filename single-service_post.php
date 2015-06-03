@@ -27,12 +27,12 @@ get_header(); ?>
                 $service_name = rwmb_meta( 'phila_service_detail', $args = array('type' => 'textrea'));
                 echo '<p class="description">' . rwmb_meta( 'phila_service_desc', $args = array('type' => 'textarea')) . '</p>';
                 if (!$service_url == ''){
-                    echo '<a class="button no-margin" href="';
+                    echo '<a data-swiftype-index="false" class="button no-margin" href="';
                     echo $service_url;
                     echo '">' . 'Start Now' . '<span class="accessible"> external link</span></a>';
                 }
                 if (!$service_name == ''){
-                    echo '<span class="small-text">On the ' . $service_name . ' website</span>';
+                    echo '<span data-swiftype-index="false" class="small-text">On the ' . $service_name . ' website</span>';
                 }
             }
                 the_content();
