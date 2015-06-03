@@ -47,6 +47,11 @@ function phila_gov_wp_title( $title, $sep ) {
 		return $title;
 	}
 
+	// Return the raw title if the separator is blank
+	if ( $sep == '') {
+		return $title;
+	}
+
 	global $page, $paged;
 
 	// Add the blog name
