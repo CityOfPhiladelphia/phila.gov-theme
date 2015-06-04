@@ -25,6 +25,9 @@
 
     <!-- Swiftype tags -->
     <meta class="swiftype" name="title" data-type="string" content="<?php wp_title(''); ?>" />
+<?php if (is_single()) { ?>
+    <meta class="swiftype" name="published_at" data-type="date" content="<?php echo get_the_time('c', $post->ID); ?>" />
+<?php } ?>
 
     <?php wp_head(); ?>
 </head>
