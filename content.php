@@ -18,7 +18,7 @@
 		</header><!-- .entry-header -->
 	</div>
     <div class="row">
-        <div class="entry-content small-24 columns">
+        <div data-swiftype-index='true' class="entry-content small-24 columns">
             <?php
                 /* translators: %s: Name of current post */
                 the_content( sprintf(

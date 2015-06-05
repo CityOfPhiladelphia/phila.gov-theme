@@ -13,7 +13,7 @@
 		</header><!-- .entry-header -->
 	</div>
   <div class="row">
-      <div class="entry-content small-24 columns">
+      <div data-swiftype-index='true' class="entry-content small-24 columns">
           <?php the_content(); ?>
           <?php
               //wp_link_pages( array(

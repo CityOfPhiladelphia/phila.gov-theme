@@ -42,6 +42,6 @@
           <?php
 
     }?>
-        </div><!-- .entry-content -->
+        </div>
 </article><!-- #post-## -->
 <hr>

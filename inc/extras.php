@@ -43,29 +43,39 @@ add_filter( 'body_class', 'phila_gov_body_classes' );
  * @return string The filtered title.
  */
 function phila_gov_wp_title( $title, $sep ) {
-	if ( is_feed() ) {
+	//force homepage to show something
+	if ($sep === '' && ( is_home() || is_front_page() )) {
+		$title .= get_bloginfo( 'name', 'display' );
+		return $title;
+
+	//just give us the page title
+	}elseif ( is_feed()  || $sep === '') {
+
+		return $title;
+
+	}else{
+
+		global $page, $paged;
+
+		// Add the blog name
+		$title .= get_bloginfo( 'name', 'display' );
+
+		// Add the blog description for the home/front page.
+		$site_description = get_bloginfo( 'description', 'display' );
+		if ( $site_description && ( is_home() || is_front_page() ) ) {
+			$title .= " $sep $site_description";
+		}
+
+		// Add a page number if necessary:
+		if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
+			$title .= " $sep " . sprintf( __( 'Page %s', 'phila-gov' ), max( $paged, $page ) );
+		}
+
 		return $title;
 	}
-
-	global $page, $paged;
-
-	// Add the blog name
-	$title .= get_bloginfo( 'name', 'display' );
-
-	// Add the blog description for the home/front page.
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) ) {
-		$title .= " $sep $site_description";
-	}
-
-	// Add a page number if necessary:
-	if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
-		$title .= " $sep " . sprintf( __( 'Page %s', 'phila-gov' ), max( $paged, $page ) );
-	}
-
-	return $title;
 }
 add_filter( 'wp_title', 'phila_gov_wp_title', 10, 2 );
+
 
 /**
  * Sets the authordata global when viewing an author archive.
