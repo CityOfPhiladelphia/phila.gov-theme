@@ -115,7 +115,7 @@
   e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
   })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
 
-  _st('install','3RAjBnyyCoAbUXNVZ3u2','2.0.0');
+  _st('install','<?php echo getenv("SWIFTYPE_ID") ?: "SET_SWIFTYPE_ID_ENV_VAR"; ?>','2.0.0');
 </script>
 <script>
   jQuery(document).foundation();
