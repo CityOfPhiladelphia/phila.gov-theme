@@ -46,7 +46,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <div id="page" class="hfeed site">
     <?php if (alpha_alert()){ //show the alpha alert if set to true in functions.php ?>
-    <div class="alpha-alert">
+
+    <div data-swiftype-index='false' class="alpha-alert">
       <div class="row">
         <div class="large-18 columns">
                 <h1 class="h3">This service is in alpha</h1> <p>This is a work in progress. It may contain errors and inaccuracies. Help us improve it by providing feedback.</p>
@@ -62,7 +63,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
       </div>
 <?php }  ?>
-    <header id="masthead" class="site-header" role="banner">
+    <header data-swiftype-index='false' id="masthead" class="site-header" role="banner">
         <div class="row">
             <div class="site-branding">
                 <div class="small-24 medium-12 columns">

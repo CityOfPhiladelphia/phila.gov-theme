@@ -53,7 +53,7 @@
       </div><!-- #content -->
  </div><!-- #page -->
 
-<footer id="colophon" class="site-footer" role="contentinfo">
+<footer data-swiftype-index='false' id="colophon" class="site-footer" role="contentinfo">
   <section class="fat">
     <div class="row">
       <div class="large-8 columns">
