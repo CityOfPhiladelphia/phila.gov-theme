@@ -21,7 +21,5 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
+
 <?php get_footer(); ?>
-<script type="text/javascript">
-//	browse.init();
-</script>

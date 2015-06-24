@@ -9,7 +9,7 @@
 <div class="small-24 large-16 columns child results">
 
 <?php
-echo '<h2>' . $current_term->name . '</h2>';
+echo '<h1 class="h2">' . $current_term->name . '</h1>';
 if ( have_posts() ) :
   while ( have_posts() ) : the_post(); ?>
   	<div class="row">
