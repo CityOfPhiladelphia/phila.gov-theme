@@ -80,14 +80,29 @@
       padding: 10px 0;
   }
 }//#topic
+
 .browse {
   margin:30px 0 40px 0;
+
+  nav{
+    margin-bottom:30px;
+  }
 
   p{
     font-size: .9rem;
   }
 
     .results {
+      li {
+        list-style: none;
+      }
+        h2 {
+          margin:0 0 10px 0;
+        }
+        ul {
+          margin:0;
+          padding:0;
+        }
 
       a:link, a:visited{
         h2 {
@@ -99,19 +114,13 @@
           color:$mine-shaft;
         }
       }
-        margin: 0;
-        padding-left:0;
+      &.child {
+        margin: 0 0 0 0;
+        @media screen and (min-width: 64em){
+            margin: 30px 0 0 0;
+          }
+      }
 
-        @media screen and (min-width: 80em){
-            margin: 25px 0 0 0;
-            padding-left:20px;
-        }
-        h2 {
-            margin-top:20px;
-            @media screen and (min-width: 35.5em){
-                margin-top: 0;
-             }
-        }
     }//results
     .subtopics a li:hover {
         border-left:10px solid $ben-franklin-blue;
@@ -138,30 +147,32 @@
     }
 
     li.parent.current-topic{
-        font-size: 125%;
-        margin:0;
-        padding:0;
+      font-size: 125%;
+      margin:0;
+      padding:0;
 
-        h3 {
-            display: inline;
-        }
+      h3 {
+        display: inline;
+      }
     }//li.parent.current-topic
 
     li.parent.current-topic h3::before {
-        display: inline;
+      display: inline;
     }
-    .back-to-topic::before{
-        content: "\f053";
-        font-family: 'FontAwesome';
-        padding: 0 5px 0 0;
-        display: inline;
+    .back-arrow::before{
+      content: "\f053";
+      font-family: 'FontAwesome';
+      padding: 0 5px 0 0;
+      display: inline;
+      color:$ben-franklin-blue;
     }
 }//browse
 
-.browse li, .departments li {
+.browse nav li, .departments li {
     list-style: none;
     padding:10px;
 }
+
 .parent-topics,
 .browse li h3,
 .departments li h3 {
@@ -224,34 +235,23 @@ p.child-description, p.parent-description {
 
 }
 
-.results {
-    h2 {
-      margin:0 0 10px 0;
-    }
-    ul {
-      margin:0;
-      padding:0;
-    }
-}
-
-
 .error-404{
-    .find {
-        @extend .group;
-        background-color:#F9F9F9;
-        border: 1px solid $geyser;
-        padding:1.5em;
-        margin-bottom: 0;
+  .find {
+      @extend .group;
+      background-color:#F9F9F9;
+      border: 1px solid $geyser;
+      padding:1.5em;
+      margin-bottom: 0;
 
-        @media screen and (min-width: 35.5em){
-             margin-bottom: 1em;
-        }
-         h1{
-            margin-top: 0;
-            padding: 0;
-            text-transform: none;
-            font-size: 1.33em;
-            font-weight: 400;
-         }
-     }
+      @media screen and (min-width: 35.5em){
+           margin-bottom: 1em;
+      }
+       h1{
+          margin-top: 0;
+          padding: 0;
+          text-transform: none;
+          font-size: 1.33em;
+          font-weight: 400;
+       }
+   }
 }

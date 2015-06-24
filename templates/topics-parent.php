@@ -7,7 +7,7 @@
 $current_term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
 $term_children = get_term_children( $current_term->term_id, $current_term->taxonomy );
 
-echo '<div class="small-24 large-16 columns results">';
+echo '<div class="small-24 large-16 columns parent results">';
 echo '<h2>' . $current_term->name . '</h2>';
 echo '<ul class="subtopics">';
 
