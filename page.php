@@ -17,14 +17,16 @@ get_header(); ?>
 
 			<?php while ( have_posts() ) : the_post();
 
-				if ( is_page() && $post->post_parent ) {
-					    // This is a subpage
-							get_template_part( 'partials/content', 'page' );
-
-					} else {
-					    // This is not a subpage
-							get_template_part( 'partials/content', 'page' );
-					}
+				$children = get_pages('child_of=' . $post->ID);
+				$this_content = get_the_content();
+				if ( count( $children ) != 0 && ( $this_content == 0 ))  {
+						//this page is a parent, with content
+						get_template_part( 'partials/content', 'page' );
+				}elseif(($post->id = $post->post_parent)) {
+						get_template_part( 'partials/content', 'page-collection' );
+				}else {
+						get_template_part( 'partials/content', 'page' );
+				}
 
 				endwhile; // end of the loop. ?>
 
