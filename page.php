@@ -33,9 +33,8 @@ get_header(); ?>
 				}elseif(($post->id = $post->post_parent)) {
 						get_template_part( 'partials/content', 'page-collection' );
 				}else {
-					//	get_template_part( 'partials/content', 'page' );
-
-}
+						get_template_part( 'partials/content', 'page' );
+					}	
 
 				endwhile; // end of the loop. ?>
 
