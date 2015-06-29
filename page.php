@@ -9,7 +9,15 @@
  *
  * @package phila-gov
  */
+$children = get_pages("child_of=".$post->ID."&sort_column=menu_order");
+	global $post;
+	$content = $post->post_content;
 
+if ($children && empty( $content )) {
+		$firstchild = $children[0];
+		wp_redirect(get_permalink($firstchild->ID));
+		exit;
+}
 get_header(); ?>
 
 	<div id="primary" class="content-area row">
@@ -25,8 +33,9 @@ get_header(); ?>
 				}elseif(($post->id = $post->post_parent)) {
 						get_template_part( 'partials/content', 'page-collection' );
 				}else {
-						get_template_part( 'partials/content', 'page' );
-				}
+					//	get_template_part( 'partials/content', 'page' );
+
+}
 
 				endwhile; // end of the loop. ?>
 

@@ -37,6 +37,6 @@
 					</div>
 		    </div><!-- .entry-content -->
 			</div>
-			<?php get_template_part( 'partials/content', 'modified' ) ?>
 		</div>
+		<?php get_template_part( 'partials/content', 'modified' ) ?>
 	</article><!-- #post-## -->
