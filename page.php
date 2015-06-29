@@ -15,11 +15,18 @@ get_header(); ?>
 	<div id="primary" class="content-area row">
 		<main id="main" class="site-main small-24 columns" role="main">
 
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php while ( have_posts() ) : the_post();
 
-                <?php get_template_part( 'partials/content', 'page' ); ?>
+				if ( is_page() && $post->post_parent ) {
+					    // This is a subpage
+							get_template_part( 'partials/content', 'page' );
 
-			<?php endwhile; // end of the loop. ?>
+					} else {
+					    // This is not a subpage
+							get_template_part( 'partials/content', 'page' );
+					}
+
+				endwhile; // end of the loop. ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
