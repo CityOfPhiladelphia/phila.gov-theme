@@ -69,3 +69,10 @@
     font-size:1rem;
   }
 }//department
+
+.department-menu{
+  .current-menu-item{
+    background: $bell-yellow;
+    color:$black;
+  }
+}

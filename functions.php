@@ -303,9 +303,9 @@ function the_breadcrumb() {
 					endif;
 
 					if ( ! is_wp_error( $parent ) ) :
-						echo '<li><a href="/browse/' . $parent->slug . '/' . $term_obj->slug . '">' . $term_obj->name . '</a></li>';
+						echo '<li>' . $term_obj->name . '</li>';
 					else :
-						echo '<li><a href="/browse/' . $term_obj->slug . '">'. $term_obj->name . '</a></li>';
+						echo '<li>'. $term_obj->name . '</li>';
 					endif;
 
 
@@ -319,9 +319,9 @@ function the_breadcrumb() {
               $output = '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a></li> ' .  $output;
             }
             echo $output;
-            echo '<li><strong title="'.$title.'"> '.$title.'</strong></li>';
+            echo '<li>'.$title.'</li>';
           } else {
-              echo '<li><strong> '.get_the_title().'</strong></li>';
+              echo '<li>'.get_the_title().'</li>';
 						}
 
 			}	elseif ( is_tag() ) {
