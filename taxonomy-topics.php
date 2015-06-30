@@ -12,11 +12,17 @@ get_header(); ?>
     <div class="row">
 			<?php
 				$term = get_term_by('slug', get_query_var('term'), 'topics');
-				if( $term->parent == 0 ) {
-							get_template_part('templates/topics', 'parent');
-						}else{
-					    get_template_part('templates/topics', 'child');
-						} ?>
+				if ($term) {
+					if( $term->parent == 0 ) {
+								get_template_part('templates/topics', 'parent');
+							}else{
+						    get_template_part('templates/topics', 'child');
+							}
+				}else { ?>
+					<nav class="topics-nav small-24 large-8 columns">
+						<?php get_parent_topics(); ?>
+					</nav>
+			<?php	}?>
         </div>
 
 		</main><!-- #main -->
