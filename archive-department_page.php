@@ -17,7 +17,7 @@ get_header(); ?>
       <div class="row">
 					<div class="small-24 columns results">
 								<?php get_template_part( 'partials/content', 'finder' ); ?>
-									<ul class="list"><!-- ul for sortable listness -->
+									<ul class="list no-bullet"><!-- ul for sortable listness -->
                     <?php
                         $type = 'department_page';
                         $department_listing = new WP_Query(array(

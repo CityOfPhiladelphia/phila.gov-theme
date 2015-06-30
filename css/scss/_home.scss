@@ -80,9 +80,6 @@
       padding:1.5em 2em;
       color:$white;
 
-      li {
-        font-size:90%;
-      }
       h1{
           color: $ben-franklin-blue;
           border-bottom: 1px solid $mine-shaft;
@@ -93,6 +90,7 @@
           margin:0;
           padding:0;
           font-size: 95%;
+          font-weight:400;
       }
       ul{
           -moz-column-count: 2;
@@ -104,6 +102,9 @@
           margin:0;
           padding:0;
           list-style:none;
+          li:nth-child(5) span {
+            margin-bottom:2.1rem;
+          }
       }
       a:link, a:visited {
         h2{

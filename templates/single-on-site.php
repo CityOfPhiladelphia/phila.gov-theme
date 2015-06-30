@@ -30,7 +30,7 @@
     </div>
 
 <?php endif; ?>
-  <header class="entry-header <?php echo ($has_sidebar) ? 'medium-16' : 'medium-24'; ?> small-24 columns">
+  <header class="entry-header on-site <?php echo ($has_sidebar) ? 'medium-16' : 'medium-24'; ?> small-24 columns">
     <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
   </header><!-- .entry-header -->
   <div data-swiftype-index='true' class="entry-content <?php echo ($has_sidebar) ? 'medium-16' : 'medium-24'; ?> small-24 columns">
