@@ -397,6 +397,10 @@ function get_department_menu() {
         'items_wrap'      => '
 													<div class="row top-nav">
 														<nav class="top-bar" data-topbar role="navigation">
+														<ul class="title-area">
+										          <li class="name"></li>
+										          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+										      </ul>
 																<section class="top-bar-section">
 																	<ul id="%1$s" class="%2$s">%3$s</ul>
 																</section>
