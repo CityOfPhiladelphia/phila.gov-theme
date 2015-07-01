@@ -15,7 +15,6 @@
   <div class="row">
       <div data-swiftype-index='true' class="entry-content small-24 columns">
           <?php the_content(); ?>
-					<?php get_template_part( 'partials/content', 'department-link' ) ?>
       </div><!-- .entry-content -->
 	</div>
 	<?php get_template_part( 'partials/content', 'modified' ) ?>

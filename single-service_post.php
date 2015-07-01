@@ -15,12 +15,6 @@ get_header(); ?>
 	</div>
     <div class="row">
         <div data-swiftype-index='true' class="entry-content small-24 medium-18 columns">
-            <?php
-                wp_link_pages( array(
-                    'before' => '<div class="page-links">' . __( 'Pages:', 'phila-gov' ),
-                    'after'  => '</div>',
-                ) );
-            ?>
            <?php while ( have_posts() ) : the_post();
             if (function_exists('rwmb_meta')) {
                 $service_url = rwmb_meta( 'phila_service_url', $args = array('type' => 'url'));
@@ -38,7 +32,6 @@ get_header(); ?>
                 the_content();
 
             endwhile; // end of the loop. ?>
-
 					<?php get_template_part( 'partials/content', 'modified' ) ?>
         </div><!-- .entry-content -->
 
