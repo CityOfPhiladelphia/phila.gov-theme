@@ -14,13 +14,9 @@
 	<div class="row">
         <div data-swiftype-index='true' class="entry-content small-24 medium-18 columns">
           <?php the_content(); ?>
-                <?php
-                    //wp_link_pages( array(
-                    //	'before' => '<div class="page-links">' . __( 'Pages:', 'phila-gov' ),
-                    //	'after'  => '</div>',
-                    //) );
-                ?>
-               </div><!-- .entry-content -->
+
+						<?php get_template_part( 'partials/content', 'department-link' ) ?>
+        </div><!-- .entry-content -->
     <?php
         get_sidebar('related-topics');
     ?>

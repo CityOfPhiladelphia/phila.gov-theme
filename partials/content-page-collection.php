@@ -34,6 +34,7 @@
 							<?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
 						</header><!-- .entry-header -->
 					  <?php the_content(); ?>
+						<?php get_template_part( 'partials/content', 'department-link' ) ?>
 					</div>
 		    </div><!-- .entry-content -->
 			</div>
