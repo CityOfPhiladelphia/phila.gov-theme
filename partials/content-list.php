@@ -1,6 +1,6 @@
 <?php
 /**
- * The template used for displaying sotable list content
+ * The template used for displaying sortable list content
  *
  * @package phila-gov
  */

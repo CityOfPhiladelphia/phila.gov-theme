@@ -24,6 +24,8 @@ $parent_args = array(
   'post_type' => array(
     'page', 'service_post'
   ),
+  'order' => 'asc',
+  'orderby'=> 'menu_order',
   'tax_query' => array(
   		array(
   			'taxonomy' => 'topics',
@@ -38,6 +40,7 @@ if ( $parent_pages_query->have_posts() ) :
   	<div class="row">
   		<div class="small-24 columns">
         <ul>
+
   			<?php get_template_part( 'partials/content', 'list' ); ?>
       </ul>
   		</div>
