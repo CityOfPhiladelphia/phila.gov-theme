@@ -1,3 +1,10 @@
+<?php
+/*
+  *
+  * template for displaying 2nd level topics page.
+  *
+  */
+  ?>
 <nav class="topics-nav small-24 large-8 columns">
  <?php
    $current_term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );

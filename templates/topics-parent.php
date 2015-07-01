@@ -1,3 +1,10 @@
+<?php
+/*
+  *
+  * template for displaying 1st level topics page.
+  *
+  */
+  ?>
 <nav class="topics-nav small-24 large-8 columns">
     <?php get_parent_topics(); ?>
 </nav>
