@@ -3,7 +3,7 @@
  * @package phila-gov
  */
 ?>
-
+<?php get_role( 'administrator' ); ?>
 <article id="post-<?php the_ID(); ?>">
 	<div class="row">
 		<header class="entry-header small-24 columns">

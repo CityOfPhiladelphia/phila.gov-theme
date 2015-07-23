@@ -105,7 +105,7 @@ function phila_gov_widgets_init() {
 
     register_sidebar( array(
   		'name'          => __( $name . ' Sidebar', 'phila-gov' ),
-  		'id'            => 'sidebar' . $slug,
+  		'id'            => 'sidebar-' . $slug .'-' . $cat_id,
   		'description'   => '',
   		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
   		'after_widget'  => '</aside>',
@@ -123,9 +123,8 @@ function phila_gov_widgets_init() {
     'before_title'  => '<h1 class="widget-title">',
     'after_title'   => '</h1>',
   ) );
+	do_action('philagov_theme_sidebars');
 }
-
-
 
 /**
  * Enqueue scripts and styles.
@@ -375,7 +374,7 @@ function still_migrating_content(){
 function get_department_menu() {
  		/*
 		Set the menus. We use categories to drive functionality.
-		Pass the current category (there should only ever be 1one)
+		Pass the current category (there should only ever be 1)
 		as the menu-id.
 	*/
 	global $post;
