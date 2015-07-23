@@ -88,7 +88,7 @@ add_action( 'after_setup_theme', 'phila_gov_setup' );
  *
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
-add_action( 'widgets_init', 'phila_gov_widgets_init' );
+add_action( 'widgets_init', 'phila_gov_widgets_init', 10 );
 
 function phila_gov_widgets_init() {
   $args = array(
@@ -123,7 +123,6 @@ function phila_gov_widgets_init() {
     'before_title'  => '<h1 class="widget-title">',
     'after_title'   => '</h1>',
   ) );
-	do_action('philagov_theme_sidebars');
 }
 
 /**
