@@ -58,9 +58,8 @@ function phila_gov_setup() {
         );
 
         $phila_get_menu_cats = get_categories( $phila_menu_cat_args );
-
         foreach ( $phila_get_menu_cats as $phila_category ) {
-            register_nav_menus( array( 'menu-' .$phila_category->term_id => $phila_category->name ) );
+            register_nav_menus( array( 'menu-' . $phila_category->term_id => $phila_category->name ) );
         }
     }
 
