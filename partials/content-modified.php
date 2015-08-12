@@ -14,6 +14,8 @@
     <?php
     /* A link pointing to the category in which this content lives */
     $current_category = get_the_category();
+    
+    if ( !$current_category == '' ) :
       $department_page_args = array(
         'post_type' => 'department_page',
         'tax_query' => array(
@@ -39,6 +41,7 @@
           }
         endwhile;
       endif;
+    endif;
 
     /* Restore original Post Data */
     wp_reset_postdata();
