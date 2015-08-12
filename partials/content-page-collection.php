@@ -15,9 +15,10 @@
 				));
 			$page_title = get_the_title($post->post_parent);
 		} ?>
+		<div class="data-swiftype-index='true'">
 		<div class="row">
 			<header class="entry-header small-24 columns">
-				<h1> <?php echo $page_title; ?> </h1>
+				<h1><?php echo $page_title; ?></h1>
 			</header>
 		</div>
 		<article id="post-<?php the_ID(); ?>">
@@ -28,7 +29,7 @@
 								<?php	echo $children; ?>
 							</ul>
 						</aside>
-		    <div data-swiftype-index='true' class="entry-content tabs-content">
+		    <div class="entry-content tabs-content">
 		      <div class="content active">
 						<header class="entry-header">
 							<?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
@@ -38,5 +39,6 @@
 		    </div><!-- .entry-content -->
 			</div>
 		</div>
+	</div>
 		<?php get_template_part( 'partials/content', 'modified' ) ?>
 	</article><!-- #post-## -->
