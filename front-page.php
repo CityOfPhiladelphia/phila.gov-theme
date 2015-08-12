@@ -24,7 +24,7 @@ get_header(); ?>
 	                        <a href="http://iframe.publicstuff.com/#?client_id=242" target="_blank">
 	                            <span class="fa-stack fa-3x">
 	                              <i class="fa fa-circle fa-stack-2x"></i>
-	                              <i class="fa fa-stack-1x fa-inverse"><span class="h6">311</h6></i>
+	                              <i class="fa fa-stack-1x fa-inverse"><span class="h6">311</span></i>
 	                            </span>
 	                            <h2 class="h3">Report a Problem</h2>
 	                            <span class="accessible"> Opens in new window</span>
