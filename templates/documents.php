@@ -1,5 +1,4 @@
 <?php
-
 /*
 * Template for displaying Publications
 */
@@ -16,7 +15,7 @@
               $publications = rwmb_meta( 'phila_publications', $args = array('type' => 'file_advanced'));
               echo '<ul class="document-list">';
 
-              foreach ($publications as $document){
+              foreach ( $publications as $document ){
                 echo '<li>';
                 echo "<a href={$document['url']} title={$document['title']}>{$document['title']}</a>";
                 echo '</li>';
@@ -25,7 +24,8 @@
           }
           ?>
         </div><!-- .entry-content -->
-    <?php
-    //    get_sidebar('related-topics');
-    ?>
+				<aside id="secondary" class="small-24 medium-6 columns" role="complementary">
+					stuff here
+
+				</aside>
 	</div><!-- .row -->

@@ -21,7 +21,7 @@ get right to the good stuff. */ ?>
 <?php
   	//loop for our regularly scheduled content
 	   while ( have_posts() ) : the_post();
-				get_template_part( 'templates/publications' );
+				get_template_part( 'templates/documents' );
 	    endwhile;
 ?>
 </article><!-- #post-## -->
