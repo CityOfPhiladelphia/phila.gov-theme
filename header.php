@@ -11,7 +11,8 @@
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php wp_title( '|', true, 'right' ); ?></title>
+    <title><?php ( $post->post_parent ) ? phila_get_full_page_title() : wp_title( '|', true, 'right' );?></title>
+
     <link rel="shortcut icon" type="image/x-icon" href="//s3.amazonaws.com/phila/favicon.ico">
     <!--[if lte IE 8]>
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/phila.gov-styles/ie8.css" type="text/css" media="all">

@@ -411,3 +411,17 @@ function get_department_menu() {
     wp_nav_menu( $defaults );
 	}
 }
+
+function phila_get_full_page_title(){
+	global $post;
+	$page_path = '';
+	$page_title = get_the_title( $post );
+	$page_path .= $page_title;
+	$anc = get_post_ancestors( $post->ID );
+
+	foreach ( $anc as $ancestor ) {
+		$page_path .= ' | ' . get_the_title($ancestor);
+	}
+	$page_path .= ' | ' . get_bloginfo('name');
+	echo $page_path;
+}
