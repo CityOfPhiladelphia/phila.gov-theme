@@ -11,7 +11,7 @@
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php ( $post->post_parent ) ? phila_get_full_page_title() : wp_title( '|', true, 'right' );?></title>
+    <title><?php ( isset($post->post_parent) ) ? phila_get_full_page_title() : wp_title( '|', true, 'right' );?></title>
 
     <link rel="shortcut icon" type="image/x-icon" href="//s3.amazonaws.com/phila/favicon.ico">
     <!--[if lte IE 8]>
@@ -68,7 +68,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <div class="small-24 medium-12 columns">
                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
                         <img src="<?php echo get_stylesheet_directory_uri();?>/img/city-of-philadelphia@2x.png" alt="City of Philadelphia" height="100" class="hidden-xs"></a>
-                    <h1 class="site-title"><?php bloginfo( 'name' ); ?></a></h1>
+                    <h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
                     <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
                 </div>
                 <?php if(!is_front_page()) { if (!is_search()) {?> <div class="search-site small-24 medium-12 columns"> <?php get_search_form(); ?> </div> <?php } }?>
@@ -80,7 +80,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <nav id="site-navigation" class="main-navigation" role="navigation">
                 <button class="menu-toggle"><?php // _e( 'Primary Menu', 'phila-gov' ); ?></button>
                 <?php // wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-            </nav><!-- #site-navigation -->
+            </nav> -->
         </div>
     </header><!-- #masthead -->
     <?php create_site_wide_alerts() ?>
