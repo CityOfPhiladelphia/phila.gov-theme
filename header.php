@@ -11,7 +11,10 @@
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php global $post; ( $post->post_parent ) ? phila_get_full_page_title() : wp_title( '|', true, 'right' );?></title>
+    <title><?php global $post;
+    if (is_home()) {
+       wp_title( '|', true, 'right' );
+     }else { ( $post->post_parent ) ? phila_get_full_page_title() : wp_title( '|', true, 'right'   );}?></title>
 
     <link rel="shortcut icon" type="image/x-icon" href="//s3.amazonaws.com/phila/favicon.ico">
     <!--[if lte IE 8]>
