@@ -37,9 +37,8 @@
       	while ( $get_department_link->have_posts() ) :
       		$get_department_link->the_post();
           $current_cat_slug = $current_category[0]->slug;
-          if ( $current_cat_slug == 'uncategorized' ) {
-            //do nothing
-          }else{
+
+          if ( $current_cat_slug != 'uncategorized' ) {
             // NOTE: the id and data-slug are important. Google Tag Manager
             // uses it to attach the department to our web analytics.
             echo 'by <a href="' . get_the_permalink() . '" id="content-modified-department"
