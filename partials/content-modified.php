@@ -10,11 +10,11 @@
 <div class="row">
   <div class="small-24 columns">
     <hr>
-    <p>This content was last updated on <time id="lastUpdated" datetime="<?php the_modified_time('c'); ?>"><?php the_modified_date(); ?></time>
+    <p>This content was last updated on <time id="last-updated" datetime="<?php the_modified_time('c'); ?>"><?php the_modified_date(); ?></time>
     <?php
     /* A link pointing to the category in which this content lives */
     $current_category = get_the_category();
-    
+
     if ( !$current_category == '' ) :
       $department_page_args = array(
         'post_type' => 'department_page',
