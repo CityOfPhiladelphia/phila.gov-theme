@@ -36,8 +36,8 @@
           if ( $current_cat_slug == 'uncategorized' ) {
             //do nothing
           }else{
-            echo 'by <a href="' . get_the_permalink() . '">';
-            echo get_the_title() .'  </a>';
+            echo 'by <a href="' . get_the_permalink() . '" id="content-modified-department"
+                  data-slug="' . $current_cat_slug . '">' . get_the_title() . '</a>';
           }
         endwhile;
       endif;
