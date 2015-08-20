@@ -10,6 +10,10 @@
 <div class="row">
   <div class="small-24 columns">
     <hr>
+    <?php
+    // NOTE: the id is important. Google Tag Manager uses it to attach the
+    // last modified date to our web analytics.
+    ?>
     <p>This content was last updated on <time id="content-modified-datetime" datetime="<?php the_modified_time('c'); ?>"><?php the_modified_date(); ?></time>
     <?php
     /* A link pointing to the category in which this content lives */
@@ -36,6 +40,8 @@
           if ( $current_cat_slug == 'uncategorized' ) {
             //do nothing
           }else{
+            // NOTE: the id and data-slug are important. Google Tag Manager
+            // uses it to attach the department to our web analytics.
             echo 'by <a href="' . get_the_permalink() . '" id="content-modified-department"
                   data-slug="' . $current_cat_slug . '">' . get_the_title() . '</a>';
           }
