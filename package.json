@@ -1,6 +1,6 @@
 {
   "name": "phila.gov-theme",
-  "version": "0.11.5",
+  "version": "0.16.10",
   "description": "A custom wordpress theme for phila.gov",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
