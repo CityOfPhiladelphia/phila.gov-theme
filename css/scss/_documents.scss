@@ -1,0 +1,30 @@
+/*
+ *
+ * Document Pages
+ *
+ *
+*/
+.document {
+  header {
+    .doc-type {
+       i{
+         padding-right:10px;
+      }
+      span::after{
+        content: ', ';
+      }
+      span:last-child::after{
+        content: '';
+      }
+    }//.doc-type
+  }//header
+  #secondary {
+    border-left: 5px solid $ghost-gray;
+    padding-bottom:20px;
+
+    h3 {
+      margin-top:20px;
+      margin-bottom:0;
+    }
+  }
+}//.document

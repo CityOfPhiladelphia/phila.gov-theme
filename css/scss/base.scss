@@ -2,10 +2,13 @@
 @import 'layout';
 @import 'modules';
 @import 'wp-core';
-@import 'home';
 @import 'swifttype';
-@import 'news';
+
 @import 'departments';
+@import 'documents';
+@import 'home';
+@import 'news';
+
 
 .site-header {
     color: $white;
