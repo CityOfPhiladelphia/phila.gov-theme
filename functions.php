@@ -423,4 +423,26 @@ function phila_get_full_page_title(){
 	}
 	$page_path .= ' | ' . get_bloginfo('name');
 	echo $page_path;
+
+/**
+ * Return an ID of an attachment by searching the database with the file URL.
+ */
+function phila_get_attachment_id_by_url( $url ) {
+
+	global $wpdb;
+	//Filter out everything before /media/ because we are matching on the aws url and not what is in wp-content
+	preg_match('/\/media\/(.+)/', $url, $matches);
+
+	$parsed_url = $matches[1];
+
+	$attachment = $wpdb->get_col($wpdb->prepare("SELECT post_id FROM $wpdb->postmeta WHERE meta_key = 'amazonS3_info' AND meta_value LIKE %s;", '%"' . $parsed_url .'"%' ));
+
+	// Returns null if no attachment is found
+	return $attachment;
+}
+
+function phila_count_pages($pdfname) {
+  $pdftext = file_get_contents($pdfname);
+  $num = preg_match_all("/\/Page\W/", $pdftext, $dummy);
+  return $num;
 }
