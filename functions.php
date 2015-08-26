@@ -440,9 +440,3 @@ function phila_get_attachment_id_by_url( $url ) {
 	// Returns null if no attachment is found
 	return $attachment;
 }
-
-function phila_count_pages($pdfname) {
-  $pdftext = file_get_contents($pdfname);
-  $num = preg_match_all("/\/Page\W/", $pdftext, $dummy);
-  return $num;
-}

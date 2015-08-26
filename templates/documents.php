@@ -31,48 +31,33 @@
 	/**
 	* Our one function for displaying all the language data
 	* @param $the_lang Takes a rwmb_meta object
+	* @param $rwmb_file_id needs the $rwmb_meta id
 	* @param $lang_name The language the way a native would understand it
 	* @param $iso_code HTML Lang attribute
 	**/
-	function phila_display_alt_lang( $the_lang, $lang_name, $iso_code ) { ?>
+	function phila_display_alt_lang( $the_lang, $rwmb_file_id, $lang_name, $iso_code ) { ?>
 	<div class="row">
 		<div class="medium-12 columns">
 		<?php
-		$the_lang = rwmb_meta( 'phila_document_spanish', $args = array('type' => 'file_input'));
+		$the_lang = rwmb_meta( $rwmb_file_id, $args = array('type' => 'file_input'));
 
 		echo '<a href="'. $the_lang .'" class="button icon" lang=' . $iso_code . '>' . $lang_name . '<i class="fa fa-download"></i></a>';
 
 		$id = phila_get_attachment_id_by_url($the_lang);
 		$data = wp_prepare_attachment_for_js( $id[0] );
 		$file_type = $data['subtype'];
-		$is_pdf = false;
-		if ( $file_type == 'pdf' ){
-			$is_pdf = true;
-			}	?>
+		?>
 		<div class="row doc-meta">
 			<div class="<?php echo ($is_pdf ? 'small-8' : 'small-12') ?> columns">
 				<?php echo __('<h4 class="alternate">Format</h4>');
 					echo '<span class="file-type">' . $file_type . '</span>';
 				?>
 			</div>
-			<div class="<?php echo ($is_pdf ? 'small-8' : 'small-12') ?>  columns">
-				<?php echo __('<h4 class="alternate">Size</h4>');
-				//echo '<span class="file-size>"' . $file_size . '</span>';
-				?>
-			</div>
-			<?php if ($file_type == 'pdf'){ ?>
-				<div class="<?php echo ($is_pdf ? 'small-8' : 'small-12') ?>  columns">
-			<?php echo __('<h4 class="alternate">Pages</h4>');
-				$page_count = phila_count_pages($the_lang);
-				echo '<span class="page-count">' . $page_count .'</span>';
-			?>
-				</div>
 			</div><!-- .doc-meta -->
 		</div>
 	</div><!-- Language .row -->
 			<?php
 		}
-	} //end phila_display_alt_lang();
 
 	//set up all the languages
 	$document_english= rwmb_meta( 'phila_document_english', $args = array('type' => 'file_input'));
@@ -85,14 +70,14 @@
 	$document_vietnamese = rwmb_meta( 'phila_document_vietnamese', $args = array('type' => 'file_input'));
 
 	//Display them if they exist
-	if ( $document_english ){ phila_display_alt_lang( $document_english, 'English', 'en');}
-	if ( $document_spanish ){ phila_display_alt_lang( $document_spanish, 'Español', 'es'); }
-	if ( $document_french ){ phila_display_alt_lang( $document_french, 'Français', 'fr' ); }
-	if ( $document_chinese ){ phila_display_alt_lang( $document_chinese, '中文', 'zh-Hans'); }
-	if ( $document_korean ){ phila_display_alt_lang( $document_korean, '한국어', 'ko' ); }
-	if ( $document_khmer ){ phila_display_alt_lang( $document_khmer, 'ភាសាខ្មែរ', ''); }
-	if ( $document_russian ){ phila_display_alt_lang( $document_russian, 'Русский', 'ru' ); }
-	if ( $document_vietnamese ){ phila_display_alt_lang( $document_vietnamese, 'tiếng việt', 'vi'); }
+	if ( $document_english ){ phila_display_alt_lang( $document_english, 'phila_document_english', 'English', 'en');}
+	if ( $document_spanish ){ phila_display_alt_lang( $document_spanish, 'phila_document_spanish' ,'Español', 'es'); }
+	if ( $document_french ){ phila_display_alt_lang( $document_french, 'phila_document_french', 'Français', 'fr' ); }
+	if ( $document_chinese ){ phila_display_alt_lang( $document_chinese, 'phila_document_chinese', '中文', 'zh-Hans'); }
+	if ( $document_korean ){ phila_display_alt_lang( $document_korean, 'phila_document_korean', '한국어', 'ko' ); }
+	if ( $document_khmer ){ phila_display_alt_lang( $document_khmer, 'phila_document_khmer', 'ភាសាខ្មែរ', ''); }
+	if ( $document_russian ){ phila_display_alt_lang( $document_russian, 'phila_document_russian', 'Русский', 'ru' ); }
+	if ( $document_vietnamese ){ phila_display_alt_lang( $document_vietnamese, 'phila_document_vietnamese', 'tiếng việt', 'vi'); }
 	?>
 </div><!-- .entry-content -->
 <aside id="secondary" class="small-24 medium-6 columns" role="complementary">
