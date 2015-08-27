@@ -423,6 +423,7 @@ function phila_get_full_page_title(){
 	}
 	$page_path .= ' | ' . get_bloginfo('name');
 	echo $page_path;
+}
 
 /**
  * Return an ID of an attachment by searching the database with the file URL.
