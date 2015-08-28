@@ -150,6 +150,7 @@
           @extend .group;
           border: 1px solid $geyser;
           margin-bottom: 20px;
+          cursor: default;
 
           @media screen and (min-width: 48em){
               width:100%;
