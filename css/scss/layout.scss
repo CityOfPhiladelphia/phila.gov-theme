@@ -46,16 +46,15 @@ img.float-right{
   margin-right: -0.78125rem;
   padding-left: 0.78125rem;
   padding-right: 0.78125rem;
-  }
-  .title-offset + div{
-    margin-top:40px;
-  }
-  .title-long-offset + div{
-    margin-top:55px;
-  }
-  .title-push {
-    width:100%;
-    margin:0;
-    display: block;
-  }
-}//equal-height
+}
+.title-offset + div{
+  margin-top:40px;
+}
+.title-long-offset + div{
+  margin-top:55px;
+}
+.title-push {
+  width:100%;
+  margin:0;
+  display: block;
+}
