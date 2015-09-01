@@ -16,10 +16,11 @@
     ?>
     <p>This content was last updated on <time id="content-modified-datetime" datetime="<?php the_modified_time('c'); ?>"><?php the_modified_date(); ?></time>
     <?php
-    /* A link pointing to the category in which this content lives */
+    /* A link pointing to the category in which this content lives. We are looking at dpartment pages specifically, so a department link will not appear unless that department is associated with the category in question.  */
     $current_category = get_the_category();
+    $current_post_type = get_post_type(get_the_ID());
 
-    if ( !$current_category == '' ) :
+    if ( !$current_category == '' )  :
       $department_page_args = array(
         'post_type' => 'department_page',
         'tax_query' => array(
@@ -37,8 +38,8 @@
       	while ( $get_department_link->have_posts() ) :
       		$get_department_link->the_post();
           $current_cat_slug = $current_category[0]->slug;
-
-          if ( $current_cat_slug != 'uncategorized' ) {
+          //we are rendering the depatrtment link elsewhere on document pages.
+          if ( $current_cat_slug != 'uncategorized' && $current_post_type != 'document') {
             // NOTE: the id and data-slug are important. Google Tag Manager
             // uses it to attach the department to our web analytics.
             echo 'by <a href="' . get_the_permalink() . '" id="content-modified-department"
