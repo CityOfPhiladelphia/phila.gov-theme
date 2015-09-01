@@ -6,13 +6,9 @@
 <header class="entry-header small-24 columns">
 	<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	<?php
-		$doc_type_tax = array( 'document_type' );
-		$args = array(
-				'orderby'           => 'name',
-				'order'             => 'ASC',
-				'hide_empty'        => true
-		);
-		$type_terms = get_terms($doc_type_tax, $args);
+
+		$type_terms = get_the_terms($post->ID, 'document_type');
+
 		if ( !$type_terms == '' ){
 			echo '<p class="small-text doc-type"><i class="fa fa-paperclip"></i>';
 			foreach ($type_terms as $type){
@@ -26,7 +22,7 @@
   <?php
 	//$document_description is required so it will always exist
 	$document_description = rwmb_meta( 'phila_document_description', $args = array('type' => 'textarea'));
-	echo '<p>' . $document_description . '</p>';
+	echo '<p class="description">' . $document_description . '</p>';
 
 	/**
 	* Our one function for displaying all the language data
@@ -43,24 +39,13 @@
 
 		echo '<a href="'. $the_lang .'" class="button icon" lang=' . $iso_code . '>' . $lang_name . '<i class="fa fa-download"></i></a>';
 
-		$id = phila_get_attachment_id_by_url($the_lang);
-		$data = wp_prepare_attachment_for_js( $id[0] );
-		$file_type = $data['subtype'];
-		?>
-		<div class="row doc-meta">
-			<div class="<?php echo ($is_pdf ? 'small-8' : 'small-12') ?> columns">
-				<?php echo __('<h4 class="alternate">Format</h4>');
-					echo '<span class="file-type">' . $file_type . '</span>';
-				?>
-			</div>
-			</div><!-- .doc-meta -->
-		</div>
+	?>	</div>
 	</div><!-- Language .row -->
 			<?php
 		}
 
 	//set up all the languages
-	$document_english= rwmb_meta( 'phila_document_english', $args = array('type' => 'file_input'));
+	$document_english = rwmb_meta( 'phila_document_english', $args = array('type' => 'file_input'));
 	$document_spanish = rwmb_meta( 'phila_document_spanish', $args = array('type' => 'file_input'));
 	$document_french = rwmb_meta( 'phila_document_french', $args = array('type' => 'file_input'));
 	$document_chinese = rwmb_meta( 'phila_document_chinese', $args = array('type' => 'file_input'));
@@ -83,6 +68,16 @@
 <aside id="secondary" class="small-24 medium-6 columns" role="complementary">
 	<?php
 		if (function_exists('rwmb_meta')) {
+			$the_lang = rwmb_meta( 'phila_document_english', $args = array('type' => 'file_input'));
+			$id = phila_get_attachment_id_by_url($the_lang);
+			$data = wp_prepare_attachment_for_js( $id[0] );
+			$file_type = $data['subtype'];
+			?>
+					<?php echo __('<h3 class="alternate">Format</h3>');
+						echo '<span class="small-text file-type">' . $file_type . '</span>';
+					?>
+		<?php
+
 			echo __('<h3 class="alternate">Published</h3>');
 			$document_published = rwmb_meta( 'phila_document_released', $args = array('type' => 'date'));
 			echo '<span class="small-text">' . $document_published . '</span>';
@@ -134,7 +129,7 @@
 			echo __('<h3 class="alternate">Topic</h3>');
 			echo '<div class="small-text doc-type">';
 			foreach ($doc_terms as $doc){
-					echo '<span>' . $doc->name . '</span>';
+					echo '<span><a href="/?s=' .$doc->name .'">' . $doc->name . '</a></span>';
 			}
 			echo '</div>';
 			}

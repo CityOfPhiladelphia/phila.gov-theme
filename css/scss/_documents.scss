@@ -5,19 +5,23 @@
  *
 */
 .document {
-  header {
-    .doc-type {
-       i{
-         padding-right:10px;
-      }
-      span::after{
-        content: ', ';
-      }
-      span:last-child::after{
-        content: '';
-      }
-    }//.doc-type
-  }//header
+  .doc-type {
+     i{
+       padding-right:10px;
+    }
+    span::after{
+      content: ', ';
+    }
+    span:last-child::after{
+      content: '';
+    }
+  }//.doc-type
+  
+  .description{
+    padding: 0 1.875rem 1.875rem 0;
+    line-height: 1.6;
+  }
+
   .doc-meta{
     margin-bottom:25px;
   }
@@ -25,8 +29,8 @@
     margin-top:10px;
     margin-bottom:0;
   }
-  .file-type, .file-size, .page-count {
-    font-size:.75rem;
+  .file-type{
+    text-transform:uppercase;
   }
   .button {
     text-align: left;
