@@ -38,21 +38,6 @@ img.float-right{
   padding: 1em 0 1em 1em;
   float:right;
 }
-.equal-height {
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -ms-flex-align: stretch;
-  flex-align: stretch;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  position: relative;
-
-  > div {
-    display: -webkit-flex;
-    display: flex;
-  }
 .title-offset {
   position: absolute;
   top: 0;
@@ -61,13 +46,15 @@ img.float-right{
   margin-right: -0.78125rem;
   padding-left: 0.78125rem;
   padding-right: 0.78125rem;
-  }
-  .title-offset + div{
-    margin-top:40px;
-  }
-  .title-push {
-    width:100%;
-    margin:0;
-    display: block;
-  }
-}//equal-height
+}
+.title-offset + div{
+  margin-top:40px;
+}
+.title-long-offset + div{
+  margin-top:55px;
+}
+.title-push {
+  width:100%;
+  margin:0;
+  display: block;
+}

@@ -129,12 +129,11 @@ function phila_gov_widgets_init() {
  */
 function phila_gov_scripts() {
 
-    wp_enqueue_style( 'pattern_portfolio', '//cityofphiladelphia.github.io/patterns/dist/0.9.2/css/patterns.css' );
+    wp_enqueue_style( 'pattern_portfolio', '//cityofphiladelphia.github.io/patterns/dist/0.10.1/css/patterns.css' );
 
     wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', array(), '4.4.0' );
 
     wp_enqueue_style( 'ionicons', '//code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css', array(), '2.0.0' );
-
 
     wp_enqueue_style( 'theme-styles', get_stylesheet_directory_uri() . '/css/styles.css', array('pattern_portfolio'), '0.1.0' );
 
@@ -142,7 +141,7 @@ function phila_gov_scripts() {
 
     wp_enqueue_script( 'text-filtering', '//cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js', array(), '1.1.1', true );
 
-    wp_enqueue_script( 'pattern-scripts', '//cityofphiladelphia.github.io/patterns/dist/0.8.3/js/patterns.min.js', array('jquery', 'foundation-js'), true );
+    wp_enqueue_script( 'pattern-scripts', '//cityofphiladelphia.github.io/patterns/dist/0.10.1/js/patterns.min.js', array('jquery', 'foundation-js'), true );
     wp_enqueue_script( 'phila-scripts', get_stylesheet_directory_uri().'/js/phila-scripts.min.js', array('jquery', 'text-filtering'), 1.0, true );
 
 		wp_enqueue_script( 'foundation-js', '//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/js/foundation.min.js', array('jquery'), '2.8.3', true );

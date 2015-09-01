@@ -26,7 +26,7 @@ get_header(); ?>
 	                              <i class="fa fa-circle fa-stack-2x"></i>
 	                              <i class="fa fa-stack-1x fa-inverse"><span class="h6">311</span></i>
 	                            </span>
-	                            <h2 class="h3">Report a Problem</h2>
+	                            <h2 class="h5">Report a Problem</h2>
 	                            <span class="accessible"> Opens in new window</span>
 	                        </a>
 	                    </div>
@@ -36,7 +36,7 @@ get_header(); ?>
 	                              <i class="fa fa-circle fa-stack-2x"></i>
 	                              <i class="fa fa-credit-card fa-stack-1x fa-inverse"></i>
 	                            </span>
-	                            <h2 class="h3">Pay<br> a bill</h2>
+	                            <h2 class="h5">Pay<br> a bill</h2>
 	                            <span class="accessible"> Opens in new window</span>
 	                        </a>
 	                    </div>
@@ -46,7 +46,7 @@ get_header(); ?>
 	                              <i class="fa fa-circle fa-stack-2x"></i>
 	                              <i class="fa fa-briefcase fa-stack-1x fa-inverse"></i>
 	                            </span>
-	                           <h2 class="h3">Find<br> a Job</h2>
+	                           <h2 class="h5">Find<br> a Job</h2>
 	                            <span class="accessible"> Opens in new window</span>
 	                        </a>
 	                    </div>
@@ -56,7 +56,7 @@ get_header(); ?>
 															<i class="fa fa-circle fa-stack-2x"></i>
 															<i class="fa fa-home fa-stack-1x fa-inverse"></i>
 														</span>
-														<h2 class="h3">Property Search</h2>
+														<h2 class="h5">Property Search</h2>
 															<span class="accessible"> Opens in new window</span>
 													</a>
 										</div>
