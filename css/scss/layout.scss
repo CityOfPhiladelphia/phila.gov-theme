@@ -38,7 +38,7 @@ img.float-right{
   padding: 1em 0 1em 1em;
   float:right;
 }
-.title-offset {
+.title-offset, .title-long-offset {
   position: absolute;
   top: 0;
   width: 100%;
@@ -53,7 +53,7 @@ img.float-right{
 .title-long-offset + div{
   margin-top:55px;
 }
-.title-push {
+.row.title-push {
   width:100%;
   margin:0;
   display: block;
