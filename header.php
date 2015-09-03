@@ -12,9 +12,12 @@
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php global $post;
-    if (is_home()) {
+    if (is_home() || is_search()) {
        wp_title( '|', true, 'right' );
-     }else { ( $post->post_parent ) ? phila_get_full_page_title() : wp_title( '|', true, 'right'   );}?></title>
+     }else {
+       global $post;
+       $post_parent = $post->post_parent;
+       ( $post_parent ) ? phila_get_full_page_title() : wp_title( '|', true, 'right'   );}?></title>
 
     <link rel="shortcut icon" type="image/x-icon" href="//alpha.phila.gov/media/favicon.ico">
     <!--[if lte IE 8]>
@@ -76,7 +79,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </div>
                 <?php if(!is_front_page()) { if (!is_search()) {?> <div class="search-site small-24 medium-12 columns"> <?php get_search_form(); ?> </div> <?php } }?>
             </div><!-- .site-branding -->
-
 
             <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'phila-gov' ); ?></a>
             <!--hide nav for now
