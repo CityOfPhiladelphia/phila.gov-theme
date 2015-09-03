@@ -63,7 +63,6 @@
             <li><a href="http://www.phila.gov/mayor">Mayor's Office</a></li>
             <li><a href="http://iframe.publicstuff.com/#?client_id=242">Report an Issue / 311</a></li>
             <li><a href="http://cityofphiladelphia.wordpress.com/">News</a></li>
-            <li><a href="http://www.phila.gov/phoneDir/">Phone Directory</a></li>
           </ul>
         </nav>
       </div>
