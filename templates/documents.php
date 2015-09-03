@@ -108,8 +108,8 @@
 					if ( $current_cat_slug != 'uncategorized' ) {
 						// NOTE: the id and data-slug are important. Google Tag Manager
 						// uses it to attach the department to our web analytics.
-						echo '<a class="small-text" href="' . get_the_permalink() . '" id="content-modified-department"
-									data-slug="' . $current_cat_slug . '">' . get_the_title() . '</a>';
+						echo '<span class="small-text"><a href="' . get_the_permalink() . '" id="content-modified-department"
+									data-slug="' . $current_cat_slug . '">' . get_the_title() . '</a></span>';
 					}
 				endwhile;
 			endif;
