@@ -33,7 +33,7 @@
 	**/
 	function phila_display_alt_lang( $the_lang, $rwmb_file_id, $lang_name, $iso_code ) { ?>
 	<div class="row">
-		<div class="medium-12 columns">
+		<div class="medium-10 columns document-link">
 		<?php
 		$the_lang = rwmb_meta( $rwmb_file_id, $args = array('type' => 'file_input'));
 
