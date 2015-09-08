@@ -20,6 +20,8 @@ if ( ! function_exists( 'phila_gov_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
+add_action( 'after_setup_theme', 'phila_gov_setup' );
+
 function phila_gov_setup() {
 
 	/*
@@ -78,7 +80,6 @@ function phila_gov_setup() {
 	) ) );
 }
 endif; // phila_gov_setup
-add_action( 'after_setup_theme', 'phila_gov_setup' );
 
 /**
  * Register widget areas for all categories. To appear on department pages.
@@ -128,6 +129,8 @@ function phila_gov_widgets_init() {
  * Enqueue scripts and styles.
  */
 
+add_action( 'wp_enqueue_scripts', 'phila_gov_scripts');
+
 function phila_gov_scripts() {
 
   wp_enqueue_style( 'pattern_portfolio', '//cityofphiladelphia.github.io/patterns/dist/0.10.1/css/patterns.css' );
@@ -155,13 +158,15 @@ function phila_gov_scripts() {
   wp_enqueue_script( 'phila-scripts', get_stylesheet_directory_uri().'/js/phila-scripts.min.js', array('jquery', 'text-filtering', 'foundation-js'), 1.0, true );
 
 }
-add_action( 'wp_enqueue_scripts', 'phila_gov_scripts');
+
+add_action('init', 'enqueue_scripts_styles_init');
 
 function enqueue_scripts_styles_init() {
-	//wp_enqueue_script( 'ajax-script', get_stylesheet_directory_uri().'/js/scripts.js', array('jquery', 'text-filtering'), 1.0 ); // jQuery will be included automatically
 	wp_localize_script( 'ajax-script', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) ); // setting ajaxurl
 }
-add_action('init', 'enqueue_scripts_styles_init');
+
+add_action( 'wp_ajax_ajax_action', 'ajax_action_stuff' ); // ajax for logged in users
+add_action( 'wp_ajax_nopriv_ajax_action', 'ajax_action_stuff' ); // ajax for not logged in users
 
 function ajax_action_stuff() {
 	$post_id = $_POST['post_id']; // getting variables from ajax post
@@ -170,14 +175,6 @@ function ajax_action_stuff() {
 	echo 'ajax submitted';
 	die(); // stop executing script
 }
-add_action( 'wp_ajax_ajax_action', 'ajax_action_stuff' ); // ajax for logged in users
-add_action( 'wp_ajax_nopriv_ajax_action', 'ajax_action_stuff' ); // ajax for not logged in users
-
-
-/**
- * Implement the Custom Header feature.
- */
-//require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
