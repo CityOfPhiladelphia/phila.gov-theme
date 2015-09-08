@@ -12,12 +12,13 @@
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php global $post;
-    if (is_home() || is_search()) {
-       wp_title( '|', true, 'right' );
-     }else {
-       global $post;
-       $post_parent = $post->post_parent;
-       ( $post_parent ) ? phila_get_full_page_title() : wp_title( '|', true, 'right'   );}?></title>
+        if (is_home() || is_search()) {
+          wp_title( '|', true, 'right' );
+        }else {
+          global $post;
+          $post_parent = $post->post_parent;
+          ( $post_parent ) ? phila_get_full_page_title() : wp_title( '|', true, 'right' );
+        }?></title>
 
     <link rel="shortcut icon" type="image/x-icon" href="//alpha.phila.gov/media/favicon.ico">
     <!--[if lte IE 8]>
