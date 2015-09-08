@@ -33,7 +33,7 @@
 	**/
 	function phila_display_alt_lang( $the_lang, $rwmb_file_id, $lang_name, $iso_code ) { ?>
 	<div class="row">
-		<div class="medium-12 columns">
+		<div class="medium-10 columns document-link">
 		<?php
 		$the_lang = rwmb_meta( $rwmb_file_id, $args = array('type' => 'file_input'));
 
@@ -108,8 +108,8 @@
 					if ( $current_cat_slug != 'uncategorized' ) {
 						// NOTE: the id and data-slug are important. Google Tag Manager
 						// uses it to attach the department to our web analytics.
-						echo '<a class="small-text" href="' . get_the_permalink() . '" id="content-modified-department"
-									data-slug="' . $current_cat_slug . '">' . get_the_title() . '</a>';
+						echo '<span class="small-text"><a href="' . get_the_permalink() . '" id="content-modified-department"
+									data-slug="' . $current_cat_slug . '">' . get_the_title() . '</a></span>';
 					}
 				endwhile;
 			endif;

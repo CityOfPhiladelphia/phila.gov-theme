@@ -14,7 +14,7 @@
     // NOTE: the id is important. Google Tag Manager uses it to attach the
     // last modified date to our web analytics.
     ?>
-    <p>This content was last updated on <time id="content-modified-datetime" datetime="<?php the_modified_time('c'); ?>"><?php the_modified_date(); ?></time>
+    <p class="small-text">This content was last updated on <time id="content-modified-datetime" datetime="<?php the_modified_time('c'); ?>"><?php the_modified_date(); ?></time>
     <?php
     /* A link pointing to the category in which this content lives. We are looking at dpartment pages specifically, so a department link will not appear unless that department is associated with the category in question.  */
     $current_category = get_the_category();
