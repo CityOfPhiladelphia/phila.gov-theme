@@ -42,7 +42,7 @@ $terms = get_the_terms( $post->ID, 'topics' );
         <div data-swiftype-index='true' class="entry-content small-24 medium-18 columns">
 					<?php
 					if ( has_post_thumbnail() ) { ?>
-	 						<?php	the_post_thumbnail( 'medium', array( 'class' => 'float-left' ) ); ?>
+	 						<?php	the_post_thumbnail( 'news-thumb', array( 'class' => 'float-left' ) ); ?>
 
 					<?php
 					}//end post thumb if
