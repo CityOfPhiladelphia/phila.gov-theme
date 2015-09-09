@@ -42,8 +42,15 @@ $terms = get_the_terms( $post->ID, 'topics' );
         <div data-swiftype-index='true' class="entry-content small-24 medium-18 columns">
 					<?php
 					if ( has_post_thumbnail() ) { ?>
-	 						<?php	the_post_thumbnail( 'news-thumb', array( 'class' => 'float-left' ) ); ?>
-
+						<ul class="clearing-thumbs" data-clearing>
+							<li>
+								<?php
+									$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
+									echo '<a href="' . $large_image_url[0] . '" title="' . the_title_attribute( 'echo=0' ) . '">';
+									the_post_thumbnail( 'news-thumb' );
+									echo '</a>'; ?>
+							</li>
+						</ul>
 					<?php
 					}//end post thumb if
 				 	while ( have_posts() ) : the_post();
