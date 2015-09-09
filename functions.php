@@ -143,6 +143,8 @@ function phila_gov_scripts() {
 
 	wp_deregister_script( 'jquery' );
 
+	wp_deregister_script( 'jquery-migrate' );
+
 	wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', false, null, true );
 
 	wp_enqueue_script( 'jquery-migrate', ( '//cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min.js' ), array('jquery'), null, true );
