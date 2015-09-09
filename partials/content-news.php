@@ -12,7 +12,7 @@
    ?>
 
     <div class="logo columns medium-7">
-      <?php the_post_thumbnail(); ?>
+      <?php the_post_thumbnail('news-thumb'); ?>
     </div>
   <?php } ?>
 
