@@ -6,13 +6,10 @@
  */
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('news-item row'); ?>>
-  <?php
-  if ( has_post_thumbnail() ) {
-    $thumb_active = true;
-   ?>
-
+  <?php if ( has_post_thumbnail() ) {
+    $thumb_active = true;  ?>
     <div class="logo columns medium-7">
-      <?php the_post_thumbnail(); ?>
+      <?php the_post_thumbnail('news-thumb'); ?>
     </div>
   <?php } ?>
 
@@ -28,20 +25,14 @@
         ?>
       <span class="entry-date"><?php echo get_the_date(); ?> </span> <span class="category">
         <?php echo $current_cat == null ?  '' : ' | ' . $current_cat  ?> </span>
-
-
-      <a href="<?php echo the_permalink(); ?>"><?php the_title('<h2>', '</h2>' ); ?></a>
+        <a href="<?php echo the_permalink(); ?>"><?php the_title('<h2>', '</h2>' ); ?></a>
   	</header><!-- .entry-header -->
-     <?php
+    <?php
     if (function_exists('rwmb_meta')) {
-        $news_url = rwmb_meta( 'phila_news_url', $args = array('type' => 'url'));
-        $news_desc = rwmb_meta( 'phila_news_desc', $args = array('type' => 'textrea'));
-
-          echo '<p class="description">' . $news_desc . '</p>';?>
-
-          <?php
-
-    }?>
-        </div>
+      $news_url = rwmb_meta( 'phila_news_url', $args = array('type' => 'url'));
+      $news_desc = rwmb_meta( 'phila_news_desc', $args = array('type' => 'textrea'));
+      echo '<p class="description">' . $news_desc . '</p>';
+    } ?>
+  </div>
 </article><!-- #post-## -->
 <hr>

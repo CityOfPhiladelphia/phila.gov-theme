@@ -11,4 +11,24 @@
   p{
     margin:.5rem 0;
   }
+  @media only screen and (max-width: 40em) {
+    img {
+      display: none;
+    }
+  }
+}
+.news{
+  .clearing-assembled {
+    float:left;
+    margin:1rem 1rem 1rem 0;
+
+    ul{
+      margin:0;
+      padding:0;
+    }
+
+    @media only screen and (max-width: 40em) {
+      display: none;
+    }
+  }
 }

@@ -41,6 +41,8 @@ function phila_gov_setup() {
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
 	add_theme_support( 'post-thumbnails' );
+	
+	add_image_size( 'news-thumb', 250, 165, true );
 
 	// This theme uses wp_nav_menu() in any number of locations.
 	add_action( 'init', 'phila_register_category_menus' );
