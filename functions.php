@@ -20,6 +20,8 @@ if ( ! function_exists( 'phila_gov_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
+add_action( 'after_setup_theme', 'phila_gov_setup' );
+
 function phila_gov_setup() {
 
 	/*
@@ -78,7 +80,6 @@ function phila_gov_setup() {
 	) ) );
 }
 endif; // phila_gov_setup
-add_action( 'after_setup_theme', 'phila_gov_setup' );
 
 /**
  * Register widget areas for all categories. To appear on department pages.
@@ -127,32 +128,47 @@ function phila_gov_widgets_init() {
 /**
  * Enqueue scripts and styles.
  */
-function phila_gov_scripts() {
 
-    wp_enqueue_style( 'pattern_portfolio', '//cityofphiladelphia.github.io/patterns/dist/0.10.2/css/patterns.css' );
-
-    wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', array(), '4.4.0' );
-
-    wp_enqueue_style( 'ionicons', '//code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css', array(), '2.0.0' );
-
-    wp_enqueue_style( 'theme-styles', get_stylesheet_directory_uri() . '/css/styles.css', array('pattern_portfolio'), '0.1.0' );
-
-    wp_enqueue_script( 'modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js', array(), '2.8.3', false );
-
-    wp_enqueue_script( 'text-filtering', '//cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js', array(), '1.1.1', true );
-
-    wp_enqueue_script( 'pattern-scripts', '//cityofphiladelphia.github.io/patterns/dist/0.10.2/js/patterns.min.js', array('jquery', 'foundation-js'), true );
-    wp_enqueue_script( 'phila-scripts', get_stylesheet_directory_uri().'/js/phila-scripts.min.js', array('jquery', 'text-filtering'), 1.0, true );
-
-		wp_enqueue_script( 'foundation-js', '//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/js/foundation.min.js', array('jquery'), '2.8.3', true );
-}
 add_action( 'wp_enqueue_scripts', 'phila_gov_scripts');
 
+function phila_gov_scripts() {
+
+  wp_enqueue_style( 'pattern_portfolio', '//cityofphiladelphia.github.io/patterns/dist/0.10.2/css/patterns.css' );
+
+  wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', array(), '4.4.0' );
+
+  wp_enqueue_style( 'ionicons', '//code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css', array(), '2.0.0' );
+
+  wp_enqueue_style( 'theme-styles', get_stylesheet_directory_uri() . '/css/styles.css', array('pattern_portfolio'), null );
+
+	wp_deregister_script( 'jquery' );
+
+	wp_deregister_script( 'jquery-migrate' );
+
+	wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', false, null, true );
+
+	wp_enqueue_script( 'jquery-migrate', ( '//cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min.js' ), array('jquery'), null, true );
+
+  wp_enqueue_script( 'modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js', array(), '2.8.3', false );
+
+  wp_enqueue_script( 'text-filtering', '//cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js', array(), '1.1.1', true );
+
+	wp_enqueue_script( 'foundation-js', '//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/js/foundation.min.js', array('jquery',  'jquery-migrate'), '2.8.3', true );
+
+  wp_enqueue_script( 'pattern-scripts', '//cityofphiladelphia.github.io/patterns/dist/0.10.1/js/patterns.min.js', array('jquery', 'foundation-js'), true );
+
+  wp_enqueue_script( 'phila-scripts', get_stylesheet_directory_uri().'/js/phila-scripts.min.js', array('jquery', 'text-filtering', 'foundation-js'), 1.0, true );
+
+}
+
+add_action('init', 'enqueue_scripts_styles_init');
+
 function enqueue_scripts_styles_init() {
-	//wp_enqueue_script( 'ajax-script', get_stylesheet_directory_uri().'/js/scripts.js', array('jquery', 'text-filtering'), 1.0 ); // jQuery will be included automatically
 	wp_localize_script( 'ajax-script', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) ); // setting ajaxurl
 }
-add_action('init', 'enqueue_scripts_styles_init');
+
+add_action( 'wp_ajax_ajax_action', 'ajax_action_stuff' ); // ajax for logged in users
+add_action( 'wp_ajax_nopriv_ajax_action', 'ajax_action_stuff' ); // ajax for not logged in users
 
 function ajax_action_stuff() {
 	$post_id = $_POST['post_id']; // getting variables from ajax post
@@ -161,14 +177,6 @@ function ajax_action_stuff() {
 	echo 'ajax submitted';
 	die(); // stop executing script
 }
-add_action( 'wp_ajax_ajax_action', 'ajax_action_stuff' ); // ajax for logged in users
-add_action( 'wp_ajax_nopriv_ajax_action', 'ajax_action_stuff' ); // ajax for not logged in users
-
-
-/**
- * Implement the Custom Header feature.
- */
-//require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
