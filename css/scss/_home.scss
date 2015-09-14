@@ -271,4 +271,12 @@
         }
       }
   }//#active
+  .links {
+    a.button{
+      margin:.5rem 0;
+    }
+    a.button:first-of-type{
+      margin:0 0 .5rem 0;
+    }
+  }
 }
