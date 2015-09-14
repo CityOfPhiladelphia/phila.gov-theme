@@ -55,19 +55,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <div data-swiftype-index='false' id="alpha-alert">
       <div class="row">
-        <div class="large-18 columns">
-                <h1 class="h3">This service is in alpha</h1> <p>This is a work in progress. It may contain errors and inaccuracies. Help us improve it by providing feedback.</p>
-                <p><a href="/about"><?php printf( __( 'Learn more &raquo;', 'phila-gov' )); ?></a></p>
-            </div>
-            <div class="large-6 columns">
-                <div class="button icon alternate"><a class="feedback" href="<?php get_template_part( 'partials/content', 'feedback-url' ); ?>" target="_blank">
-                  <?php printf( __( 'Provide Feedback', 'phila-gov' )); ?>
-                  <span class="accessible"> Opens in new window</span><i class="fa fa-comments"></i></a></div>
-                <div class="button icon alternate"><a class="go-back" href="http://www.phila.gov" target="_blank">
-                  <?php printf( __( 'Back to current site', 'phila-gov' )); ?><span class="accessible"> Opens in new window</span><i class="fa fa-reply"></i></a></div>
-            </div>
+        <div class="large-15 columns">
+          <p>This service is in <a href="http://alpha.phila.gov/about/">Alpha</a>: it is a work in progress, containing errors and inaccuracies.</p>
+          <a class="go-back small-text" href="http://www.phila.gov" target="_blank">
+            <i class="fa fa-reply"></i> Take me back to Phila.gov<span class="accessible"> Opens in new window</span></a>
+        </div>
+        <div class="large-9 columns contact">
+          <i class="fa fa-comments"></i> <a class="feedback" href="<?php get_template_part( 'partials/content', 'feedback-url' ); ?>" target="_blank">
+            <?php printf( __( 'Provide Feedback', 'phila-gov' )); ?>
+            <span class="accessible"> Opens in new window</span>
+          </a>
+          <i class="fa fa-globe"></i><div id="google_translate_element"></div>
+            <script type="text/javascript">
+              function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+              }
+            </script>
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         </div>
       </div>
+    </div>
 <?php }  ?>
     <header data-swiftype-index='false' id="masthead" class="site-header" role="banner">
         <div class="row">

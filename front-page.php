@@ -156,10 +156,10 @@ get_header(); ?>
 		  </div>
 		</div>
             <div class="small-24 large-7 columns links">
-                      <a class="button icon" href="/departments">Department Directory<i class="fa fa-sitemap"></i></a>
-                      <a class="button icon" href="http://www.phila.gov/mayor" target="_blank">Mayor's Office<i class="fa fa-university"></i><span class="accessible"> Opens in new window</span></a>
-                      <a class="button icon" href="/news">News<i class="fa fa-microphone"></i></a>
-                      <a class="button icon" href="http://www.phila.gov/map" target="_blank">Maps<i class="fa fa-map-marker"></i><span class="accessible"> Opens in new window</span></a>
+                      <a class="button icon full" href="/departments">Department Directory<i class="fa fa-sitemap"></i></a>
+                      <a class="button icon full" href="http://www.phila.gov/mayor" target="_blank">Mayor's Office<i class="fa fa-university"></i><span class="accessible"> Opens in new window</span></a>
+                      <a class="button icon full" href="/news">News<i class="fa fa-microphone"></i></a>
+                      <a class="button icon full" href="http://www.phila.gov/map" target="_blank">Maps<i class="fa fa-map-marker"></i><span class="accessible"> Opens in new window</span></a>
                   </div>
 
       </section><!--#active-->
