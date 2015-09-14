@@ -20,7 +20,7 @@
           ( $post_parent ) ? phila_get_full_page_title() : wp_title( '|', true, 'right' );
         }?></title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="//cityofphiladelphia.github.io/patterns/images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="//alpha.phila.gov/media/favicon.ico">
     <!--[if lte IE 8]>
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/phila.gov-styles/ie8.css" type="text/css" media="all">
           <p class="browsehappy alert">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -54,23 +54,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <?php if (alpha_alert()){ //show the alpha alert if set to true in functions.php ?>
 
     <div data-swiftype-index='false' id="alpha-alert">
-      <div id="alpha-alert">
-        <div class="row">
-          <div class="large-15 columns">
-            <p>This service is in <a href="http://alpha.phila.gov/about/">Alpha</a>: it is a work in progress, containing errors and inaccuracies.</p>
-            <a class="go-back small-text" href="#" target="_blank">
-              <i class="fa fa-reply"></i> Take me back to Phila.gov<span class="accessible"> Opens in new window</span></a>
-          </div>
-          <div class="large-9 columns contact">
-            <i class="fa fa-comments"></i> <a class="feedback" href="#" target="_blank">Provide Feedback<span class="accessible"> Opens in new window</span></a>
-            <i class="fa fa-globe"></i><div id="google_translate_element"></div>
-              <script type="text/javascript">
-                function googleTranslateElementInit() {
-                  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-                }
-              </script>
-              <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-          </div>
+      <div class="row">
+        <div class="large-15 columns">
+          <p>This service is in <a href="http://alpha.phila.gov/about/">Alpha</a>: it is a work in progress, containing errors and inaccuracies.</p>
+          <a class="go-back small-text" href="http://www.phila.gov" target="_blank">
+            <i class="fa fa-reply"></i> Take me back to Phila.gov<span class="accessible"> Opens in new window</span></a>
+        </div>
+        <div class="large-9 columns contact">
+          <i class="fa fa-comments"></i> <a class="feedback" href="<?php get_template_part( 'partials/content', 'feedback-url' ); ?>" target="_blank">
+            <?php printf( __( 'Provide Feedback', 'phila-gov' )); ?>
+            <span class="accessible"> Opens in new window</span>
+          </a>
+          <i class="fa fa-globe"></i><div id="google_translate_element"></div>
+            <script type="text/javascript">
+              function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+              }
+            </script>
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         </div>
       </div>
     </div>
