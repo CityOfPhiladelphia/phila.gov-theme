@@ -20,7 +20,7 @@
           ( $post_parent ) ? phila_get_full_page_title() : wp_title( '|', true, 'right' );
         }?></title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="//alpha.phila.gov/media/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="//cityofphiladelphia.github.io/patterns/images/favicon.ico">
     <!--[if lte IE 8]>
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/phila.gov-styles/ie8.css" type="text/css" media="all">
           <p class="browsehappy alert">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
