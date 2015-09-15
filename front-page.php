@@ -124,46 +124,43 @@ get_header(); ?>
 		</div><!-- .home-news -->
 
 		<section id="active" class="row">
-			<div class="small-24 large-17 columns">
-		  	<div class="related">
-		      <header>
-		          <h1>Most Active</h1>
-		      </header>
-					<div class="row">
-		      <dl>
-		          <dt class="medium-24 large-8 columns"><a href="http://alpha.phila.gov/property" class="h3" target="_blank">Property Information<span class="accessible"> Opens in new window</span></a>
-		          <span>Property Assessment</span></dt>
-		          <dd class="medium-24 large-16 columns">Search and compare property data in the City of Philadelphia</dd>
+			<div class="small-24 large-17 columns related">
+				<div class="row">
+          <header>
+              <h1>Most Active</h1>
+          </header>
+	      <dl>
+          <dt class="medium-24 large-8 columns"><a href="http://alpha.phila.gov/property" class="h3" target="_blank">Property Information<span class="accessible"> Opens in new window</span></a>
+          <span>Property Assessment</span></dt>
+          <dd class="medium-24 large-16 columns">Search and compare property data in the City of Philadelphia</dd>
 
-		          <dt class="medium-24 large-8 columns"><a href="http://www.phila.gov/revenue/realestatetax/" class="h3" target="_blank">Real Estate Tax<span class="accessible"> Opens in new window</span></a>
-		          <span>Revenue</span></dt>
-		          <dd class="medium-24 large-16 columns">Real Estate Tax bills are sent in December for the following year and payments are due March 31st.</dd>
+          <dt class="medium-24 large-8 columns"><a href="http://www.phila.gov/revenue/realestatetax/" class="h3" target="_blank">Real Estate Tax<span class="accessible"> Opens in new window</span></a>
+          <span>Revenue</span></dt>
+          <dd class="medium-24 large-16 columns">Real Estate Tax bills are sent in December for the following year and payments are due March 31st.</dd>
 
-		          <dt class="medium-24 large-8 columns"><a href="http://www.phila.gov/zoningarchive/" class="h3" target="_blank">Zoning Archive<span class="accessible"> Opens in new window</span></a>
-		          <span>L+I</span></dt>
-		          <dd class="medium-24 large-16 columns">Search and view all previous applications, approved uses and site drawings for a parcel of land.</dd>
+          <dt class="medium-24 large-8 columns"><a href="http://www.phila.gov/zoningarchive/" class="h3" target="_blank">Zoning Archive<span class="accessible"> Opens in new window</span></a>
+          <span>L+I</span></dt>
+          <dd class="medium-24 large-16 columns">Search and view all previous applications, approved uses and site drawings for a parcel of land.</dd>
 
-		          <dt class="medium-24 large-8 columns"><a href="http://www.phila.gov/prisons/Facilities/Pages/default.aspx" class="h3" target="_blank">Correctional Facilities<span class="accessible"> Opens in new window</span></a>
-		          <span>Prisons</span></dt>
-		          <dd class="medium-24 large-16 columns">Find facility history, visiting rules, and hours.</dd>
+          <dt class="medium-24 large-8 columns"><a href="http://www.phila.gov/prisons/Facilities/Pages/default.aspx" class="h3" target="_blank">Correctional Facilities<span class="accessible"> Opens in new window</span></a>
+          <span>Prisons</span></dt>
+          <dd class="medium-24 large-16 columns">Find facility history, visiting rules, and hours.</dd>
 
-
-		          <dt class="medium-24 large-8 columns"><a href="http://www.phila.gov/Revenue/individuals/Pages/default.aspx" class="h3" target="_blank">Individual Taxes<span class="accessible"> Opens in new window</span></a>
-		          <span>Revenue</span></dt>
-		          <dd class="medium-24 large-16 columns">Learn about taxes that individuals must remit and/or file in Philadelphia.</dd>
-		      </dl>
-				</div>
-		  </div>
+          <dt class="medium-24 large-8 columns"><a href="http://www.phila.gov/Revenue/individuals/Pages/default.aspx" class="h3" target="_blank">Individual Taxes<span class="accessible"> Opens in new window</span></a>
+          <span>Revenue</span></dt>
+          <dd class="medium-24 large-16 columns">Learn about taxes that individuals must remit and/or file in Philadelphia.</dd>
+	      </dl>
+			</div>
 		</div>
-            <div class="small-24 large-7 columns links">
-                      <a class="button icon full" href="/departments">Department Directory<i class="fa fa-sitemap"></i></a>
-                      <a class="button icon full" href="http://www.phila.gov/mayor" target="_blank">Mayor's Office<i class="fa fa-university"></i><span class="accessible"> Opens in new window</span></a>
-                      <a class="button icon full" href="/news">News<i class="fa fa-microphone"></i></a>
-                      <a class="button icon full" href="http://www.phila.gov/map" target="_blank">Maps<i class="fa fa-map-marker"></i><span class="accessible"> Opens in new window</span></a>
-                  </div>
+    <div class="small-24 large-7 columns links">
+      <a class="button icon full" href="/departments">Department Directory<i class="fa fa-sitemap"></i></a>
+      <a class="button icon full" href="http://www.phila.gov/mayor" target="_blank">Mayor's Office<i class="fa fa-university"></i><span class="accessible"> Opens in new window</span></a>
+      <a class="button icon full" href="/news">News<i class="fa fa-microphone"></i></a>
+      <a class="button icon full" href="http://www.phila.gov/map" target="_blank">Maps<i class="fa fa-map-marker"></i><span class="accessible"> Opens in new window</span></a>
+    </div>
 
-      </section><!--#active-->
-		</main><!-- #main -->
-	</div><!-- #primary -->
+    </section><!--#active-->
+	</main><!-- #main -->
+</div><!-- #primary -->`
 
 <?php get_footer(); ?>

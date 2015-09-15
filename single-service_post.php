@@ -27,8 +27,9 @@ get_header(); ?>
                 }
                 if (!$service_name == ''){
                     echo '<span data-swiftype-index="false" class="small-text">On the ' . $service_name . ' website</span>';
+                    }
                 }
-            }
+
                 the_content();
 
             endwhile; // end of the loop. ?>

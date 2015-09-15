@@ -262,6 +262,9 @@
       .related .row {
         margin-left:0;
         margin-right:0;
+        background:$whitesmoke;
+        border:1px solid $geyser;
+        padding:20px;
 
         a:link, a:visited{
           color:#026583;//hack
