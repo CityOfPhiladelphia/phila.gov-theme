@@ -7,7 +7,7 @@
  */
 
  ?>
-<div id="secondary" class="widget-area small-24 medium-6 columns" role="complementary">
+<aside id="secondary" class="widget-area small-24 medium-6 columns" role="complementary">
   <div class="related">
       <?php
      //get all the terms
@@ -61,4 +61,4 @@
         }
     ?>
   </div><!-- .related -->
-</div><!-- #secondary -->
+</aside><!-- #secondary -->

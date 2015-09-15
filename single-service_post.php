@@ -35,9 +35,21 @@ get_header(); ?>
 					<?php get_template_part( 'partials/content', 'modified' ) ?>
         </div><!-- .entry-content -->
 
-    <?php
-        get_sidebar('related-topics');
-    ?>
+        <?php
+        if (function_exists('rwmb_meta')) {
+          $related_content = rwmb_meta( 'phila_service_related_items', $args = array('type' => 'textarea'));
+        }
+        if (!$related_content == ''){
+          ?>
+          <aside id="secondary" class="related widget-area small-24 medium-6 columns" role="complementary">
+            <h3 class="alternate">Related Topics</h3>
+              <ul>
+                <?php echo $related_content ?>
+              </ul>
+          </aside>
+          <?php
+          }
+        ?>
     </div><!-- .container -->
 
 </article><!-- #post-## -->
