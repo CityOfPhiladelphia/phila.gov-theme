@@ -20,7 +20,7 @@
           ( $post_parent ) ? phila_get_full_page_title() : wp_title( '|', true, 'right' );
         }?></title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="//cityofphiladelphia.github.io/patterns/images/favicon.ic">
+    <link rel="shortcut icon" type="image/x-icon" href="//cityofphiladelphia.github.io/patterns/images/favicon.ico">
     <!--[if lte IE 8]>
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/phila.gov-styles/ie8.css" type="text/css" media="all">
           <p class="browsehappy alert">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -56,7 +56,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div data-swiftype-index='false' id="alpha-alert">
       <div class="row">
         <div class="large-15 columns">
-          <p>This service is in <a href="http://alpha.phila.gov/about/">Alpha</a>: it is a work in progress, containing errors and inaccuracies.</p>
+          <p>This service is in <a href="http://alpha.phila.gov/about/">Alpha</a>: it is a work in progress and may contain errors or inaccuracies.</p>
           <a class="go-back small-text" href="http://www.phila.gov" target="_blank">
             <i class="fa fa-reply"></i> Take me back to Phila.gov<span class="accessible"> Opens in new window</span></a>
         </div>
