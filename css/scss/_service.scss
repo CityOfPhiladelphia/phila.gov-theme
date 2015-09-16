@@ -1,8 +1,35 @@
-.service-head{
-  h1 {
-    margin:0;
+.service{
+  .button+.small-text {
+    margin: .5rem 0 0 0;
+    padding: 0;
   }
-  background:$geyser;
-  margin:1rem 0;
-  padding:1rem 0;
+  .intro-top{
+    background:$geyser;
+    margin:1rem 0 0;
+    padding:1rem 0;
+    h1 {
+      margin:0;
+    }
+  }
+  .intro-bottom{
+    background: $ghost-gray;
+    padding:1rem 0;
+    margin:0 0 1rem;
+  }
+  .to-start-left{
+    text-align: center;
+  }
+  .before-start-right{
+    border-left: 3px solid $geyser;
+  }
+  .before-start-left{
+    h3{
+      color:$sidewalk;
+    }
+    i {
+      color:$bell-yellow;
+      vertical-align: middle;
+      padding: 0 1rem 0 0;
+    }
+  }
 }
