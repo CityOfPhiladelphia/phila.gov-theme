@@ -15,8 +15,9 @@ get_header(); ?>
   		</header><!-- .entry-header -->
     </div>
   </div>
-  <div class="intro-top full">
     <div class="row">
+      <div class="small-24 columns">
+      <div class="row collapse intro-top border">
       <div class="medium-7 columns to-start-left">
       <?php while ( have_posts() ) : the_post();
        if (function_exists('rwmb_meta')) {
@@ -40,14 +41,16 @@ get_header(); ?>
         <?php
         echo '<p class="description">' . rwmb_meta( 'phila_service_desc', $args = array('type' => 'textarea')) . '</p>';
         ?>
-      </div>
     </div>
   </div>
+</div>
+</div>
       <?php
       if ( !$service_before_start == '' ) {
       ?>
-      <div class="intro-bottom full">
-        <div class="row">
+      <div class="row">
+        <div class="small-24 columns">
+        <div class="row intro-bottom collapse border">
           <div class="medium-7 columns before-start-left">
             <h3><i class="fa fa-flag fa-2x bell-yellow"></i> Before you start</h3>
           </div>
@@ -56,10 +59,12 @@ get_header(); ?>
           </div>
         </div>
       </div>
+    </div>
       <?php
       }
     }
     ?>
+  </div>
 
   <div class="row">
     <div data-swiftype-index='true' class="entry-content small-24 medium-18 columns">

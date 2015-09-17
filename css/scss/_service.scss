@@ -1,30 +1,46 @@
+#page .service h1.entry-title{
+  margin-bottom: 1rem;
+}
 .service{
+  .border {
+    border: 1px solid $geyser;
+  }
   .button+.small-text {
     margin: .5rem 0 0 0;
     padding: 0;
   }
   .intro-top{
     background:$geyser;
-    margin:1rem 0 0;
-    padding:1rem 0;
+    padding:2rem;
     h1 {
       margin:0;
     }
   }
   .intro-bottom{
     background: $ghost-gray;
-    padding:1rem 0;
-    margin:0 0 1rem;
+    padding: 1.5rem 2rem;
   }
   .to-start-left{
     text-align: center;
   }
-  .before-start-right{
-    border-left: 3px solid $geyser;
+  .columns.to-start-right {
+    padding-left: 2em;
+  }
+  .columns.before-start-right{
+    border-left: 1px solid $geyser;
+    padding-left: 2rem;
+    p, ul, ol {
+      font-size:.75rem;
+    }
+    p:first-of-type {
+      margin-top:0;
+    }
   }
   .before-start-left{
     h3{
       color:$sidewalk;
+      font-size:.8rem;
+      margin-top:0;
     }
     i {
       color:$bell-yellow;
