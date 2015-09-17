@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying search results pages.
+ * Template Name: Search
  *
  * @package phila-gov
  */
