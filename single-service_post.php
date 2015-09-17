@@ -65,7 +65,7 @@ get_header(); ?>
     }
     ?>
 <div class="row top-margin">
-  <div data-swiftype-index='true' class="entry-content small-24 medium-18 columns">
+  <div data-swiftype-index='true' class="entry-content small-24 medium-17 columns">
     <?php the_content();
         endwhile; // end of the loop. ?>
       <?php get_template_part( 'partials/content', 'modified' ) ?>
@@ -76,7 +76,7 @@ get_header(); ?>
     }
     if (!$related_content == ''){
       ?>
-      <aside id="secondary" class="related widget-area small-24 medium-6 columns" role="complementary">
+      <aside id="secondary" class="related no-border widget-area small-24 medium-6 columns" role="complementary">
         <h3 class="alternate">Related Topics</h3>
           <?php echo $related_content ?>
       </aside>

@@ -51,4 +51,13 @@
   .top-margin{
     margin-top:1rem;
   }
+  aside#secondary {
+    h3 {
+      margin-top:17px;
+      margin-bottom: 20px;
+    }
+    &.no-border {
+      border:none;
+    }
+  }
 }
