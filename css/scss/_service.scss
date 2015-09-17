@@ -20,7 +20,7 @@
     background: $ghost-gray;
     padding: 1.5rem 2rem;
   }
-  .to-start-left{
+  .columns.to-start-left{
     text-align: center;
   }
   .columns.to-start-right {
@@ -36,7 +36,7 @@
       margin-top:0;
     }
   }
-  .before-start-left{
+  .columns.before-start-left{
     h3{
       color:$sidewalk;
       font-size:.8rem;
@@ -47,5 +47,8 @@
       vertical-align: middle;
       padding: 0 1rem 0 0;
     }
+  }
+  .top-margin{
+    margin-top:1rem;
   }
 }
