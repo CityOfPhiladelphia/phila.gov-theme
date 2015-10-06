@@ -402,7 +402,9 @@ function get_department_menu() {
         'before'          => '',
         'after'           => '',
         'items_wrap'      => '
-													<div class="row top-nav">
+                      <div class="row">
+                        <div class="small-24 columns">
+                          <div class="top-nav">
 														<nav class="top-bar" data-topbar role="navigation">
 														<ul class="title-area">
 										          <li class="name"></li>
@@ -412,7 +414,8 @@ function get_department_menu() {
 																	<ul id="%1$s" class="%2$s">%3$s</ul>
 																</section>
 															</nav>
-													</div>',
+													</div>
+                          </div></div>',
         'depth'           => 0,
         'walker'          => new phila_gov_walker_nav_menu
     );
