@@ -22,12 +22,15 @@
        <?php echo the_content();?>
      </div>
     <?php
-      if ( $has_sidebar ) : ?>
+      if ( $has_sidebar ) :
+
+      if ( ! $post->post_parent ) : ?>
         <div id="sidebar" class="medium-8 columns">
           <div class="inner">
             <?php dynamic_sidebar( $sidebar_name ); ?>
           </div>
         </div>
+        <?php endif; ?>
       <?php endif; ?>
   </div>
 </div>

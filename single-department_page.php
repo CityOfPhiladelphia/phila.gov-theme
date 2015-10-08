@@ -5,8 +5,25 @@
  * @package phila-gov
  */
 
-get_header();
-?>
+global $post;
+$children = get_posts( array(
+  'post_parent' => $post->ID,
+  'orderby' => 'menu_order',
+  'order' => 'ASC',
+  'post_type' => 'department_page',
+  'post_status' => 'publish'
+));
+//var_dump($children);
+
+$ancestors = get_post_ancestors($post);
+
+//if there are grandchildren, don't redirect those.
+if ( $children && count( $ancestors ) == 1 ) {
+	$firstchild = $children[0];
+  wp_redirect(get_permalink($firstchild->ID));
+	exit;
+}
+get_header(); ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('row department'); ?>>
 
@@ -32,7 +49,9 @@ get_header();
  	} else {
   //loop for our regularly scheduled content
 	   while ( have_posts() ) : the_post();
-				get_template_part( 'templates/single', 'on-site-content' );
+
+      get_template_part( 'templates/single', 'on-site-content' );
+
 	    endwhile;
 		}
 	}
