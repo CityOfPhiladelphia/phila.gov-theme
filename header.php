@@ -9,33 +9,39 @@
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php global $post;
-        if (is_home() || is_search()) {
-          wp_title( '|', true, 'right' );
-        }else {
-          global $post;
-          $post_parent = $post->post_parent;
-          ( $post_parent ) ? phila_get_full_page_title() : wp_title( '|', true, 'right' );
-        }?></title>
+  <meta charset="<?php bloginfo( 'charset' ); ?>">
 
-    <link rel="shortcut icon" type="image/x-icon" href="//cityofphiladelphia.github.io/patterns/images/favicon.ico">
-    <!--[if lte IE 8]>
-    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/phila.gov-styles/ie8.css" type="text/css" media="all">
-          <p class="browsehappy alert">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <!--[if IE 9]>
-        <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/phila.gov-styles/ie9.css" type="text/css" media="all">
-    <![endif]-->
+  <meta name="description" content="<?php bloginfo( 'description' ) ?>">
 
-    <!-- Swiftype tags -->
-    <meta class="swiftype" name="title" data-type="string" content="<?php wp_title(''); ?>" />
-<?php if (is_single()) { ?>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Swiftype -->
+  <meta class="swiftype" name="title" data-type="string" content="<?php wp_title(''); ?>" />
+  <?php if (is_single()) { ?>
     <meta class="swiftype" name="published_at" data-type="date" content="<?php echo get_the_time('c', $post->ID); ?>" />
-<?php } ?>
+  <?php } ?>
 
-    <?php wp_head(); ?>
+  <title><?php global $post;
+    if (is_home() || is_search()) {
+      wp_title( '|', true, 'right' );
+    }else {
+      global $post;
+      $post_parent = $post->post_parent;
+      ( $post_parent ) ? phila_get_full_page_title() : wp_title( '|', true, 'right' );
+    }?></title>
+
+  <link rel="shortcut icon" type="image/x-icon" href="//cityofphiladelphia.github.io/patterns/images/favicon.ico">
+
+  <?php wp_head(); ?>
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/phila.gov-styles/ie8.css" type="text/css" media="all">
+        <p class="browsehappy alert">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
+  <!--[if IE 9]>
+      <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/phila.gov-styles/ie9.css" type="text/css" media="all">
+  <![endif]-->
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -51,7 +57,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 
 <div id="page" class="hfeed site">
-    <?php if (alpha_alert()){ //show the alpha alert if set to true in functions.php ?>
+  <?php if (alpha_alert()){ //show the alpha alert if set to true in functions.php ?>
 
     <div data-swiftype-index='false' id="alpha-alert">
       <div class="row">
@@ -76,26 +82,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
     </div>
 <?php }  ?>
-    <header data-swiftype-index='false' id="masthead" class="site-header" role="banner">
-        <div class="row">
-            <div class="site-branding">
-                <div class="small-24 medium-12 columns">
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                        <img src="<?php echo get_stylesheet_directory_uri();?>/img/city-of-philadelphia@2x.png" alt="City of Philadelphia" height="100" class="hidden-xs"></a>
-                    <h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
-                    <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-                </div>
-                <?php if(!is_front_page()) { if (!is_search()) {?> <div class="search-site small-24 medium-12 columns"> <?php get_search_form(); ?> </div> <?php } }?>
-            </div><!-- .site-branding -->
-
-            <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'phila-gov' ); ?></a>
-            <!--hide nav for now
-                <nav id="site-navigation" class="main-navigation" role="navigation">
-                <button class="menu-toggle"><?php // _e( 'Primary Menu', 'phila-gov' ); ?></button>
-                <?php // wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-            </nav> -->
+  <header data-swiftype-index='false' id="masthead" class="site-header" role="banner">
+    <div class="row site-branding">
+      <div class="small-24 medium-12 columns">
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+          <img src="<?php echo get_stylesheet_directory_uri();?>/img/city-of-philadelphia@2x.png" alt="City of Philadelphia" height="100" class="logo"></a>
+          <h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
+          <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
         </div>
-    </header><!-- #masthead -->
+        <?php if(!is_front_page()) { if (!is_search()) {?> <div class="search-site small-24 medium-12 columns"> <?php get_search_form(); ?> </div> <?php } }?>
+
+      <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'phila-gov' ); ?></a>
+    </div>
+  </header><!-- #masthead -->
     <?php create_site_wide_alerts() ?>
     <?php if (function_exists('the_breadcrumb') && !is_front_page()) { ?>
       <div class="row">

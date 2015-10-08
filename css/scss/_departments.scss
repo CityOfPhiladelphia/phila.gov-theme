@@ -5,7 +5,7 @@
  *
 */
 .top-nav {
-  margin: 20px auto;
+  margin: 5px auto 20px auto;
   .top-bar-section ul li.current-menu-parent>a,
   .top-bar-section ul li.current-menu-item>a{
     background:$bell-yellow;
@@ -83,11 +83,8 @@
     margin: 0 0 20px 0;
   }
 
-  .on-site h1.entry-title{
-    margin:0;
-  }
-
   #sidebar {
+    margin-top:1rem;
     font-size:85%;
 
     .call-to-action {
