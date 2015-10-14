@@ -19,7 +19,7 @@ get_header(); ?>
           </div>
 				</div>
             <div class="row">
-              <div class="medium-6 columns">
+              <div class="medium-6 columns" id="result-count">
                     <?php printf( __( 'Displaying ', 'phila-gov' ));
                             $num = $wp_query->post_count;
                         if (have_posts()) : echo '<strong>' . $num .' </strong>'; endif;
@@ -31,7 +31,7 @@ get_header(); ?>
                         printf( __( ' Results', 'phila-gov' ));
                         ?>
                     </div>
-                    <div class="medium-18 columns search-results-list">
+                    <div class="medium-18 columns search-results-list" id="st-results-container">
                         <?php /* Start the Loop */ ?>
                         <?php while ( have_posts() ) : the_post(); ?>
 
