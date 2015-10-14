@@ -163,8 +163,9 @@ function phila_gov_scripts() {
 
   wp_enqueue_script( 'jquery-hashchange', ( get_stylesheet_directory_uri() . '/js/jquery.ba-hashchange.min.js' ), array('jquery'), null, true );
 
-  wp_enqueue_script( 'swifttype', ( get_stylesheet_directory_uri() . '/js/jquery.swiftype.search.js' ), array('jquery', 'jquery-hashchange'), null, true );
-  
+  wp_enqueue_script( 'swiftype', ( get_stylesheet_directory_uri() . '/js/jquery.swiftype.search.js' ), array('jquery', 'jquery-hashchange'), null, true );
+
+  wp_enqueue_script( 'search', ( get_stylesheet_directory_uri() . '/js/dev/search.js' ), array('swiftype'), null, true );
 }
 
 
