@@ -1,12 +1,17 @@
 (function ($) {
 
+var resultTemplate = '<article><header class="search-entry-header"><h2 class="entry-title">';
+resultTemplate += '<a href="{{&url}}" rel="bookmark">{{title}}</a></h2></header>';
+resultTemplate += '<div class="entry-summary">{{&summary}}</div></article><hr>';
+
 var customRenderer = function(documentType, item) {
-  var result = '<article><header class="search-entry-header"><h2 class="entry-title">';
-  result += '<a href="' + encodeURI(item.url) + '" rel="bookmark">';
-  result += item.title + '</a></h2></header><div class="entry-summary">';
-  result += item.highlight.body || item.body.substring(0, 300)
-  result += '</div></article><hr>';
-  return result;
+  var view = {
+    url: encodeURI(item.url),
+    title: item.title,
+    // Looks like maybe all results have an item.highlight.body or neither
+    summary: item.highlight.body || (item.body.length > 300 ? item.body.substring(0, 300) + '...' : item.body)
+  };
+  return Mustache.render(resultTemplate, view);
 };
 
 var $resultCount = $('#result-count');

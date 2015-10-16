@@ -161,13 +161,15 @@ function phila_gov_scripts() {
 
   wp_enqueue_script( 'jquery-hashchange', ( get_stylesheet_directory_uri() . '/js/jquery.ba-hashchange.min.js' ), array('jquery'), null, true );
 
+  wp_enqueue_script( 'swiftype', ( get_stylesheet_directory_uri() . '/js/jquery.swiftype.search.js' ), array('jquery-hashchange'), null, true );
+
   wp_enqueue_script( 'jquery-deparam', ( get_stylesheet_directory_uri() . '/js/jquery-deparam.js' ), array('jquery'), null, true );
 
-  wp_enqueue_script( 'swiftype', ( get_stylesheet_directory_uri() . '/js/jquery.swiftype.search.js' ), array('jquery-hashchange'), null, true );
+  wp_enqueue_script( 'mustache', ( get_stylesheet_directory_uri() . '/js/mustache.min.js' ), array(), null, true );
 
   wp_enqueue_script( 'phila-scripts', get_stylesheet_directory_uri().'/js/phila-scripts.min.js', array('jquery', 'text-filtering', 'foundation-js'), 1.0, true );
 
-  wp_enqueue_script( 'search', ( get_stylesheet_directory_uri() . '/js/dev/search.js' ), array('swiftype', 'jquery-deparam'), null, true );
+  wp_enqueue_script( 'search', ( get_stylesheet_directory_uri() . '/js/dev/search.js' ), array('swiftype', 'jquery-deparam', 'mustache'), null, true );
 }
 
 
