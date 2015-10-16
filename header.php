@@ -90,7 +90,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
           <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
         </div>
-        <?php if(!is_front_page()) { if (!is_page_template('search-page.php')) {?> <div class="search-site small-24 medium-12 columns"> <?php get_search_form(); ?> </div> <?php } }?>
+        <?php if(!is_front_page() && !is_page_template('search-page.php') && !is_404()) {?> <div class="search-site small-24 medium-12 columns"> <?php get_search_form(); ?> </div> <?php }?>
 
       <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'phila-gov' ); ?></a>
     </div>
