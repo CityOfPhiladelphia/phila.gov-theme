@@ -79,9 +79,3 @@ var browse =
       });
     }
   }
-
-function searchPhilaGov(){
-    var input = document.getElementById('search-form'),
-        value = input ? input.value : 'defaultText';
-        window.location.href = 'https://www.google.com/#q=site:phila.gov+' + escape(value);
-}

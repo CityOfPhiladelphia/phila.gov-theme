@@ -1,4 +1,4 @@
-/*! phila.gov-theme 0.16.10 phila-theme.js 2015-10-19 9:04:23 PM */
+/*! phila.gov-theme 0.16.10 phila-theme.js 2015-10-19 9:07:06 PM */
 new List("filter-list", {
     valueNames: [ "item", "item-desc" ]
 });
@@ -53,11 +53,6 @@ var browse = {
         });
     }
 };
-
-function searchPhilaGov() {
-    var input = document.getElementById("search-form"), value = input ? input.value : "defaultText";
-    window.location.href = "https://www.google.com/#q=site:phila.gov+" + escape(value);
-}
 
 (function() {
     var container, button, menu;
