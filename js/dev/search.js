@@ -1,27 +1,11 @@
 (function ($) {
 
-/*
-mustache templating?
-<article id="post-<?php the_ID(); ?>">
-
-	<header class="search-entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-	</header><!-- .entry-header -->
-
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
-
-</article><!-- #post-## -->
-<hr>
-*/
-
 var customRenderer = function(documentType, item) {
-  var result = '<div class="st-result">';
-  result += '<a href="' + item.url + '" class="st-search-result-link">';
-  result += item.title + '</a></h3><div class="st-metadata"><span class="st-snippet">';
+  var result = '<article><header class="search-entry-header"><h2 class="entry-title">';
+  result += '<a href="' + encodeURI(item.url) + '" rel="bookmark">';
+  result += item.title + '</a></h2></header><div class="entry-summary">';
   result += item.highlight.body || item.body.substring(0, 300)
-  result += '</span></div></div>';
+  result += '</div></article><hr>';
   return result;
 };
 
@@ -53,11 +37,26 @@ var customPostRenderFunction = function(data) {
   }
 };
 
-$("#search-form").swiftypeSearch({
+var $stSearchInput = $("#st-search-input");
+$stSearchInput.swiftypeSearch({
   engineKey: SWIFTYPE_ENGINE, // Env var set in footer by php
   resultContainingElement: '#st-results-container',
   renderFunction: customRenderer,
   postRenderFunction: customPostRenderFunction
 });
+
+$("#search-form").submit(function (e) {
+  e.preventDefault();
+  window.location.href = '/search#stq=' + $(this).find(".search-field").val();
+});
+
+function hashQuery () {
+  // Fill search input with query from hash
+  var params = $.deparam(location.hash.substr(1));
+  $stSearchInput.val(params.stq);
+}
+
+// Fill search box on page load
+hashQuery();
 
 })(jQuery);
