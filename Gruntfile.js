@@ -22,13 +22,13 @@ module.exports = function(grunt) {
          files: {
            'js/phila-scripts.min.js':
            [
-             'js/dependencies/jquery.ba-hashchange.js',
-             'js/dependencies/jquery.swiftype.search.js',
              'js/dependencies/jquery-deparam.js',
-             'js/mustache.min.js',
-             'js/dev/skip-link-focus-fix.js',
+             'js/dependencies/jquery.ba-hashchange.min.js',
+             'js/dependencies/jquery.swiftype.search.js',
+             'js/dependencies/mustache.min.js',
+             'js/dev/scripts.js',
              'js/dev/search.js',
-             'js/dev/scripts.js'
+             'js/dev/skip-link-focus-fix.js'
          ]
        }
      }
