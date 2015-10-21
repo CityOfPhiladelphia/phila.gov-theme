@@ -4,19 +4,6 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    watch: {
-      css: {
-          files: ['css/scss/*.scss'],
-          tasks: ['sass'],
-          options: {
-              spawn: false,
-          }
-        },
-      scripts: {
-          files: ['js/dev/*.js'],
-          tasks: ['uglify']
-        }
-    },
     sass: {
         dist: {
             options: {
@@ -28,34 +15,37 @@ module.exports = function(grunt) {
         }
     },
     uglify: {
-        dist: {
-            options: {
-                banner: '/*! <%= pkg.name %> <%= pkg.version %> phila-theme.min.js <%= grunt.template.today("yyyy-mm-dd h:MM:ss TT") %> */\n'
-            },
-            files: {
-                'js/phila-scripts.min.js' : [
-                    'js/dev/scripts.js',
-                    'js/dev/navigation.js',
-                    'js/dev/skip-link-focus.js',
-                ]
-            }
-        },
-        dev: {
-            options: {
-                banner: '/*! <%= pkg.name %> <%= pkg.version %> phila-theme.js <%= grunt.template.today("yyyy-mm-dd h:MM:ss TT") %> */\n',
-                beautify: true,
-                compress: false,
-                mangle: false
-            },
-            files: {
-                'js/phila-scripts.js' : [
-                  'js/dev/scripts.js',
-                  'js/dev/navigation.js',
-                  'js/dev/skip-link-focus.js',
-                ]
-            }
-        }
-    }
+       options: {
+         sourceMap: true
+       },
+       js: {
+         files: {
+           'js/phila-scripts.min.js':
+           [
+             'js/dependencies/jquery.ba-hashchange.js',
+             'js/dependencies/jquery.swiftype.search.js',
+             'js/dependencies/jquery-deparam.js',
+             'js/mustache.min.js',
+             'js/dev/skip-link-focus-fix.js',
+             'js/dev/search.js',
+             'js/dev/scripts.js'
+         ]
+       }
+     }
+   },
+   watch: {
+     css: {
+         files: ['css/scss/*.scss'],
+         tasks: ['sass'],
+         options: {
+             spawn: false,
+         }
+       },
+     js: {
+         files: ['js/dev/*.js'],
+         tasks: ['uglify']
+       }
+   }
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');
