@@ -1,11 +1,26 @@
+.entry-summary {
+  margin: 0;
+}
 .swiftype-widget .autocomplete li p.title {
-    color: $ben-franklin-blue;
+  color: $ben-franklin-blue;
 }
 .result-count {
-    margin-top: 14px;
-    margin-bottom: 20px;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.st-page {
+  font-size: 0.8rem;
+  margin-bottom: 0.75rem;
 }
 .st-next {
-    float: right;
-    margin-bottom: 20px;
+  float: right;
+  margin-bottom: 0.75rem;
+}
+.search-page .search {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+.search-page .search-head h1 {
+  font-size: 1.4rem;
+  margin-top: 0;
 }

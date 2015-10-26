@@ -1,8 +1,8 @@
 (function ($) {
 
-var resultTemplate = '<article><header class="search-entry-header"><h2 class="entry-title">';
-resultTemplate += '<a href="{{&url}}" rel="bookmark">{{title}}</a></h2></header>';
-resultTemplate += '<div class="entry-summary">{{&summary}}</div></article><hr>';
+var resultTemplate = '<article><header class="search-entry-header"><h3 class="entry-title">';
+resultTemplate += '<a href="{{&url}}" rel="bookmark">{{title}}</a></h3></header>';
+resultTemplate += '<p class="entry-summary">{{&summary}}</p></article><hr>';
 
 var customRenderer = function(documentType, item) {
   var view = {

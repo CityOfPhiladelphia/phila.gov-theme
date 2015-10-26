@@ -8,7 +8,7 @@
 get_header(); ?>
 
 <section id="primary" class="content-area">
-  <main id="main" class="site-main" role="main">
+  <main id="main" class="site-main search-page" role="main">
     <div class="search-head">
       <div class="row">
         <header class="medium-8 columns">
@@ -26,7 +26,7 @@ get_header(); ?>
       </div>
     </div>
     <div class="row">
-      <div class="medium-6 columns result-count" id="result-count"></div>
+      <p class="medium-6 columns result-count" id="result-count"></p>
     </div>
     <div class="row">
       <div class="medium-18 columns search-results-list" id="st-results-container"></div>
