@@ -26,10 +26,18 @@ get_header(); ?>
       </div>
     </div>
     <div class="row">
-      <p class="medium-6 columns result-count" id="result-count"></p>
+      <div class="medium-16 columns">
+        <a class="property-link">
+          <i class="fa fa-arrow-circle-right"></i>
+          <p>We have found a property related to your search.</p>
+        </a>
+      </div>
     </div>
     <div class="row">
-      <div class="medium-18 columns search-results-list" id="st-results-container"></div>
+      <p class="medium-16 columns result-count" id="result-count"></p>
+    </div>
+    <div class="row">
+      <div class="medium-16 columns search-results-list" id="st-results-container"></div>
     </div>
   </main><!-- #main -->
 </section><!-- #primary -->

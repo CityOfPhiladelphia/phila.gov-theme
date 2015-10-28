@@ -16,11 +16,27 @@
   float: right;
   margin-bottom: 0.75rem;
 }
-.search-page .search {
-  margin-top: 0;
-  margin-bottom: 0.75rem;
-}
-.search-page .search-head h1 {
-  font-size: 1.4rem;
-  margin-top: 0;
+.search-page {
+  .search {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+  }
+  .search-head h1 {
+    font-size: 1.4rem;
+    margin-top: 0;
+  }
+  .property-link {
+    border: 3px solid #f2ba13;
+    display: block;
+    padding: 0.3rem 0.5rem;
+
+    p {
+      margin: 0;
+    }
+
+    .fa-arrow-circle-right {
+      float: right;
+      padding-top: 0.1rem;
+    }
+  }
 }
