@@ -76,11 +76,9 @@ function addressSearch () {
   var queryEncoded = encodeURIComponent(query);
 
   if (addressRe.test(params.stq)) {
-    
     $.ajax('https://api.phila.gov/opa/v1.1/address/' + queryEncoded + '/?format=json',
       {dataType: $.support.cors ? 'json' : 'jsonp'})
       .done(function (data) {
-        console.log(data);
         if (data.total) {
           $propertyLink.prop('href', '/property/?a=' + queryEncoded + '&u=');
           $propertyLink.show();
