@@ -64,4 +64,32 @@ function hashQuery () {
 // Fill search box on page load
 hashQuery();
 
+var addressRe = /\d+ \w+/;
+var $propertyLink = $('#property-link');
+function addressSearch () {
+  // Also check OPA API for results if it looks like an address
+
+  $propertyLink.hide();
+
+  var params = $.deparam(location.hash.substr(1));
+  var query = params.stq;
+  var queryEncoded = encodeURIComponent(query);
+
+  if (addressRe.test(params.stq)) {
+    
+    $.ajax('https://api.phila.gov/opa/v1.1/address/' + queryEncoded + '/?format=json',
+      {dataType: $.support.cors ? 'json' : 'jsonp'})
+      .done(function (data) {
+        console.log(data);
+        if (data.total) {
+          $propertyLink.prop('href', '/property/?a=' + queryEncoded + '&u=');
+          $propertyLink.show();
+        }
+      });
+  }
+}
+
+addressSearch();
+$(window).hashchange(addressSearch);
+
 })(jQuery);

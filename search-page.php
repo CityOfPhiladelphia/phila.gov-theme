@@ -27,9 +27,9 @@ get_header(); ?>
     </div>
     <div class="row">
       <div class="medium-16 columns">
-        <a class="property-link">
+        <a class="property-link" id="property-link">
           <i class="fa fa-arrow-circle-right"></i>
-          <p>We have found a property related to your search.</p>
+          <p>We have found real estate property related to your search.</p>
         </a>
       </div>
     </div>
