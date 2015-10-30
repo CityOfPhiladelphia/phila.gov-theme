@@ -23,6 +23,7 @@ module.exports = function(grunt) {
              'js/dependencies/jquery-deparam.js',
              'js/dependencies/jquery.ba-hashchange.min.js',
              'js/dependencies/jquery.swiftype.search.js',
+             'js/dependencies/jquery.swiftype.autocomplete.js',
              'js/dependencies/mustache.min.js',
              'js/dev/scripts.js',
              'js/dev/search.js',
