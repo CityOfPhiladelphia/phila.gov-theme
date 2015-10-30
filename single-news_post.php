@@ -27,7 +27,7 @@ endif;
 	<div class="row">
 		<header class="entry-header small-24 columns">
 			<?php the_title( '<h1 class="entry-title container">', '</h1>' ); ?>
-			<div class="entry-meta small-text">
+			<div data-swiftype-index='false' class="entry-meta small-text">
 				<span class="entry-date"><?php echo get_the_date(); ?> </span>
 				<span class="posted-in">
 					<?php echo  (!$topics == null ? ' | Topics: ' . $topics : ''); ?>
