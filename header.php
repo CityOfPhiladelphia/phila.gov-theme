@@ -103,7 +103,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
       </div>
       <div class="row">
-        <div id="breadcrumbs" class="large-24 columns">
+        <div data-swiftype-index='false' id="breadcrumbs" class="large-24 columns">
           <nav><?php the_breadcrumb(); ?> </nav>
         </div>
       </div> <?php } ?>
