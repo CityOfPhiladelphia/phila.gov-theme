@@ -1,6 +1,6 @@
 <?php
 /*
-* Template for displaying documents
+* Template for displaying document pages
 */
 ?>
 <header class="entry-header small-24 columns">
@@ -20,69 +20,53 @@
 </header><!-- .entry-header -->
 <div data-swiftype-index='true' class="entry-content small-24 medium-18 columns">
   <?php
-	//$document_description is required so it will always exist
 	$document_description = rwmb_meta( 'phila_document_description', $args = array('type' => 'textarea'));
 	echo '<p class="description">' . $document_description . '</p>';
 
-	/**
-	* Our one function for displaying all the language data
-	* @param $the_lang Takes a rwmb_meta object
-	* @param $rwmb_file_id needs the $rwmb_meta id
-	* @param $lang_name The language the way a native would understand it
-	* @param $iso_code HTML Lang attribute
-	**/
-	function phila_display_alt_lang( $the_lang, $rwmb_file_id, $lang_name, $iso_code ) { ?>
-	<div class="row">
-		<div class="medium-12 columns">
-		<?php
-		$the_lang = rwmb_meta( $rwmb_file_id, $args = array('type' => 'file_input'));
+	$documents = rwmb_meta( 'phila_files', $args = array('type' => 'file_advanced'));
 
-		echo '<a href="'. $the_lang .'" class="button icon" lang=' . $iso_code . '>' . $lang_name . '<i class="fa fa-download"></i></a>';
+  foreach ($documents as $document): ?>
+    <section class="document-row">
+      <div class="row">
+        <div class="small-24 columns">
+          <h3 class="document-title"><a href="<?php echo $document['url'] ?>"><?php echo $document['title']; ?> <i class="fa fa-download"></i></a>
+          </h2>
+        </div>
+      </div>
+      <div class="row">
+        <?php
+        $id = phila_get_attachment_id_by_url($document['url']);
+        $attachment_data = wp_prepare_attachment_for_js( $id[0] );
+        $file_type = $attachment_data['subtype'];
+        $content = $attachment_data['description'];
 
-	?>	</div>
-	</div><!-- Language .row -->
-			<?php
-		}
+        if ($content) {
+          ?><div class="medium-16 columns"><?php
+          echo __('<h3 class="alternate">Description</h3>');
+          echo '<span class="small-text">' . $content . '</span>';
+          ?></div> <?php
+        }
 
-	//set up all the languages
-	$document_english = rwmb_meta( 'phila_document_english', $args = array('type' => 'file_input'));
-	$document_spanish = rwmb_meta( 'phila_document_spanish', $args = array('type' => 'file_input'));
-	$document_french = rwmb_meta( 'phila_document_french', $args = array('type' => 'file_input'));
-	$document_chinese = rwmb_meta( 'phila_document_chinese', $args = array('type' => 'file_input'));
-	$document_korean = rwmb_meta( 'phila_document_korean', $args = array('type' => 'file_input'));
-	$document_khmer = rwmb_meta( 'phila_document_khmer', $args = array('type' => 'file_input'));
-	$document_russian = rwmb_meta( 'phila_document_russian', $args = array('type' => 'file_input'));
-	$document_vietnamese = rwmb_meta( 'phila_document_vietnamese', $args = array('type' => 'file_input'));
-
-	//Display them if they exist
-	if ( $document_english ){ phila_display_alt_lang( $document_english, 'phila_document_english', 'English', 'en');}
-	if ( $document_spanish ){ phila_display_alt_lang( $document_spanish, 'phila_document_spanish' ,'Español', 'es'); }
-	if ( $document_french ){ phila_display_alt_lang( $document_french, 'phila_document_french', 'Français', 'fr' ); }
-	if ( $document_chinese ){ phila_display_alt_lang( $document_chinese, 'phila_document_chinese', '中文', 'zh-Hans'); }
-	if ( $document_korean ){ phila_display_alt_lang( $document_korean, 'phila_document_korean', '한국어', 'ko' ); }
-	if ( $document_khmer ){ phila_display_alt_lang( $document_khmer, 'phila_document_khmer', 'ភាសាខ្មែរ', ''); }
-	if ( $document_russian ){ phila_display_alt_lang( $document_russian, 'phila_document_russian', 'Русский', 'ru' ); }
-	if ( $document_vietnamese ){ phila_display_alt_lang( $document_vietnamese, 'phila_document_vietnamese', 'tiếng việt', 'vi'); }
-	?>
+        if ($file_type) {
+          ?><div class="medium-8 columns"><?php
+          echo __('<h3 class="alternate">Format</h3>');
+          echo '<span class="small-text file-type">' . $file_type . '</span>';
+          ?></div> <?php
+        }
+        ?>
+      </div>
+    </section>
+  <?php endforeach; ?>
 </div><!-- .entry-content -->
 <aside id="secondary" class="small-24 medium-6 columns" role="complementary">
 	<?php
 		if (function_exists('rwmb_meta')) {
-			$the_lang = rwmb_meta( 'phila_document_english', $args = array('type' => 'file_input'));
-			$id = phila_get_attachment_id_by_url($the_lang);
-			$data = wp_prepare_attachment_for_js( $id[0] );
-			$file_type = $data['subtype'];
-			?>
-					<?php echo __('<h3 class="alternate">Format</h3>');
-						echo '<span class="small-text file-type">' . $file_type . '</span>';
-					?>
-		<?php
+      $document_published = rwmb_meta( 'phila_document_released', $args = array('type' => 'date'));
 
 			echo __('<h3 class="alternate">Published</h3>');
-			$document_published = rwmb_meta( 'phila_document_released', $args = array('type' => 'date'));
+
 			echo '<span class="small-text">' . $document_published . '</span>';
 		}
-		echo __('<h3 class="alternate">From</h3>');
 		/* A link pointing to the category in which this content lives. We are looking at dpartment pages specifically, so a department link will not appear unless that department is associated with the category in question.  */
 		$current_category = get_the_category();
 
@@ -99,7 +83,7 @@
 				'post_parent' => 0,
 				'posts_per_page' => 1,
 			);
-				$get_department_link = new WP_Query( $department_page_args );
+			$get_department_link = new WP_Query( $department_page_args );
 			if ( $get_department_link->have_posts() ) :
 				while ( $get_department_link->have_posts() ) :
 					$get_department_link->the_post();
@@ -108,8 +92,9 @@
 					if ( $current_cat_slug != 'uncategorized' ) {
 						// NOTE: the id and data-slug are important. Google Tag Manager
 						// uses it to attach the department to our web analytics.
-						echo '<a class="small-text" href="' . get_the_permalink() . '" id="content-modified-department"
-									data-slug="' . $current_cat_slug . '">' . get_the_title() . '</a>';
+            echo __('<h3 class="alternate">From</h3>');
+						echo '<span class="small-text"><a href="' . get_the_permalink() . '" id="content-modified-department"
+									data-slug="' . $current_cat_slug . '">' . get_the_title() . '</a></span>';
 					}
 				endwhile;
 			endif;
@@ -118,20 +103,14 @@
 		/* Restore original Post Data */
 		wp_reset_postdata();
 		//topics
-		$doc_topic = array( 'document_topics' );
-		$args = array(
-				'orderby'           => 'name',
-				'order'             => 'ASC',
-				'hide_empty'        => true
-		);
-		$doc_terms = get_terms($doc_topic, $args);
+		$doc_terms = get_the_terms($post->ID, 'document_topics');
 		if ( !$doc_terms == '' ){
 			echo __('<h3 class="alternate">Topic</h3>');
 			echo '<div class="small-text doc-type">';
 			foreach ($doc_terms as $doc){
-					echo '<span><a href="/?s=' .$doc->name .'">' . $doc->name . '</a></span>';
+				echo '<span><a href="/search/#stq=' . $doc->name .'">' . $doc->name . '</a></span>';
 			}
 			echo '</div>';
-			}
+		}
 		?>
 </aside>
