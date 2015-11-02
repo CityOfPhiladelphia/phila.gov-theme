@@ -36,7 +36,7 @@ endif;
 		</header><!-- .entry-header -->
 	</div>
   <div class="row">
-    <div data-swiftype-index='true' class="entry-content small-24 medium-18 columns">
+    <div data-swiftype-name="body" data-swiftype-type="text" class="entry-content small-24 medium-18 columns">
 			<?php
 			if ( has_post_thumbnail() ) { ?>
 				<ul class="clearing-thumbs" data-clearing>

@@ -29,7 +29,7 @@
 								<?php	echo $children; ?>
 							</ul>
 						</aside>
-		    <div class="entry-content tabs-content">
+		    <div data-swiftype-name="body" data-swiftype-type="text" class="entry-content tabs-content">
 		      <div class="content active">
 						<header class="entry-header">
 							<?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
