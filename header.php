@@ -15,20 +15,23 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Swiftype -->
-  <meta class="swiftype" name="title" data-type="string" content="<?php wp_title(''); ?>" />
-  <?php if (is_single()) { ?>
-    <meta class="swiftype" name="published_at" data-type="date" content="<?php echo get_the_time('c', $post->ID); ?>" />
-  <?php } ?>
-
-  <title><?php global $post;
+  <?php global $post;
     if (is_home() || is_search()) {
-      wp_title( '|', true, 'right' );
+      $title = wp_title( '|', false, 'right' );
     }else {
       global $post;
       $post_parent = $post->post_parent;
-      ( $post_parent ) ? phila_get_full_page_title() : wp_title( '|', true, 'right' );
-    }?></title>
+      $title = ( $post_parent ) ? phila_get_full_page_title() : wp_title( '|', false, 'right' );
+    }
+  ?>
+
+  <!-- Swiftype -->
+  <meta class="swiftype" name="title" data-type="string" content="<?php echo str_replace(' | ' . get_bloginfo('name'), '', $title); ?>" />
+  <?php if (is_single()) { ?>
+  <meta class="swiftype" name="published_at" data-type="date" content="<?php echo get_the_time('c', $post->ID); ?>" />
+  <?php } ?>
+
+  <title><?php echo $title ?></title>
 
   <link rel="shortcut icon" type="image/x-icon" href="//cityofphiladelphia.github.io/patterns/images/favicon.ico">
 

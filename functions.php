@@ -434,7 +434,8 @@ function phila_get_full_page_title(){
 		$page_path .= ' | ' . get_the_title($ancestor);
 	}
 	$page_path .= ' | ' . get_bloginfo('name');
-	echo $page_path;
+
+	return $page_path;
 }
 
 /**
