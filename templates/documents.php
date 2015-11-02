@@ -50,7 +50,9 @@
         if ($file_type) {
           ?><div class="medium-8 columns"><?php
           echo __('<h3 class="alternate">Format</h3>');
-          echo '<span class="small-text file-type">' . $file_type . '</span>';
+          echo '<span class="small-text file-type">';
+          phila_format_document_type($file_type);
+          echo '</span>';
           ?></div> <?php
         }
         ?>
@@ -67,6 +69,7 @@
 
 			echo '<span class="small-text">' . $document_published . '</span>';
 		}
+
 		/* A link pointing to the category in which this content lives. We are looking at dpartment pages specifically, so a department link will not appear unless that department is associated with the category in question.  */
 		$current_category = get_the_category();
 
@@ -99,18 +102,16 @@
 				endwhile;
 			endif;
 		endif;
+    wp_reset_postdata();
 
-		/* Restore original Post Data */
-		wp_reset_postdata();
-		//topics
-		$doc_terms = get_the_terms($post->ID, 'document_topics');
-		if ( !$doc_terms == '' ){
-			echo __('<h3 class="alternate">Topic</h3>');
-			echo '<div class="small-text doc-type">';
-			foreach ($doc_terms as $doc){
-				echo '<span><a href="/search/#stq=' . $doc->name .'">' . $doc->name . '</a></span>';
-			}
-			echo '</div>';
+	$doc_terms = get_the_terms($post->ID, 'document_topics');
+	if ( !$doc_terms == '' ){
+		echo __('<h3 class="alternate">Topic</h3>');
+		echo '<div class="small-text doc-type">';
+		foreach ($doc_terms as $doc){
+			echo '<span><a href="/search/#stq=' . $doc->name .'">' . $doc->name . '</a></span>';
 		}
-		?>
+		echo '</div>';
+	}
+	?>
 </aside>

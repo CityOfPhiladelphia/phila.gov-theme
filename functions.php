@@ -449,3 +449,32 @@ function phila_get_attachment_id_by_url( $url ) {
 	// Returns null if no attachment is found
 	return $attachment;
 }
+
+function phila_format_document_type($document_type){
+  switch($document_type){
+    case 'vnd.openxmlformats-officedocument.wordprocessingml.document':
+      echo 'docx';
+      break;
+    case 'pdf':
+      echo $document_type;
+      break;
+    case 'msword':
+      echo 'doc';
+      break;
+    case 'vnd.ms-powerpointtd':
+      echo 'ppt';
+      break;
+    case 'vnd.openxmlformats-officedocument.presentationml.presentation':
+      echo 'pptx';
+      break;
+    case 'vnd.ms-excel':
+      echo 'xls';
+      break;
+    case 'vnd.openxmlformats-officedocument.spreadsheetml.sheet':
+      echo 'xlsx';
+      break;
+    case 'plain':
+      echo  'txt';
+      break;
+  }
+}
