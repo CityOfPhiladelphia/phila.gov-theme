@@ -154,7 +154,7 @@ function phila_gov_scripts() {
   wp_enqueue_script( 'pattern-scripts', '//cityofphiladelphia.github.io/patterns/dist/0.12.1/js/patterns.min.js', array('jquery', 'foundation-js'), true );
 
   wp_enqueue_script( 'phila-scripts', get_stylesheet_directory_uri().'/js/phila-scripts.min.js', array('jquery', 'text-filtering', 'foundation-js'), 1.0, true );
-
+}
 add_action( 'wp_enqueue_scripts', 'phila_gov_scripts');
 
 function enqueue_scripts_styles_init() {
