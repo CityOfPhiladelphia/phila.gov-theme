@@ -98,7 +98,7 @@ function getPath (url) {
 }
 
 function customAutocompleteRender (document_type, item) {
-  return '<a class="title" href="' + getPath(item['url']) + '">' + Swiftype.htmlEscape(item['title']) + '</a>';
+  return '<a class="autocomplete-link" href="' + getPath(item.url) + '">' + Swiftype.htmlEscape(item.title) + '</a>';
 }
 
 function customOnComplete (item, prefix) {
