@@ -5,18 +5,6 @@
 ?>
 <header class="entry-header small-24 columns">
 	<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	<?php
-
-		$type_terms = get_the_terms($post->ID, 'document_type');
-
-		if ( !$type_terms == '' ){
-			echo '<p class="small-text doc-type"><i class="fa fa-paperclip"></i>';
-			foreach ($type_terms as $type){
-					echo '<span>' . $type->name . '</span>';
-			}
-			echo '</p>';
-		}
-	?>
 </header><!-- .entry-header -->
 <div data-swiftype-index='true' class="entry-content small-24 medium-18 columns">
   <?php
