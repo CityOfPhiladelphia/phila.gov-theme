@@ -8,7 +8,6 @@ var customRenderer = function(documentType, item) {
   var view = {
     url: encodeURI(item.url),
     title: item.title,
-    // Looks like maybe all results have an item.highlight.body or neither
     summary: item.highlight.body || (item.body.length > 300 ? item.body.substring(0, 300) + '...' : item.body)
   };
   return Mustache.render(resultTemplate, view);
@@ -89,5 +88,29 @@ function addressSearch () {
 
 addressSearch();
 $(window).hashchange(addressSearch);
+
+function getPath (url) {
+  // Use this to only get the path on the URL
+  // Handy for this working across environments
+  var a = document.createElement('a');
+  a.href = url;
+  return a.pathname;
+}
+
+function customAutocompleteRender (document_type, item) {
+  return '<a class="autocomplete-link" href="' + getPath(item.url) + '">' + Swiftype.htmlEscape(item.title) + '</a>';
+}
+
+function customOnComplete (item, prefix) {
+  // Custom render puts url in href
+  //window.location = item['url'];
+}
+
+// Autocomplete
+$('.search-field').swiftype({
+  engineKey: SWIFTYPE_ENGINE, // Env var set in footer by php
+  renderFunction: customAutocompleteRender,
+  onComplete: customOnComplete
+})
 
 })(jQuery);
