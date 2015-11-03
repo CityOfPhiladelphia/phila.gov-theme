@@ -5,8 +5,20 @@
  *
 */
 .document {
+  .document-row{
+    margin: 1rem 0;
+    padding:1rem 0;
+    border-bottom:1px solid $whitesmoke;
+    &:last-of-type{
+      border-bottom:none;
+    }
+  }
+  h3{
+    margin:0;
+    padding:0;
+  }
   .doc-type {
-     i{
+    i{
        padding-right:10px;
     }
     span::after{
@@ -16,11 +28,6 @@
       content: '';
     }
   }//.doc-type
-
-  .description{
-    padding: 0 1.875rem 1.875rem 0;
-    line-height: 1.6;
-  }
 
   .doc-meta{
     margin-bottom:25px;
@@ -32,18 +39,4 @@
   .file-type{
     text-transform:uppercase;
   }
-  .button {
-    text-align: left;
-    padding-left:1.2rem;
-    .fa{
-      text-align:center;
-    }
-  }
-  .document-link{
-    margin-bottom:15px;
-  }
 }//.document
-
-.percent-50 {
-  width:50% !important;
-}
