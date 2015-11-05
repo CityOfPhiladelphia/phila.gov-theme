@@ -101,16 +101,10 @@ function customAutocompleteRender (document_type, item) {
   return '<a class="autocomplete-link" href="' + getPath(item.url) + '">' + Swiftype.htmlEscape(item.title) + '</a>';
 }
 
-function customOnComplete (item, prefix) {
-  // Custom render puts url in href
-  //window.location = item['url'];
-}
-
 // Autocomplete
 $('.search-field').swiftype({
   engineKey: SWIFTYPE_ENGINE, // Env var set in footer by php
-  renderFunction: customAutocompleteRender,
-  onComplete: customOnComplete
+  renderFunction: customAutocompleteRender
 })
 
 })(jQuery);
