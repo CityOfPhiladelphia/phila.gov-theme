@@ -11,29 +11,39 @@
   $document_description = rwmb_meta( 'phila_document_description', $args = array('type' => 'textarea'));
   echo '<p class="description">' . $document_description . '</p>';
   $documents = rwmb_meta( 'phila_files', $args = array('type' => 'file_advanced'));
+  ?>
+  <div class="row document-pad hide-for-small-only">
+    <div class="medium-10 columns">
+      <?php echo __('<h3 class="alternate">Name</h3>'); ?>
+    </div>
+    <div class="medium-11 columns">
+      <?php echo __('<h3 class="alternate">Description</h3>'); ?>
+    </div>
+    <div class="medium-3 columns">
+      <?php echo __('<h3 class="alternate">Format</h3>'); ?>
+    </div>
+  </div>
+
+<?php
   foreach ($documents as $document): ?>
     <section class="document-row">
       <div class="row">
-        <div class="small-24 columns">
-          <h3 class="document-title"><a href="<?php echo $document['url'] ?>"><?php echo $document['title']; ?> <i class="fa fa-download"></i></a>
+        <div class="medium-10 columns">
+          <h3 class="h4 document-title"><i class="fa fa-download"></i> <a href="<?php echo $document['url'] ?>"><?php echo $document['title']; ?></a>
           </h2>
         </div>
-      </div>
-      <div class="row">
         <?php
         $id = phila_get_attachment_id_by_url($document['url']);
         $attachment_data = wp_prepare_attachment_for_js( $id[0] );
         $file_type = $attachment_data['subtype'];
         $content = $attachment_data['description'];
         if ($content) {
-          ?><div class="medium-16 columns"><?php
-          echo __('<h3 class="alternate">Description</h3>');
+          ?><div class="medium-11 columns"><?php
           echo '<span class="small-text">' . $content . '</span>';
           ?></div> <?php
         }
         if ($file_type) {
-          ?><div class="medium-8 columns"><?php
-          echo __('<h3 class="alternate">Format</h3>');
+          ?><div class="medium-3 columns"><?php
           echo '<span class="small-text file-type">';
           phila_format_document_type($file_type);
           echo '</span>';
