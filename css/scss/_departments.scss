@@ -57,7 +57,7 @@
       }
     }
   }
-  .story {
+  .story, .unlinked-story {
     padding: .8rem;
     margin-bottom: 20px;
     cursor: default;
@@ -67,6 +67,11 @@
       line-height: 1.4;
       margin: .5rem 0;
     }
+  }
+  .unlinked-story{
+    border: 1px solid #DBE1E3;
+    background: #fff;
+    width: 100%;
   }
 
   ul, ol, dl {
