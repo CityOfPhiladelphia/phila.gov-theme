@@ -51,7 +51,7 @@ $stSearchInput.swiftypeSearch({
 
 $("#search-form").submit(function (e) {
   e.preventDefault();
-  window.location.href = '/search#stq=' + $(this).find(".search-field").val();
+  window.location.href = '/search/#stq=' + $(this).find(".search-field").val();
 });
 
 function hashQuery () {
