@@ -11,38 +11,53 @@
   $document_description = rwmb_meta( 'phila_document_description', $args = array('type' => 'textarea'));
   echo '<p class="description">' . $document_description . '</p>';
   $documents = rwmb_meta( 'phila_files', $args = array('type' => 'file_advanced'));
+  ?>
+  <table class="no-borders">
+    <thead class="light-head">
+      <tr>
+        <th>
+          <?php echo __('<h3 class="alternate">Name</h3>'); ?>
+        </th>
+        <th>
+          <?php echo __('<h3 class="alternate">Description</h3>'); ?>
+        </th>
+        <th>
+          <?php echo __('<h3 class="alternate">Format</h3>'); ?>
+        </th>
+        <th>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+<?php
   foreach ($documents as $document): ?>
-    <section class="document-row">
-      <div class="row">
-        <div class="small-24 columns">
-          <h3 class="document-title"><a href="<?php echo $document['url'] ?>"><?php echo $document['title']; ?> <i class="fa fa-download"></i></a>
-          </h2>
-        </div>
-      </div>
-      <div class="row">
+    <tr class="clickable-row" data-href="<?php echo $document['url'] ?>">
+      <td>
+        <h3 class="h4 document-title"><a><?php echo $document['title']; ?></a>
+        </h2>
+      </td>
         <?php
         $id = phila_get_attachment_id_by_url($document['url']);
         $attachment_data = wp_prepare_attachment_for_js( $id[0] );
         $file_type = $attachment_data['subtype'];
         $content = $attachment_data['description'];
+        ?><td><?php
         if ($content) {
-          ?><div class="medium-16 columns"><?php
-          echo __('<h3 class="alternate">Description</h3>');
           echo '<span class="small-text">' . $content . '</span>';
-          ?></div> <?php
         }
+        ?></td>
+        <td><?php
         if ($file_type) {
-          ?><div class="medium-8 columns"><?php
-          echo __('<h3 class="alternate">Format</h3>');
           echo '<span class="small-text file-type">';
           phila_format_document_type($file_type);
           echo '</span>';
-          ?></div> <?php
         }
-        ?>
-      </div>
-    </section>
-  <?php endforeach; ?>
+        ?></td>
+        <td><i class="fa fa-download"></i></td>
+      </tr>
+    <?php endforeach; ?>
+    </tbody>
+  </table>
 </div><!-- .entry-content -->
 <aside id="secondary" class="small-24 medium-6 columns" role="complementary">
   <?php
