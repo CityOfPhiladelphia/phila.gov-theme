@@ -42,4 +42,20 @@
   .file-type{
     text-transform:uppercase;
   }
+  table thead.light-head tr th{
+    background:$white;
+  }
+  .clickable-row{
+    cursor:pointer;
+
+    &:hover {
+      background:$manatee;
+      .small-text{
+        color:$ghost-gray;
+      }
+      a {
+        color:$black;
+      }
+    }
+  }
 }//.document
