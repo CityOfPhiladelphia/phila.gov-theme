@@ -1,25 +1,4 @@
 /*---_____------____IE8-----______----___---_____*/
-
-.alert {
-    background:#F2C612 !important;
-    padding:20px !important;
-}
-.pure-g{
-    letter-spacing: normal !important;
-}
-.container {
-    width:960px !important;
-    margin: 0 auto !important;
-}
-
-.pure-u-1-4{
-    width:24% !important;
-}
-
-.site-branding{
-    background-color:#000 !important; 
-}
-
 .home ul {
     list-style: none !important;
     margin:0 !important;
