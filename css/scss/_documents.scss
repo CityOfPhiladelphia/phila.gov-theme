@@ -30,8 +30,7 @@
     span:last-child::after{
       content: '';
     }
-  }//.doc-type
-
+  }
   .doc-meta{
     margin-bottom:25px;
   }
@@ -47,7 +46,6 @@
   }
   .clickable-row{
     cursor:pointer;
-
     &:hover {
       background:$manatee;
       .small-text{
@@ -58,4 +56,4 @@
       }
     }
   }
-}//.document
+}
