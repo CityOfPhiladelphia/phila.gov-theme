@@ -16,7 +16,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <?php global $post;
-    if (is_home() || is_search()) {
+    if ( is_home() || is_search() || is_404()) {
       $title = wp_title( '|', false, 'right' );
     }else {
       global $post;
