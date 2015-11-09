@@ -98,8 +98,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'phila-gov' ); ?></a>
     </div>
   </header><!-- #masthead -->
-    <?php create_site_wide_alerts() ?>
-    <?php if (function_exists('the_breadcrumb') && !is_front_page()) { ?>
+    <?php call_user_func(array('PhilaGovSiteWideAlertRendering', 'create_site_wide_alerts'));
+    ?>
+    <?php if ( function_exists( 'the_breadcrumb' ) && !is_front_page() ) { ?>
       <div class="row">
         <div class="small-24 columns">
           <div class="divider"></div>
