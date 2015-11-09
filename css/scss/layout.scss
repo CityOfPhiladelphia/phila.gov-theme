@@ -58,3 +58,11 @@ img.float-right{
   margin:0;
   display: block;
 }
+#site-wide-alert a,
+#site-wide-alert a:visited {
+  color:$white;
+
+  &:hover {
+    color: $mine-shaft;
+  }
+}
