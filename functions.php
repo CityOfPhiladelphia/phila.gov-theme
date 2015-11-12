@@ -402,19 +402,17 @@ function get_department_menu() {
         'before'          => '',
         'after'           => '',
         'items_wrap'      => '
-          <div class="row">
-            <div class="small-24 columns">
-              <div data-swiftype-index="false" class="top-nav">
-                <nav class="top-bar" data-topbar role="navigation">
-                  <ul class="title-area">
-                    <li class="name"></li>
-                    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-                  </ul>
-                  <section class="top-bar-section">
-                    <ul id="%1$s" class="%2$s">%3$s</ul>
-                  </section>
-                </nav>
-              </div>
+          <div class="small-24 columns">
+            <div data-swiftype-index="false" class="top-nav">
+              <nav class="top-bar" data-topbar role="navigation">
+                <ul class="title-area">
+                  <li class="name"></li>
+                  <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+                </ul>
+                <section class="top-bar-section">
+                  <ul id="%1$s" class="%2$s">%3$s</ul>
+                </section>
+              </nav>
             </div>
           </div>',
         'depth'           => 0,
