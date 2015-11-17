@@ -7,11 +7,29 @@
  * @package phila-gov
  */
 
-get_header(); ?>
+get_header();
+
+  $args = array(
+  'order'=> 'DESC',
+  'orderby' => 'date',
+  'post_type'  => 'news_post',
+  'tax_query'=> array(
+    array(
+      'taxonomy' => 'news_type',
+      'field'    => 'slug',
+      'terms'    => 'notice',
+      'operator' => 'NOT IN'
+      ),
+    ),
+  );
+
+  $news_archive_loop = new WP_Query( $args );
+
+?>
 
 <section id="primary" class="content-area archive row news">
   <?php
-    if ( have_posts() ) : ?>
+    if ( $news_archive_loop->have_posts() ) : ?>
       <header class="columns">
         <h1>
           <?php
@@ -31,7 +49,7 @@ get_header(); ?>
         </h1>
         </header><!-- .page-header -->
       <main id="main" class="site-main small-24 columns medium-19" role="main">
-        <?php while ( have_posts() ) : the_post(); ?>
+        <?php while ( $news_archive_loop->have_posts() ) : $news_archive_loop->the_post(); ?>
         <?php
             get_template_part( 'partials/content', 'news' );
 
