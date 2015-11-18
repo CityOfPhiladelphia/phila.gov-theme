@@ -486,7 +486,7 @@ function phila_format_document_type($document_type){
 add_filter( 'pre_get_posts', 'phila_filter_notices' );
 
 function phila_filter_notices( $query ) {
-  if ( ! is_admin()  && is_post_type_archive('news_post') ) {
+  if ( !is_admin() && !is_tax() && is_post_type_archive('news_post') ) {
     $taxquery = array( 'tax_query', array(
       array(
           'taxonomy' => 'news_type',
