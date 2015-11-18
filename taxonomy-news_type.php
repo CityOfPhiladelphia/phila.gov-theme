@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying the news archive.
+ * The template for displaying the notices archive.
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
@@ -10,14 +10,14 @@
 get_header();
 ?>
 
-<section id="primary" class="content-area archive row news">
+<section id="primary" class="content-area archive row notices">
   <?php
     if ( have_posts() ) : ?>
       <header class="columns">
         <h1>
           <?php
 
-          _e( 'News ', 'phila-gov' );
+          _e( 'Notices ', 'phila-gov' );
 
           $taxonomy = 'topics';
           $queried_term = get_query_var($taxonomy);
