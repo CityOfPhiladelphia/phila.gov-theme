@@ -16,8 +16,12 @@ get_header();
       <header class="columns">
         <h1>
           <?php
-
-          _e( 'News ', 'phila-gov' );
+          $tax = get_the_terms( $post->ID, 'news_type' );
+          if ( isset( $tax[0]->name ) ){
+            echo $tax[0]->name . 's';
+          }else {
+            _e( 'News ', 'phila-gov' );
+          }
 
           $taxonomy = 'topics';
           $queried_term = get_query_var($taxonomy);
