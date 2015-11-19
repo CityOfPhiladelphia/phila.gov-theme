@@ -13,7 +13,6 @@ $children = get_posts( array(
   'post_type' => 'department_page',
   'post_status' => 'publish'
 ));
-//var_dump($children);
 
 $ancestors = get_post_ancestors($post);
 
@@ -30,6 +29,10 @@ get_header(); ?>
   <header class="entry-header on-site small-24 columns">
     <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
   </header>
+  <?php
+  //get department homepage alerts
+  call_user_func( array( 'PhilaGovDepartmentSites', 'department_homepage_alert' ) );
+  ?>
   <?php
   	/*
   	Our navigation menu. We use categories to drive functionality.
