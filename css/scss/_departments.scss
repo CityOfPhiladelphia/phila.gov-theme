@@ -12,6 +12,19 @@
   }
 }
 .department {
+  p {
+    margin: rem-calc(16 0 32 0);
+    //beacuse of those crazy long department names
+    &.external-site {
+      word-wrap: break-word;
+      word-break: break-all;
+    }
+  }
+  @media only screen and (min-width: 40.063em) {
+    .external-site a.button {
+      width:60%
+    }
+  }
   h1.alternate, h2.alternate, h3.alternate, h4.alternate, h5.alternate, h6.alternate {
     color: $black;
   }
