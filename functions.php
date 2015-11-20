@@ -228,7 +228,7 @@ function the_breadcrumb() {
       echo '</a></li>';
 
       if ( is_singular('news_post') ) {
-        if ($terms){
+        if ($terms[0]->slug == 'notice'){
           echo '<li><a href="/' . $terms[0]->slug . 's' .'">'. $terms[0]->name . 's' . '</a></li>';
           if ( !$categories == 0 ) {
            echo '<li><a href="/notices/' . $categories[0]->slug . '">'. $categories[0]->name . '</a></li>';
@@ -255,7 +255,7 @@ function the_breadcrumb() {
 
       } elseif ( ( is_post_type_archive('news_post') && is_category() ) ) {
 
-        if ($term_obj){
+        if (isset($term_obj->slug) == "notice"){
           echo '<li><a href="/' . $term_obj->slug . 's' .'">'. $term_obj->name . 's' . '</a></li>';
         }else {
           echo '<li><a href="/news">News</a></li>';
@@ -264,7 +264,7 @@ function the_breadcrumb() {
         echo '<li>' . $category[0]->name . '</li>';
 
       } elseif ( is_post_type_archive('news_post') ) {
-        if ($term_obj){
+        if (isset($term_obj->name) == "Notice"){
           echo '<li>'. $term_obj->name . 's' . '</li>';
         }else {
           echo '<li>News</li>';

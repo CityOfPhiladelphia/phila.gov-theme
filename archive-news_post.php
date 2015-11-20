@@ -17,7 +17,7 @@ get_header();
         <h1>
           <?php
           $tax = get_the_terms( $post->ID, 'news_type' );
-          if ( isset( $tax[0]->name ) ){
+          if ( $tax[0]->name == 'Notice'){
             echo $tax[0]->name . 's';
           }else {
             _e( 'News ', 'phila-gov' );
