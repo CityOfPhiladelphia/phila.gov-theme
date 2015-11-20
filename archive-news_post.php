@@ -16,12 +16,7 @@ get_header();
       <header class="columns">
         <h1>
           <?php
-          $tax = get_the_terms( $post->ID, 'news_type' );
-          if ( $tax[0]->name == 'Notice'){
-            echo $tax[0]->name . 's';
-          }else {
             _e( 'News ', 'phila-gov' );
-          }
 
           $taxonomy = 'topics';
           $queried_term = get_query_var($taxonomy);
@@ -58,6 +53,6 @@ get_header();
 
 </section><!-- #primary -->
 <?php
-get_template_part( 'partials/content', 'modified' );
-get_footer();
+  get_template_part( 'partials/content', 'modified' );
+  get_footer();
 ?>
