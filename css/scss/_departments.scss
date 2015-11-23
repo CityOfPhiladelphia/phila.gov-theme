@@ -46,6 +46,16 @@
     }
     .call-to-action {
       margin-bottom: 3.5rem;
+
+        @media only screen and (max-width: 40em) {
+          > div {
+          margin-bottom: 2.5rem;
+
+          &:last-of-type{
+            margin-bottom: 0;
+          }
+        }
+      }
     }
 
     .call-to-action-low-priority > div > a{
@@ -56,6 +66,9 @@
       h1, h2, h3, h4, h5, h6,
       .h1, .h2, .h3, .h4, .h5, .h6{
         color:$ben-franklin-blue;
+      }
+      @media only screen and (max-width: 40em) {
+        margin-bottom: 1rem;
       }
     }
   }
@@ -133,6 +146,18 @@
     }
   }//#sidebar
 
+  .contact{
+    background:$ghost-gray;
+    padding:1rem;
+
+    aside{
+      font-size: 0.85rem;
+    }
+    .logo{
+      padding:1rem 0;
+    }
+  }
+
   .inner {
     background:$geyser;
     padding:20px;
@@ -140,6 +165,8 @@
 
   .widget-title {
     font-size:1rem;
+    margin-top:0;
+    margin-bottom: 0;
   }
 
   .notices li{
