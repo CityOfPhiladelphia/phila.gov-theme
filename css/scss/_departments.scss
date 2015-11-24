@@ -27,6 +27,7 @@
   }
   h1.alternate, h2.alternate, h3.alternate, h4.alternate, h5.alternate, h6.alternate {
     color: $black;
+    font-size:.95rem;
   }
   h3{
     font-size: .825rem;
@@ -182,6 +183,30 @@
       border:none;
     }
 
+  }
+  .event-box{
+    flex-grow: 1;
+    .simcal-default-calendar-list{
+      padding:0;
+    }
+    li.simcal-event:nth-child(2){
+      background:$whitesmoke;
+    }
+    //PLUGIN OVERRIDES
+    ul.simcal-events{
+      margin:0;
+      padding:0;
+    }
+  }
+  .button.alternate.full{
+    margin-bottom: 0;
+  }
+  section{
+    margin-bottom: 2rem;
+
+    &:last-of-type{
+      margin-bottom: 0;
+    }
   }
 }//department
 
