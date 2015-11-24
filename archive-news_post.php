@@ -30,7 +30,7 @@ get_header();
           ?>
         </h1>
         </header><!-- .page-header -->
-      <main id="main" class="site-main small-24 columns medium-19" role="main">
+      <main id="main" class="site-main medium-19 columns end" role="main">
         <?php while ( have_posts() ) : the_post(); ?>
         <?php
             get_template_part( 'partials/content', 'news' );
@@ -47,12 +47,5 @@ get_header();
 
     </main><!-- #main -->
 
-    <div id="secondary" class="widget-area small-24 medium-5 columns" role="complementary">
-      <?php //get_sidebar( 'topics' ); ?>
-    </div><!-- #secondary -->
-
 </section><!-- #primary -->
-<?php
-  get_template_part( 'partials/content', 'modified' );
-  get_footer();
-?>
+<?php get_footer(); ?>
