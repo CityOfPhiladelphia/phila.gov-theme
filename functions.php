@@ -212,12 +212,6 @@ function the_breadcrumb() {
   global $post;
   global $output;
   global $i;
-  $category = get_the_category();
-  $taxonomy = 'news_type';
-  $queried_term = get_query_var( $taxonomy );
-  $term_obj = get_term_by( 'slug', $queried_term, 'news_type' );
-  $terms = wp_get_post_terms( $post->ID, $taxonomy );
-  $categories = get_the_category($post->ID);
 
   echo '<ul>';
   if ( !is_front_page() ) { //display breadcrumbs everywhere but on the homepage
@@ -228,6 +222,8 @@ function the_breadcrumb() {
       echo '</a></li>';
 
       if ( is_singular('news_post') ) {
+        $categories = get_the_category($post->ID);
+
         echo '<li><a href="/news">News</a></li>';
         if ( !$categories == 0 ) {
          echo '<li><a href="/news/' . $categories[0]->slug . '">'. $categories[0]->name . '</a></li>';
@@ -238,6 +234,8 @@ function the_breadcrumb() {
         echo '</li>';
 
       }elseif ( is_singular('notices') ) {
+        $categories = get_the_category($post->ID);
+
         echo '<li><a href="/notices">Notices</a></li>';
         if ( !$categories == 0 ) {
           echo '<li><a href="/notices/' . $categories[0]->slug . '">'. $categories[0]->name . '</a></li>';
