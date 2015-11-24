@@ -186,11 +186,26 @@
   }
   .event-box{
     flex-grow: 1;
+
+    .event-title{
+      font-size: 0.75rem;
+      line-height: 01.3rem;
+    }
+
+    .simcal-day:last-of-type .event-row{
+      border-bottom: none;
+    }
+    .event-row{
+      border-bottom:1px solid $geyser;
+    }
     .simcal-default-calendar-list{
       padding:0;
     }
-    li.simcal-event:nth-child(2){
-      background:$whitesmoke;
+    .simcal-calendar-list .simcal-day:nth-child(even){
+    //  background:$whitesmoke;
+    }
+    .simcal-default-calendar-list ul.simcal-events li.simcal-event {
+      margin-bottom: 0;
     }
     //PLUGIN OVERRIDES
     ul.simcal-events{
