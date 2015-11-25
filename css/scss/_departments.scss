@@ -10,6 +10,11 @@
   .top-bar-section ul li.current-menu-item>a{
     background:$bell-yellow;
   }
+
+  nav.top-bar .top-bar-section ul li {
+    min-width:8.375rem;
+    margin: 0 1.255rem 0 0;
+  }
 }
 .department {
   p {
