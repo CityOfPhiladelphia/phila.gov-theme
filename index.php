@@ -8,38 +8,35 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package phila-gov
+ * @package philagov
  */
 
 get_header(); ?>
 
-	<div id="primary" class="content-area row">
-		<main id="main" class="site-main small-24 medium-18 columns" role="main">
-      <?php if ( have_posts() ) : ?>
+<div id="primary" class="content-area row">
+  <main id="main" class="site-main small-24 medium-18 columns" role="main">
+    <?php if ( have_posts() ) : ?>
+      <?php while ( have_posts() ) : the_post(); ?>
+        <?php
+            /* Include the Post-Format-specific template for the content.
+             * If you want to override this in a child theme, then include a file
+             * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+             */
+            get_template_part( 'content', get_post_format() );
+        ?>
 
-          <?php /* Start the Loop */ ?>
-          <?php while ( have_posts() ) : the_post(); ?>
+        <?php endwhile; ?>
 
-              <?php
-                  /* Include the Post-Format-specific template for the content.
-                   * If you want to override this in a child theme, then include a file
-                   * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-                   */
-                  get_template_part( 'content', get_post_format() );
-              ?>
+        <?php //phila_gov_paging_nav(); ?>
 
-          <?php endwhile; ?>
+    <?php else : ?>
 
-          <?php //phila_gov_paging_nav(); ?>
+        <?php get_template_part( 'partials/content', 'none' ); ?>
 
-      <?php else : ?>
-
-          <?php get_template_part( 'partials/content', 'none' ); ?>
-
-      <?php endif; ?>
-		</main><!-- #main -->
-		<?php get_template_part( 'partials/content', 'modified' ) ?>
-	</div><!-- #primary -->
+    <?php endif; ?>
+  </main><!-- #main -->
+  <?php get_template_part( 'partials/content', 'modified' ) ?>
+</div><!-- #primary -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
