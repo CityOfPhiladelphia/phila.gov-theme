@@ -18,7 +18,7 @@
     <div data-swiftype-index='true' class="entry-content small-24 medium-18 columns">
       <?php the_content(); ?>
       <footer class="entry-footer">
-        <?php phila_gov_entry_footer(); ?>		
+        <?php phila_gov_entry_footer(); ?>
       </footer><!-- .entry-footer -->
     </div><!-- .entry-content -->
     <?php  get_sidebar(); ?>
