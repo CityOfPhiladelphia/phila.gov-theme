@@ -8,26 +8,32 @@
   color:$ben-franklin-blue !important;
 }
 
-  .month, .day{
-    display: inline
-  }
+.month, .day{
+  display: inline
+}
+a[href*="calendar.google.com"]:after{
+  font-family: "FontAwesome";
+  content: "\f08e";
+  font-size: 0.75rem;
+  padding: 0 5px;
+}
 
-  @media only screen and (min-width: 40.063em) {
-    .calendar-date{
-      text-align:center;
+@media only screen and (min-width: 40.063em) {
+  .calendar-date{
+    text-align:center;
 
-      .month{
-        background:$sidewalk;
-        color:$white;
-        font-weight: bold;
-        border:1px solid $sidewalk;
-        display: block;
-      }
-      .day{
-        font-size: 1.5rem;
-        padding: .85rem 0;
-        border:1px solid $sidewalk;
-        display: block;
-      }
+    .month{
+      background:$sidewalk;
+      color:$white;
+      font-weight: bold;
+      border:1px solid $sidewalk;
+      display: block;
+    }
+    .day{
+      font-size: 1.5rem;
+      padding: .85rem 0;
+      border:1px solid $sidewalk;
+      display: block;
     }
   }
+}
