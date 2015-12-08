@@ -75,11 +75,6 @@ function phila_gov_setup() {
     'gallery', 'caption',
   ) );
 
-  // Set up the WordPress core custom background feature.
-  add_theme_support( 'custom-background', apply_filters( 'phila_gov_custom_background_args', array(
-    'default-color' => 'ffffff',
-    'default-image' => '',
-  ) ) );
 }
 endif; // phila_gov_setup
 
