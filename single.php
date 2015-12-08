@@ -12,9 +12,18 @@ get_header(); ?>
 
   <?php while ( have_posts() ) : the_post(); ?>
 
-    <?php get_template_part( 'partials/content', 'single' ); ?>
+    <?php
+      if ( get_post_type() === 'calendar') :
 
-  <?php endwhile; // end of the loop. ?>
+        get_template_part( 'partials/content', 'page' );
+
+       else :
+
+        get_template_part( 'partials/content', 'single' );
+
+      endif;
+
+    endwhile; // end of the loop. ?>
 
   </main><!-- #main -->
 </div><!-- #primary -->

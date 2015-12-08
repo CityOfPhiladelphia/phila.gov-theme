@@ -102,7 +102,7 @@ function phila_gov_entry_footer() {
     /* translators: used between list items, there is a space after the comma */
     $categories_list = get_the_category_list( __( ', ', 'phila-gov' ) );
     if ( $categories_list && phila_gov_categorized_blog() ) {
-      printf( '<span class="cat-links">' . __( 'Posted in %1$s', 'phila-gov' ) . '</span>', $categories_list );
+    //  printf( '<span class="cat-links">' . __( 'Posted by %1$s', 'phila-gov' ) . '</span>', $categories_list );
     }
 
     /* translators: used between list items, there is a space after the comma */
@@ -111,8 +111,6 @@ function phila_gov_entry_footer() {
       printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'phila-gov' ) . '</span>', $tags_list );
     }
   }
-
-  edit_post_link( __( 'Edit', 'phila-gov' ), '<span class="edit-link">', '</span>' );
 }
 endif;
 
