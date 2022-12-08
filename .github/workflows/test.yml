@@ -20,5 +20,9 @@ jobs:
         uses: webfactory/create-aws-codedeploy-deployment@v0.3.0
         with: 
           application: test-phila-gov
-      - run:
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.TEST_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+      - run: |
+      applicationName="${{ secrets.APPLICATION_NAME }}"
+      deploymentGroupName="${{ secrets.DEPLOYMENT_GROUP }}"
+      lastSuccessfulDeployment=$(aws deploy list-deployments --application-name $applicationName --deployment-group-name $deploymentGroupName --include-only-statuses "Succeeded" --query 'deployments[0]' --output text)
+      s3Location=$(aws deploy get-deployment --deployment-id $lastSuccessfulDeployment --query 'deploymentInfo.revision.s3Location')
+      aws deploy create-deployment --application-name $applicationName --deployment-group-name $deploymentGroupName --s3-location $s3Location
