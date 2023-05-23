@@ -1906,27 +1906,23 @@ function page_trash_alert( $id ) {
 
 function phila_weighted_search_results(){
   global $post;
-
-  switch ( get_post_type($post->ID) ) {
-    case 'department_page':
-      echo 10;
-      break;
-    case 'programs':
-      echo 9;
-      break;
-    case 'service_page':
-      echo 8;
-      break;
-    case 'document':
-      echo 6;
-      break;
-    case 'post':
-      echo 1;
-      break;
-    default:
-      echo 5;
-      break;
+  if ( isset($post->ID) ) {
+    switch ( get_post_type($post->ID) ) {
+      case 'department_page':
+        return 10;
+      case 'programs':
+        return 9;
+      case 'service_page':
+        return 8;
+      case 'document':
+        return 6;
+      case 'post':
+        return 1;
+      default:
+        return 5;
+    }
   }
+  return 5;
 }
 
 add_action( 'mb_relationships_init', function() {

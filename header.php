@@ -22,8 +22,8 @@
   <meta class="swiftype" name="title" data-type="string" content="<?php echo str_replace(' | ' . get_bloginfo('name'), '', phila_filter_title( $title ) ); ?>">
   <meta class="swiftype" name="tags" data-type="string" content="wordpress" />
   <meta class="swiftype" name="site-priority" data-type="integer" content="10" />
-  <meta class="swiftype" name="content_type" data-type="string" content="<?php echo get_post_type($post->ID)?>">
-  <meta class="swiftype" name="weighted_search" data-type="integer" content="<?php phila_weighted_search_results() ?>">
+  <meta class="swiftype" name="content_type" data-type="string" content="<?php echo isset($post->ID) ? get_post_type($post->ID) : '' ?>">
+  <meta class="swiftype" name="weighted_search" data-type="integer" content="<?php echo phila_weighted_search_results() ?>">
 
   <?php if (is_single()) : ?>
     <meta class="swiftype" name="published_at" data-type="date" content="<?php echo get_the_time('c', $post->ID); ?>" />
