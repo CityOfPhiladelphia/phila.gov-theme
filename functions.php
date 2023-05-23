@@ -562,12 +562,13 @@ function phila_add_active_nav_class( $classes, $item ){
   return $classes;
 }
 
+function phila_add_service_menu_on_click($attrs, $page, $depth, $args, $current_page = '') {
+  $attrs['onclick'] = 'serviceMenuClick(this)';
+  return $attrs;
+}
+
 add_filter('page_menu_link_attributes', 'phila_add_service_menu_on_click', 10, 5);
 
-function phila_add_service_menu_on_click($attrs = array (), $page, $depth, $args, $current_page){
-  $attrs['onclick'] = 'serviceMenuClick(this)' ;
-  return ($attrs);
-}
 
 function phila_get_dept_contact_blocks() {
   $categories = get_the_category();
