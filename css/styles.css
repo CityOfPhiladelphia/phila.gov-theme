@@ -15187,6 +15187,7 @@ hr.icon-expand-hr {
 }
 
 .reveal {
+  top: 10% !important;
   min-height: 400px;
   padding-bottom: 4rem;
   position: relative;
@@ -16666,6 +16667,99 @@ section ul.pagination-wrapper ul {
   .action-guide-v2-cta a {
     width: 100%;
   }
+}
+
+.slideshow-container {
+  width: 100%;
+  height: 540px;
+  position: relative;
+  margin-bottom: 100px;
+}
+.slideshow-container .mySlides {
+  display: none;
+}
+.slideshow-container .mySlides.active {
+  display: block;
+}
+.slideshow-container img {
+  vertical-align: middle;
+  width: 100%;
+  height: 540px;
+  object-fit: cover;
+}
+.slideshow-container .prev,
+.slideshow-container .next {
+  background: none;
+  position: absolute;
+  top: 50%;
+  border-radius: 100%;
+  margin-left: 16px;
+  margin-right: 16px;
+  cursor: pointer;
+}
+.slideshow-container .next {
+  right: 0;
+}
+.slideshow-container .prev {
+  left: 0;
+}
+.slideshow-container .image-gallery-arrows {
+  border-radius: 100%;
+  padding: 5px;
+  font-size: 25px;
+  background: white;
+  color: black;
+  mix-blend-mode: screen;
+}
+.slideshow-container .image-gallery-arrows:hover {
+  background: #444444;
+  color: white;
+  mix-blend-mode: multiply;
+}
+.slideshow-container .text {
+  font-style: italic;
+  font-weight: 700;
+  color: #444444;
+  line-height: 25px;
+  padding: 16px 25px;
+  width: 100%;
+  background-color: #f0f0f0;
+  position: absolute;
+  top: 100%;
+  z-index: 1;
+}
+.slideshow-container .dots {
+  width: 100%;
+  height: 50px;
+  padding: 2px 2px 2px 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0.1px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.slideshow-container button {
+  background: none;
+  padding: 0;
+  border-radius: 50%;
+}
+.slideshow-container .dot {
+  height: 15px;
+  width: 15px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.slideshow-container .dot.active {
+  height: 20px;
+  width: 20px;
+}
+.slideshow-container .dot:hover {
+  background-color: #959595;
 }
 
 .collection-callout .photo-callout-block__txt {

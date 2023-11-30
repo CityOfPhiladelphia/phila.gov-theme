@@ -896,7 +896,8 @@ function phila_is_department_homepage( $post ) {
 
 function phila_get_current_department_name( $category, $byline = false, $break_tags = false, $name_list = false ){
 
-  if( !empty( $category ) && $category[0]->slug != 'uncategorized' ) {
+
+  if( !empty( $category ) && $category[0]->slug != 'uncategorized' ) {    
 
     $cat_name = array();
     $cat_ids = array();
@@ -909,10 +910,8 @@ function phila_get_current_department_name( $category, $byline = false, $break_t
 
     foreach( $category as $cat ){
       array_push( $cat_name, $cat->name );
-    }
-    foreach( $category as $cat ){
       array_push( $cat_ids, $cat->cat_ID );
-    }
+    }    
 
     $cat_id_string = implode( ', ', $cat_ids );
 
@@ -938,13 +937,9 @@ function phila_get_current_department_name( $category, $byline = false, $break_t
 
         $is_in_govt_dir = rwmb_meta('phila_department_home_page');
 
-        if ( !$is_parent ) {
+        if ( !$is_parent || $is_in_govt_dir) {
 
-          $all_available_pages[$permalink] = $the_title;
-
-        }else if($is_in_govt_dir){
-
-          $all_available_pages[$permalink] = $the_title;
+          $all_available_pages[$permalink] = $the_title;          
 
         }
       }
@@ -954,7 +949,7 @@ function phila_get_current_department_name( $category, $byline = false, $break_t
 
     if ( $byline == true ) {
       echo ' by ';
-    }
+    }    
 
     foreach ( $all_available_pages as $k => $v ){
 
@@ -2250,9 +2245,10 @@ function inject_translation_slug($language)
 }
 
 function load_vue_mobile_menu() {
-  wp_enqueue_script('mobile-menu-chunk-js', 'https://www.phila.gov/embedded/mobile-menu/production/js/chunk-vendors.js?cachebreaker', array(), null, true );
-  wp_enqueue_script('mobile-menu-app-js', 'https://www.phila.gov/embedded/mobile-menu/production/js/app.js?cachebreaker', array(), null, true );
-  wp_enqueue_style('mobile-menu-app-css', 'https://www.phila.gov/embedded/mobile-menu/production/css/app.css?cachebreaker');
+  global $phila_environment;
+  wp_enqueue_script('mobile-menu-chunk-js', 'https://www.phila.gov/embedded/mobile-menu/'.$phila_environment.'/js/chunk-vendors.js?cachebreaker', array(), null, true );
+  wp_enqueue_script('mobile-menu-app-js', 'https://www.phila.gov/embedded/mobile-menu/'.$phila_environment.'/js/app.js?cachebreaker', array(), null, true );
+  wp_enqueue_style('mobile-menu-app-css', 'https://www.phila.gov/embedded/mobile-menu/'.$phila_environment.'/css/app.css?cachebreaker');
 }
 
 function load_vue_site_wide_alerts() {
@@ -2260,4 +2256,79 @@ function load_vue_site_wide_alerts() {
   wp_enqueue_script('site-wide-alerts-chunk-js', 'https://www.phila.gov/embedded/site-wide-alerts/'.$phila_environment.'/js/chunk-vendors.js?cachebreaker', array(), null, true );
   wp_enqueue_script('site-wide-alerts-app-js', 'https://www.phila.gov/embedded/site-wide-alerts/'.$phila_environment.'/js/app.js?cachebreaker', array(), null, true );
   wp_enqueue_style('site-wide-alerts-app-css', 'https://www.phila.gov/embedded/site-wide-alerts/'.$phila_environment.'/css/app.css?cachebreaker');
+}
+
+function phila_return_language_code($language){
+  switch ($language) {
+    case 'english';
+      $language = 'en';
+      break;
+    case 'french';
+      $language = 'fr';
+      break;
+    case 'spanish';
+      $language = 'es';
+      break;
+    case 'chinese';
+      $language = 'zh';
+    break;
+    case 'vietnamese';
+      $language = 'vt';
+      break;
+    case 'russian';
+      $language = 'ru';
+      break;
+    case 'arabic';
+      $language = 'ar';
+      break;
+    case 'haitian';
+      $language = 'ht';
+      break;
+    case 'portuguese';
+      $language = 'pt';
+      break;
+    case 'swahili';
+      $language = 'sw';
+      break;
+    case 'bengali';
+      $language = 'bn';
+      break;
+    case 'burmese';
+      $language = 'my';
+      break;
+    case 'hindo';
+      $language = 'hi';
+      break;
+    case 'indonesian';
+      $language = 'id';
+      break;
+    case 'urdu';
+      $language = 'ur';
+      break;
+    case 'korean';
+      $language = 'ko';
+      break;
+    case 'khmer';
+      $language = 'km';
+      break;
+    default;
+      $language = 'en';
+      break;
+  }
+  return $language;
+}
+
+add_filter('language_attributes', 'add_html_lang_attribute');
+
+function add_html_lang_attribute($output) {
+  if ( function_exists( 'is_rtl' ) && is_rtl() ) {
+		$attributes[] = 'dir="rtl"';
+	}
+
+  $lang = empty(rwmb_meta('phila_select_language')) ? 'en' : rwmb_meta('phila_select_language');
+  $language_code = phila_return_language_code($lang);
+  $attributes[] = 'lang="' . $language_code . '"';
+  
+  $output = implode(' ', $attributes);
+  return $output;
 }

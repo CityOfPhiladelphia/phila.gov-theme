@@ -1,11 +1,12 @@
 <?php
   /* Partial for board or commission member accordion-style rendering. */
-
+  if (phila_get_selected_template() === 'homepage_v2') {
+    $members = rwmb_meta('phila_commission_members'); }
   if ( !isset( $section_title ) ) :
     $section_title = rwmb_meta('section_title');
   endif;
   if ( !isset( $members ) ) :
-    $members = rwmb_meta('phila_commission_members');
+    $members = rwmb_meta('phila_members_list');  
   endif;
   if ( !isset( $table_cell_title ) ) :
     $table_cell_title = rwmb_meta('table_head_title');
@@ -64,7 +65,7 @@
             <div class="accordion-content group" data-tab-content>
               <?php if( isset( $member['headshot'] ) ) : ?>
                 <?php $image = wp_get_attachment_image_src( $member['headshot'][0], $size = 'full' );
-                echo isset( $member['headshot'] ) ? '<img src="' . $image[0] . '" alt="' . $member['full_name'] .'" class="float-left" width="200" height="200">'  : ''; ?>
+                echo isset( $member['headshot'] ) ? '<img src="' . $image[0] . '" alt="' . $member['full_name'] .'" class="float-left" width="200" height="200" />'  : ''; ?>
               <?php endif; ?>
               <?php echo isset( $member['bio'] ) ? apply_filters( 'the_content', $member['bio'] ) : ''?>
               <?php echo isset( $member['email'] ) ? '<a translate="no" href="mailto:' . $member['email'] .'"> ' .  $member['email']. '</a>' : ''
