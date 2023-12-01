@@ -25,7 +25,6 @@ $desktop_homepage_image = rwmb_meta( 'homepage_desktop', array( 'object_type' =>
             <div class="h1">phila.gov</div>
           </div>
         </div>
-
         <div class="grid-x common-requests">
           <div class="small-24 medium-15 large-13 small-centered cell overlap">
             <div class="grid-x collapse call-to-action bg-white pvs pls equal-height">
