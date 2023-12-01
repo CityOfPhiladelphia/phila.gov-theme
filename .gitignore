@@ -1,3 +1,27 @@
+.env*
+yarn-error.log
+node_modules
+
+# Ignore compiled files
+css/styles.css
+css/styles.css.map
+css/styles.min.css
+css/styles.min.css.map
+css/base.css
+js/app.js
+js/main.js
+js/phila-scripts.js
+js/phila-scripts.min.js
+js/phila-scripts.min.js.map
+
+# OSX file
+.DS_Store
+
+.vscode/*
+tags
+
+
+
 .sass-cache
 css/.sass-cache
 node_modules
