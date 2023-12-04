@@ -1,9 +1,9 @@
-module.exports = $(function(){
-//  window.dataLayer = window.dataLayer || [];
+module.exports = $(function () {
+    //  window.dataLayer = window.dataLayer || [];
 
-  /*Globals */
-  var navHeight = $('.global-nav').height();
-  var windowWidth = $(window).width();
+    /*Globals */
+    var navHeight = $('.global-nav').height();
+    var windowWidth = $(window).width();
 
   //Generic class for links that should prevent clickthrough
   $('.no-link').click(function(e){
@@ -48,12 +48,11 @@ module.exports = $(function(){
 
   });
 
-  function extendMenuToggle(){
-    $('.menu-icon i').toggleClass('fa-bars').toggleClass('fa-times');
-    $('.menu-icon .title-bar-title').text( ( $('.menu-icon .title-bar-title' ).text() === 'Menu' ) ? 'Close' : 'Menu' );
+  function extendMenuToggle() {
+    $('.menu-icon i').toggleClass('fa-bars').toggleClass('fa-xmark');
     $('.global-nav .menu-icon').toggleClass('active');
-    $('#page').toggleClass('hide');
-    $('footer').toggleClass('hide');
+    $('#vue-mobile-menu').toggleClass('hide');
+    $('html').toggleClass('is-reveal-open');
   }
 
   function checkBrowserHeight(){
@@ -182,32 +181,31 @@ module.exports = $(function(){
     });
   });
 
+    //foundation equalizer rows
+    //doesn't work with nested Equalizers, because a unique ID is required.
+    if ($('.equal').length > 0) {
 
-  //foundation equalizer rows
-  //doesn't work with nested Equalizers, because a unique ID is required.
-  if ( $('.equal').length > 0 ) {
+        //equalizeByRow: true to force each instance of equalizer to work individually
+        var equalizerOptions = {
+            equalizeOnStack: true,
+            equalizeByRow: true,
+            equalizeOn: 'small'
+        };
 
-    //equalizeByRow: true to force each instance of equalizer to work individually
-    var equalizerOptions = {
-      equalizeOnStack: true,
-      equalizeByRow: true,
-      equalizeOn: 'small'
-    };
+        $('.equal-height').each(function () {
+            $(this).find('.equal').attr('data-equalizer-watch', '');
+        });
 
-    $('.equal-height').each( function() {
-      $(this).find('.equal').attr('data-equalizer-watch','');
-    });
+        var equalHeight = new Foundation.Equalizer($('.equal-height'), equalizerOptions);
 
-    var equalHeight = new Foundation.Equalizer($ ('.equal-height'), equalizerOptions );
+    }
 
-  }
+    //foundation tooltips
+    if ($('.has-tip').length > 0) {
 
-  //foundation tooltips
-  if ($('.has-tip').length > 0) {
+        var tooltip = new Foundation.Tooltip($('.has-tip'));
 
-    var tooltip = new Foundation.Tooltip( $('.has-tip') );
-
-  }
-  var mainContent = $('.guide-content').eq(0);
+    }
+    var mainContent = $('.guide-content').eq(0);
 
 });
