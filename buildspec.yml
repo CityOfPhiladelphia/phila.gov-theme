@@ -1,0 +1,13 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16.17.0
+    commands:
+      - echo "Installing npm dependencies"
+      - npm install
+  build:
+    commands:
+      - echo "Running npm run build"
+      - npm run build
