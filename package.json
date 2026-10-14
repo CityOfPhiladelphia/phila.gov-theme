@@ -31,7 +31,7 @@
     "babelify": "^7.3.0",
     "browserify": "^14.5.0",
     "browserify-shim": "^3.8.14",
-    "css-loader": "^3.2.0",
+    "css-loader": "^7.1.5",
     "envify": "^4.1.0",
     "hoek": "^5.0.4",
     "postcss": "^8.4.5",
